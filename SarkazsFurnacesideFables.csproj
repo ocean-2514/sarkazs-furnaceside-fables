@@ -1,0 +1,40 @@
+<Project Sdk="Godot.NET.Sdk/4.5.1">
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <TargetFramework Condition=" '$(GodotTargetPlatform)' == 'android' ">net9.0</TargetFramework>
+    <EnableDynamicLoading>true</EnableDynamicLoading>
+  </PropertyGroup>
+
+  <!-- 添加对游戏 DLL 的引用 -->
+  <ItemGroup>
+    <Reference Include="sts2">
+      <HintPath>libs\sts2.dll</HintPath>
+    </Reference>
+    <Reference Include="0Harmony">
+      <HintPath>libs\0Harmony.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <!-- 确保依赖 DLL 被复制到输出目录 -->
+  <ItemGroup>
+    <Content Include="libs\sts2.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="libs\0Harmony.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <Target Name="CopyCustomOutput" AfterTargets="Build">  
+    <ItemGroup>  
+      <OutputDlls Include="$(OutputPath)\$(AssemblyName).dll" />  
+      <OutputDlls Include="$(OutputPath)\$(AssemblyName).pdb" />  
+      <!-- 也复制依赖的 DLL 到 build 文件夹 -->
+      <OutputDlls Include="$(OutputPath)\sts2.dll" />  
+      <OutputDlls Include="$(OutputPath)\0Harmony.dll" />  
+    </ItemGroup>  
+      
+    <MakeDir Directories="$(MSBuildProjectDirectory)\build" />  
+    <Copy SourceFiles="@(OutputDlls)" DestinationFolder="$(MSBuildProjectDirectory)\build" />  
+  </Target>  
+</Project>

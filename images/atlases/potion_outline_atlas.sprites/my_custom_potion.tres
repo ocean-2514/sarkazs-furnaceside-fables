@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://bxmwvo7cmqdtr"]
+
+[ext_resource type="Texture2D" uid="uid://djo4xvcyrfmdw" path="res://images/potions/my_custom_postion_outline.png" id="1_fd7kp"]
+
+[resource]
+atlas = ExtResource("1_fd7kp")
