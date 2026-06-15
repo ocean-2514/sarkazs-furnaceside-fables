@@ -1,0 +1,74 @@
+[gd_scene load_steps=5 format=3 uid="uid://k8s5wj1u4ap"]
+
+[ext_resource type="Texture2D" uid="uid://bbu7awsca7qbq" path="res://images/ui/mind_lucid.png" id="1_7fdpf"]
+[ext_resource type="Script" uid="uid://b082fw8ol75ej" path="res://src/Nodes/NTopBarThoughtButton.cs" id="1_ghx0e"]
+[ext_resource type="Script" uid="uid://c2oywrx8xbqfx" path="res://addons/mega_text/MegaRichTextLabel.cs" id="2_ghx0e"]
+[ext_resource type="FontVariation" uid="uid://bg85h22rkxs6g" path="res://themes/sarkaz.tres" id="3_kha55"]
+
+[node name="TopBarThoughtButton" type="Control"]
+custom_minimum_size = Vector2(324, 81)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 324.0
+offset_bottom = 81.0
+script = ExtResource("1_ghx0e")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 0
+offset_right = 334.0
+offset_bottom = 80.0
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Control" type="Control" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(98, 0)
+layout_mode = 2
+
+[node name="BurdenIcon" type="TextureRect" parent="MarginContainer/HBoxContainer/Control"]
+layout_mode = 1
+offset_right = 118.0
+offset_bottom = 81.0
+scale = Vector2(0.83, 0.83)
+texture = ExtResource("1_7fdpf")
+
+[node name="RightPanel" type="Control" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+
+[node name="BackGround" type="ColorRect" parent="MarginContainer/HBoxContainer/RightPanel"]
+layout_mode = 1
+offset_right = 150.0
+offset_bottom = 68.0
+color = Color(0.20392157, 0.2, 0.19215687, 1)
+
+[node name="Bar" type="ColorRect" parent="MarginContainer/HBoxContainer/RightPanel"]
+layout_mode = 1
+offset_right = 50.0
+offset_bottom = 68.0
+color = Color(0.09411765, 0.36862746, 0.28235295, 1)
+
+[node name="TextLabel" type="RichTextLabel" parent="MarginContainer/HBoxContainer/RightPanel"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 1
+offset_right = 150.0
+offset_bottom = 67.0
+theme_override_fonts/normal_font = ExtResource("3_kha55")
+theme_override_font_sizes/normal_font_size = 58
+theme_override_font_sizes/bold_font_size = 58
+theme_override_font_sizes/bold_italics_font_size = 58
+theme_override_font_sizes/italics_font_size = 58
+theme_override_font_sizes/mono_font_size = 58
+bbcode_enabled = true
+text = "[color=#00ae76][font_size=36]1[/font_size][/color][font_size=30][color=#bababa] /1[/color][/font_size]"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_ghx0e")
+theme_override_fonts/normal_font = ExtResource("3_kha55")
+metadata/_custom_type_script = "uid://c2oywrx8xbqfx"

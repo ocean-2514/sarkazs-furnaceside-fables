@@ -1,0 +1,6 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://bg85h22rkxs6g"]
+
+[ext_resource type="FontFile" uid="uid://bg2e6n28rhd62" path="res://fonts/sarkaz.ttf" id="1_shared"]
+
+[resource]
+base_font = ExtResource("1_shared")

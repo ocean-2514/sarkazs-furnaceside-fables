@@ -5,6 +5,13 @@
     <EnableDynamicLoading>true</EnableDynamicLoading>
   </PropertyGroup>
 
+  <!-- addons 是从官方复制来的（仅供编辑器解析场景/脚本路径），
+       不要编译进 mod 程序集，否则会和 sts2.dll 里的同名类型冲突(CS0436)，
+       并可能在运行时覆盖游戏的 脚本路径→类型 映射。运行时直接用游戏(sts2.dll)里的类型。 -->
+  <ItemGroup>
+    <Compile Remove="addons\**\*.cs" />
+  </ItemGroup>
+
   <!-- 添加对游戏 DLL 的引用 -->
   <ItemGroup>
     <Reference Include="sts2">

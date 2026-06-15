@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Entities.Players;
 using Skz.Ocean.Commands;
@@ -22,6 +23,47 @@ public class PlayerExtraData
     private ThoughtModel _thoughtUsed = null; 
     public ThoughtModel ThoughtUsed => _thoughtUsed;
 
+    private int _toilLimit = 3;
+
+    public int ToilLimit => _toilLimit;
+    public int LucidLimit => _toilLimit;
+    public int FracturedLimit => (int)(1.5 * _toilLimit);
+    public event Action? ToilLimitChanged;
+    public event Action? PlayerThoughtChanged;
+
+    public int TotalToil
+    {
+        get
+        {
+            int tot = 0;
+            tot += _inspirers.Sum(thought => thought.Toil);
+            tot += _lingers.Sum(thought => thought.Toil);
+            tot += _plans.Sum(thought => thought.Toil);
+            tot -= _thoughtUsed?.Toil ?? 0;
+            return tot;
+        }
+    }
+
+    public MindState MindState
+    {
+        get
+        {
+            int totalToil = TotalToil;
+            if (totalToil <= LucidLimit) 
+            {
+                return MindState.Lucid;
+            } 
+            else if (totalToil <= FracturedLimit)
+            {
+                return MindState.Fractured;
+            } 
+            else
+            {
+                return MindState.Obstructed;
+            }
+        }
+    }
+
     public void AddThoughtInternal(ThoughtModel thought, Player player)
     {
         thought.AssertMutable();
@@ -38,6 +80,7 @@ public class PlayerExtraData
                 _plans.Add(thought);
                 break;
         }
+        PlayerThoughtChanged?.Invoke();
     }
 
     public void RemoveThoughtInternal(ThoughtModel thought)
@@ -66,6 +109,7 @@ public class PlayerExtraData
                 _plans.Remove(thought);
                 break;
         }
+        PlayerThoughtChanged?.Invoke();
     }
 
     public async Task UseThoughtInternal(ThoughtModel thought)
@@ -78,11 +122,18 @@ public class PlayerExtraData
             }
             _thoughtUsed = thought;
             await SarkazHook.AfterThoughtUsed(thought.Owner.RunState, thought);
+            PlayerThoughtChanged?.Invoke();
         }
     }
 
     public void ClearThoughtUsed()
     {
         _thoughtUsed = null;
+    }
+
+    public void IncreaseToilLimit(int amount)
+    {
+        _toilLimit += amount;
+        ToilLimitChanged?.Invoke();
     }
 }

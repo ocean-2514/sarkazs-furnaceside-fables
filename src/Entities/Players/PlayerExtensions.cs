@@ -7,7 +7,7 @@ using Skz.Ocean.Model;
 
 namespace Skz.Ocean.Entities.Players;
 
-public static class PlayerExtension
+public static class PlayerExtensions
 {
     private static ConditionalWeakTable<Player, PlayerExtraData> _dataTable = new ConditionalWeakTable<Player, PlayerExtraData>();
 
@@ -55,4 +55,31 @@ public static class PlayerExtension
         await player.GetExtraData().UseThoughtInternal(thought);
     }
 
+    public static int GetToilLimit(this Player player) 
+    {
+        return player.GetExtraData().ToilLimit;
+    }
+    public static int GetLucidLimit(this Player player) 
+    {
+        return player.GetExtraData().ToilLimit;
+    }
+    public static int GetFracturedLimit(this Player player) 
+    {
+        return (int)(1.5 * player.GetExtraData().ToilLimit);
+    }
+
+    public static int GetTotalToil(this Player player)
+    {
+        return player.GetExtraData().TotalToil;
+    }
+
+    public static void IncreaseToilLimit(this Player player, int amount)
+    {
+        player.GetExtraData().IncreaseToilLimit(amount);
+    }
+
+    public static MindState GetMindState(this Player player)
+    {
+        return player.GetExtraData().MindState;
+    }
 }

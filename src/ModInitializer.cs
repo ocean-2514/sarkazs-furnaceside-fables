@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Logging;
@@ -35,6 +36,8 @@ class ModInitializer
             Log.Error($"An error occurred while initializing Sarkaz mod: {e}");
             return;
         }
+
+        Godot.Bridge.ScriptManagerBridge.LookupScriptsInAssembly(Assembly.GetExecutingAssembly());
 
         Log.Info("sarkaz mod initialize");
     }
