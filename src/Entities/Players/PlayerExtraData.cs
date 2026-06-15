@@ -12,11 +12,11 @@ namespace Skz.Ocean.Entities.Players;
 public class PlayerExtraData
 {
     private readonly List<ThoughtModel> _lingers = new List<ThoughtModel>();
-    private readonly List<ThoughtModel> _inpirers = new List<ThoughtModel>();
+    private readonly List<ThoughtModel> _inspirers = new List<ThoughtModel>();
     private readonly List<ThoughtModel> _plans = new List<ThoughtModel>();
 
     public IReadOnlyList<ThoughtModel> Lingers => _lingers;
-    public IReadOnlyList<ThoughtModel> Inpirers => _inpirers;
+    public IReadOnlyList<ThoughtModel> Inspirers => _inspirers;
     public IReadOnlyList<ThoughtModel> Plans => _plans;
 
     private ThoughtModel _thoughtUsed = null; 
@@ -28,8 +28,8 @@ public class PlayerExtraData
         thought.Owner = player;
         switch (thought.ThoughtType)
         {
-            case ThoughtType.Inpirer: 
-                _inpirers.Add(thought);
+            case ThoughtType.Inspirer:
+                _inspirers.Add(thought);
                 break;
             case ThoughtType.Linger:
                 _lingers.Add(thought);
@@ -44,12 +44,12 @@ public class PlayerExtraData
     {
         switch (thought.ThoughtType)
         {
-            case ThoughtType.Inpirer:
-                if (!_inpirers.Contains(thought))
+            case ThoughtType.Inspirer:
+                if (!_inspirers.Contains(thought))
                 {
                     throw new InvalidOperationException($"Player does not have thought {thought.Id}");
                 }
-                _inpirers.Remove(thought);
+                _inspirers.Remove(thought);
                 break;
             case ThoughtType.Linger:
                 if (!_lingers.Contains(thought))

@@ -6,9 +6,11 @@ using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Rooms;
 using Skz.Ocean.Commands;
+using Skz.Ocean.DynamicVars;
 using Skz.Ocean.Entities.Players;
 using Skz.Ocean.Entities.Thoughts;
 
@@ -34,7 +36,9 @@ public abstract class ThoughtModel : AbstractModel, ISarkazModel
 
     public LocString Description => new LocString("thoughts", base.Id.Entry + ".description");
 
-    public abstract ThoughtRarity Rarity {get; }
+    public abstract int Rarity { get; }
+
+    public abstract int Toil { get; }
 
 	public abstract ThoughtType ThoughtType { get; }
 
@@ -48,6 +52,10 @@ public abstract class ThoughtModel : AbstractModel, ISarkazModel
 
     private int _floorAddedToDeck;
 
+	public virtual bool CanBeUpgraded => false;
+
+	public virtual Type UpgradedType => null;
+
     public DynamicVarSet DynamicVars
 	{
 		get
@@ -56,7 +64,13 @@ public abstract class ThoughtModel : AbstractModel, ISarkazModel
 			{
 				return _dynamicVars;
 			}
-			_dynamicVars = new DynamicVarSet(CanonicalVars);
+			// 把 Toil / Rarity 作为 DynamicVar 暴露出来，供描述文本 {Toil}/{Rarity} 引用
+			List<DynamicVar> vars = new List<DynamicVar>(CanonicalVars)
+			{
+				new ToilVar(Toil),
+				new RarityVar(Rarity)
+			};
+			_dynamicVars = new DynamicVarSet(vars);
 			_dynamicVars.InitializeWithOwner(this);
 			return _dynamicVars;
 		}
@@ -165,7 +179,7 @@ public abstract class ThoughtModel : AbstractModel, ISarkazModel
 
     public bool CanBeUsed()
     {
-        return ThoughtType == ThoughtType.Inpirer && Status == ThoughtStatus.Unused;
+        return ThoughtType == ThoughtType.Inspirer && Status == ThoughtStatus.Unused;
     }
 
     public bool isUsed()
@@ -177,8 +191,15 @@ public abstract class ThoughtModel : AbstractModel, ISarkazModel
     {
         return Task.CompletedTask;
     }
-    
+
     public virtual Task AfterRemoved()
+    {
+        return Task.CompletedTask;
+    }
+
+    // 显式实现 ISarkazModel.AfterThoughtUsed，并设为 virtual 方便思绪子类重写
+    // “当（任意）思绪被使用时”的反应（例如某些遗愿/遗物联动）
+    public virtual Task AfterThoughtUsed()
     {
         return Task.CompletedTask;
     }

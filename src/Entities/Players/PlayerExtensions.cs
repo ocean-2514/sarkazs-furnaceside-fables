@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Entities.Players;
@@ -33,9 +34,15 @@ public static class PlayerExtension
     {
         return player.GetExtraData().Plans;
     }
-    public static IReadOnlyList<ThoughtModel> GetInpirers(this Player player)
+    public static IReadOnlyList<ThoughtModel> GetInspirers(this Player player)
     {
-        return player.GetExtraData().Inpirers;
+        return player.GetExtraData().Inspirers;
+    }
+
+    public static IEnumerable<ThoughtModel> GetAllThoughts(this Player player)
+    {
+        PlayerExtraData data = player.GetExtraData();
+        return data.Lingers.Concat(data.Inspirers).Concat(data.Plans);
     }
 
     public static void ClearThoughtUsed(this Player player)

@@ -11,7 +11,7 @@ public static class ThoughtCmd
 {
     public static async Task<ThoughtModel> Obtain<T>(Player player) where T : ThoughtModel
     {
-        return (T)(await Obtain(SarkazHelper.ModelDbGet<T>(), player));
+        return await Obtain(SarkazHelper.ModelDbGet<T>().ToMutable(), player);
     }
 
     public static async Task<ThoughtModel> Obtain(ThoughtModel thought, Player player)

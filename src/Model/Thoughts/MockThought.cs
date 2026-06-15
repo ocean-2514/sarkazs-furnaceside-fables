@@ -12,9 +12,11 @@ public sealed class MockThought : ThoughtModel
     protected override IEnumerable<DynamicVar> CanonicalVars => [
         new EnergyVar(3)
     ];
-    public override ThoughtType ThoughtType => ThoughtType.Inpirer;
+    public override ThoughtType ThoughtType => ThoughtType.Inspirer;
 
-    public override ThoughtRarity Rarity => ThoughtRarity.Common;
+    public override int Rarity => 1;
+
+    public override int Toil => 1;
 
     public override async Task AfterSideTurnStart(CombatSide side, CombatState combatState)
     {
