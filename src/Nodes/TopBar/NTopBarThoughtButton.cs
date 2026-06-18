@@ -3,11 +3,13 @@ using Godot;
 using MegaCrit.Sts2.addons.mega_text;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Logging;
+using MegaCrit.Sts2.Core.Nodes.Screens.Capstones;
 using Skz.Ocean.Entities.Players;
+using Skz.Ocean.Nodes.Screens;
 
-namespace Skz.Ocean.Nodes;
+namespace Skz.Ocean.Nodes.TopBar;
 
-public partial class NTopBarThoughtButton : Control
+public partial class NTopBarThoughtButton : Control, ITopBarScene
 {
     private Player? _player;
     private ColorRect? _bar;
@@ -59,24 +61,23 @@ public partial class NTopBarThoughtButton : Control
 
     private void ToggleScreen()
     {
-        Log.Info("Click on top bar thought button");
-        // if (_player == null)
-        // {
-        //     return;
-        // }
-        // NCapstoneContainer? container = NCapstoneContainer.Instance;
-        // if (container == null)
-        // {
-        //     return;
-        // }
-        // if (container.CurrentCapstoneScreen is NMyResourceViewScreen)
-        // {
-        //     container.Close();
-        // }
-        // else
-        // {
-        //     NMyResourceViewScreen.ShowScreen(_player);
-        // }
+        if (_player == null)
+        {
+            return;
+        }
+        NCapstoneContainer? container = NCapstoneContainer.Instance;
+        if (container == null)
+        {
+            return;
+        }
+        if (container.CurrentCapstoneScreen is NThoughtViewScreen)
+        {
+            container.Close();
+        }
+        else
+        {
+            NThoughtViewScreen.ShowScreen(_player);
+        }
     }
 
     public void Initialize(Player player)
@@ -130,7 +131,7 @@ public partial class NTopBarThoughtButton : Control
                 break;
         }
         _burdenIcon.Texture = texture;
-        _bar.Color = Color.FromString(barColor, Colors.Black);
+        _bar.Color = Color.FromString(barColor, Colors.White);
         float ratio = lucidLimit > 0 ? Math.Min(1f, (float)totalToil / lucidLimit) : 1f;
         _bar.Size = new Vector2(_background.Size.X * ratio, _bar.Size.Y);
         _textLabel.Text =

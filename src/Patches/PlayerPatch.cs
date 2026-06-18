@@ -2,6 +2,7 @@ using HarmonyLib;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Runs;
+using Skz.Ocean.Commands;
 using Skz.Ocean.Entities.Players;
 using Skz.Ocean.Helper;
 using Skz.Ocean.Model;
@@ -22,10 +23,10 @@ public static class GrantStartingThoughtsPatch
     {
         foreach (Player player in __result.Players)
         {
-            ThoughtModel thought = SarkazHelper.ModelDbGet<MockThought>().ToMutable();
-            player.AddThoughtInternal(thought);
-            thought.FloorAddedToDeck = __result.TotalFloor;
-            thought.Status = Entities.Thoughts.ThoughtStatus.Used;
+            for (int i = 0; i < 20; ++i)
+            {
+                _ = ThoughtCmd.Obtain<MockThought>(player);
+            }
         }
         Log.Info("[Sarkaz] Granted starting thoughts to players");
     }

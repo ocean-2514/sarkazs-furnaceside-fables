@@ -1,0 +1,94 @@
+[gd_scene load_steps=8 format=3 uid="uid://dul2uo1gdj74a"]
+
+[ext_resource type="Script" uid="uid://bs7ir8oavmrlk" path="res://src/Nodes/Thoughts/NThoughtDetail.cs" id="1_8e3ba"]
+[ext_resource type="Texture2D" uid="uid://ralkh7bf2u78" path="res://images/thoughts/icon/display_background.png" id="1_glrio"]
+[ext_resource type="PackedScene" uid="uid://b33021bg3xnn5" path="res://scenes/thoughts/thought.tscn" id="2_53805"]
+[ext_resource type="Texture2D" uid="uid://bsedq6bc2wa0g" path="res://materials/gradient_texture_1d.tres" id="3_ulqpt"]
+[ext_resource type="Texture2D" uid="uid://dwcc0l02stbhr" path="res://images/thoughts/icon/use_button.png" id="4_ulqpt"]
+[ext_resource type="Texture2D" uid="uid://bfnfm47r5mc3" path="res://images/thoughts/icon/discard_button.png" id="5_8e3ba"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8e3ba"]
+texture = ExtResource("3_ulqpt")
+
+[node name="ThoughtDetail" type="Control"]
+custom_minimum_size = Vector2(960, 440)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -960.0
+offset_bottom = -640.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8e3ba")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_glrio")
+
+[node name="Thought" parent="." instance=ExtResource("2_53805")]
+layout_mode = 0
+offset_left = 155.0
+offset_top = 133.0
+offset_right = 285.0
+offset_bottom = 263.0
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 340.0
+offset_top = 80.0
+offset_right = 560.0
+offset_bottom = 127.0
+theme_override_colors/font_color = Color(0.99215686, 0.99215686, 0.99215686, 1)
+theme_override_font_sizes/font_size = 30
+text = "驱城"
+
+[node name="Type" type="Label" parent="."]
+layout_mode = 0
+offset_left = 340.0
+offset_top = 131.0
+offset_right = 560.0
+offset_bottom = 168.0
+theme_override_colors/font_color = Color(0.99215686, 0.99215686, 0.99215686, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxTexture_8e3ba")
+text = "    灵感"
+vertical_alignment = 1
+
+[node name="Description" type="Label" parent="."]
+layout_mode = 0
+offset_left = 340.0
+offset_top = 170.0
+offset_right = 832.0
+offset_bottom = 208.0
+theme_override_colors/font_color = Color(0.7411765, 0.7411765, 0.7411765, 1)
+theme_override_font_sizes/font_size = 20
+text = "使用后下次战斗所有我方单位再部署时间-20%"
+
+[node name="Flavor" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 340.0
+offset_top = 204.0
+offset_right = 793.0
+offset_bottom = 264.0
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[i][font_size=20][color=6c6868]  “记好，最多只能加速到每小时五公里，不然又得修十年了“[/color][/font_size][/i]"
+
+[node name="UseButton" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 634.0
+offset_top = 369.0
+offset_right = 865.3559
+offset_bottom = 439.0
+texture = ExtResource("4_ulqpt")
+
+[node name="DiscardButton" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 377.0
+offset_top = 369.0
+offset_right = 603.9672
+offset_bottom = 440.0
+texture = ExtResource("5_8e3ba")

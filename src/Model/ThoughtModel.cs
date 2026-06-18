@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Godot;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Localization;
@@ -42,7 +43,7 @@ public abstract class ThoughtModel : AbstractModel, ISarkazModel
 
 	public abstract ThoughtType ThoughtType { get; }
 
-    private ThoughtStatus _status;
+    private ThoughtStatus _status = ThoughtStatus.Unused;
 
 	private ThoughtModel? _canonicalInstance; 
 
@@ -55,6 +56,9 @@ public abstract class ThoughtModel : AbstractModel, ISarkazModel
 	public virtual bool CanBeUpgraded => false;
 
 	public virtual Type UpgradedType => null;
+
+	public event Action? RarityChanged;
+	public event Action? ToilChanged;
 
     public DynamicVarSet DynamicVars
 	{
@@ -179,8 +183,16 @@ public abstract class ThoughtModel : AbstractModel, ISarkazModel
 
     public bool CanBeUsed()
     {
-        return ThoughtType == ThoughtType.Inspirer && Status == ThoughtStatus.Unused;
+        // 灵感思绪 + 未使用 + 仅限战斗外
+        return ThoughtType == ThoughtType.Inspirer
+            && Status == ThoughtStatus.Unused
+            && !CombatManager.Instance.IsInProgress;
     }
+
+	public bool CanBeDiscarded()
+	{
+		return !CombatManager.Instance.IsInProgress && Status == ThoughtStatus.Unused;
+	}
 
     public bool isUsed()
     {
@@ -210,7 +222,6 @@ public abstract class ThoughtModel : AbstractModel, ISarkazModel
         {
             Status = ThoughtStatus.Discarded;
             Owner.ClearThoughtUsed();
-            await ThoughtCmd.Remove(this);
         }
     }
 } 

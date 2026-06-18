@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://bsi1ma3cpxmlx"]
+
+[ext_resource type="PackedScene" uid="uid://b33021bg3xnn5" path="res://scenes/thoughts/thought.tscn" id="1_ridau"]
+[ext_resource type="Script" uid="uid://bff688cgv1qdo" path="res://src/Nodes/Thoughts/NThoughtDisplay.cs" id="2_julvk"]
+
+[node name="ThoughtDisplay" type="Control"]
+custom_minimum_size = Vector2(530, 146)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 530.0
+offset_bottom = 146.0
+script = ExtResource("2_julvk")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 530.0
+offset_bottom = 146.0
+color = Color(0.07058824, 0.07058824, 0.07058824, 1)
+
+[node name="Thought" parent="." instance=ExtResource("1_ridau")]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 8.0
+offset_right = 130.0
+offset_bottom = 138.0
+
+[node name="Label" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 141.0
+offset_top = -2.0
+offset_right = 530.0
+offset_bottom = 138.0
+bbcode_enabled = true
+text = "[font_size=30][color=a3a3a3]虚无幻想
+[/color][/font_size][font_size=25][color=737373]不知是谁的故事，不知是谁的回忆？？？[/color][/font_size]
+"

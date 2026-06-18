@@ -82,4 +82,9 @@ public static class PlayerExtensions
     {
         return player.GetExtraData().MindState;
     }
+
+    public static ThoughtModel GetThoughtUsed(this Player player)
+    {
+        return player.GetExtraData().ThoughtUsed;
+    }
 }

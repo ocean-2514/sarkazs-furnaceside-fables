@@ -1,22 +1,22 @@
 [gd_scene load_steps=5 format=3 uid="uid://k8s5wj1u4ap"]
 
 [ext_resource type="Texture2D" uid="uid://bbu7awsca7qbq" path="res://images/ui/mind_lucid.png" id="1_7fdpf"]
-[ext_resource type="Script" uid="uid://b082fw8ol75ej" path="res://src/Nodes/NTopBarThoughtButton.cs" id="1_ghx0e"]
+[ext_resource type="Script" uid="uid://d1vpr433x2kwq" path="res://src/Nodes/TopBar/NTopBarThoughtButton.cs" id="1_kha55"]
 [ext_resource type="Script" uid="uid://c2oywrx8xbqfx" path="res://addons/mega_text/MegaRichTextLabel.cs" id="2_ghx0e"]
 [ext_resource type="FontVariation" uid="uid://bg85h22rkxs6g" path="res://themes/sarkaz.tres" id="3_kha55"]
 
 [node name="TopBarThoughtButton" type="Control"]
-custom_minimum_size = Vector2(324, 81)
+custom_minimum_size = Vector2(265, 81)
 layout_mode = 3
 anchors_preset = 0
-offset_right = 324.0
+offset_right = 265.0
 offset_bottom = 81.0
-script = ExtResource("1_ghx0e")
+script = ExtResource("1_kha55")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 0
-offset_right = 334.0
+offset_right = 265.0
 offset_bottom = 80.0
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 4

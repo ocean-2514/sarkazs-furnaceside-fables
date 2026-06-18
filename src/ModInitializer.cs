@@ -30,6 +30,10 @@ class ModInitializer
                 runState => CollectThoughts(runState));
             ModHelper.SubscribeForCombatStateHooks("ocean.sarkaz.thoughts",
                 combatState => CollectThoughts(combatState.RunState));
+
+            // 若 LocManager 已构造（mod 初始化晚于它），这里立即注入 thoughts 表；
+            // 否则初始 SetLanguage 会被 ThoughtsLocPatch 拦到。语言切换由 patch 处理。
+            Patches.ThoughtsLocPatch.InjectIntoCurrent();
         }
         catch (Exception e)
         {
@@ -49,7 +53,8 @@ class ModInitializer
         List<AbstractModel> list = new List<AbstractModel>();
         foreach (Player player in runState.Players)
         {
-            list.AddRange(player.GetAllThoughts());
+            list.AddRange(player.GetLingers());
+            list.Add(player.GetThoughtUsed());
         }
         return list;
     }

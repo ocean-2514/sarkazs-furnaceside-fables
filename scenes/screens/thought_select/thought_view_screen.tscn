@@ -1,0 +1,165 @@
+[gd_scene load_steps=9 format=3 uid="uid://ci62i2l8f1pgv"]
+
+[ext_resource type="Script" uid="uid://c1pafruhhp0r1" path="res://src/Nodes/Screens/NThoughtViewScreen.cs" id="1_dj3vc"]
+[ext_resource type="Texture2D" uid="uid://bsedq6bc2wa0g" path="res://materials/gradient_texture_1d.tres" id="1_k0lsj"]
+[ext_resource type="PackedScene" uid="uid://bsi1ma3cpxmlx" path="res://scenes/thoughts/thought_display.tscn" id="1_nap0j"]
+[ext_resource type="Script" uid="uid://dpnf8bvyr53u8" path="res://src/Nodes/NDragScrollContainer.cs" id="2_037af"]
+[ext_resource type="PackedScene" uid="uid://3s16o78ymixn" path="res://scenes/thoughts/toil_indicator.tscn" id="5_v5qie"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dj3vc"]
+texture = ExtResource("1_k0lsj")
+
+[sub_resource type="Gradient" id="Gradient_k0lsj"]
+offsets = PackedFloat32Array(0, 0.37333333, 0.87333333, 1)
+colors = PackedColorArray(0.2784314, 0.2784314, 0.2784314, 0, 0.06666667, 0.06666667, 0.06666667, 0, 0.13319641, 0.13319641, 0.13319635, 0, 0.2627451, 0.2627451, 0.2627451, 0.36862746)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dj3vc"]
+gradient = SubResource("Gradient_k0lsj")
+fill_to = Vector2(0, 1)
+
+[node name="ThoughtViewScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dj3vc")
+
+[node name="BackGround" type="ColorRect" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 1008)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 176.0
+offset_right = -174.0
+offset_bottom = -72.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.07058824, 0.07058824, 0.07058824, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="BackGround"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_constants/margin_left = 150
+theme_override_constants/margin_top = 150
+theme_override_constants/margin_right = 50
+metadata/_edit_use_anchors_ = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="BackGround/MarginContainer"]
+custom_minimum_size = Vector2(1270, 0)
+layout_mode = 2
+follow_focus = true
+horizontal_scroll_mode = 0
+script = ExtResource("2_037af")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BackGround/MarginContainer/ScrollContainer"]
+custom_minimum_size = Vector2(1160, 0)
+layout_mode = 2
+
+[node name="LabelContainer1" type="MarginContainer" parent="BackGround/MarginContainer/ScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="LingerLabel" type="RichTextLabel" parent="BackGround/MarginContainer/ScrollContainer/VBoxContainer/LabelContainer1"]
+custom_minimum_size = Vector2(500, 50)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_dj3vc")
+bbcode_enabled = true
+text = "[font_size=34][color=e9e9e9] 思绪-灵感[/color][/font_size]   [font_size=30][color=8c8c8c]使用后获得增益[/color][/font_size]"
+
+[node name="InspirerContainer" type="GridContainer" parent="BackGround/MarginContainer/ScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(1160, 0)
+layout_mode = 2
+theme_override_constants/h_separation = 100
+theme_override_constants/v_separation = 20
+columns = 2
+
+[node name="ThoughtDisplay2" parent="BackGround/MarginContainer/ScrollContainer/VBoxContainer/InspirerContainer" instance=ExtResource("1_nap0j")]
+layout_mode = 2
+
+[node name="ThoughtDisplay3" parent="BackGround/MarginContainer/ScrollContainer/VBoxContainer/InspirerContainer" instance=ExtResource("1_nap0j")]
+layout_mode = 2
+
+[node name="LabelContainer2" type="MarginContainer" parent="BackGround/MarginContainer/ScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_bottom = 40
+
+[node name="LingerLabel" type="RichTextLabel" parent="BackGround/MarginContainer/ScrollContainer/VBoxContainer/LabelContainer2"]
+custom_minimum_size = Vector2(500, 50)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_dj3vc")
+bbcode_enabled = true
+text = "[font_size=34][color=e9e9e9] 思绪-遗愿[/color][/font_size]   [font_size=30][color=8c8c8c]可在去伪存真中解读为收藏品[/color][/font_size]"
+
+[node name="LingerContainer" type="GridContainer" parent="BackGround/MarginContainer/ScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(1160, 0)
+layout_mode = 2
+theme_override_constants/h_separation = 100
+theme_override_constants/v_separation = 20
+columns = 2
+
+[node name="ThoughtDisplay2" parent="BackGround/MarginContainer/ScrollContainer/VBoxContainer/LingerContainer" instance=ExtResource("1_nap0j")]
+layout_mode = 2
+
+[node name="ThoughtDisplay3" parent="BackGround/MarginContainer/ScrollContainer/VBoxContainer/LingerContainer" instance=ExtResource("1_nap0j")]
+layout_mode = 2
+
+[node name="ThoughtDisplay4" parent="BackGround/MarginContainer/ScrollContainer/VBoxContainer/LingerContainer" instance=ExtResource("1_nap0j")]
+layout_mode = 2
+
+[node name="LabelContainer3" type="MarginContainer" parent="BackGround/MarginContainer/ScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_bottom = 40
+
+[node name="LingerLabel" type="RichTextLabel" parent="BackGround/MarginContainer/ScrollContainer/VBoxContainer/LabelContainer3"]
+custom_minimum_size = Vector2(500, 50)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_dj3vc")
+bbcode_enabled = true
+text = "[font_size=34][color=e9e9e9] 思绪-构想[/color][/font_size]   "
+
+[node name="PlanContainer" type="GridContainer" parent="BackGround/MarginContainer/ScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(1160, 0)
+layout_mode = 2
+theme_override_constants/h_separation = 100
+theme_override_constants/v_separation = 20
+columns = 2
+
+[node name="ThoughtDisplay2" parent="BackGround/MarginContainer/ScrollContainer/VBoxContainer/PlanContainer" instance=ExtResource("1_nap0j")]
+layout_mode = 2
+
+[node name="BottomMargin" type="MarginContainer" parent="BackGround/MarginContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="ToilIndicator" parent="." instance=ExtResource("5_v5qie")]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = 308.0
+offset_top = 92.0
+offset_right = -928.0
+offset_bottom = -908.0
+
+[node name="BorderGradient" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(1570, 930)
+layout_mode = 0
+offset_left = 176.0
+offset_top = 78.0
+offset_right = 1746.0
+offset_bottom = 1008.0
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_dj3vc")
+metadata/_edit_lock_ = true

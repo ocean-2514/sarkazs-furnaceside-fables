@@ -30,6 +30,7 @@ public class PlayerExtraData
     public int FracturedLimit => (int)(1.5 * _toilLimit);
     public event Action? ToilLimitChanged;
     public event Action? PlayerThoughtChanged;
+    public event Action? ThoughtUsedChanged;
 
     public int TotalToil
     {
@@ -39,7 +40,6 @@ public class PlayerExtraData
             tot += _inspirers.Sum(thought => thought.Toil);
             tot += _lingers.Sum(thought => thought.Toil);
             tot += _plans.Sum(thought => thought.Toil);
-            tot -= _thoughtUsed?.Toil ?? 0;
             return tot;
         }
     }
@@ -80,6 +80,8 @@ public class PlayerExtraData
                 _plans.Add(thought);
                 break;
         }
+        thought.ToilChanged += OnThoughtChanged;
+        thought.RarityChanged += OnThoughtChanged;
         PlayerThoughtChanged?.Invoke();
     }
 
@@ -116,19 +118,17 @@ public class PlayerExtraData
     {
         if (thought.UseThoughtInternal())
         {
-            if (_thoughtUsed != null)
-            {
-                await ThoughtCmd.Remove(_thoughtUsed);
-            }
             _thoughtUsed = thought;
+            RemoveThoughtInternal(thought);
             await SarkazHook.AfterThoughtUsed(thought.Owner.RunState, thought);
-            PlayerThoughtChanged?.Invoke();
+            ThoughtUsedChanged?.Invoke();
         }
     }
 
     public void ClearThoughtUsed()
     {
         _thoughtUsed = null;
+        ThoughtUsedChanged?.Invoke();
     }
 
     public void IncreaseToilLimit(int amount)
@@ -136,4 +136,9 @@ public class PlayerExtraData
         _toilLimit += amount;
         ToilLimitChanged?.Invoke();
     }
+
+    private void OnThoughtChanged()
+    {
+        PlayerThoughtChanged?.Invoke();
+    } 
 }

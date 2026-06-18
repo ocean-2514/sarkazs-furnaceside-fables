@@ -20,6 +20,10 @@ public sealed class MockThought : ThoughtModel
 
     public override async Task AfterSideTurnStart(CombatSide side, CombatState combatState)
     {
+        if (Status != ThoughtStatus.Used)
+        {
+            return;
+        }
         if (side == Owner.Creature.Side && combatState.RoundNumber <= 1)
         {
             await PlayerCmd.GainEnergy(DynamicVars.Energy.BaseValue, Owner);
