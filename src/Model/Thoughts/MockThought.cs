@@ -13,10 +13,11 @@ public sealed class MockThought : ThoughtModel
         new EnergyVar(3)
     ];
     public override ThoughtType ThoughtType => ThoughtType.Inspirer;
+    public override ThoughtRarity ThoughtRarity => ThoughtRarity.Event;
 
-    public override int Rarity => 1;
+    protected override int InitialRarity => 1;
 
-    public override int Toil => 1;
+    protected override int InitialToil => 1;
 
     public override async Task AfterSideTurnStart(CombatSide side, CombatState combatState)
     {

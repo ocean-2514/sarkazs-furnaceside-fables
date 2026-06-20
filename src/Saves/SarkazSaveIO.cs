@@ -112,6 +112,8 @@ public static class SarkazSaveIO
         {
             { "id", t.Id.ToString() },
             { "status", (int)t.Status },
+            { "rarity", t.Rarity }, // Rarity/Toil 可在局内变化(如 DaybreakSun)，需持久化
+            { "toil", t.Toil },
         };
     }
 
@@ -132,6 +134,8 @@ public static class SarkazSaveIO
 
         ThoughtModel thought = canonical.ToMutable();
         if (td.ContainsKey("status")) thought.Status = (ThoughtStatus)td["status"].AsInt32();
+        if (td.ContainsKey("rarity")) thought.Rarity = td["rarity"].AsInt32();
+        if (td.ContainsKey("toil")) thought.Toil = td["toil"].AsInt32();
         return thought;
     }
 

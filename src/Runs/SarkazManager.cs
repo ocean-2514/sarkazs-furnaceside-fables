@@ -24,6 +24,8 @@ public class SarkazManager  //for one player
     
     public bool CanWalkHorizontally => _player.GetPlanCount() >= PlanCostOnTravel;
 
+    public static int MaxNecrosisAmount => 6;
+
     public SarkazManager(Player player)
     {
         _player = player;

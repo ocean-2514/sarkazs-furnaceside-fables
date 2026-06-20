@@ -61,18 +61,19 @@ vertical_alignment = 1
 layout_mode = 0
 offset_left = 340.0
 offset_top = 170.0
-offset_right = 832.0
-offset_bottom = 208.0
+offset_right = 839.0
+offset_bottom = 229.0
 theme_override_colors/font_color = Color(0.7411765, 0.7411765, 0.7411765, 1)
 theme_override_font_sizes/font_size = 20
-text = "使用后下次战斗所有我方单位再部署时间-20%"
+text = "携带此遗愿进入新一层时，稀有度随机刷新，解读时更容易获得收藏品"
+autowrap_mode = 3
 
 [node name="Flavor" type="RichTextLabel" parent="."]
 layout_mode = 0
 offset_left = 340.0
-offset_top = 204.0
+offset_top = 229.0
 offset_right = 793.0
-offset_bottom = 264.0
+offset_bottom = 289.0
 theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
 text = "[i][font_size=20][color=6c6868]  “记好，最多只能加速到每小时五公里，不然又得修十年了“[/color][/font_size][/i]"

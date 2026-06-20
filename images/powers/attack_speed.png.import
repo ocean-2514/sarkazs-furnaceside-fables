@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cliedwv8cepns"
-path="res://.godot/imported/my_custom_power.png-9acfd2850252228f7bb5a0d3d4f90112.ctex"
+uid="uid://cfrrkl5dxp2t1"
+path="res://.godot/imported/attack_speed.png-d69e4196764b14b990e4279a28f8f88f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/powers/my_custom_power.png"
-dest_files=["res://.godot/imported/my_custom_power.png-9acfd2850252228f7bb5a0d3d4f90112.ctex"]
+source_file="res://images/powers/attack_speed.png"
+dest_files=["res://.godot/imported/attack_speed.png-d69e4196764b14b990e4279a28f8f88f.ctex"]
 
 [params]
 

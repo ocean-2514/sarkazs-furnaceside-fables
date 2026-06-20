@@ -6,6 +6,6 @@ public enum ThoughtRarity
 	Common,
 	Uncommon,
 	Rare,
-	Shop,
+	Interpreter,
 	Event
 }

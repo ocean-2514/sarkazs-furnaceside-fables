@@ -4,7 +4,9 @@ namespace Skz.Ocean.Model.Thoughts.Plans;
 
 public sealed class Plan : ThoughtModel
 {
-    public override int Rarity => 3;
-    public override int Toil => 3;
+    protected override int InitialRarity => 3;
+    protected override int InitialToil => 3;
     public override ThoughtType ThoughtType => ThoughtType.Plan;
+
+    public override ThoughtRarity ThoughtRarity => ThoughtRarity.Rare;
 }

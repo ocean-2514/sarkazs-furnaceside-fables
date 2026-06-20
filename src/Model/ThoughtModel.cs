@@ -37,11 +37,48 @@ public abstract class ThoughtModel : AbstractModel, ISarkazModel
 
     public LocString Description => new LocString("thoughts", base.Id.Entry + ".description");
 
-    public abstract int Rarity { get; }
+    protected abstract int InitialRarity { get; }
+    protected abstract int InitialToil { get; }
 
-    public abstract int Toil { get; }
+    private int _rarity;
+    private int _toil;
+
+    public int Rarity
+    {
+        get => _rarity;
+        set
+        {
+            AssertMutable();
+            if (_rarity == value) return;
+            _rarity = value;
+            if (_dynamicVars != null) _dynamicVars[RarityVar.defaultName].BaseValue = value;
+            OnRarityChanged();
+        }
+    }
+
+    public int Toil
+    {
+        get => _toil;
+        set
+        {
+            AssertMutable();
+            if (_toil == value) return;
+            _toil = value;
+            if (_dynamicVars != null) _dynamicVars[ToilVar.defaultName].BaseValue = value;
+            OnToilChanged();
+        }
+    }
 
 	public abstract ThoughtType ThoughtType { get; }
+	public abstract ThoughtRarity ThoughtRarity { get; }
+
+    // canonical 由 ModelDb 经无参构造创建；这里把初始值灌进可变字段（不走属性 setter，避免 AssertMutable）。
+    // ToMutable 用 MemberwiseClone 复制字段、不调构造，故克隆体继承当前值，之后可被改动。
+    protected ThoughtModel()
+    {
+        _rarity = InitialRarity;
+        _toil = InitialToil;
+    }
 
     private ThoughtStatus _status = ThoughtStatus.Unused;
 
@@ -224,4 +261,14 @@ public abstract class ThoughtModel : AbstractModel, ISarkazModel
             Owner.ClearThoughtUsed();
         }
     }
+
+	protected void OnRarityChanged()
+	{
+		RarityChanged?.Invoke();
+	}
+
+	protected void OnToilChanged()
+	{
+		ToilChanged?.Invoke();
+	}
 } 

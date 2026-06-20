@@ -1,2 +1,14 @@
 {
+  "ATTACK_SPEED.title": "攻速",
+  "ATTACK_SPEED.description": "使攻击造成的伤害提高",
+  "ATTACK_SPEED.smartDescription": "每当拥有1点攻速，造成的伤害提高1%，最多提高300%。",
+  "DODGE_POWER.title": "闪避",
+  "DODGE_POWER.description": "收到攻击时有概率使伤害降为0",
+  "DODGE_POWER.smartDescription": "收到攻击时有[gold]{Amount}%[/gold]概率使伤害降为0",
+  "NECROSIS.title": "凋亡损伤",
+  "NECROSIS.description": "当层数达到6时，进入凋亡损伤爆发状态",
+  "NECROSIS.smartDescription": "当层数达到6时，进入凋亡损伤爆发状态",
+  "NECROSIS_BURST.title": "凋亡损伤爆发",
+  "NECROSIS_BURST.description": "每回合损失1点能量，并受到伤害",
+  "NECROSIS_BURST.smartDescription": "每回合损失1点能量，并受到5点伤害，若为敌人则受到10点伤害"
 }

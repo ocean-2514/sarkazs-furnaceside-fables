@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://bu2yuoecg2l5o"]
+
+[ext_resource type="Texture2D" uid="uid://dke6bju8m3qcx" path="res://images/powers/dodge_power.png" id="1_268op"]
+
+[resource]
+atlas = ExtResource("1_268op")
