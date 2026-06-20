@@ -3,6 +3,8 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Entities.Players;
+using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Events;
 using Skz.Ocean.Model;
 
 namespace Skz.Ocean.Entities.Players;
@@ -86,5 +88,50 @@ public static class PlayerExtensions
     public static ThoughtModel GetThoughtUsed(this Player player)
     {
         return player.GetExtraData().ThoughtUsed;
+    }
+
+    public static ThoughtModel GetThoughtById(this Player player, ModelId id)
+    {
+        return player.GetExtraData().GetThoughtById(id);
+    }
+
+    public static int GetPlanCount(this Player player)
+    {
+        return player.GetExtraData().Plans.Count;
+    }
+
+    public static void RemovePlans(this Player player, int count)
+    {
+        player.GetExtraData().RemovePlans(count);
+    }
+
+    public static SarkazManagerModel GetSarkazManager(this Player player)
+    {
+        return player.GetExtraData().SarkazManagerModel;
+    }
+
+    // 幂等地给玩家挂上 SarkazManagerModel。
+    // 新开局(CreateForNewRun)与读档(FromSerializable)都会调用。
+    public static void EnsureSarkazManager(this Player player)
+    {
+        if (player.GetExtraData().SarkazManagerModel != null) return;
+        SarkazManagerModel manager = Helper.SarkazHelper.ModelDbGet<SarkazManagerModel>().ToMutable();
+        manager.Owner = player;
+        player.GetExtraData().SarkazManagerModel = manager;
+    }
+
+    public static void GainShield(this Player player, int amount)
+    {
+        player.GetExtraData().GainShield(amount);
+    }
+    
+    public static void LoseShield(this Player player, int amount)
+    {
+        player.GetExtraData().LoseShield(amount);
+    }
+
+    public static int GetShield(this Player player)
+    {
+        return player.GetExtraData().Shield;
     }
 }

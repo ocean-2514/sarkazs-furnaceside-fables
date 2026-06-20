@@ -27,9 +27,9 @@ class ModInitializer
             //  - combat 级钩子(如 AfterSideTurnStart) 由 CombatState.IterateHookListeners 分发
             // 两者都会把 ModHelper 注册的订阅者纳入遍历。
             ModHelper.SubscribeForRunStateHooks("ocean.sarkaz.thoughts",
-                runState => CollectThoughts(runState));
+                runState => CollectSarkazModels(runState));
             ModHelper.SubscribeForCombatStateHooks("ocean.sarkaz.thoughts",
-                combatState => CollectThoughts(combatState.RunState));
+                combatState => CollectSarkazModels(combatState.RunState));
 
             // 若 LocManager 已构造（mod 初始化晚于它），这里立即注入 thoughts 表；
             // 否则初始 SetLanguage 会被 ThoughtsLocPatch 拦到。语言切换由 patch 处理。
@@ -46,15 +46,17 @@ class ModInitializer
         Log.Info("sarkaz mod initialize");
     }
 
-    // 返回 List 拷贝：回调里可能增删思绪（如 AfterCombatEnd 移除已用思绪），
-    // 用拷贝避免遍历时修改集合。
-    private static IEnumerable<AbstractModel> CollectThoughts(IRunState runState)
+    private static IEnumerable<AbstractModel> CollectSarkazModels(IRunState runState)
     {
         List<AbstractModel> list = new List<AbstractModel>();
         foreach (Player player in runState.Players)
         {
+            // 仅遗愿(Linger)参与战斗钩子；灵感/构想不接。
             list.AddRange(player.GetLingers());
-            list.Add(player.GetThoughtUsed());
+            // 这两个可能为 null（尚未使用思绪 / 开局补丁尚未赋予 manager）——过滤掉，
+            // 否则钩子分发器遍历时会对 null 调方法。
+            if (player.GetThoughtUsed() is { } used) list.Add(used);
+            if (player.GetSarkazManager() is { } mgr) list.Add(mgr);
         }
         return list;
     }

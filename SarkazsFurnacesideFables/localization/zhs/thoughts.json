@@ -1,5 +1,8 @@
 {
     "MOCK_THOUGHT.title": "妮芙的创想",
     "MOCK_THOUGHT.description": "战斗开始时获得3点能量",
-    "MOCK_THOUGHT.flavor": "会是谁呢？"
+    "MOCK_THOUGHT.flavor": "会是谁呢？",
+    "PLAN.title": "构想",
+    "PLAN.description": "可在印象重建中消耗并能用于开通新路线或改变节点",
+    "PLAN.flavor": "记好这些，用得上的那天总会来的."
 }

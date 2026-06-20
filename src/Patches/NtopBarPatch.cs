@@ -15,9 +15,11 @@ public static class NTopBarPatch
 {
     private const string _thoughtButtonPath = "res://scenes/ui/top_bar/top_bar_thought_button.tscn";
     private const string _planPath = "res://scenes/ui/top_bar/top_bar_plan.tscn";
+    private const string _shieldPath = "res://scenes/ui/top_bar/top_bar_shield.tscn";
     private const string _thoughtUsedPath = "res://scenes/ui/top_bar/top_bar_thought_used.tscn";
     private const string _thoughtButtonName = "TopBarThoughtButton";
     private const string _planName = "TopBarPlan";
+    private const string _shieldName = "TopBarShield";  
     private const string _thoughtUsedName = "TopBarThoughtUsed";
 
     private const string _containerPath = "LeftAlignedStuff";
@@ -34,11 +36,13 @@ public static class NTopBarPatch
 
         if (container.GetNodeOrNull(_thoughtButtonName) != null) return;
         if (container.GetNodeOrNull(_planName) != null) return;    
+        if (container.GetNodeOrNull(_shieldName) != null) return;    
         if (container.GetNodeOrNull(_thoughtUsedName) != null) return;    
 
         AddToTopBar(_thoughtButtonPath, _thoughtButtonName, container, runState);
         AddToTopBar(_planPath, _planName, container, runState);    
         AddToTopBar(_thoughtUsedPath, _thoughtUsedName, container, runState);
+        AddToTopBar(_shieldPath, _shieldName, container, runState);
     }
 
     private static void AddToTopBar(string scenePath, string sceneName, Control container, IRunState runState)

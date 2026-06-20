@@ -11,10 +11,9 @@ using Skz.Ocean.Model.Thoughts;
 namespace Skz.Ocean.Patches;
 
 // 测试用：新开一局时给每个玩家发放一个示例思绪。
-// 之前是在 Player 构造函数 postfix 里发，太早了——那时 player.RunState 还是 null，
 // 且会对每一个 Player（含预览/多人其他玩家）都发放。
 // 这里改到 RunState.CreateForNewRun 之后，此时 player.RunState 已就绪。
-// 注意：只覆盖“新开局”；读档(FromSerializable)不会触发，思绪存档持久化尚未实现。
+// 注意：只覆盖“新开局”；读档(FromSerializable)不会触发。
 // 正式发放应改为通过事件 / Neow / 奖励等入口（并用 async 的 ThoughtCmd.Obtain）。
 [HarmonyPatch(typeof(RunState), nameof(RunState.CreateForNewRun))]
 public static class GrantStartingThoughtsPatch
@@ -23,6 +22,7 @@ public static class GrantStartingThoughtsPatch
     {
         foreach (Player player in __result.Players)
         {
+            player.EnsureSarkazManager();
             for (int i = 0; i < 20; ++i)
             {
                 _ = ThoughtCmd.Obtain<MockThought>(player);

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Entities.Players;
+using MegaCrit.Sts2.Core.Logging;
+using MegaCrit.Sts2.Core.Models;
 using Skz.Ocean.Commands;
 using Skz.Ocean.Entities.Thoughts;
 using Skz.Ocean.Hooks;
@@ -31,6 +33,42 @@ public class PlayerExtraData
     public event Action? ToilLimitChanged;
     public event Action? PlayerThoughtChanged;
     public event Action? ThoughtUsedChanged;
+    public event Action? ShieldChanged;
+
+    private int _shield = 10;
+
+    public int Shield { 
+        get => _shield;
+        set
+        {
+            if (value < 0)
+            {
+                Log.Warn("Shield should must be greater than zero");
+                return;
+            }
+            if (_shield == value) return;
+            _shield = value;
+            ShieldChanged?.Invoke();
+        }
+    } 
+
+    private SarkazManagerModel? _sarkazManagerModel;
+
+    public SarkazManagerModel SarkazManagerModel
+    {
+        get => _sarkazManagerModel;
+        set
+        {
+            if (_sarkazManagerModel == null)
+            {
+                _sarkazManagerModel = value;
+            }
+            else
+            {
+                Log.Warn("Player already has a Sarkaz Manager!");
+            }
+        }
+    }
 
     public int TotalToil
     {
@@ -63,6 +101,9 @@ public class PlayerExtraData
             }
         }
     }
+
+    public IEnumerable<ThoughtModel> AllThoughts => 
+        _lingers.Concat(_inspirers).Concat(_plans);
 
     public void AddThoughtInternal(ThoughtModel thought, Player player)
     {
@@ -114,6 +155,17 @@ public class PlayerExtraData
         PlayerThoughtChanged?.Invoke();
     }
 
+    public void RemovePlans(int count)
+    {
+        if (count > _plans.Count)
+        {
+            Log.Warn("Player don't have so many plans");
+            return;
+        }
+        _plans.RemoveRange(0, count);
+        PlayerThoughtChanged?.Invoke();
+    }
+
     public async Task UseThoughtInternal(ThoughtModel thought)
     {
         if (thought.UseThoughtInternal())
@@ -131,14 +183,45 @@ public class PlayerExtraData
         ThoughtUsedChanged?.Invoke();
     }
 
+    // 读档恢复“已使用思绪”。它不在三大列表里(使用时已移出)，需单独恢复，
+    // 这样存档发生在“用过灵感、本场战斗还没结束”时，读档后仍能在 AfterCombatEnd 正常结算。
+    public void RestoreThoughtUsed(ThoughtModel thought)
+    {
+        _thoughtUsed = thought;
+        ThoughtUsedChanged?.Invoke();
+    }
+
     public void IncreaseToilLimit(int amount)
     {
         _toilLimit += amount;
         ToilLimitChanged?.Invoke();
     }
 
+    // 读档时直接恢复持久化字段（护盾 / 苦役上限）。思绪列表由调用方逐个 AddThoughtInternal 恢复。
+    public void RestorePersistentState(int shield, int toilLimit)
+    {
+        _toilLimit = toilLimit;
+        ToilLimitChanged?.Invoke();
+        Shield = shield; // 走属性，带非负校验 + ShieldChanged
+    }
+
     private void OnThoughtChanged()
     {
         PlayerThoughtChanged?.Invoke();
     } 
+
+    public ThoughtModel GetThoughtById(ModelId id)
+    {
+        return AllThoughts.FirstOrDefault((ThoughtModel thought) => thought.Id == id);
+    }
+
+    public void GainShield(int amount)
+    {
+        Shield = _shield + amount;
+    }
+
+    public void LoseShield(int amount)
+    {
+        Shield = _shield - amount;
+    }
 }

@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://ppw5hca8qbpq"]
+
+[ext_resource type="Script" uid="uid://n7le4opjhj5g" path="res://src/Nodes/TopBar/NTopBarShield.cs" id="1_cv2rn"]
+[ext_resource type="Texture2D" uid="uid://bu7mee1bfcxct" path="res://images/ui/shield.png" id="2_7dyvw"]
+[ext_resource type="FontVariation" uid="uid://bg85h22rkxs6g" path="res://themes/sarkaz.tres" id="3_g0hbr"]
+
+[node name="TopBarShield" type="Control"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 111.0
+offset_bottom = 80.0
+script = ExtResource("1_cv2rn")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_top = 15.0
+offset_right = 87.0
+offset_bottom = 65.0
+
+[node name="Icon" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_7dyvw")
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_g0hbr")
+theme_override_font_sizes/font_size = 32
+text = "100"
