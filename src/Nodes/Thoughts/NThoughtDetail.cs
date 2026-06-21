@@ -73,7 +73,7 @@ public partial class NThoughtDetail : Control
         }
         _thought.Model = _model;
         _title.Text = _model.Title.GetFormattedText();
-        _description.Text = _model.Description.GetFormattedText();
+        _description.Text = _model.DynamicDescription.GetFormattedText();
         _flavor.Text = "[i][font_size=20][color=6c6868]  “" +
             _model.Flavor.GetFormattedText() + "”[/color][/font_size][/i]";
 

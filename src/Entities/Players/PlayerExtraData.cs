@@ -1,10 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Nodes.Screens.Map;
 using Skz.Ocean.Commands;
 using Skz.Ocean.Entities.Thoughts;
 using Skz.Ocean.Hooks;
@@ -119,6 +121,7 @@ public class PlayerExtraData
                 break;
             case ThoughtType.Plan:
                 _plans.Add(thought);
+                OnPlanAmountChanged();
                 break;
         }
         thought.ToilChanged += OnThoughtChanged;
@@ -150,6 +153,7 @@ public class PlayerExtraData
                     throw new InvalidOperationException($"Player does not have thought {thought.Id}");
                 }
                 _plans.Remove(thought);
+                OnThoughtChanged();
                 break;
         }
         PlayerThoughtChanged?.Invoke();
@@ -164,6 +168,7 @@ public class PlayerExtraData
         }
         _plans.RemoveRange(0, count);
         PlayerThoughtChanged?.Invoke();
+        OnPlanAmountChanged();
     }
 
     public async Task UseThoughtInternal(ThoughtModel thought)
@@ -209,6 +214,14 @@ public class PlayerExtraData
     {
         PlayerThoughtChanged?.Invoke();
     } 
+
+    private void OnPlanAmountChanged()
+    {
+        MethodInfo method = typeof(NMapScreen).GetMethod("RecalculateTravelability", 
+            BindingFlags.NonPublic | BindingFlags.Instance);
+        method.Invoke(NMapScreen.Instance, null);
+        NMapScreen.Instance.RefreshAllPointVisuals();
+    }
 
     public ThoughtModel GetThoughtById(ModelId id)
     {

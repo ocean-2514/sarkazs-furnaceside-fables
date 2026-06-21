@@ -5,6 +5,7 @@ using Godot;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Helpers;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Logging;
@@ -36,6 +37,20 @@ public abstract class ThoughtModel : AbstractModel, ISarkazModel
 	public LocString Flavor => new LocString("thoughts", base.Id.Entry + ".flavor");
 
     public LocString Description => new LocString("thoughts", base.Id.Entry + ".description");
+
+    // 带 DynamicVar 的描述：{Toil}/{Rarity} 等会被替换（裸 Description 不带 vars，不会替换）。
+    public LocString DynamicDescription
+    {
+        get
+        {
+            LocString description = Description;
+            DynamicVars.AddTo(description);
+            return description;
+        }
+    }
+
+    // 思绪的悬浮提示（标题 + 解析后的描述 + 图标），供奖励按钮等复用。
+    public HoverTip HoverTip => new HoverTip(Title, DynamicDescription, Icon);
 
     protected abstract int InitialRarity { get; }
     protected abstract int InitialToil { get; }
@@ -264,11 +279,13 @@ public abstract class ThoughtModel : AbstractModel, ISarkazModel
 
 	protected void OnRarityChanged()
 	{
+		_dynamicVars = null;
 		RarityChanged?.Invoke();
 	}
 
 	protected void OnToilChanged()
 	{
+		_dynamicVars = null;
 		ToilChanged?.Invoke();
 	}
 } 

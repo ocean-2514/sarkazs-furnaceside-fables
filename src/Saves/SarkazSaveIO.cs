@@ -2,6 +2,7 @@ using System;
 using Godot;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Logging;
+using MegaCrit.Sts2.Core.Map;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Runs;
 using MegaCrit.Sts2.Core.Saves;
@@ -52,6 +53,21 @@ public static class SarkazSaveIO
                 pdict["thought_used"] = ThoughtToDict(used);
             }
 
+            // 节点刷新次数（节点类型本身已由官方地图存档持久化，这里只存“刷了几次”）。
+            SarkazManagerModel mgr = player.GetSarkazManager();
+            if (mgr != null && mgr.RefreshCounts.Count > 0)
+            {
+                var refreshes = new Godot.Collections.Array();
+                foreach (var kv in mgr.RefreshCounts)
+                {
+                    refreshes.Add(new Godot.Collections.Dictionary
+                    {
+                        { "col", kv.Key.col }, { "row", kv.Key.row }, { "count", kv.Value },
+                    });
+                }
+                pdict["refresh_counts"] = refreshes;
+            }
+
             players.Add(pdict);
         }
 
@@ -99,6 +115,19 @@ public static class SarkazSaveIO
                 {
                     used.Owner = player; // 不进列表，单独挂到“已使用思绪”
                     player.GetExtraData().RestoreThoughtUsed(used);
+                }
+            }
+
+            if (pd.ContainsKey("refresh_counts"))
+            {
+                SarkazManagerModel mgr = player.GetSarkazManager();
+                if (mgr != null)
+                {
+                    foreach (Variant rv in pd["refresh_counts"].AsGodotArray())
+                    {
+                        Godot.Collections.Dictionary rd = rv.AsGodotDictionary();
+                        mgr.RestoreRefreshCount(new MapCoord(rd["col"].AsInt32(), rd["row"].AsInt32()), rd["count"].AsInt32());
+                    }
                 }
             }
             return true;
