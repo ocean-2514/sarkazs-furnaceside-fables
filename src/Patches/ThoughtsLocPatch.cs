@@ -15,11 +15,13 @@ namespace Skz.Ocean.Patches;
 public static class ThoughtsLocPatch
 {
     private const string ModId = "SarkazsFurnacesideFables";
-    private const string TableName = "thoughts";
+    private const string ThoughtTableName = "thoughts";
+    private const string ShieldTableName = "shield";
 
     public static void Postfix(LocManager __instance, string language)
     {
-        Inject(__instance, language);
+        Inject(__instance, language, ThoughtTableName);
+        Inject(__instance, language, ShieldTableName);
     }
 
     // 供 ModInitializer 调用：覆盖“mod 初始化晚于 LocManager 构造”的情况
@@ -29,11 +31,12 @@ public static class ThoughtsLocPatch
         LocManager inst = LocManager.Instance;
         if (inst != null)
         {
-            Inject(inst, inst.Language);
+            Inject(inst, inst.Language, ThoughtTableName);
+            Inject(inst, inst.Language, ShieldTableName);
         }
     }
 
-    private static void Inject(LocManager locManager, string language)
+    private static void Inject(LocManager locManager, string language, string tableName)
     {
         Dictionary<string, LocTable> tables = Traverse.Create(locManager)
             .Field("_tables").GetValue<Dictionary<string, LocTable>>();
@@ -46,22 +49,22 @@ public static class ThoughtsLocPatch
         LocTable engFallback = null;
         if (language != "eng")
         {
-            Dictionary<string, string> engData = LoadModTable("eng");
+            Dictionary<string, string> engData = LoadModTable("eng", tableName);
             if (engData != null)
             {
-                engFallback = new LocTable(TableName, engData);
+                engFallback = new LocTable(tableName, engData);
             }
         }
 
-        Dictionary<string, string> data = LoadModTable(language) ?? new Dictionary<string, string>();
-        tables[TableName] = new LocTable(TableName, data, engFallback);
-        Log.Info($"[Sarkaz] Injected '{TableName}' loc table for language '{language}'");
+        Dictionary<string, string> data = LoadModTable(language, tableName) ?? new Dictionary<string, string>();
+        tables[tableName] = new LocTable(tableName, data, engFallback);
+        Log.Info($"[Sarkaz] Injected '{tableName}' loc table for language '{language}'");
     }
 
-    private static Dictionary<string, string> LoadModTable(string language)
+    private static Dictionary<string, string> LoadModTable(string language, string tableName)
     {
         // 和 ModManager.GetModdedLocTables 一致的路径约定
-        string path = $"res://{ModId}/localization/{language}/{TableName}.json";
+        string path = $"res://{ModId}/localization/{language}/{tableName}.json";
         if (!Godot.FileAccess.FileExists(path))
         {
             return null;

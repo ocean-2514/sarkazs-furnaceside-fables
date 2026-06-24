@@ -1,7 +1,10 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -12,7 +15,9 @@ using MegaCrit.Sts2.Core.Rewards;
 using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.Runs;
 using MegaCrit.Sts2.Core.ValueProps;
+using Skz.Ocean.Commands;
 using Skz.Ocean.Entities.Players;
+using Skz.Ocean.Model;
 using Skz.Ocean.Rewards;
 
 namespace Skz.Ocean.Runs;
@@ -31,6 +36,8 @@ public class SarkazManager  //for one player
     public static int MaxNecrosisAmount => 6;
 
     public const float NormalCombatThoughtChance = 0.6f;
+
+    public const float NormalCombatShieldChance = 0.4f;
 
     // 节点刷新可刷出的类型池（暂等权）。
     private static readonly MapPointType[] _refreshPool =
@@ -82,9 +89,9 @@ public class SarkazManager  //for one player
         _player.RemovePlans(PlanCostOnTravel);
     }
 
-    public decimal ModifyHpLostAfterOstyLate(Creature target, decimal amount)
+    public decimal ModifyHpLostAfterOstyLate(Creature target, decimal amount, ValueProp props)
     {
-        if (target != _player.Creature)
+        if (target != _player.Creature || props.HasFlag(ValueProp.Unblockable))
         {
             return amount;
         }
@@ -122,6 +129,22 @@ public class SarkazManager  //for one player
         return true;
     }
 
+    public bool TryAddShieldReward(Player player, List<Reward> rewards, AbstractRoom? room)
+    {
+        if (player != _player || room is not CombatRoom) return false;
+        bool grant = room.RoomType switch
+        {
+            RoomType.Monster => _player.PlayerRng.Rewards.NextFloat() < NormalCombatShieldChance,
+            RoomType.Elite => true,
+            RoomType.Boss => true,
+            _ => false
+        };
+        if (!grant) return false;
+
+        rewards.Add(new ShieldReward(_player, 5));
+        return true;
+    }
+
     // ===== 节点刷新 =====
 
     public int GetRefreshCount(MapCoord coord) =>
@@ -134,7 +157,7 @@ public class SarkazManager  //for one player
         && GetRefreshCount(point.coord) < MaxRefreshCount
         && _player.GetPlanCount() >= 1;
 
-    // 刷新一个节点：换成不同于当前的随机类型，计数 +1，扣 1 构想。成功返回 true。
+
     public bool Refresh(MapPoint point)
     {
         if (!CanRefresh(point)) return false;
@@ -163,4 +186,49 @@ public class SarkazManager  //for one player
     // 持久化用：导出/恢复刷新次数（节点类型本身由官方地图存档自动持久化，这里只存次数）。
     public IReadOnlyDictionary<MapCoord, int> RefreshCounts => _refreshCounts;
     public void RestoreRefreshCount(MapCoord coord, int count) => _refreshCounts[coord] = count;
+
+    // ===== 金币奖励加成 =====
+    // 灵感在战斗结束(AfterCombatEnd)时把加成累加到这里(此时已使用思绪还没被清除前调用)，
+    // 之后发奖(TryModifyRewards，由 manager 这个常驻监听者触发)时消费。
+    private float _pendingGoldMultiplier;
+
+    public void AddGoldMultiplier(float multiplier) => _pendingGoldMultiplier += multiplier;
+
+    public bool TryAddGoldBonus(Player player, List<Reward> rewards, AbstractRoom? room)
+    {
+        if (player != _player || _pendingGoldMultiplier <= 0f || room is not CombatRoom) return false;
+
+        GoldReward existing = rewards.OfType<GoldReward>().FirstOrDefault();
+        float mult = _pendingGoldMultiplier;
+        _pendingGoldMultiplier = 0f; // 本场消费掉
+        if (existing == null || existing.Amount <= 0) return false;
+
+        int bonus = (int)(existing.Amount * mult);
+        if (bonus <= 0) return false;
+        rewards.Add(new GoldReward(bonus, player));
+        return true;
+    }
+
+    // ===== 旧乡晶尘：失去后进入新一层回到手上 =====
+    private readonly List<ModelId> _pendingReturns = new List<ModelId>();
+
+    public void RegisterReturn(ModelId id)
+    {
+        if (!_pendingReturns.Contains(id)) _pendingReturns.Add(id);
+    }
+
+    public async Task GrantReturns()
+    {
+        if (_pendingReturns.Count == 0) return;
+        List<ModelId> ids = _pendingReturns.ToList();
+        _pendingReturns.Clear();
+        foreach (ModelId id in ids)
+        {
+            ThoughtModel canonical = ModelDb.GetById<ThoughtModel>(id);
+            if (canonical != null) await ThoughtCmd.Obtain(canonical.ToMutable(), _player);
+        }
+    }
+
+    public IReadOnlyList<ModelId> PendingReturns => _pendingReturns;
+    public void RestorePendingReturn(ModelId id) => _pendingReturns.Add(id);
 }

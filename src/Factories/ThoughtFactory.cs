@@ -22,15 +22,12 @@ public static class ThoughtFactory
 
     // 战斗奖励池：Common/Uncommon/Rare，且排除构想(Plan)。
     // 先按掷出的稀有度选；该稀有度没有候选时退回整个奖励池。返回可变克隆；池空返回 null。
-    public static ThoughtModel? CreateRandomThought(Player player, Rng rng)
+    public static ThoughtModel CreateRandomThought(Player player, Rng rng)
     {
         ThoughtRarity rarity = RollThoughtRarity(rng);
 
         List<ThoughtModel> rewardable = SarkazHelper.GetAllThoughts()
-            .Where(t => t.ThoughtType != ThoughtType.Plan
-                     && (t.ThoughtRarity == ThoughtRarity.Common
-                      || t.ThoughtRarity == ThoughtRarity.Uncommon
-                      || t.ThoughtRarity == ThoughtRarity.Rare))
+            .Where(t => t.ThoughtType != ThoughtType.Plan && IsRewardRarity(t.ThoughtRarity))
             .ToList();
         if (rewardable.Count == 0) return null;
 
@@ -39,4 +36,16 @@ public static class ThoughtFactory
 
         return pool[rng.NextInt(pool.Count)].ToMutable();
     }
+
+    public static ThoughtModel CreateRandomInspirer(Player player, Rng rng)
+    {
+        List<ThoughtModel> pool = SarkazHelper.GetAllThoughts()
+            .Where(t => t.ThoughtType == ThoughtType.Inspirer && IsRewardRarity(t.ThoughtRarity))
+            .ToList();
+        if (pool.Count == 0) return null;
+        return pool[rng.NextInt(pool.Count)].ToMutable();
+    }
+
+    private static bool IsRewardRarity(ThoughtRarity r) =>
+        r == ThoughtRarity.Common || r == ThoughtRarity.Uncommon || r == ThoughtRarity.Rare;
 }

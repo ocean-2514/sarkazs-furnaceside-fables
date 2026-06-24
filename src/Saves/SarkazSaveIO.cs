@@ -68,6 +68,14 @@ public static class SarkazSaveIO
                 pdict["refresh_counts"] = refreshes;
             }
 
+            // 旧乡晶尘等“待返还”思绪（进入新一层时发回手上）。
+            if (mgr != null && mgr.PendingReturns.Count > 0)
+            {
+                var returns = new Godot.Collections.Array();
+                foreach (ModelId id in mgr.PendingReturns) returns.Add(id.ToString());
+                pdict["pending_returns"] = returns;
+            }
+
             players.Add(pdict);
         }
 
@@ -127,6 +135,19 @@ public static class SarkazSaveIO
                     {
                         Godot.Collections.Dictionary rd = rv.AsGodotDictionary();
                         mgr.RestoreRefreshCount(new MapCoord(rd["col"].AsInt32(), rd["row"].AsInt32()), rd["count"].AsInt32());
+                    }
+                }
+            }
+
+            if (pd.ContainsKey("pending_returns"))
+            {
+                SarkazManagerModel mgr2 = player.GetSarkazManager();
+                if (mgr2 != null)
+                {
+                    foreach (Variant rv in pd["pending_returns"].AsGodotArray())
+                    {
+                        try { mgr2.RestorePendingReturn(ModelId.Deserialize(rv.AsString())); }
+                        catch (Exception e) { Log.Warn($"[Sarkaz] 跳过无法解析的待返还思绪: {e.Message}"); }
                     }
                 }
             }

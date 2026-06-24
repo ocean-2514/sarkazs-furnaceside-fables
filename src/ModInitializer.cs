@@ -28,8 +28,8 @@ class ModInitializer
             // 两者都会把 ModHelper 注册的订阅者纳入遍历。
             ModHelper.SubscribeForRunStateHooks("ocean.sarkaz.thoughts",
                 runState => CollectSarkazModels(runState));
-            ModHelper.SubscribeForCombatStateHooks("ocean.sarkaz.thoughts",
-                combatState => CollectSarkazModels(combatState.RunState));
+            // ModHelper.SubscribeForCombatStateHooks("ocean.sarkaz.thoughts",
+            //     combatState => CollectSarkazModels(combatState.RunState));
 
             // 若 LocManager 已构造（mod 初始化晚于它），这里立即注入 thoughts 表；
             // 否则初始 SetLanguage 会被 ThoughtsLocPatch 拦到。语言切换由 patch 处理。

@@ -53,12 +53,15 @@ public class SarkazManagerModel : AbstractModel, ISarkazModel
 
     public override decimal ModifyHpLostAfterOstyLate(Creature target, decimal amount, ValueProp props, Creature dealer, CardModel cardSource)
     {
-        return _manager.ModifyHpLostAfterOstyLate(target, amount);
+        return _manager.ModifyHpLostAfterOstyLate(target, amount, props);
     }
 
     public override bool TryModifyRewards(Player player, List<Reward> rewards, AbstractRoom? room)
     {
-        return _manager.TryAddThoughtReward(player, rewards, room);
+        bool flag1 = _manager.TryAddThoughtReward(player, rewards, room);
+        bool flag2 = _manager.TryAddShieldReward(player, rewards, room);
+        bool flag3 = _manager.TryAddGoldBonus(player, rewards, room); 
+        return flag1 || flag2 || flag3;
     }
 
     public override Task AfterCombatEnd(CombatRoom room)
@@ -67,12 +70,18 @@ public class SarkazManagerModel : AbstractModel, ISarkazModel
         return Task.CompletedTask;
     }
 
-    // 进入新一层（新地图）时清空节点刷新次数。
-    public override Task AfterActEntered()
+    // 进入新一层（新地图）时：清空节点刷新次数，并把“旧乡晶尘”等待返还的思绪发回手上。
+    public override async Task AfterActEntered()
     {
         _manager?.ClearRefreshCounts();
-        return Task.CompletedTask;
+        if (_manager != null) await _manager.GrantReturns();
     }
+
+    // ===== 金币加成 / 待返还思绪：供思绪调用 =====
+    public void AddGoldMultiplier(float multiplier) => _manager?.AddGoldMultiplier(multiplier);
+    public void RegisterReturn(ModelId id) => _manager?.RegisterReturn(id);
+    public IReadOnlyList<ModelId> PendingReturns => _manager?.PendingReturns ?? new List<ModelId>();
+    public void RestorePendingReturn(ModelId id) => _manager?.RestorePendingReturn(id);
 
     // ===== 节点刷新：供 NNormalMapPoint 补丁调用 =====
     public int MaxRefreshCount => _manager?.MaxRefreshCount ?? 0;

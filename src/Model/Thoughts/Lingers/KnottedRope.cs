@@ -7,5 +7,5 @@ public sealed class KnottedRope : ThoughtModel
     protected override int InitialRarity => 4;
     protected override int InitialToil => 5;
     public override ThoughtType ThoughtType => ThoughtType.Linger;
-    public override ThoughtRarity ThoughtRarity => ThoughtRarity.Uncommon;
+    public override ThoughtRarity ThoughtRarity => ThoughtRarity.None;
 }
