@@ -21,7 +21,6 @@ public sealed class Envenom : ThoughtModel
     public override async Task AfterDamageReceived(PlayerChoiceContext choiceContext, Creature target,
         DamageResult result, ValueProp props, Creature dealer, CardModel cardSource)
     {
-        Log.Info($"{target.Name} received {result.UnblockedDamage} from {dealer.Name}!");
         if (Status != ThoughtStatus.Used) return;
         if (dealer == null || dealer.Side != Owner.Creature.Side) return; // 我方造成
         if (target.Side == Owner.Creature.Side) return;                   // 对敌方

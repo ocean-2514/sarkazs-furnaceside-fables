@@ -1,14 +1,23 @@
-[gd_scene load_steps=6 format=3 uid="uid://b33021bg3xnn5"]
+[gd_scene load_steps=9 format=3 uid="uid://b33021bg3xnn5"]
 
 [ext_resource type="Texture2D" uid="uid://dwqavugi3q78f" path="res://images/thoughts/mock_thought.png" id="1_nasbl"]
 [ext_resource type="Script" uid="uid://u6o6ohhvg7mb" path="res://src/Nodes/Thoughts/NThought.cs" id="1_sek5k"]
 [ext_resource type="Texture2D" uid="uid://dg5cb6dd745w5" path="res://images/thoughts/icon/star_small.png" id="2_sek5k"]
 [ext_resource type="Texture2D" uid="uid://iau7ri2rgloa" path="res://images/thoughts/icon/toil_small.png" id="3_sc5p6"]
+[ext_resource type="Texture2D" uid="uid://b8saqv26sc5yx" path="res://images/ui/check_mark.png" id="4_sc5p6"]
+
+[sub_resource type="Gradient" id="Gradient_sek5k"]
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 0.49803922)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_sc5p6"]
+gradient = SubResource("Gradient_sek5k")
+fill_to = Vector2(0, 1)
 
 [sub_resource type="SystemFont" id="SystemFont_gqg3r"]
 subpixel_positioning = 0
 
 [node name="Thought" type="Control"]
+custom_minimum_size = Vector2(130, 130)
 layout_mode = 3
 anchors_preset = 0
 offset_left = 0.12
@@ -40,6 +49,29 @@ custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 texture = ExtResource("2_sek5k")
 
+[node name="Overlay" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 0
+mouse_filter = 2
+
+[node name="Gradient" type="TextureRect" parent="Overlay"]
+layout_mode = 0
+offset_left = 4.084212
+offset_top = 4.2105265
+offset_right = 124.08422
+offset_bottom = 121.052635
+texture = SubResource("GradientTexture2D_sc5p6")
+
+[node name="TextureRect" type="TextureRect" parent="Overlay"]
+layout_mode = 0
+offset_left = 37.768402
+offset_top = 36.84211
+offset_right = 102.7684
+offset_bottom = 98.84211
+scale = Vector2(0.865, 0.865)
+texture = ExtResource("4_sc5p6")
+
 [node name="ToilContainer" type="Control" parent="."]
 unique_name_in_owner = true
 layout_mode = 1
@@ -50,6 +82,7 @@ offset_right = 98.880005
 offset_bottom = 131.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="Toil" type="TextureRect" parent="ToilContainer"]
 layout_mode = 1

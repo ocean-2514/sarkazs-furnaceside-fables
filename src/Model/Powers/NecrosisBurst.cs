@@ -14,6 +14,8 @@ public sealed class NecrosisBurst : PowerModel, ISarkazModel
     private int _enemyHpLoss = 10;
     private int _playerHpLoss = 5;
 
+    private decimal _damageMultiplier = 0.5m;
+
     public override PowerType Type => PowerType.Debuff;
     public override PowerStackType StackType => PowerStackType.Counter;
 
@@ -55,5 +57,13 @@ public sealed class NecrosisBurst : PowerModel, ISarkazModel
     {
         if (side != Owner.Side) return;
         await PowerCmd.Decrement(this);
+    }
+
+    public override decimal ModifyDamageMultiplicative(Creature target, decimal amount, ValueProp props, Creature dealer, CardModel cardSource)
+    {
+        if (dealer != Owner) return 1.0m;
+        if (!props.IsPoweredAttack()) return 1.0m;
+        if (Owner.Player != null) return 1.0m;
+        return _damageMultiplier;
     }
 }

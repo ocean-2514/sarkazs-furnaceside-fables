@@ -1,0 +1,228 @@
+[gd_scene load_steps=11 format=3 uid="uid://507syd2s0a17"]
+
+[ext_resource type="Texture2D" uid="uid://cg718powya2t4" path="res://images/ui/thought_background_2.png" id="1_a0ulg"]
+[ext_resource type="Script" uid="uid://1wynfwbv1l6n" path="res://src/Nodes/Screens/NThoughtInterpretScreen.cs" id="1_ejvgw"]
+[ext_resource type="Script" uid="uid://dpnf8bvyr53u8" path="res://src/Nodes/NDragScrollContainer.cs" id="1_pvn63"]
+[ext_resource type="Texture2D" uid="uid://bsedq6bc2wa0g" path="res://materials/gradient_texture_1d.tres" id="2_yk3x5"]
+[ext_resource type="PackedScene" uid="uid://bsi1ma3cpxmlx" path="res://scenes/thoughts/thought_display.tscn" id="3_6jx7r"]
+[ext_resource type="Texture2D" uid="uid://ct6l7he2bsmwl" path="res://images/ui/interpret_1.png" id="3_a0ulg"]
+[ext_resource type="PackedScene" uid="uid://b33021bg3xnn5" path="res://scenes/thoughts/thought.tscn" id="4_yk3x5"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a0ulg"]
+texture = ExtResource("2_yk3x5")
+
+[sub_resource type="Gradient" id="Gradient_k0lsj"]
+offsets = PackedFloat32Array(0, 0.37333333, 0.87333333, 1)
+colors = PackedColorArray(0.2784314, 0.2784314, 0.2784314, 0, 0.06666667, 0.06666667, 0.06666667, 0, 0.13319641, 0.13319641, 0.13319635, 0, 0.2627451, 0.2627451, 0.2627451, 0.36862746)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ejvgw"]
+gradient = SubResource("Gradient_k0lsj")
+fill_to = Vector2(0, 1)
+
+[node name="ThoughtInterpretScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ejvgw")
+
+[node name="BackGround" type="ColorRect" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 1008)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 176.0
+offset_right = -174.0
+offset_bottom = -72.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.07058824, 0.07058824, 0.07058824, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="BackGround"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_constants/margin_left = 150
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 50
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BackGround/MarginContainer"]
+layout_mode = 2
+
+[node name="LeftPanel" type="Control" parent="BackGround/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+
+[node name="ThoughtContainer1" type="TextureRect" parent="BackGround/MarginContainer/HBoxContainer/LeftPanel"]
+layout_mode = 0
+offset_left = -44.0
+offset_top = 100.0
+offset_right = 555.0
+offset_bottom = 333.0
+texture = ExtResource("1_a0ulg")
+
+[node name="ThoughtContainer2" type="TextureRect" parent="BackGround/MarginContainer/HBoxContainer/LeftPanel"]
+layout_mode = 0
+offset_left = -44.0
+offset_top = 333.0
+offset_right = 555.0
+offset_bottom = 566.0
+texture = ExtResource("1_a0ulg")
+
+[node name="Thought1" parent="BackGround/MarginContainer/HBoxContainer/LeftPanel" instance=ExtResource("3_6jx7r")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = -19.0
+offset_top = 145.0
+offset_right = 511.0
+offset_bottom = 291.0
+
+[node name="Thought2" parent="BackGround/MarginContainer/HBoxContainer/LeftPanel" instance=ExtResource("3_6jx7r")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = -17.0
+offset_top = 379.0
+offset_right = 513.0
+offset_bottom = 525.0
+
+[node name="InterpretButton" type="TextureRect" parent="BackGround/MarginContainer/HBoxContainer/LeftPanel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 28.0
+offset_top = 630.0
+offset_right = 463.0
+offset_bottom = 727.0
+texture = ExtResource("3_a0ulg")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="BackGround/MarginContainer/HBoxContainer"]
+layout_mode = 2
+follow_focus = true
+horizontal_scroll_mode = 0
+script = ExtResource("1_pvn63")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BackGround/MarginContainer/HBoxContainer/ScrollContainer"]
+layout_mode = 2
+
+[node name="LabelContainer2" type="MarginContainer" parent="BackGround/MarginContainer/HBoxContainer/ScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_bottom = 40
+
+[node name="LingerLabel" type="RichTextLabel" parent="BackGround/MarginContainer/HBoxContainer/ScrollContainer/VBoxContainer/LabelContainer2"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_a0ulg")
+bbcode_enabled = true
+text = "[font_size=34][color=e9e9e9] 思绪-遗愿[/color][/font_size]   [font_size=30][color=8c8c8c]获得遗物概率提升[/color][/font_size]"
+
+[node name="LingerContainer" type="GridContainer" parent="BackGround/MarginContainer/HBoxContainer/ScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 20
+columns = 5
+
+[node name="Thought" parent="BackGround/MarginContainer/HBoxContainer/ScrollContainer/VBoxContainer/LingerContainer" instance=ExtResource("4_yk3x5")]
+layout_mode = 2
+
+[node name="Thought2" parent="BackGround/MarginContainer/HBoxContainer/ScrollContainer/VBoxContainer/LingerContainer" instance=ExtResource("4_yk3x5")]
+layout_mode = 2
+
+[node name="Thought3" parent="BackGround/MarginContainer/HBoxContainer/ScrollContainer/VBoxContainer/LingerContainer" instance=ExtResource("4_yk3x5")]
+layout_mode = 2
+
+[node name="Thought4" parent="BackGround/MarginContainer/HBoxContainer/ScrollContainer/VBoxContainer/LingerContainer" instance=ExtResource("4_yk3x5")]
+layout_mode = 2
+
+[node name="Thought5" parent="BackGround/MarginContainer/HBoxContainer/ScrollContainer/VBoxContainer/LingerContainer" instance=ExtResource("4_yk3x5")]
+layout_mode = 2
+
+[node name="Thought6" parent="BackGround/MarginContainer/HBoxContainer/ScrollContainer/VBoxContainer/LingerContainer" instance=ExtResource("4_yk3x5")]
+layout_mode = 2
+
+[node name="Thought7" parent="BackGround/MarginContainer/HBoxContainer/ScrollContainer/VBoxContainer/LingerContainer" instance=ExtResource("4_yk3x5")]
+layout_mode = 2
+
+[node name="LabelContainer1" type="MarginContainer" parent="BackGround/MarginContainer/HBoxContainer/ScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="LingerLabel" type="RichTextLabel" parent="BackGround/MarginContainer/HBoxContainer/ScrollContainer/VBoxContainer/LabelContainer1"]
+custom_minimum_size = Vector2(500, 50)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_a0ulg")
+bbcode_enabled = true
+text = "[font_size=34][color=e9e9e9] 思绪-灵感[/color][/font_size]   [font_size=30][color=8c8c8c]获得护盾概率提升[/color][/font_size]"
+
+[node name="InspirerContainer" type="GridContainer" parent="BackGround/MarginContainer/HBoxContainer/ScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 20
+columns = 5
+
+[node name="Thought" parent="BackGround/MarginContainer/HBoxContainer/ScrollContainer/VBoxContainer/InspirerContainer" instance=ExtResource("4_yk3x5")]
+layout_mode = 2
+
+[node name="Thought2" parent="BackGround/MarginContainer/HBoxContainer/ScrollContainer/VBoxContainer/InspirerContainer" instance=ExtResource("4_yk3x5")]
+layout_mode = 2
+
+[node name="Thought3" parent="BackGround/MarginContainer/HBoxContainer/ScrollContainer/VBoxContainer/InspirerContainer" instance=ExtResource("4_yk3x5")]
+layout_mode = 2
+
+[node name="Thought4" parent="BackGround/MarginContainer/HBoxContainer/ScrollContainer/VBoxContainer/InspirerContainer" instance=ExtResource("4_yk3x5")]
+layout_mode = 2
+
+[node name="Thought5" parent="BackGround/MarginContainer/HBoxContainer/ScrollContainer/VBoxContainer/InspirerContainer" instance=ExtResource("4_yk3x5")]
+layout_mode = 2
+
+[node name="Thought6" parent="BackGround/MarginContainer/HBoxContainer/ScrollContainer/VBoxContainer/InspirerContainer" instance=ExtResource("4_yk3x5")]
+layout_mode = 2
+
+[node name="Thought7" parent="BackGround/MarginContainer/HBoxContainer/ScrollContainer/VBoxContainer/InspirerContainer" instance=ExtResource("4_yk3x5")]
+layout_mode = 2
+
+[node name="LabelContainer3" type="MarginContainer" parent="BackGround/MarginContainer/HBoxContainer/ScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_bottom = 40
+
+[node name="LingerLabel" type="RichTextLabel" parent="BackGround/MarginContainer/HBoxContainer/ScrollContainer/VBoxContainer/LabelContainer3"]
+custom_minimum_size = Vector2(500, 50)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_a0ulg")
+bbcode_enabled = true
+text = "[font_size=34][color=e9e9e9] 思绪-构想[/color][/font_size]  [font_size=30][color=8c8c8c]获得护盾概率提升[/color][/font_size]"
+
+[node name="PlanContainer" type="GridContainer" parent="BackGround/MarginContainer/HBoxContainer/ScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 20
+columns = 5
+
+[node name="BottomMargin" type="MarginContainer" parent="BackGround/MarginContainer/HBoxContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="BorderGradient" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(1570, 930)
+layout_mode = 0
+offset_left = 176.0
+offset_top = 78.0
+offset_right = 1746.0
+offset_bottom = 1008.0
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_ejvgw")
+metadata/_edit_lock_ = true

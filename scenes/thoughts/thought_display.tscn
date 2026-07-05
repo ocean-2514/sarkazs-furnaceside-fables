@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bsi1ma3cpxmlx"]
+[gd_scene load_steps=4 format=3 uid="uid://bsi1ma3cpxmlx"]
 
 [ext_resource type="PackedScene" uid="uid://b33021bg3xnn5" path="res://scenes/thoughts/thought.tscn" id="1_ridau"]
 [ext_resource type="Script" uid="uid://bff688cgv1qdo" path="res://src/Nodes/Thoughts/NThoughtDisplay.cs" id="2_julvk"]
+[ext_resource type="FontVariation" uid="uid://bg85h22rkxs6g" path="res://themes/sarkaz.tres" id="3_tm0qi"]
 
 [node name="ThoughtDisplay" type="Control"]
 custom_minimum_size = Vector2(530, 146)
@@ -30,6 +31,7 @@ offset_left = 141.0
 offset_top = -2.0
 offset_right = 530.0
 offset_bottom = 146.0
+theme_override_fonts/normal_font = ExtResource("3_tm0qi")
 bbcode_enabled = true
 text = "[font_size=30][color=a3a3a3]虚无幻想
 [/color][/font_size][font_size=25][color=737373]携带此遗愿进入新一层时，稀有度随机刷新，解读时更容易获得收藏品[/color][/font_size]

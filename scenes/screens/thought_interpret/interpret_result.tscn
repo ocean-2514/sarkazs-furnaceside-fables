@@ -1,0 +1,71 @@
+[gd_scene load_steps=7 format=3 uid="uid://dlh13l45s0bo0"]
+
+[ext_resource type="Texture2D" uid="uid://caib61540ox1c" path="res://images/ui/relic_result_background.png" id="1_2ql8h"]
+[ext_resource type="Script" uid="uid://mvcjlsd7713f" path="res://src/Nodes/Interpret/NInterpretResult.cs" id="1_m3gtl"]
+[ext_resource type="Texture2D" uid="uid://qydb7gu0575n" path="res://images/atlases/relic_atlas.sprites/my_custom_relic.tres" id="2_obe0n"]
+[ext_resource type="FontVariation" uid="uid://bg85h22rkxs6g" path="res://themes/sarkaz.tres" id="3_m3gtl"]
+[ext_resource type="Script" uid="uid://c2oywrx8xbqfx" path="res://addons/mega_text/MegaRichTextLabel.cs" id="5_asq41"]
+[ext_resource type="Texture2D" uid="uid://b8saqv26sc5yx" path="res://images/ui/check_mark.png" id="5_f3mya"]
+
+[node name="InterpretResult" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_m3gtl")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 392.0
+offset_bottom = 729.12
+texture = ExtResource("1_2ql8h")
+
+[node name="Icon" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 66.0
+offset_right = 320.0
+offset_bottom = 322.0
+texture = ExtResource("2_obe0n")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_top = 380.0
+offset_right = 392.0
+offset_bottom = 424.0
+theme_override_colors/font_color = Color(0.8235294, 0.84313726, 0.84313726, 1)
+theme_override_fonts/font = ExtResource("3_m3gtl")
+theme_override_font_sizes/font_size = 32
+text = "瓶装能量"
+horizontal_alignment = 1
+
+[node name="Description" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 455.0
+offset_right = 347.0
+offset_bottom = 609.0
+theme_override_colors/default_color = Color(0.41960785, 0.41960785, 0.41960785, 1)
+theme_override_fonts/normal_font = ExtResource("3_m3gtl")
+theme_override_font_sizes/normal_font_size = 17
+bbcode_enabled = true
+text = "每当有一名不是“爪牙”的敌人死于[gold]灾厄[/gold]时，回复[green]{Heal}[/green]点生命。"
+horizontal_alignment = 1
+script = ExtResource("5_asq41")
+theme_override_colors/default_color = Color(0.41960785, 0.41960785, 0.41960785, 1)
+theme_override_font_sizes/normal_font_size = 17
+theme_override_fonts/normal_font = ExtResource("3_m3gtl")
+metadata/_custom_type_script = "uid://c2oywrx8xbqfx"
+
+[node name="ConfirmPanel" type="Control" parent="."]
+anchors_preset = 0
+offset_top = 548.0
+offset_right = 392.0
+offset_bottom = 729.0
+
+[node name="ConfirmIcon" type="TextureRect" parent="ConfirmPanel"]
+modulate = Color(1, 1, 1, 0.6039216)
+layout_mode = 0
+offset_left = 167.0
+offset_top = 61.0
+offset_right = 239.33871
+offset_bottom = 130.0
+texture = ExtResource("5_f3mya")

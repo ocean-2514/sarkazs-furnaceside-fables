@@ -15,8 +15,8 @@ public sealed class Invasion : ThoughtModel
     public override ThoughtType ThoughtType => ThoughtType.Inspirer;
     public override ThoughtRarity ThoughtRarity => ThoughtRarity.Uncommon;
 
-    public override bool CanBeUpgraded => true;
-    public override Type UpgradedType => typeof(RiseAndFall);
+    // public override bool CanBeUpgraded => true;
+    // public override Type UpgradedType => typeof(RiseAndFall);
 
     public override async Task AfterSideTurnStart(CombatSide side, CombatState combatState)
     {

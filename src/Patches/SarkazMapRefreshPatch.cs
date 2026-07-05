@@ -37,7 +37,7 @@ internal static class SarkazMapRefresh
             Size = new Vector2(40, 40),
             Position = new Vector2(_rightOffset, -20f),
             MouseFilter = Control.MouseFilterEnum.Stop,
-            ZIndex = 5,
+            // ZIndex = 5,
             Visible = false,
         };
     }

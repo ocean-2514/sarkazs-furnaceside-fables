@@ -1,4 +1,6 @@
+using System;
 using Godot;
+using MegaCrit.Sts2.Core.Logging;
 using Skz.Ocean.Model;
 
 namespace Skz.Ocean.Nodes.Thoughts;
@@ -17,11 +19,20 @@ public partial class NThought : Control
     private HBoxContainer _starContainer;
     private TextureRect _star; // 场景里那颗星，作为复制模板
     private Control _toilContainer;
+    private Control _overlay;
     private Label _label;
+
+    private bool _pressedInside;
+    private Vector2 _pressPosition;
+    private const float _clickThreshold = 10f;
+
 
     // 一开始就确定：控制星星/负荷容器是否显示
     public bool StarVisible { get; set; } = true;
     public bool ToilVisible { get; set; } = true;
+    public bool OverlayVisible { get; set; } = false;
+
+    public event Action<NThought>? Pressed;
 
     public ThoughtModel? Model
     {
@@ -58,6 +69,7 @@ public partial class NThought : Control
         _icon = GetNode<TextureRect>("%Icon");
         _starContainer = GetNode<HBoxContainer>("%StarContainer");
         _star = GetNode<TextureRect>("%Star");
+        _overlay = GetNode<Control>("%Overlay");
         _toilContainer = GetNode<Control>("%ToilContainer");
         _label = GetNode<Label>("%Label");
         Reload();
@@ -74,6 +86,37 @@ public partial class NThought : Control
     {
         UnsubscribeFromModel(Model);
     }
+
+    public void SetOverlayVisible(bool visible)
+    {
+        OverlayVisible = visible;
+        if (IsNodeReady())
+        {
+            _overlay.Visible = visible;
+        }
+    }
+
+    public override void _GuiInput(InputEvent @event)
+    {
+        if (@event is InputEventMouseButton mb && mb.ButtonIndex == MouseButton.Left)
+        {
+            if (mb.Pressed)
+            {
+                _pressedInside = true;
+                _pressPosition = mb.GlobalPosition;
+            }
+            else if (_pressedInside)
+            {
+                _pressedInside = false;
+                // 移动很小才算点击（否则是拖动滚动，交给 NDragScrollContainer 处理）
+                if (_model != null && mb.GlobalPosition.DistanceTo(_pressPosition) < _clickThreshold)
+                {
+                    Pressed?.Invoke(this);
+                }
+            }
+        }
+    }
+
 
     private void SubscribeToModel(ThoughtModel? model)
     {
@@ -107,6 +150,7 @@ public partial class NThought : Control
         _icon.Texture = _model.Icon;
         _starContainer.Visible = StarVisible;
         _toilContainer.Visible = ToilVisible;
+        _overlay.Visible = OverlayVisible;
         UpdateStars();
         UpdateToil();
     }

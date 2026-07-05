@@ -14,6 +14,16 @@ public static class SarkazHelper
     {
         return ModelDb.GetById<T>(ModelDb.GetId<T>());
     }
+
+    public static AbstractModel ModelDbGet(Type type)
+    {
+        MethodInfo method = typeof(ModelDb).GetMethod("Get",
+            BindingFlags.Static | BindingFlags.NonPublic,
+            null,
+            new Type[] {typeof(Type)},
+            null);
+        return method.Invoke(null, new object[] {type}) as AbstractModel;
+    }
     
     public static IEnumerable<ThoughtModel> GetAllThoughts()
     {

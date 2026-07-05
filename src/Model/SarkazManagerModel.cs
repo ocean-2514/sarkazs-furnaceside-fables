@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
+using MegaCrit.Sts2.Core.Entities.RestSite;
 using MegaCrit.Sts2.Core.Map;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Rewards;
@@ -70,11 +71,15 @@ public class SarkazManagerModel : AbstractModel, ISarkazModel
         return Task.CompletedTask;
     }
 
-    // 进入新一层（新地图）时：清空节点刷新次数，并把“旧乡晶尘”等待返还的思绪发回手上。
     public override async Task AfterActEntered()
     {
         _manager?.ClearRefreshCounts();
         if (_manager != null) await _manager.GrantReturns();
+    }
+
+    public override bool TryModifyRestSiteOptions(Player player, ICollection<RestSiteOption> options)
+    {
+        return _manager?.TryAddInterpretRestSiteOption(player, options) ?? false;
     }
 
     // ===== 金币加成 / 待返还思绪：供思绪调用 =====

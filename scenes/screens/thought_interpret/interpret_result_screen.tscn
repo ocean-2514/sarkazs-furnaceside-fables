@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://cys34xns1bltj"]
+
+[ext_resource type="Script" uid="uid://bco7m21hs3j2e" path="res://src/Nodes/Screens/NInterpretResultScreen.cs" id="1_w8xex"]
+[ext_resource type="PackedScene" uid="uid://dlh13l45s0bo0" path="res://scenes/screens/thought_interpret/interpret_result.tscn" id="1_xxbsf"]
+
+[node name="InterpretResultScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w8xex")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+color = Color(0.28235295, 0.28235295, 0.28235295, 0.6509804)
+
+[node name="InterpretResult" parent="." instance=ExtResource("1_xxbsf")]
+layout_mode = 1
+offset_left = 760.0
+offset_top = 144.0
+offset_right = 760.0
+offset_bottom = 144.0

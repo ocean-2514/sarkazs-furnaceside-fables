@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://dul2uo1gdj74a"]
+[gd_scene load_steps=9 format=3 uid="uid://dul2uo1gdj74a"]
 
 [ext_resource type="Script" uid="uid://bs7ir8oavmrlk" path="res://src/Nodes/Thoughts/NThoughtDetail.cs" id="1_8e3ba"]
 [ext_resource type="Texture2D" uid="uid://ralkh7bf2u78" path="res://images/thoughts/icon/display_background.png" id="1_glrio"]
 [ext_resource type="PackedScene" uid="uid://b33021bg3xnn5" path="res://scenes/thoughts/thought.tscn" id="2_53805"]
 [ext_resource type="Texture2D" uid="uid://bsedq6bc2wa0g" path="res://materials/gradient_texture_1d.tres" id="3_ulqpt"]
+[ext_resource type="FontVariation" uid="uid://bg85h22rkxs6g" path="res://themes/sarkaz.tres" id="4_hxa0k"]
 [ext_resource type="Texture2D" uid="uid://dwcc0l02stbhr" path="res://images/thoughts/icon/use_button.png" id="4_ulqpt"]
 [ext_resource type="Texture2D" uid="uid://bfnfm47r5mc3" path="res://images/thoughts/icon/discard_button.png" id="5_8e3ba"]
 
@@ -42,6 +43,7 @@ offset_top = 80.0
 offset_right = 560.0
 offset_bottom = 127.0
 theme_override_colors/font_color = Color(0.99215686, 0.99215686, 0.99215686, 1)
+theme_override_fonts/font = ExtResource("4_hxa0k")
 theme_override_font_sizes/font_size = 30
 text = "驱城"
 
@@ -52,6 +54,7 @@ offset_top = 131.0
 offset_right = 560.0
 offset_bottom = 168.0
 theme_override_colors/font_color = Color(0.99215686, 0.99215686, 0.99215686, 1)
+theme_override_fonts/font = ExtResource("4_hxa0k")
 theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxTexture_8e3ba")
 text = "    灵感"
@@ -64,6 +67,7 @@ offset_top = 170.0
 offset_right = 839.0
 offset_bottom = 229.0
 theme_override_colors/font_color = Color(0.7411765, 0.7411765, 0.7411765, 1)
+theme_override_fonts/font = ExtResource("4_hxa0k")
 theme_override_font_sizes/font_size = 20
 text = "携带此遗愿进入新一层时，稀有度随机刷新，解读时更容易获得收藏品"
 autowrap_mode = 3
@@ -74,6 +78,7 @@ offset_left = 340.0
 offset_top = 229.0
 offset_right = 793.0
 offset_bottom = 289.0
+theme_override_fonts/normal_font = ExtResource("4_hxa0k")
 theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
 text = "[i][font_size=20][color=6c6868]  “记好，最多只能加速到每小时五公里，不然又得修十年了“[/color][/font_size][/i]"

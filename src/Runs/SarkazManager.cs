@@ -19,6 +19,8 @@ using Skz.Ocean.Commands;
 using Skz.Ocean.Entities.Players;
 using Skz.Ocean.Model;
 using Skz.Ocean.Rewards;
+using MegaCrit.Sts2.Core.Entities.RestSite;
+using Skz.Ocean.Entities.RestSite;
 
 namespace Skz.Ocean.Runs;
 
@@ -58,6 +60,7 @@ public class SarkazManager  //for one player
 
     public async Task AfterRoomEntered()
     {
+        _pendingGoldMultiplier = 0;
         await HandleToil();
         HandleHorizontalTravelCost();
     }
@@ -145,6 +148,13 @@ public class SarkazManager  //for one player
         return true;
     }
 
+    public bool TryAddInterpretRestSiteOption(Player player, ICollection<RestSiteOption> options)
+    {
+        if (player != _player) return false;
+        options.Add(new InterpretRestSiteOption(player));
+        return true;
+    }
+
     // ===== 节点刷新 =====
 
     public int GetRefreshCount(MapCoord coord) =>
@@ -200,7 +210,6 @@ public class SarkazManager  //for one player
 
         GoldReward existing = rewards.OfType<GoldReward>().FirstOrDefault();
         float mult = _pendingGoldMultiplier;
-        _pendingGoldMultiplier = 0f; // 本场消费掉
         if (existing == null || existing.Amount <= 0) return false;
 
         int bonus = (int)(existing.Amount * mult);

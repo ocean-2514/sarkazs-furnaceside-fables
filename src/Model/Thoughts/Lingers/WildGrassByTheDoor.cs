@@ -13,10 +13,11 @@ public sealed class WildGrassByTheDoor : ThoughtModel
 
     public override Task AfterActEntered()
     {
-        int rarity = Rng.Chaotic.NextInt(1, 5);
+        Rng rng = Owner.PlayerRng.Rewards;
+        int rarity = rng.NextInt(1, 5);
         while (rarity == Rarity)
         {
-            rarity = Rng.Chaotic.NextInt(1, 5);
+            rarity = rng.NextInt(1, 5);
         }
         Rarity = rarity;
         return Task.CompletedTask;
