@@ -12,17 +12,17 @@ namespace Skz.Ocean.Helper;
 public static class ThoughtFx
 {
     // 给当前战斗所有我方单位施加 amount 层 T 能力。
-    public static async Task ApplyToAllAllies<T>(CombatState combatState, Creature applier, int amount)
+    public static async Task ApplyToAllAllies<T>(ICombatState combatState, Creature applier, int amount)
         where T : PowerModel
     {
         foreach (Creature ally in combatState.Allies.ToList())
         {
-            await PowerCmd.Apply<T>(ally, amount, applier, null);
+            await PowerCmd.Apply<T>(new ThrowingPlayerChoiceContext(), ally, amount, applier, null);
         }
     }
 
     // 给所有我方单位增加 pct(0~1) 比例的“本场”最大生命值，返回各自实际增加量（战斗结束用于撤销）。
-    public static async Task<Dictionary<Creature, int>> GainTempMaxHpPercent(CombatState combatState, double pct)
+    public static async Task<Dictionary<Creature, int>> GainTempMaxHpPercent(ICombatState combatState, double pct)
     {
         var granted = new Dictionary<Creature, int>();
         foreach (Creature ally in combatState.Allies.ToList())

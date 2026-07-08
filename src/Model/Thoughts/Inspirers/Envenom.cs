@@ -26,6 +26,6 @@ public sealed class Envenom : ThoughtModel
         if (target.Side == Owner.Creature.Side) return;                   // 对敌方
         if (!props.IsPoweredAttack()) return;                             // 攻击才附带
         if (result.UnblockedDamage <= 0) return;
-        await PowerCmd.Apply<Necrosis>(target, 1, dealer, null);
+        await PowerCmd.Apply<Necrosis>(choiceContext, target, 1, dealer, null);
     }
 }

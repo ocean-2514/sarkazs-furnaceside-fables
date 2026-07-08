@@ -117,7 +117,7 @@ theme_override_constants/margin_top = 50
 theme_override_constants/margin_bottom = 40
 
 [node name="LingerLabel" type="RichTextLabel" parent="BackGround/MarginContainer/HBoxContainer/ScrollContainer/VBoxContainer/LabelContainer2"]
-custom_minimum_size = Vector2(0, 50)
+custom_minimum_size = Vector2(690, 50)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_a0ulg")
 bbcode_enabled = true
@@ -158,7 +158,7 @@ theme_override_constants/margin_top = 40
 theme_override_constants/margin_bottom = 40
 
 [node name="LingerLabel" type="RichTextLabel" parent="BackGround/MarginContainer/HBoxContainer/ScrollContainer/VBoxContainer/LabelContainer1"]
-custom_minimum_size = Vector2(500, 50)
+custom_minimum_size = Vector2(690, 50)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_a0ulg")
 bbcode_enabled = true
@@ -199,7 +199,7 @@ theme_override_constants/margin_top = 50
 theme_override_constants/margin_bottom = 40
 
 [node name="LingerLabel" type="RichTextLabel" parent="BackGround/MarginContainer/HBoxContainer/ScrollContainer/VBoxContainer/LabelContainer3"]
-custom_minimum_size = Vector2(500, 50)
+custom_minimum_size = Vector2(690, 50)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_a0ulg")
 bbcode_enabled = true

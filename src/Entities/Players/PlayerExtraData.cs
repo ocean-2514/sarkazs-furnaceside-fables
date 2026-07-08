@@ -72,6 +72,24 @@ public class PlayerExtraData
         }
     }
 
+    private SarkazCombatManagerModel? _sarkazCombatManagerModel;
+
+    public SarkazCombatManagerModel SarkazCombatManagerModel
+    {
+        get => _sarkazCombatManagerModel;
+        set
+        {
+            if (_sarkazCombatManagerModel == null)
+            {
+                _sarkazCombatManagerModel = value;
+            }
+            else
+            {
+                Log.Warn("Player already has a Sarkaz Combat Manager!");
+            }
+        }
+    }
+
     public int TotalToil
     {
         get
@@ -154,6 +172,7 @@ public class PlayerExtraData
                 }
                 _plans.Remove(thought);
                 OnThoughtChanged();
+                OnPlanAmountChanged();
                 break;
         }
         PlayerThoughtChanged?.Invoke();
@@ -217,6 +236,7 @@ public class PlayerExtraData
 
     private void OnPlanAmountChanged()
     {
+        if (NMapScreen.Instance == null) return;
         MethodInfo method = typeof(NMapScreen).GetMethod("RecalculateTravelability", 
             BindingFlags.NonPublic | BindingFlags.Instance);
         method.Invoke(NMapScreen.Instance, null);

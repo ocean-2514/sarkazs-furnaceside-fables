@@ -110,7 +110,7 @@ public partial class NInterpretResult : Control
 
     private void OnConfirmInput(InputEvent @event)
     {
-        if (@event is InputEventMouseButton { Pressed: true, ButtonIndex: MouseButton.Left })
+        if (@event is InputEventMouseButton { Pressed: false, ButtonIndex: MouseButton.Left })
         {
             OnConfirm?.Invoke();
             AcceptEvent();

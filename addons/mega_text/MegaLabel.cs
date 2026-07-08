@@ -7,7 +7,7 @@ namespace MegaCrit.Sts2.addons.mega_text;
 [Tool]
 public partial class MegaLabel : Label
 {
-	private static readonly TextParagraph _cachedParagraph = new TextParagraph();
+	private static TextParagraph? _cachedParagraph = new TextParagraph();
 
 	private const float _sizeComparisonEpsilon = 0.01f;
 
@@ -81,6 +81,17 @@ public partial class MegaLabel : Label
 		}
 	}
 
+	/// <summary>
+	/// Releases the cached TextParagraph to free text server RIDs at exit.
+	/// Uses Dispose() (not Free()) because TextParagraph is RefCounted.
+	/// Nulled to guard against AdjustFontSize running during Godot's quit frames.
+	/// </summary>
+	public static void DisposeCachedParagraph()
+	{
+		_cachedParagraph?.Dispose();
+		_cachedParagraph = null;
+	}
+
 	public override void _Ready()
 	{
 		MegaLabelHelper.AssertThemeFontOverride(this, ThemeConstants.Label.Font);
@@ -101,6 +112,12 @@ public partial class MegaLabel : Label
 		}
 	}
 
+	/// <summary>
+	/// Unfortunately, there's no way to override the setting of text for a Label. So if you want the text size to
+	/// automatically adjust after being updated during gameplay, you must use this method instead of setting the
+	/// Text property directly.
+	/// </summary>
+	/// <param name="text"></param>
 	public void SetTextAutoSize(string text)
 	{
 		if (!(base.Text == text))
@@ -124,7 +141,8 @@ public partial class MegaLabel : Label
 
 	private void AdjustFontSize()
 	{
-		if (!AutoSizeEnabled)
+		TextParagraph cachedParagraph = _cachedParagraph;
+		if (!AutoSizeEnabled || cachedParagraph == null)
 		{
 			return;
 		}
@@ -133,12 +151,12 @@ public partial class MegaLabel : Label
 		float lineSpacing = GetThemeConstant(ThemeConstants.Label.LineSpacing, "Label");
 		Vector2 size = GetRect().Size;
 		bool wrap = base.AutowrapMode != TextServer.AutowrapMode.Off;
-		if (!MegaLabelHelper.IsTooBig(_cachedParagraph, base.Text, themeFont, MaxFontSize, lineSpacing, wrap, size))
+		if (!MegaLabelHelper.IsTooBig(cachedParagraph, base.Text, themeFont, MaxFontSize, lineSpacing, wrap, size))
 		{
 			SetFontSize(MaxFontSize);
 			return;
 		}
-		if (_lastSetSize >= MinFontSize && _lastSetSize < MaxFontSize && !MegaLabelHelper.IsTooBig(_cachedParagraph, base.Text, themeFont, _lastSetSize, lineSpacing, wrap, size) && MegaLabelHelper.IsTooBig(_cachedParagraph, base.Text, themeFont, _lastSetSize + 1, lineSpacing, wrap, size))
+		if (_lastSetSize >= MinFontSize && _lastSetSize < MaxFontSize && !MegaLabelHelper.IsTooBig(cachedParagraph, base.Text, themeFont, _lastSetSize, lineSpacing, wrap, size) && MegaLabelHelper.IsTooBig(cachedParagraph, base.Text, themeFont, _lastSetSize + 1, lineSpacing, wrap, size))
 		{
 			SetFontSize(_lastSetSize);
 			return;
@@ -148,7 +166,7 @@ public partial class MegaLabel : Label
 		while (num2 >= num)
 		{
 			int num3 = num + (num2 - num) / 2;
-			if (num3 == MaxFontSize || MegaLabelHelper.IsTooBig(_cachedParagraph, base.Text, themeFont, num3, lineSpacing, wrap, size))
+			if (num3 == MaxFontSize || MegaLabelHelper.IsTooBig(cachedParagraph, base.Text, themeFont, num3, lineSpacing, wrap, size))
 			{
 				num2 = num3 - 1;
 			}

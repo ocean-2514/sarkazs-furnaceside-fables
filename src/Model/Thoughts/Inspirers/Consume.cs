@@ -21,7 +21,7 @@ public sealed class Consume : ThoughtModel
 
     private Dictionary<Creature, int> _granted;
 
-    public override async Task AfterSideTurnStart(CombatSide side, CombatState combatState)
+    public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
     {
         if (Status != ThoughtStatus.Used) return;
         if (side != Owner.Creature.Side || combatState.RoundNumber != 1) return;

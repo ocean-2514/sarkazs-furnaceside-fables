@@ -75,11 +75,13 @@ public partial class NTopBarThoughtUsed : Control, ITopBarScene
     {
         if (Model == null)
         {
-            _icon.Texture = null;
+            // _icon.Texture = null;
+            Visible = false;
         } 
         else
         {
             _icon.Texture = Model.Icon;
+            Visible = true;
         }
     }
 }

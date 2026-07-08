@@ -11,7 +11,7 @@ namespace MegaCrit.Sts2.addons.mega_text;
 [Tool]
 public partial class MegaRichTextLabel : RichTextLabel
 {
-	private static readonly TextParagraph _cachedParagraph = new TextParagraph();
+	private static TextParagraph? _cachedParagraph = new TextParagraph();
 
 	private const float _sizeComparisonEpsilon = 0.01f;
 
@@ -163,6 +163,17 @@ public partial class MegaRichTextLabel : RichTextLabel
 		}
 	}
 
+	/// <summary>
+	/// Releases the cached TextParagraph to free text server RIDs at exit.
+	/// Uses Dispose() (not Free()) because TextParagraph is RefCounted.
+	/// Nulled to guard against AdjustFontSize running during Godot's quit frames.
+	/// </summary>
+	public static void DisposeCachedParagraph()
+	{
+		_cachedParagraph?.Dispose();
+		_cachedParagraph = null;
+	}
+
 	public override void _Ready()
 	{
 		MegaLabelHelper.AssertThemeFontOverride(this, ThemeConstants.RichTextLabel.NormalFont);
@@ -219,6 +230,12 @@ public partial class MegaRichTextLabel : RichTextLabel
 		return base.CustomEffects.Contains(effect);
 	}
 
+	/// <summary>
+	/// Unfortunately, there's no way to override the setting of text for a Label. So if you want the text size to
+	/// automatically adjust after being updated during gameplay, you must use this method instead of setting the
+	/// Text property directly.
+	/// </summary>
+	/// <param name="text"></param>
 	public void SetTextAutoSize(string text)
 	{
 		if (!(base.Text == text))
@@ -235,7 +252,8 @@ public partial class MegaRichTextLabel : RichTextLabel
 
 	private void AdjustFontSize()
 	{
-		if (!AutoSizeEnabled || _isAutoSizing || !_needsResize)
+		TextParagraph cachedParagraph = _cachedParagraph;
+		if (!AutoSizeEnabled || _isAutoSizing || cachedParagraph == null || !_needsResize)
 		{
 			return;
 		}
@@ -248,12 +266,12 @@ public partial class MegaRichTextLabel : RichTextLabel
 			float lineSpacing = GetThemeConstant(ThemeConstants.RichTextLabel.LineSpacing, "RichTextLabel");
 			Vector2 size = GetRect().Size;
 			List<BbcodeObject> objs = MegaLabelHelper.ParseBbcode(Text);
-			if (!MegaLabelHelper.IsTooBig(_cachedParagraph, objs, themeFont, MaxFontSize, lineSpacing, size, _isHorizontallyBound, _isVerticallyBound))
+			if (!MegaLabelHelper.IsTooBig(cachedParagraph, objs, themeFont, MaxFontSize, lineSpacing, size, _isHorizontallyBound, _isVerticallyBound))
 			{
 				SetFontSize(MaxFontSize);
 				return;
 			}
-			if (_lastSetSize >= MinFontSize && _lastSetSize < MaxFontSize && !MegaLabelHelper.IsTooBig(_cachedParagraph, objs, themeFont, _lastSetSize, lineSpacing, size, _isHorizontallyBound, _isVerticallyBound) && MegaLabelHelper.IsTooBig(_cachedParagraph, objs, themeFont, _lastSetSize + 1, lineSpacing, size, _isHorizontallyBound, _isVerticallyBound))
+			if (_lastSetSize >= MinFontSize && _lastSetSize < MaxFontSize && !MegaLabelHelper.IsTooBig(cachedParagraph, objs, themeFont, _lastSetSize, lineSpacing, size, _isHorizontallyBound, _isVerticallyBound) && MegaLabelHelper.IsTooBig(cachedParagraph, objs, themeFont, _lastSetSize + 1, lineSpacing, size, _isHorizontallyBound, _isVerticallyBound))
 			{
 				SetFontSize(_lastSetSize);
 				return;
@@ -263,7 +281,7 @@ public partial class MegaRichTextLabel : RichTextLabel
 			while (num2 >= num)
 			{
 				int num3 = num + (num2 - num) / 2;
-				if (MegaLabelHelper.IsTooBig(_cachedParagraph, objs, themeFont, num3, lineSpacing, size, _isHorizontallyBound, _isVerticallyBound))
+				if (MegaLabelHelper.IsTooBig(cachedParagraph, objs, themeFont, num3, lineSpacing, size, _isHorizontallyBound, _isVerticallyBound))
 				{
 					num2 = num3 - 1;
 				}

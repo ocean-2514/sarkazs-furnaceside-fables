@@ -110,14 +110,27 @@ public static class PlayerExtensions
         return player.GetExtraData().SarkazManagerModel;
     }
 
+    public static SarkazCombatManagerModel GetCombatManager(this Player player)
+    {
+        return player.GetExtraData().SarkazCombatManagerModel;
+    }
+
     // 幂等地给玩家挂上 SarkazManagerModel。
     // 新开局(CreateForNewRun)与读档(FromSerializable)都会调用。
     public static void EnsureSarkazManager(this Player player)
     {
-        if (player.GetExtraData().SarkazManagerModel != null) return;
-        SarkazManagerModel manager = Helper.SarkazHelper.ModelDbGet<SarkazManagerModel>().ToMutable();
-        manager.Owner = player;
-        player.GetExtraData().SarkazManagerModel = manager;
+        if (player.GetExtraData().SarkazManagerModel == null)
+        {
+            SarkazManagerModel manager = Helper.SarkazHelper.ModelDbGet<SarkazManagerModel>().ToMutable();
+            manager.Owner = player;
+            player.GetExtraData().SarkazManagerModel = manager;
+        }
+        if (player.GetExtraData().SarkazCombatManagerModel == null)
+        {
+            SarkazCombatManagerModel combatManager = Helper.SarkazHelper.ModelDbGet<SarkazCombatManagerModel>().ToMutable();
+            combatManager.Owner = player;
+            player.GetExtraData().SarkazCombatManagerModel = combatManager;
+        }
     }
 
     public static void GainShield(this Player player, int amount)

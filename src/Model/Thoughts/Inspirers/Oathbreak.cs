@@ -32,10 +32,10 @@ public sealed class Oathbreak : ThoughtModel
         if (result.UnblockedDamage <= 0) return;
         if (_timers.ContainsKey(target)) return;         // 不可叠加
         _timers[target] = _duration;
-        await PowerCmd.Apply<AttackSpeed>(target, _amount, Owner.Creature, null);
+        await PowerCmd.Apply<AttackSpeed>(choiceContext, target, _amount, Owner.Creature, null);
     }
 
-    public override async Task AfterTurnEnd(PlayerChoiceContext choiceContext, CombatSide side)
+    public override async Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)
     {
         if (Status != ThoughtStatus.Used || side != Owner.Creature.Side) return;
         foreach (Creature c in _timers.Keys.ToList())
@@ -44,7 +44,7 @@ public sealed class Oathbreak : ThoughtModel
             if (_timers[c] <= 0)
             {
                 _timers.Remove(c);
-                await PowerCmd.Apply<AttackSpeed>(c, -_amount, Owner.Creature, null);
+                await PowerCmd.Apply<AttackSpeed>(choiceContext, c, -_amount, Owner.Creature, null);
             }
         }
     }

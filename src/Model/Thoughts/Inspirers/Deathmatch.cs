@@ -1,3 +1,5 @@
+using MegaCrit.Sts2.Core.Entities.Creatures;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Models.Powers;
@@ -15,7 +17,7 @@ public sealed class Deathmatch : ThoughtModel
     public override ThoughtType ThoughtType => ThoughtType.Inspirer;
     public override ThoughtRarity ThoughtRarity => ThoughtRarity.Rare;
 
-    public override async Task AfterSideTurnStart(CombatSide side, CombatState combatState)
+    public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
     {
         if (Status != ThoughtStatus.Used) return;
         if (side != Owner.Creature.Side || combatState.RoundNumber != 1) return;

@@ -1,3 +1,4 @@
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -18,7 +19,7 @@ public sealed class CityDriving : ThoughtModel
     public override ThoughtType ThoughtType => ThoughtType.Inspirer;
     public override ThoughtRarity ThoughtRarity => ThoughtRarity.Common;
 
-    public override async Task AfterTurnEnd(PlayerChoiceContext choiceContext, CombatSide side)
+    public override async Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)
     {
         if (Status != ThoughtStatus.Used || side != Owner.Creature.Side) return;
         List<CardModel> cards = new List<CardModel>();

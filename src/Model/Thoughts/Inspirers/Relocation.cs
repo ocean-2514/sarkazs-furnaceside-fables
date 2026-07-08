@@ -1,3 +1,5 @@
+using MegaCrit.Sts2.Core.Entities.Creatures;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Combat;
 using Skz.Ocean.Entities.Thoughts;
@@ -14,7 +16,7 @@ public sealed class Relocation : ThoughtModel
     public override ThoughtType ThoughtType => ThoughtType.Inspirer;
     public override ThoughtRarity ThoughtRarity => ThoughtRarity.Rare;
 
-    public override async Task AfterSideTurnStart(CombatSide side, CombatState combatState)
+    public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
     {
         if (Status != ThoughtStatus.Used) return;
         if (side != Owner.Creature.Side || combatState.RoundNumber != 1) return;

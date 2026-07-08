@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.RestSite;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Map;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Rewards;
@@ -49,7 +51,7 @@ public class SarkazManagerModel : AbstractModel, ISarkazModel
 
     public override async Task AfterRoomEntered(AbstractRoom room)
     {
-        await _manager.AfterRoomEntered();
+        await _manager.AfterRoomEntered(room);
     }
 
     public override decimal ModifyHpLostAfterOstyLate(Creature target, decimal amount, ValueProp props, Creature dealer, CardModel cardSource)
@@ -61,8 +63,9 @@ public class SarkazManagerModel : AbstractModel, ISarkazModel
     {
         bool flag1 = _manager.TryAddThoughtReward(player, rewards, room);
         bool flag2 = _manager.TryAddShieldReward(player, rewards, room);
-        bool flag3 = _manager.TryAddGoldBonus(player, rewards, room); 
-        return flag1 || flag2 || flag3;
+        bool flag3 = _manager.TryAddGoldBonus(player, rewards, room);
+        bool flag4 = _manager.TryAddPlanReward(player, rewards, room);
+        return flag1 || flag2 || flag3 || flag4;
     }
 
     public override Task AfterCombatEnd(CombatRoom room)
@@ -84,9 +87,16 @@ public class SarkazManagerModel : AbstractModel, ISarkazModel
 
     // ===== 金币加成 / 待返还思绪：供思绪调用 =====
     public void AddGoldMultiplier(float multiplier) => _manager?.AddGoldMultiplier(multiplier);
+    public float PendingGoldMultiplier => _manager?.PendingGoldMultiplier ?? 0f;
+    public void RestorePendingGoldMultiplier(float value) => _manager?.RestorePendingGoldMultiplier(value);
     public void RegisterReturn(ModelId id) => _manager?.RegisterReturn(id);
     public IReadOnlyList<ModelId> PendingReturns => _manager?.PendingReturns ?? new List<ModelId>();
     public void RestorePendingReturn(ModelId id) => _manager?.RestorePendingReturn(id);
+
+    // ===== 年代之刺构想奖励：供 RewardPlanPower / 侧存档调用 =====
+    public void RegisterPlanReward() => _manager?.RegisterPlanReward();
+    public int PendingPlanRewards => _manager?.PendingPlanRewards ?? 0;
+    public void RestorePendingPlanRewards(int count) => _manager?.RestorePendingPlanRewards(count);
 
     // ===== 节点刷新：供 NNormalMapPoint 补丁调用 =====
     public int MaxRefreshCount => _manager?.MaxRefreshCount ?? 0;

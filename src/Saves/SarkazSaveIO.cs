@@ -76,6 +76,18 @@ public static class SarkazSaveIO
                 pdict["pending_returns"] = returns;
             }
 
+            // 年代之刺击杀后、还没随战斗奖励发放的构想计数（战斗结束存档早于发奖）。
+            if (mgr != null && mgr.PendingPlanRewards > 0)
+            {
+                pdict["pending_plan_rewards"] = mgr.PendingPlanRewards;
+            }
+
+            // 待消费的金币奖励加成（AfterCombatEnd 累加 → 存档 → 发奖消费，奖励界面 SL 需要它）。
+            if (mgr != null && mgr.PendingGoldMultiplier > 0f)
+            {
+                pdict["pending_gold_multiplier"] = mgr.PendingGoldMultiplier;
+            }
+
             players.Add(pdict);
         }
 
@@ -150,6 +162,18 @@ public static class SarkazSaveIO
                         catch (Exception e) { Log.Warn($"[Sarkaz] 跳过无法解析的待返还思绪: {e.Message}"); }
                     }
                 }
+            }
+
+            // 待发构想 / 金币加成：只在“战斗结束→发奖”之间的存档里出现。
+            // 读档走 StartPreFinishedCombat 重新发奖(不触发 AfterRoomEntered 的清零)，恢复后会被正常消费。
+            if (pd.ContainsKey("pending_plan_rewards"))
+            {
+                player.GetSarkazManager()?.RestorePendingPlanRewards(pd["pending_plan_rewards"].AsInt32());
+            }
+
+            if (pd.ContainsKey("pending_gold_multiplier"))
+            {
+                player.GetSarkazManager()?.RestorePendingGoldMultiplier(pd["pending_gold_multiplier"].AsSingle());
             }
             return true;
         }

@@ -19,7 +19,7 @@ namespace Skz.Ocean.Rewards;
 // 走生成/ModifyRewards 路径则永不序列化，读档时由 hook 重新生成（与原版遗物奖励一致）。
 public class ThoughtReward : Reward
 {
-    private ThoughtModel? _thought;
+    protected ThoughtModel? _thought;
 
     public ThoughtReward(Player player) : base(player)
     {
@@ -41,10 +41,9 @@ public class ThoughtReward : Reward
             ? Array.Empty<IHoverTip>()
             : new IHoverTip[] { _thought.HoverTip };
 
-    public override Task Populate()
+    public override void Populate()
     {
         _thought ??= ThoughtFactory.CreateRandomThought(Player, _rngOverride ?? Player.PlayerRng.Rewards);
-        return Task.CompletedTask;
     }
 
     public override Control? CreateIcon()

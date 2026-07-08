@@ -9,6 +9,9 @@
   "NECROSIS.description": "当层数达到6时，进入凋亡损伤爆发状态",
   "NECROSIS.smartDescription": "当层数达到6时，进入凋亡损伤爆发状态",
   "NECROSIS_BURST.title": "凋亡损伤爆发",
-  "NECROSIS_BURST.description": "每回合损失1点能量，并受到伤害",
-  "NECROSIS_BURST.smartDescription": "每回合损失1点能量，并受到5点伤害，若为敌人则受到10点伤害"
+  "NECROSIS_BURST.description": "每回合损失1点能量，并受到伤害，若为敌人则受到10点伤害",
+  "NECROSIS_BURST.smartDescription": "每回合损失1点能量，并受到5点伤害，若为敌人则受到10点伤害",
+  "REWARD_PLAN_POWER.title": "构想",
+  "REWARD_PLAN_POWER.description": "击败后给予一个构想",
+  "REWARD_PLAN_POWER.smartDescription": "击败后给予一个构想"
 }

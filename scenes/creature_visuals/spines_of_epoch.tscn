@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1qtxe6ueb1vf"]
+
+[ext_resource type="Script" uid="uid://dgsjq3haioact" path="res://src/Wrapper/NCreatureVisualsWrapper.cs" id="1_0m3be"]
+[ext_resource type="Texture2D" uid="uid://ck2juncmvr5f0" path="res://animations/monsters/spines_of_epoch/spines_of_epoch.png" id="2_woad0"]
+
+[node name="SpinesOfEpoch" type="Node2D"]
+script = ExtResource("1_0m3be")
+
+[node name="Visuals" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-2.9999845, -194)
+scale = Vector2(0.57600003, 0.603)
+texture = ExtResource("2_woad0")
+
+[node name="Bounds" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -107.0
+offset_top = -238.0
+offset_right = 109.0
+offset_bottom = -1.0
+mouse_filter = 2
+
+[node name="IntentPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -272)
+
+[node name="CenterPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -91)

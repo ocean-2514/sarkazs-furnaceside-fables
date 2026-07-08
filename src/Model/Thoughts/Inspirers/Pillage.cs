@@ -1,3 +1,5 @@
+using MegaCrit.Sts2.Core.Entities.Creatures;
+using System.Collections.Generic;
 using System;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Combat;
@@ -18,7 +20,7 @@ public sealed class Pillage : ThoughtModel
     public override bool CanBeUpgraded => true;
     public override Type UpgradedType => typeof(Invasion);
 
-    public override async Task AfterSideTurnStart(CombatSide side, CombatState combatState)
+    public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
     {
         if (Status != ThoughtStatus.Used) return;
         if (side != Owner.Creature.Side || combatState.RoundNumber != 1) return;

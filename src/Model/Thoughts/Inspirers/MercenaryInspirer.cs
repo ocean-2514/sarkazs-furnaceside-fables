@@ -1,5 +1,8 @@
 using System;
+using System.Threading.Tasks;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 using Skz.Ocean.Entities.Thoughts;
 
@@ -13,12 +16,25 @@ public sealed class MercenaryInspirer : ThoughtModel
     public override ThoughtType ThoughtType => ThoughtType.Inspirer;
     public override ThoughtRarity ThoughtRarity => ThoughtRarity.Common;
 
+    private int turnLimit = 2;
+
     public override bool TryModifyEnergyCostInCombat(CardModel card, decimal originalCost, out decimal modifiedCost)
     {
+        if (turnLimit <= 0)
+        {
+            modifiedCost = originalCost;
+            return false;
+        }
         modifiedCost = originalCost;
         if (Status != ThoughtStatus.Used || card.Owner != Owner) return false;
         if (card.Type != CardType.Power) return false;
         modifiedCost = Math.Max(0, originalCost - 1);
         return true;
+    }
+
+    public override Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, System.Collections.Generic.IEnumerable<MegaCrit.Sts2.Core.Entities.Creatures.Creature> participants)
+    {
+        if (side == Owner.Creature.Side && Status == ThoughtStatus.Used) turnLimit--;
+        return Task.CompletedTask;
     }
 }

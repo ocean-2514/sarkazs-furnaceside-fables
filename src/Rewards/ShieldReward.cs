@@ -39,9 +39,8 @@ public class ShieldReward : Reward
         return true;
     }
 
-    public override Task Populate()
+    public override void Populate()
     {
-        return Task.CompletedTask;
     }
 
     public override Control? CreateIcon()

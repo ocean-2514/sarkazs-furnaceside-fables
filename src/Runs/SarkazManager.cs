@@ -21,6 +21,8 @@ using Skz.Ocean.Model;
 using Skz.Ocean.Rewards;
 using MegaCrit.Sts2.Core.Entities.RestSite;
 using Skz.Ocean.Entities.RestSite;
+using MegaCrit.Sts2.Core.Logging;
+using Skz.Ocean.Model.Monsters;
 
 namespace Skz.Ocean.Runs;
 
@@ -35,11 +37,9 @@ public class SarkazManager  //for one player
     
     public bool CanWalkHorizontally => _player.GetPlanCount() >= PlanCostOnTravel;
 
-    public static int MaxNecrosisAmount => 6;
+    public const float NormalCombatThoughtChance = 0.95f;
 
-    public const float NormalCombatThoughtChance = 0.6f;
-
-    public const float NormalCombatShieldChance = 0.4f;
+    public const float NormalCombatShieldChance = 0.85f;
 
     // 节点刷新可刷出的类型池（暂等权）。
     private static readonly MapPointType[] _refreshPool =
@@ -58,9 +58,10 @@ public class SarkazManager  //for one player
         _player = player;
     }
 
-    public async Task AfterRoomEntered()
+    public async Task AfterRoomEntered(AbstractRoom room)
     {
         _pendingGoldMultiplier = 0;
+        _pendingPlanRewards = 0;
         await HandleToil();
         HandleHorizontalTravelCost();
     }
@@ -100,6 +101,10 @@ public class SarkazManager  //for one player
         }
         decimal hpLossReduction = Math.Min(amount, _player.GetShield());
         _player.LoseShield((int)hpLossReduction);
+        if (hpLossReduction > 0)
+        {
+            SfxCmd.Play("event:/sfx/block_hit");
+        }
         return Math.Max(0, amount - hpLossReduction);
     }
 
@@ -204,6 +209,10 @@ public class SarkazManager  //for one player
 
     public void AddGoldMultiplier(float multiplier) => _pendingGoldMultiplier += multiplier;
 
+    // 持久化：AfterCombatEnd(累加) → SaveRun → 发奖(消费)，中间 SL 需要恢复。
+    public float PendingGoldMultiplier => _pendingGoldMultiplier;
+    public void RestorePendingGoldMultiplier(float value) => _pendingGoldMultiplier = value;
+
     public bool TryAddGoldBonus(Player player, List<Reward> rewards, AbstractRoom? room)
     {
         if (player != _player || _pendingGoldMultiplier <= 0f || room is not CombatRoom) return false;
@@ -217,6 +226,27 @@ public class SarkazManager  //for one player
         rewards.Add(new GoldReward(bonus, player));
         return true;
     }
+
+    // ===== 年代之刺：被玩家击杀后战斗奖励追加构想 =====
+    // RewardPlanPower.BeforeDeath 时 ++，发奖(TryModifyRewards)时消费。
+    // 战斗结束的 SaveRun 早于奖励生成，所以计数会随侧存档落盘——奖励界面 SL 读档后照发。
+    private int _pendingPlanRewards;
+
+    public void RegisterPlanReward() => _pendingPlanRewards++;
+
+    public bool TryAddPlanReward(Player player, List<Reward> rewards, AbstractRoom? room)
+    {
+        Log.Info($"[sarkaz]: { _pendingPlanRewards }");
+        if (player != _player || _pendingPlanRewards <= 0 || room is not CombatRoom) return false;
+        for (int i = 0; i < _pendingPlanRewards; i++)
+        {
+            rewards.Add(new PlanReward(player));
+        }
+        return true;
+    }
+
+    public int PendingPlanRewards => _pendingPlanRewards;
+    public void RestorePendingPlanRewards(int count) => _pendingPlanRewards = count;
 
     // ===== 旧乡晶尘：失去后进入新一层回到手上 =====
     private readonly List<ModelId> _pendingReturns = new List<ModelId>();
