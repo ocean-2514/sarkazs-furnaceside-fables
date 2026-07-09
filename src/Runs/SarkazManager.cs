@@ -18,6 +18,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 using Skz.Ocean.Commands;
 using Skz.Ocean.Entities.Players;
 using Skz.Ocean.Model;
+using Skz.Ocean.Model.Acts;
 using Skz.Ocean.Rewards;
 using MegaCrit.Sts2.Core.Entities.RestSite;
 using Skz.Ocean.Entities.RestSite;
@@ -133,7 +134,7 @@ public class SarkazManager  //for one player
         };
         if (!grant) return false;
 
-        rewards.Add(new ThoughtReward(_player));
+        rewards.Add(new ThoughtReward(_player, room.RoomType));
         return true;
     }
 
@@ -270,4 +271,100 @@ public class SarkazManager  //for one player
 
     public IReadOnlyList<ModelId> PendingReturns => _pendingReturns;
     public void RestorePendingReturn(ModelId id) => _pendingReturns.Add(id);
+
+    // ===== 诡谲断章：每层地图后半段钉 1(概率 2)个固定事件节点 =====
+    // 地图生成后选点记坐标(ModifyGeneratedMapLate)；进点时对该坐标强制事件房型 +
+    // 强制 EnterBizarreFragment 事件(LanternKey 同款组合)。坐标持久化到侧存档。
+    public const float SecondFragmentChance = 0.25f;
+
+    // actIndex → 该层的固定事件节点坐标（一般 1 个，概率 2 个）
+    private readonly Dictionary<int, List<MapCoord>> _fragmentCoords = new Dictionary<int, List<MapCoord>>();
+
+    public bool IsFragmentNode(int actIndex, MapCoord? coord) =>
+        coord.HasValue
+        && _fragmentCoords.TryGetValue(actIndex, out List<MapCoord> list)
+        && list.Contains(coord.Value);
+
+    // 地图生成后调用。同一层只掷一次（读档/回程用快照重建地图时不重掷，坐标仍有效）。
+    public void PlaceFragmentNodes(IRunState runState, ActMap map, int actIndex)
+    {
+        if (runState == null || map == null) return;
+        if (actIndex < 0 || actIndex >= runState.Acts.Count) return;
+        if (runState.Acts[actIndex] is BizarreFragment) return; // 子层里不再放入口
+        if (_fragmentCoords.ContainsKey(actIndex))
+        {
+            PinFragmentNodes(map, actIndex);
+            return;
+        }
+
+        Rng rng = (runState as RunState)?.Rng.Niche;
+        if (rng == null) return;
+
+        List<MapPoint> points = map.GetAllMapPoints().ToList();
+        if (points.Count == 0) return;
+        int maxRow = points.Max(p => p.coord.row);
+
+        // 后半段（不会过早出现）的可改 Unknown 节点
+        List<MapPoint> candidates = points
+            .Where(p => p.PointType == MapPointType.Unknown
+                        && p.CanBeModified
+                        && p.coord.row >= (maxRow + 1) / 2)
+            .ToList();
+        if (candidates.Count == 0) return;
+
+        List<MapCoord> chosen = new List<MapCoord>();
+
+        MapPoint first = candidates[rng.NextInt(candidates.Count)];
+        chosen.Add(first.coord);
+        candidates.Remove(first);
+
+        if (candidates.Count > 0 && rng.NextFloat() < SecondFragmentChance)
+        {
+            MapPoint second = candidates[rng.NextInt(candidates.Count)];
+            chosen.Add(second.coord);
+        }
+
+        
+
+        _fragmentCoords[actIndex] = chosen;
+        PinFragmentNodes(map, actIndex);
+    }
+
+    // 锁住选中的节点：CanBeModified=false 让节点刷新(我们自己的机制)和原版地图修改都跳过它。
+    private void PinFragmentNodes(ActMap map, int actIndex)
+    {
+        if (!_fragmentCoords.TryGetValue(actIndex, out List<MapCoord> coords)) return;
+        foreach (MapCoord coord in coords)
+        {
+            if (map.HasPoint(coord))
+            {
+                map.GetPoint(coord).CanBeModified = false;
+            }
+        }
+    }
+
+    // 地图(重)生成后给固定节点挂任务图标（SpoilsMap 同款）。MapPoint 每次生成都是新实例，需重挂。
+    public void MarkFragmentNodes(ActMap map, int actIndex, AbstractModel questSource)
+    {
+        if (!_fragmentCoords.TryGetValue(actIndex, out List<MapCoord> coords)) return;
+        foreach (MapCoord coord in coords)
+        {
+            if (map.HasPoint(coord))
+            {
+                map.GetPoint(coord)?.AddQuest(questSource);
+            }
+        }
+    }
+
+    // 持久化
+    public IReadOnlyDictionary<int, List<MapCoord>> FragmentCoords => _fragmentCoords;
+    public void RestoreFragmentCoord(int actIndex, MapCoord coord)
+    {
+        if (!_fragmentCoords.TryGetValue(actIndex, out List<MapCoord> list))
+        {
+            list = new List<MapCoord>();
+            _fragmentCoords[actIndex] = list;
+        }
+        if (!list.Contains(coord)) list.Add(coord);
+    }
 }

@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Rewards;
+using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.TestSupport;
 using Skz.Ocean.Commands;
 using Skz.Ocean.Factories;
@@ -21,8 +22,12 @@ public class ThoughtReward : Reward
 {
     protected ThoughtModel? _thought;
 
-    public ThoughtReward(Player player) : base(player)
+    // 掷稀有度用：普通/精英/Boss 掉率不同（见 ThoughtFactory.RollThoughtRarity）。
+    private readonly RoomType _roomType;
+
+    public ThoughtReward(Player player, RoomType roomType = RoomType.Monster) : base(player)
     {
+        _roomType = roomType;
     }
 
     // 仅序列化路径会用到；本奖励永不序列化，取一个现有枚举值占位即可。
@@ -43,7 +48,7 @@ public class ThoughtReward : Reward
 
     public override void Populate()
     {
-        _thought ??= ThoughtFactory.CreateRandomThought(Player, _rngOverride ?? Player.PlayerRng.Rewards);
+        _thought ??= ThoughtFactory.CreateRandomThought(Player, _rngOverride ?? Player.PlayerRng.Rewards, _roomType);
     }
 
     public override Control? CreateIcon()

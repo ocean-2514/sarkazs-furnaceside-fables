@@ -1,2 +1,28 @@
 {
+    "ENTER_BIZARRE_FRAGMENT.title": "带诉说的故事",
+    "ENTER_BIZARRE_FRAGMENT.pages.INITIAL.description": "你注意到了卡兹戴尔角落里的一条裂隙，一个不成熟的想法催生了它，却又没能使之完满。看着裂隙中展现出的景象，你决定——",
+    "ENTER_BIZARRE_FRAGMENT.pages.INITIAL.options.ENTER_FRAGMENT.title": "用构想补足缺陷",
+    "ENTER_BIZARRE_FRAGMENT.pages.INITIAL.options.ENTER_FRAGMENT.description": "消耗[red]2[/red]缕构想，进入诡谲断章",
+    "ENTER_BIZARRE_FRAGMENT.pages.INITIAL.options.LEAVE.title": "将它吸纳入思维",
+    "ENTER_BIZARRE_FRAGMENT.pages.INITIAL.options.LEAVE.description": "无法结果的斜枝，只好成为其他故事的养料（获得[blue]1[/blue]缕构想）",
+    "ENTER_BIZARRE_FRAGMENT.pages.INITIAL.options.LOCKED.title": "锁定",
+    "ENTER_BIZARRE_FRAGMENT.pages.INITIAL.options.LOCKED.description": "需要[blue]2[/blue]缕构想",
+    "ENTER_BIZARRE_FRAGMENT.pages.EXIT.description": "裂隙消失了，在你的思维中留下了一些零碎的认知。",
+    
+    "EXIT_BIZARRE_FRAGMENT.title": "未完成的故事",
+    "EXIT_BIZARRE_FRAGMENT.pages.INITIAL.description": "你走到裂隙的尽头，但仍未看见故事的结局，你只有继续前进",
+    "EXIT_BIZARRE_FRAGMENT.pages.INITIAL.options.EXIT_FRAGMENT.title": "离开",
+    "EXIT_BIZARRE_FRAGMENT.pages.INITIAL.options.EXIT_FRAGMENT.description": "离开诡谲断章，继续你的冒险",
+    "EXIT_BIZARRE_FRAGMENT.pages.EXIT.description": "裂隙消失了，在你的思维中留下了一些零碎的认知。",
+
+    "ENTER_MY_ACT.title": "进入诡谲断章",
+    "ENTER_MY_ACT.pages.INITIAL.description": "你遇到了一个神秘的事件。你感觉到一股强大的力量在考验着你。",
+    "ENTER_MY_ACT.pages.INITIAL.options.ENTER_MY_ACT.title": "前进",
+    "ENTER_MY_ACT.pages.INITIAL.options.ENTER_MY_ACT.description": "进入诡谲断章，体验全新的冒险。",
+    "ENTER_MY_ACT.pages.EXIT.description": "你离开了事件，继续前行。",
+    "EXIT_MY_ACT.title": "离开诡谲断章",
+    "EXIT_MY_ACT.pages.INITIAL.description": "你遇到了一个神秘的事件。你感觉到一股强大的力量在考验着你。",
+    "EXIT_MY_ACT.pages.INITIAL.options.EXIT_MY_ACT.title": "前进",
+    "EXIT_MY_ACT.pages.INITIAL.options.EXIT_MY_ACT.description": "离开诡谲断章，继续你的冒险。",
+    "EXIT_MY_ACT.pages.EXIT.description": "你离开了事件，继续前行。"
 }

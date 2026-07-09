@@ -40,6 +40,8 @@ public static class SarkazPlayerLoadPatch
     {
         try
         {
+            // 换局/读档时清掉诡谲断章的"来源 act"缓存（会按新 run 的书签懒加载）。
+            MapDetour.ClearSourceActCache();
             __result.EnsureSarkazManager();
             SarkazSaveIO.RestoreToPlayer(__result);
         }

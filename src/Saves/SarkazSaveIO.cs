@@ -88,6 +88,23 @@ public static class SarkazSaveIO
                 pdict["pending_gold_multiplier"] = mgr.PendingGoldMultiplier;
             }
 
+            // 诡谲断章固定事件节点坐标（按层）。地图重建(读档/回程)时靠它识别节点，不重掷。
+            if (mgr != null && mgr.FragmentCoords.Count > 0)
+            {
+                var frags = new Godot.Collections.Array();
+                foreach (var kv in mgr.FragmentCoords)
+                {
+                    foreach (MapCoord c in kv.Value)
+                    {
+                        frags.Add(new Godot.Collections.Dictionary
+                        {
+                            { "act", kv.Key }, { "col", c.col }, { "row", c.row },
+                        });
+                    }
+                }
+                pdict["fragment_coords"] = frags;
+            }
+
             players.Add(pdict);
         }
 
@@ -174,6 +191,20 @@ public static class SarkazSaveIO
             if (pd.ContainsKey("pending_gold_multiplier"))
             {
                 player.GetSarkazManager()?.RestorePendingGoldMultiplier(pd["pending_gold_multiplier"].AsSingle());
+            }
+
+            if (pd.ContainsKey("fragment_coords"))
+            {
+                SarkazManagerModel mgr3 = player.GetSarkazManager();
+                if (mgr3 != null)
+                {
+                    foreach (Variant fv in pd["fragment_coords"].AsGodotArray())
+                    {
+                        Godot.Collections.Dictionary fd = fv.AsGodotDictionary();
+                        mgr3.RestoreFragmentCoord(fd["act"].AsInt32(),
+                            new MapCoord(fd["col"].AsInt32(), fd["row"].AsInt32()));
+                    }
+                }
             }
             return true;
         }

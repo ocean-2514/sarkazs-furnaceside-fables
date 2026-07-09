@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Random;
+using MegaCrit.Sts2.Core.Rooms;
 using Skz.Ocean.Entities.Thoughts;
 using Skz.Ocean.Helper;
 using Skz.Ocean.Model;
@@ -11,27 +12,44 @@ namespace Skz.Ocean.Factories;
 // 仿原版 RelicFactory：决定战斗奖励里给哪个思绪。
 public static class ThoughtFactory
 {
-    // 按权重掷出稀有度（与原版遗物一致：普通 50% / 罕见 33% / 稀有 17%）。
-    public static ThoughtRarity RollThoughtRarity(Rng rng)
+    // 按房型掷稀有度(Common/Uncommon/Rare)：
+    // 普通 50/33/17（与原版遗物一致），精英 20/50/30，Boss 0/50/50。
+    public static ThoughtRarity RollThoughtRarity(Rng rng, RoomType roomType = RoomType.Monster)
     {
         float r = rng.NextFloat();
-        if (r < 0.50f) return ThoughtRarity.Common;
-        if (r < 0.83f) return ThoughtRarity.Uncommon;
-        return ThoughtRarity.Rare;
+        switch (roomType)
+        {
+            case RoomType.Elite:
+                if (r < 0.20f) return ThoughtRarity.Common;
+                if (r < 0.70f) return ThoughtRarity.Uncommon;
+                return ThoughtRarity.Rare;
+            case RoomType.Boss:
+                if (r < 0.50f) return ThoughtRarity.Uncommon;
+                return ThoughtRarity.Rare;
+            default:
+                if (r < 0.50f) return ThoughtRarity.Common;
+                if (r < 0.83f) return ThoughtRarity.Uncommon;
+                return ThoughtRarity.Rare;
+        }
     }
 
     // 战斗奖励池：Common/Uncommon/Rare，且排除构想(Plan)。
-    // 先按掷出的稀有度选；该稀有度没有候选时退回整个奖励池。返回可变克隆；池空返回 null。
-    public static ThoughtModel CreateRandomThought(Player player, Rng rng)
+    // 先 50/50 掷类型(灵感/遗愿)，再按房型掷稀有度；
+    // 该类型没有该稀有度时退回该类型全稀有度（保住 50/50 类型分布），类型池也空才退回整个奖励池。
+    // 返回可变克隆；池空返回 null。
+    public static ThoughtModel CreateRandomThought(Player player, Rng rng, RoomType roomType = RoomType.Monster)
     {
-        ThoughtRarity rarity = RollThoughtRarity(rng);
+        ThoughtRarity rarity = RollThoughtRarity(rng, roomType);
+        ThoughtType type = rng.NextFloat() < 0.5f ? ThoughtType.Inspirer : ThoughtType.Linger;
 
         List<ThoughtModel> rewardable = SarkazHelper.GetAllThoughts()
             .Where(t => t.ThoughtType != ThoughtType.Plan && IsRewardRarity(t.ThoughtRarity))
             .ToList();
         if (rewardable.Count == 0) return null;
 
-        List<ThoughtModel> pool = rewardable.Where(t => t.ThoughtRarity == rarity).ToList();
+        List<ThoughtModel> typed = rewardable.Where(t => t.ThoughtType == type).ToList();
+        List<ThoughtModel> pool = typed.Where(t => t.ThoughtRarity == rarity).ToList();
+        if (pool.Count == 0) pool = typed;
         if (pool.Count == 0) pool = rewardable;
 
         return pool[rng.NextInt(pool.Count)].ToMutable();

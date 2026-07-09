@@ -10,8 +10,11 @@ using MegaCrit.Sts2.Core.Map;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Rewards;
 using MegaCrit.Sts2.Core.Rooms;
+using MegaCrit.Sts2.Core.Runs;
 using MegaCrit.Sts2.Core.ValueProps;
 using Skz.Ocean.Entities.Players;
+using Skz.Ocean.Map;
+using Skz.Ocean.Model.Acts;
 using Skz.Ocean.Runs;
 
 namespace Skz.Ocean.Model;
@@ -107,4 +110,71 @@ public class SarkazManagerModel : AbstractModel, ISarkazModel
     public IReadOnlyDictionary<MapCoord, int> RefreshCounts =>
         _manager?.RefreshCounts ?? new Dictionary<MapCoord, int>();
     public void RestoreRefreshCount(MapCoord coord, int count) => _manager?.RestoreRefreshCount(coord, count);
+
+    // ===== 诡谲断章：每层地图钉 1(概率 2)个固定事件节点 =====
+    // 子层用固定结构地图（GoldenCompass 同款 hook；只在全新生成时触发，
+    // 读档/回程走 SavedActMap 分支不经这里，随机布局天然持久化）。
+    public override ActMap ModifyGeneratedMap(IRunState runState, ActMap map, int actIndex)
+    {
+        if (actIndex >= 0 && actIndex < runState.Acts.Count && runState.Acts[actIndex] is BizarreFragment)
+        {
+            return new BizarreFragmentActMap(runState);
+        }
+        return map;
+    }
+
+    // 生成后选点（读档/回程重建地图时不重掷）。
+    public override ActMap ModifyGeneratedMapLate(IRunState runState, ActMap map, int actIndex)
+    {
+        _manager?.PlaceFragmentNodes(runState, map, actIndex);
+        return map;
+    }
+
+    // 每次地图(重)生成后给固定节点挂任务图标（MapPoint 是新实例，需重挂）。
+    public override Task AfterMapGenerated(ActMap map, int actIndex)
+    {
+        _manager?.MarkFragmentNodes(map, actIndex, this);
+        return Task.CompletedTask;
+    }
+
+    // 走上固定节点(Unknown)时强制事件房型 + 强制进入事件（LanternKey 同款组合）。
+    // 子层内则对所有 Unknown（只有出口节点）强制事件 + ExitBizarreFragment
+    // （子层 RoomSet 事件池被 GenerateRooms 混入了共享事件，必须在这里钉死）。
+    public override IReadOnlySet<RoomType> ModifyUnknownMapPointRoomTypes(IReadOnlySet<RoomType> roomTypes)
+    {
+        if (IsOnFragmentNode() || InFragmentAct())
+        {
+            return new HashSet<RoomType> { RoomType.Event };
+        }
+        return roomTypes;
+    }
+
+    public override EventModel ModifyNextEvent(EventModel currentEvent)
+    {
+        if (InFragmentAct())
+        {
+            return ModelDb.Event<Events.ExitBizarreFragment>();
+        }
+        if (IsOnFragmentNode())
+        {
+            return ModelDb.Event<Events.EnterBizarreFragment>();
+        }
+        return currentEvent;
+    }
+
+    private bool IsOnFragmentNode()
+    {
+        if (_manager == null || _owner?.RunState == null) return false;
+        return _manager.IsFragmentNode(_owner.RunState.CurrentActIndex, _owner.RunState.CurrentMapCoord);
+    }
+
+    private bool InFragmentAct()
+    {
+        return _owner?.RunState?.Act is BizarreFragment;
+    }
+
+    // 持久化
+    public IReadOnlyDictionary<int, List<MapCoord>> FragmentCoords =>
+        _manager?.FragmentCoords ?? new Dictionary<int, List<MapCoord>>();
+    public void RestoreFragmentCoord(int actIndex, MapCoord coord) => _manager?.RestoreFragmentCoord(actIndex, coord);
 }
