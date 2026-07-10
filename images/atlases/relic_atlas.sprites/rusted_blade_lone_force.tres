@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://dts36ej1bseag"]
+
+[ext_resource type="Texture2D" uid="uid://7655543a1b2240f2858bfdc5054c4f47" path="res://images/relics/rusted_blade_lone_force.png" id="1_7f801f6b"]
+
+[resource]
+atlas = ExtResource("1_7f801f6b")

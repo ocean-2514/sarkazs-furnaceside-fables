@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://c7xyhr2sd6brq"]
+
+[ext_resource type="Texture2D" uid="uid://e9beed37d3764034873bdff1e1519939" path="res://images/relics/wrath_of_siracusans.png" id="1_ae01eea4"]
+
+[resource]
+atlas = ExtResource("1_ae01eea4")

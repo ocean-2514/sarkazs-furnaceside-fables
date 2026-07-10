@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://drlmijb5w6s7i"]
+
+[ext_resource type="Texture2D" uid="uid://3d15abcd8d47470185d9a135d8e7f892" path="res://images/relics/cursed_counterbeast.png" id="1_172af3e3"]
+
+[resource]
+atlas = ExtResource("1_172af3e3")

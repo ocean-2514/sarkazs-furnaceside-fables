@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://dd7jl5suxxlnd"]
+
+[ext_resource type="Texture2D" uid="uid://db1476dffe6041718d372bcc6b35deda" path="res://images/relics/victorian_scrap_medal.png" id="1_81c6fc0a"]
+
+[resource]
+atlas = ExtResource("1_81c6fc0a")

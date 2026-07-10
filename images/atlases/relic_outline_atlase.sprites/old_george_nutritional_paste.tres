@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://3ioltsusbblv"]
+
+[ext_resource type="Texture2D" uid="uid://cce4c1870ca845c8b6c79e25e06e4907" path="res://images/relics/old_george_nutritional_paste.png" id="1_9a21ee63"]
+
+[resource]
+atlas = ExtResource("1_9a21ee63")

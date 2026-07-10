@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://dnhv71shkehq1"]
+
+[ext_resource type="Texture2D" uid="uid://4c91ebb45cd74953bf0ed32e65291e3f" path="res://images/relics/originium_iris.png" id="1_791ee5e2"]
+
+[resource]
+atlas = ExtResource("1_791ee5e2")

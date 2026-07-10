@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://h1c8ken2i50s"]
+
+[ext_resource type="Texture2D" uid="uid://dxjjlr3jg3upf" path="res://images/powers/hand_of_fireworks_power.png" id="1_2c469"]
+
+[resource]
+atlas = ExtResource("1_2c469")

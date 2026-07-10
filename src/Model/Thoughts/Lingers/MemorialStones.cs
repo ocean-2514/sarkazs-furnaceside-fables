@@ -1,5 +1,6 @@
 using System;
 using System.Threading.Tasks;
+using Skz.Ocean.Entities.Players;
 using Skz.Ocean.Entities.Thoughts;
 
 namespace Skz.Ocean.Model.Thoughts.Lingers;
@@ -14,6 +15,7 @@ public sealed class MemorialStones : ThoughtModel
 
     public override Task AfterActEntered()
     {
+        if (Owner.GetSarkazManager().PreviousActWasFragment) return Task.CompletedTask;
         Rarity = Math.Min(4, Rarity + 2);
         return Task.CompletedTask;
     }

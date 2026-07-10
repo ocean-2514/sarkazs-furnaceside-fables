@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://dajpq3owxdc7n"]
+
+[ext_resource type="Texture2D" uid="uid://0f1e7da93bab4f31bcaf9fd4a394fc7b" path="res://images/relics/anchor_for_five_seconds_ago.png" id="1_ddfc02ec"]
+
+[resource]
+atlas = ExtResource("1_ddfc02ec")

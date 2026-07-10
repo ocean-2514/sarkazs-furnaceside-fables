@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://nx8jur2h6qhp"]
+
+[ext_resource type="Texture2D" uid="uid://ad7ec906a3b34c7d91dcdcdd550c82ec" path="res://images/relics/damaged_revolver_cylinder.png" id="1_f6e53ca7"]
+
+[resource]
+atlas = ExtResource("1_f6e53ca7")

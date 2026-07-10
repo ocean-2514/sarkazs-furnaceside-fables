@@ -64,6 +64,15 @@ public static class ThoughtFactory
         return pool[rng.NextInt(pool.Count)].ToMutable();
     }
 
+    public static ThoughtModel CreateRandomLinger(Player player, Rng rng)
+    {
+        List<ThoughtModel> pool = SarkazHelper.GetAllThoughts()
+            .Where(t => t.ThoughtType == ThoughtType.Linger && IsRewardRarity(t.ThoughtRarity))
+            .ToList();
+        if (pool.Count == 0) return null;
+        return pool[rng.NextInt(pool.Count)].ToMutable();
+    }
+
     private static bool IsRewardRarity(ThoughtRarity r) =>
         r == ThoughtRarity.Common || r == ThoughtRarity.Uncommon || r == ThoughtRarity.Rare;
 }

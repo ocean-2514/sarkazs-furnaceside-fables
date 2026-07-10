@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://dqbthlfqan17k"]
+
+[ext_resource type="Texture2D" uid="uid://e1317895707b43b19211129d797bf635" path="res://images/relics/night_whispers_in_the_forest.png" id="1_9a1cc863"]
+
+[resource]
+atlas = ExtResource("1_9a1cc863")

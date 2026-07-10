@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://chrar5uhgflvg"]
+
+[ext_resource type="Texture2D" uid="uid://cdaaf8964014461591c7e6c0413e23e6" path="res://images/relics/four_leaf_clover_fossil.png" id="1_8ea1345f"]
+
+[resource]
+atlas = ExtResource("1_8ea1345f")

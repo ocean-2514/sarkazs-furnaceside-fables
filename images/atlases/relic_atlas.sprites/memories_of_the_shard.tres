@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://widut0jeybvf"]
+
+[ext_resource type="Texture2D" uid="uid://3bf1dbfffb8747cb8eed0ee7dd0c771b" path="res://images/relics/memories_of_the_shard.png" id="1_43e90d10"]
+
+[resource]
+atlas = ExtResource("1_43e90d10")

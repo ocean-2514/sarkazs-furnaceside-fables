@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://4lh8y7tek44i"]
+
+[ext_resource type="Texture2D" uid="uid://cbtwr28x1ud8" path="res://images/powers/actors_perfume_power.png" id="1_imilb"]
+
+[resource]
+atlas = ExtResource("1_imilb")

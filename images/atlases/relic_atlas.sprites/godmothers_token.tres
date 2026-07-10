@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://b3n2k8bajsl20"]
+
+[ext_resource type="Texture2D" uid="uid://cda1a4d6a88749a792bbdf2721b27dbf" path="res://images/relics/godmothers_token.png" id="1_ba672cd2"]
+
+[resource]
+atlas = ExtResource("1_ba672cd2")

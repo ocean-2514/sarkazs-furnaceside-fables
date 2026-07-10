@@ -71,16 +71,9 @@ public static class BizarreFragmentTreasureRoomPatch
         {
             return; // 非子层的越界是真 bug，让原版异常暴露出来
         }
-        ActModel source = MapDetour.GetSourceAct();
-        int sourceIndex = -1;
-        for (int i = 0; i < state.Acts.Count; i++)
-        {
-            if (ReferenceEquals(state.Acts[i], source))
-            {
-                sourceIndex = i;
-                break;
-            }
-        }
+        
+        int sourceIndex = MapDetour.GetSourceAct().Index;
+
         actIndex = (sourceIndex >= 0 && sourceIndex <= 2) ? sourceIndex : 0;
     }
 }
@@ -105,6 +98,10 @@ public static class BizarreFragmentHideBossPatch
 // NRestSiteCharacter._Ready 按 CurrentActIndex(只认 0/1/2)选 Spine 动画，
 // 子层索引 3 会抛 "Unexpected act"。_Ready 执行期间把索引临时换成来源层索引——
 // 既不崩，人物围火动画也自动跟来源层配套。
+//
+// 关键：必须绕过 CurrentActIndex 的 setter 直接写后备字段 _currentActIndex！
+// setter 在值变化时会清空 _visitedMapCoords、重置 ActFloor/NextRoomId（换层语义），
+// 走 setter 会把子层已走的路径抹掉，导致进完火堆后地图上永远只有起点可走。
 [HarmonyPatch(typeof(NRestSiteCharacter), "_Ready")]
 public static class BizarreFragmentRestSiteCharacterPatch
 {
@@ -120,16 +117,14 @@ public static class BizarreFragmentRestSiteCharacterPatch
         int sourceIndex = 0;
         for (int i = 0; i < state.Acts.Count; i++)
         {
-            if (ReferenceEquals(state.Acts[i], source))
-            {
-                sourceIndex = i;
-                break;
-            }
+            sourceIndex = MapDetour.GetSourceAct().Index;
         }
         __state = state.CurrentActIndex;
-        state.CurrentActIndex = sourceIndex >= 0 && sourceIndex <= 2 ? sourceIndex : 0;
+        Traverse.Create(state).Field("_currentActIndex")
+            .SetValue(sourceIndex >= 0 && sourceIndex <= 2 ? sourceIndex : 0);
     }
 
+    // Finalizer：无论 _Ready 正常结束还是抛异常都恢复原值
     public static void Finalizer(int __state)
     {
         if (__state < 0)
@@ -139,7 +134,7 @@ public static class BizarreFragmentRestSiteCharacterPatch
         RunState state = Traverse.Create(RunManager.Instance).Property("State").GetValue<RunState>();
         if (state != null)
         {
-            state.CurrentActIndex = __state;
+            Traverse.Create(state).Field("_currentActIndex").SetValue(__state);
         }
     }
 }

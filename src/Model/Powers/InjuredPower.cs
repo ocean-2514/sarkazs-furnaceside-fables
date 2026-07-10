@@ -6,7 +6,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace Skz.Ocean.Model.Powers;
 
-public sealed class InjuredPower : PowerModel
+public sealed class InjuredPower : PowerModel, ISarkazModel
 {
     public override PowerType Type => PowerType.Debuff;
 

@@ -24,6 +24,11 @@ using MegaCrit.Sts2.Core.Entities.RestSite;
 using Skz.Ocean.Entities.RestSite;
 using MegaCrit.Sts2.Core.Logging;
 using Skz.Ocean.Model.Monsters;
+using Skz.Ocean.Hooks;
+using Skz.Ocean.Model.Thoughts.Plans;
+using Skz.Ocean.Model.Thoughts.Lingers;
+using MegaCrit.Sts2.Core.Factories;
+using MegaCrit.Sts2.Core.Entities.Relics;
 
 namespace Skz.Ocean.Runs;
 
@@ -65,6 +70,19 @@ public class SarkazManager  //for one player
         _pendingPlanRewards = 0;
         await HandleToil();
         HandleHorizontalTravelCost();
+        if (room is RestSiteRoom)
+        {
+            // _player.GainShield(10);
+            await ThoughtCmd.Obtain<Plan>(_player);
+        }
+        else if (room is TreasureRoom)
+        {
+            RelicModel relic = RelicFactory.PullNextRelicFromFront(_player, RelicRarity.Common);
+            if (relic != null)
+            {
+                await RelicCmd.Obtain(relic.ToMutable(), _player);
+            }
+        }
     }
 
     private async Task HandleToil()
@@ -113,9 +131,9 @@ public class SarkazManager  //for one player
     {
         _player.IncreaseToilLimit(room.RoomType switch
         {
-            RoomType.Monster => 1,
-            RoomType.Elite => 2,
-            RoomType.Boss => 3,
+            RoomType.Monster => 3,
+            RoomType.Elite => 6,
+            RoomType.Boss => 9,
             _ => 0
         });
     }
@@ -167,9 +185,11 @@ public class SarkazManager  //for one player
         _refreshCounts.TryGetValue(coord, out int c) ? c : 0;
 
     // 非 UI 条件：节点可改 + 还有刷新次数 + 至少 1 个构想。
+    // 诡谲断章内的 Unknown 节点（唯一的 Unknown = 出口）硬性禁刷——刷掉出口就回不去了。
     public bool CanRefresh(MapPoint point) =>
         point != null
         && point.CanBeModified
+        && !(_player.RunState?.Act is BizarreFragment && point.PointType == MapPointType.Unknown)
         && GetRefreshCount(point.coord) < MaxRefreshCount
         && _player.GetPlanCount() >= 1;
 
@@ -179,17 +199,19 @@ public class SarkazManager  //for one player
         if (!CanRefresh(point)) return false;
 
         Rng rng = (_player.RunState as RunState)?.Rng.Niche;
-        point.PointType = PickNewType(point.PointType, rng);
+        point.PointType = PickNewType(point.PointType, rng, _player);
+        point.PointType = SarkazHook.ModifyRefreshedPointType(_player.RunState, point.PointType);
         _refreshCounts[point.coord] = GetRefreshCount(point.coord) + 1;
         _player.RemovePlans(1); // 会触发 PlayerThoughtChanged → 所有刷新按钮刷新可见性
         return true;
     }
 
-    private static MapPointType PickNewType(MapPointType current, Rng rng)
+    private static MapPointType PickNewType(MapPointType current, Rng rng, Player player)
     {
         List<MapPointType> candidates = new List<MapPointType>(_refreshPool.Length);
         foreach (MapPointType t in _refreshPool)
         {
+            if (player.RunState.Act is BizarreFragment && t == MapPointType.Unknown) continue;
             if (t != current) candidates.Add(t);
         }
         if (candidates.Count == 0) return current;
@@ -227,6 +249,12 @@ public class SarkazManager  //for one player
         rewards.Add(new GoldReward(bonus, player));
         return true;
     }
+
+    // ===== 诡谲断章行程标记 =====
+    // "上一次 AfterActEntered 进入的是否是诡谲断章"。持久化（侧存档）。
+    // 从子幕返回真实幕时不结算换幕效果（GrantReturns/第三幕诅咒遗物等）；
+    // 真实幕 → 子幕算进入新的一层，正常结算。
+    public bool PreviousActWasFragment { get; set; }
 
     // ===== 年代之刺：被玩家击杀后战斗奖励追加构想 =====
     // RewardPlanPower.BeforeDeath 时 ++，发奖(TryModifyRewards)时消费。

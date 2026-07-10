@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://bx03ssvt674m0"]
+
+[ext_resource type="Texture2D" uid="uid://b4c68292c43347d18669202d3ee5b67f" path="res://images/relics/emperors_favor.png" id="1_8f912fee"]
+
+[resource]
+atlas = ExtResource("1_8f912fee")

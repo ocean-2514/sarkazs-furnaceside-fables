@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://jebwx8yeolx3"]
+
+[ext_resource type="Texture2D" uid="uid://76b5e643a9ed4490b25de1db6c460d83" path="res://images/relics/sea_terror_jerky.png" id="1_9f17f926"]
+
+[resource]
+atlas = ExtResource("1_9f17f926")

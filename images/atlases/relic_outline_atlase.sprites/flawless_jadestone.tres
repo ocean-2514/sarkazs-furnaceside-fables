@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://xtvt8jgy24g2"]
+
+[ext_resource type="Texture2D" uid="uid://bf2f1c060ca44a808f5bc22ff65bc0e4" path="res://images/relics/flawless_jadestone.png" id="1_0cd4b5df"]
+
+[resource]
+atlas = ExtResource("1_0cd4b5df")

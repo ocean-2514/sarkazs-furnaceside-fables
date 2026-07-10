@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://c2bljxm1iyynr"]
+
+[ext_resource type="Texture2D" uid="uid://9f4c2b194d884ad183c65aa3b6cce1a4" path="res://images/relics/coin_operated_toy.png" id="1_ed79dae8"]
+
+[resource]
+atlas = ExtResource("1_ed79dae8")

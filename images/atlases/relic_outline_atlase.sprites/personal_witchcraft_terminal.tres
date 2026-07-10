@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://ha2w0da8xhct"]
+
+[ext_resource type="Texture2D" uid="uid://44df08e577794f94b7a207abc6d697c2" path="res://images/relics/personal_witchcraft_terminal.png" id="1_ebb4bb73"]
+
+[resource]
+atlas = ExtResource("1_ebb4bb73")

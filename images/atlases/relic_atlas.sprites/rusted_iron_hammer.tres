@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://btj7lac7fo7nc"]
+
+[ext_resource type="Texture2D" uid="uid://4fd74adb305c4ee384ecca83b8a5c3df" path="res://images/relics/rusted_iron_hammer.png" id="1_333f0616"]
+
+[resource]
+atlas = ExtResource("1_333f0616")

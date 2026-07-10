@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://dfpvf5u2voc4y"]
+
+[ext_resource type="Texture2D" uid="uid://737325fb81104c469a0c002dd39b1890" path="res://images/relics/holy_citys_embrace.png" id="1_2eb56c8f"]
+
+[resource]
+atlas = ExtResource("1_2eb56c8f")

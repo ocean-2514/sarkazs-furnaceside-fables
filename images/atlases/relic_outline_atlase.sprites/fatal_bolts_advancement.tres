@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://n4yfhid63om4"]
+
+[ext_resource type="Texture2D" uid="uid://ea51dbad9d0a4c2392389b569321d991" path="res://images/relics/fatal_bolts_advancement.png" id="1_a21a5fe7"]
+
+[resource]
+atlas = ExtResource("1_a21a5fe7")

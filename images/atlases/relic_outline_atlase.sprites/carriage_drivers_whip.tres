@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://brydnmbuspsnl"]
+
+[ext_resource type="Texture2D" uid="uid://5d52cca2499843ae84790c8081c0f846" path="res://images/relics/carriage_drivers_whip.png" id="1_00b1d5b6"]
+
+[resource]
+atlas = ExtResource("1_00b1d5b6")

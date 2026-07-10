@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://b25fdacu1swqm"]
+
+[ext_resource type="Texture2D" uid="uid://26c6bdc6b93e4b0bb0ccdcce6c040803" path="res://images/relics/chivalric_commandments_new_edition.png" id="1_7b39fb8b"]
+
+[resource]
+atlas = ExtResource("1_7b39fb8b")

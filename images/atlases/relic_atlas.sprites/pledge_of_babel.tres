@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://cudn5xrwcsrm0"]
+
+[ext_resource type="Texture2D" uid="uid://b79138f967c64c6698498face1db73a7" path="res://images/relics/pledge_of_babel.png" id="1_d7ea1fe4"]
+
+[resource]
+atlas = ExtResource("1_d7ea1fe4")

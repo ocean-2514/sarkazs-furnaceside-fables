@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://dkj0147lqxcw7"]
+
+[ext_resource type="Texture2D" uid="uid://a1a9028190b241cf92f415c8892be49e" path="res://images/relics/red_bow_tie.png" id="1_28c16b52"]
+
+[resource]
+atlas = ExtResource("1_28c16b52")

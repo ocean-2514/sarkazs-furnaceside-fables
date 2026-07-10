@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://0txqx50kgwuu"]
+
+[ext_resource type="Texture2D" uid="uid://94aabc98e9cd4853856ebf5e6686f4f6" path="res://images/relics/tranquil_mystery.png" id="1_611083ff"]
+
+[resource]
+atlas = ExtResource("1_611083ff")

@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://dodsduwwvreba"]
+
+[ext_resource type="Texture2D" uid="uid://60f0222746e74fbeaaac52730bcb1151" path="res://images/relics/shard_of_the_untold_kings.png" id="1_28afe129"]
+
+[resource]
+atlas = ExtResource("1_28afe129")

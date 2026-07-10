@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://bh5041vw04kdd"]
+
+[ext_resource type="Texture2D" uid="uid://37e6af392245410bb2e54ba0a351fd86" path="res://images/relics/time_and_light.png" id="1_05fdab94"]
+
+[resource]
+atlas = ExtResource("1_05fdab94")

@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://dq6n5kpey7rc1"]
+
+[ext_resource type="Texture2D" uid="uid://52d867eb23e54f4692fe1c347c3669cf" path="res://images/relics/fissured_restraints.png" id="1_949359f5"]
+
+[resource]
+atlas = ExtResource("1_949359f5")

@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://d1qgft1whxxh4"]
+
+[ext_resource type="Texture2D" uid="uid://99bb87e7531c4484997bd48e4b12bd89" path="res://images/relics/glass_bird.png" id="1_8d7c597a"]
+
+[resource]
+atlas = ExtResource("1_8d7c597a")

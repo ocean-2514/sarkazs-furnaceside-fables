@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://bke0ugyvem45"]
+
+[ext_resource type="Texture2D" uid="uid://673832fc43d64784996ed6128a10492d" path="res://images/relics/doodle_of_hope.png" id="1_5c8b76bb"]
+
+[resource]
+atlas = ExtResource("1_5c8b76bb")

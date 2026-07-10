@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://doqnvar8w845t"]
+
+[ext_resource type="Texture2D" uid="uid://62ba65257e544a7eac7a5b3144a62690" path="res://images/relics/fearless_blade.png" id="1_900e9b41"]
+
+[resource]
+atlas = ExtResource("1_900e9b41")

@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://sad3uavfuv22"]
+
+[ext_resource type="Texture2D" uid="uid://di2u5kmuvgj5v" path="res://images/relics/balorsacas_arrogance.png" id="1_d2399c5d"]
+
+
+[resource]
+atlas = ExtResource("1_d2399c5d")

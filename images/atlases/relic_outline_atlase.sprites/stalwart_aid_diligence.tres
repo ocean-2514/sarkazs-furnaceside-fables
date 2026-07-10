@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://c8b5j3o0fxdt2"]
+
+[ext_resource type="Texture2D" uid="uid://675722a675f44825aedf2407bb04c58b" path="res://images/relics/stalwart_aid_diligence.png" id="1_3655aeeb"]
+
+[resource]
+atlas = ExtResource("1_3655aeeb")

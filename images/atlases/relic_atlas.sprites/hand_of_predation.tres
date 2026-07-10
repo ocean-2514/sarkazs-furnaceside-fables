@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://bdlyekk2mhrd6"]
+
+[ext_resource type="Texture2D" uid="uid://f7dc7d4b649f4ee891952c3f844545e0" path="res://images/relics/hand_of_predation.png" id="1_560f0be9"]
+
+[resource]
+atlas = ExtResource("1_560f0be9")

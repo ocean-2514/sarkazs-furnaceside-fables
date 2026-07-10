@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://gsywfaavwea0"]
+
+[ext_resource type="Texture2D" uid="uid://b384x4gpjn26i" path="res://images/powers/disasters_origin_power.png" id="1_sortf"]
+
+[resource]
+atlas = ExtResource("1_sortf")

@@ -6,9 +6,13 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using HarmonyLib;
+using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Relics;
+using MegaCrit.Sts2.Core.Factories;
 using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Map;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.RelicPools;
 using MegaCrit.Sts2.Core.Nodes.Screens.Map;
 using MegaCrit.Sts2.Core.Runs;
 using MegaCrit.Sts2.Core.Saves;
@@ -161,8 +165,9 @@ public static class MapDetour
         _sourceActCache = null;
     }
 
-    // ── 进入诡谲断章：压返回书签 → 动态追加子层 act → EnterAct。──
-    public static async Task EnterFragment(RunState state)
+    // ── 进入诡谲断章：压返回书签 → 动态追加子层 act → EnterAct →
+    //    随机获得一件"仅在诡谲断章生效"的负面收藏品 + 一件 Rare 遗物。──
+    public static async Task EnterFragment(RunState state, MegaCrit.Sts2.Core.Entities.Players.Player player)
     {
         if (state == null)
         {
@@ -188,6 +193,28 @@ public static class MapDetour
         Traverse.Create(state).Property("Acts").SetValue(acts);
 
         await RunManager.Instance.EnterAct(acts.Count - 1);
+
+        // 进层代价与补偿（在进层完成后发放，遗物动画落在子层界面上）
+        if (player != null)
+        {
+            var rng = player.PlayerRng.Rewards;
+            // 负面收藏品：从 EventRelicPool 里筛"仅在诡谲断章生效"(IFragmentMystery)且未持有的
+            List<RelicModel> mysteries = ModelDb.RelicPool<EventRelicPool>()
+                .GetUnlockedRelics(player.UnlockState)
+                .Where(r => r is Model.Relics.Base.IFragmentMystery
+                            && player.Relics.All(o => o.Id != r.Id))
+                .ToList();
+            if (mysteries.Count > 0)
+            {
+                await RelicCmd.Obtain(rng.NextItem(mysteries).ToMutable(), player);
+            }
+            // 补偿：一件 Rare 遗物
+            RelicModel rare = RelicFactory.PullNextRelicFromFront(player, RelicRarity.Rare);
+            if (rare != null)
+            {
+                await RelicCmd.Obtain(rare.ToMutable(), player);
+            }
+        }
     }
 
     // ── 进入子地图前调用：把"我现在在哪"压栈存盘。必须在 EnterAct 之前调用！──

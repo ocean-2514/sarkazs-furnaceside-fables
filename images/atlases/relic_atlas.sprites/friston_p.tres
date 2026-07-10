@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://worietiy5jgj"]
+
+[ext_resource type="Texture2D" uid="uid://2fc80beb0785436ca303d2a7c39dcbf3" path="res://images/relics/friston_p.png" id="1_caf67b55"]
+
+[resource]
+atlas = ExtResource("1_caf67b55")

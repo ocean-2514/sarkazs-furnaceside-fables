@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://koecbdherjub"]
+
+[ext_resource type="Texture2D" uid="uid://af09e9cafe134d52bd351ce6337867c5" path="res://images/relics/conch_of_divine_whispers.png" id="1_edbbd07f"]
+
+[resource]
+atlas = ExtResource("1_edbbd07f")

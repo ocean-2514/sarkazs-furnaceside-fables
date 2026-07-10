@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://bsx26irx6cm58"]
+
+[ext_resource type="Texture2D" uid="uid://0476860a688f424abdbd0f35eaf2a557" path="res://images/relics/song_to_make_a_tenacious_mind.png" id="1_f0f92bed"]
+
+[resource]
+atlas = ExtResource("1_f0f92bed")

@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://b5kh4l7gks366"]
+
+[ext_resource type="Texture2D" uid="uid://64e12783d7ab4c5aaef8cad48f656fb8" path="res://images/relics/visage_of_crowned_fates.png" id="1_40862891"]
+
+[resource]
+atlas = ExtResource("1_40862891")

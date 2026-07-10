@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://bmwgol7lbnhk3"]
+
+[ext_resource type="Texture2D" uid="uid://469f12c0f14c43698d276f95e3abb494" path="res://images/relics/designers_ruler.png" id="1_45aef390"]
+
+[resource]
+atlas = ExtResource("1_45aef390")

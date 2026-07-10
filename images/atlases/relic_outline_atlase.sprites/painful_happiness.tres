@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://baibw3kk0nhlr"]
+
+[ext_resource type="Texture2D" uid="uid://58c23073fe724f838fa9917e239410d3" path="res://images/relics/painful_happiness.png" id="1_1c8c1bfc"]
+
+[resource]
+atlas = ExtResource("1_1c8c1bfc")

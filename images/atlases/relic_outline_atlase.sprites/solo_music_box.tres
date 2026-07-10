@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://cle1d34x5qmta"]
+
+[ext_resource type="Texture2D" uid="uid://aeabb05c27b246689536c4548524337f" path="res://images/relics/solo_music_box.png" id="1_d82791bf"]
+
+[resource]
+atlas = ExtResource("1_d82791bf")

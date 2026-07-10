@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://cbjyovi0t3pbb"]
+
+[ext_resource type="Texture2D" uid="uid://dbca9b2077b34081b6437ad53b3e4538" path="res://images/relics/necklace_of_the_presence.png" id="1_6e250561"]
+
+[resource]
+atlas = ExtResource("1_6e250561")

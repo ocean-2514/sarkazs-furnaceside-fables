@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://cknij6isri7b4"]
+
+[ext_resource type="Texture2D" uid="uid://1c1cb4ffd6b941ed9202a2993e51c1a0" path="res://images/relics/stone_gargoyle.png" id="1_06bf6c52"]
+
+[resource]
+atlas = ExtResource("1_06bf6c52")

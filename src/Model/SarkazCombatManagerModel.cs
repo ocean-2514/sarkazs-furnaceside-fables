@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.ValueProps;
 using Skz.Ocean.Runs;
 
 namespace Skz.Ocean.Model;
@@ -41,5 +42,20 @@ public class SarkazCombatManagerModel : AbstractModel, ISarkazModel
     public override async Task BeforeSideTurnStart(PlayerChoiceContext choiceContext, CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
     {
         await _manager.BeforeSideTurnStarted(choiceContext, side, combatState);
+    }
+
+    // ===== 完美作战跟踪（遗物经 player.GetCombatManager().WasPerfectCombat 查询）=====
+    public bool WasPerfectCombat => _manager?.WasPerfectCombat ?? false;
+
+    public override Task BeforeCombatStart()
+    {
+        _manager?.OnCombatStart();
+        return Task.CompletedTask;
+    }
+
+    public override Task AfterDamageReceived(PlayerChoiceContext choiceContext, Creature target, DamageResult result, ValueProp props, Creature dealer, CardModel cardSource)
+    {
+        _manager?.OnDamageReceived(target, result, dealer);
+        return Task.CompletedTask;
     }
 }

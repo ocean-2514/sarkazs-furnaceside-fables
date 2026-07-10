@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://d2m0v8h46vh1s"]
+
+[ext_resource type="Texture2D" uid="uid://10b5c6a6687f4b62ba9a8984cae46ec7" path="res://images/relics/gaulish_toponym_origins.png" id="1_a59b7b4c"]
+
+[resource]
+atlas = ExtResource("1_a59b7b4c")

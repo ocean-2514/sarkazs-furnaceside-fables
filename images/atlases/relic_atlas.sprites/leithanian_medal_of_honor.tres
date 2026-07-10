@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://b5ubyysrda61i"]
+
+[ext_resource type="Texture2D" uid="uid://56f32aa96ed74291aa376f9e977c9304" path="res://images/relics/leithanian_medal_of_honor.png" id="1_773762b1"]
+
+[resource]
+atlas = ExtResource("1_773762b1")

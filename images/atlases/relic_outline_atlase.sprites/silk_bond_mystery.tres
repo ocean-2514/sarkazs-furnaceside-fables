@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://bfr0nia1igb7x"]
+
+[ext_resource type="Texture2D" uid="uid://eb69e99e0d44467e987f68f44d0fd4c0" path="res://images/relics/silk_bond_mystery.png" id="1_a7d7c5ca"]
+
+[resource]
+atlas = ExtResource("1_a7d7c5ca")

@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://2dmffj6cmwsn"]
+
+[ext_resource type="Texture2D" uid="uid://ce4cb9160f214217b24631018a7a048e" path="res://images/relics/hand_of_buckler.png" id="1_9e226076"]
+
+[resource]
+atlas = ExtResource("1_9e226076")

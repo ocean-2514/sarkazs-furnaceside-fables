@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://bdfqi5okkc061"]
+
+[ext_resource type="Texture2D" uid="uid://3ab266a30b26403d9905c3aa626b0e8a" path="res://images/relics/second_economic_reform_act.png" id="1_62be9cfa"]
+
+[resource]
+atlas = ExtResource("1_62be9cfa")

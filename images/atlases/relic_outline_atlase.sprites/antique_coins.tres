@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://bfv2s08v2ujh6"]
+
+[ext_resource type="Texture2D" uid="uid://22bc3895303a4060971a51046780e584" path="res://images/relics/antique_coins.png" id="1_e8f90db3"]
+
+[resource]
+atlas = ExtResource("1_e8f90db3")

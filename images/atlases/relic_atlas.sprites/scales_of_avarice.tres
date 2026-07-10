@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://djcxpp6d8qiwc"]
+
+[ext_resource type="Texture2D" uid="uid://6cbf3fb258e7422a95aafd34a4227169" path="res://images/relics/scales_of_avarice.png" id="1_6909e205"]
+
+[resource]
+atlas = ExtResource("1_6909e205")

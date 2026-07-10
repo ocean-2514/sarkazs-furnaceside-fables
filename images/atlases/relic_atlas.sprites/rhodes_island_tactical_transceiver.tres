@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://c0dy8mcxckfob"]
+
+[ext_resource type="Texture2D" uid="uid://c27361f267dc4d739c42e098ab1944b4" path="res://images/relics/rhodes_island_tactical_transceiver.png" id="1_e13ea33f"]
+
+[resource]
+atlas = ExtResource("1_e13ea33f")

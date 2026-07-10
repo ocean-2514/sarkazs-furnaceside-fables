@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://doekam6dys3gp"]
+
+[ext_resource type="Texture2D" uid="uid://13728a47136b4a79bd011ad630ee5f9c" path="res://images/relics/soul_furnaces_fuel.png" id="1_508b6475"]
+
+[resource]
+atlas = ExtResource("1_508b6475")

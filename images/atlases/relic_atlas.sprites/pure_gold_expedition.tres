@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://bwk1savljard6"]
+
+[ext_resource type="Texture2D" uid="uid://74fe4f58209848f9a63281368f3f7e6b" path="res://images/relics/pure_gold_expedition.png" id="1_dbfc10ba"]
+
+[resource]
+atlas = ExtResource("1_dbfc10ba")

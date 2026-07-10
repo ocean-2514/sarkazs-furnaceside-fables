@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://ddrrkaopy5lgi"]
+
+[ext_resource type="Texture2D" uid="uid://335fef3c06ad43189b0d3243a88f2baf" path="res://images/relics/fowlbeast_liver_pate.png" id="1_b95c7e7d"]
+
+[resource]
+atlas = ExtResource("1_b95c7e7d")

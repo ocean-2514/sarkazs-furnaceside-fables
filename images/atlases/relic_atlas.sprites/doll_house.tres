@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://dnn6sphjy2btr"]
+
+[ext_resource type="Texture2D" uid="uid://d5e9d9f62fdf4a32ab8335bb44c8780a" path="res://images/relics/doll_house.png" id="1_9c662950"]
+
+[resource]
+atlas = ExtResource("1_9c662950")

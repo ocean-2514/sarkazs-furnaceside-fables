@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://v4x50215flgg"]
+
+[ext_resource type="Texture2D" uid="uid://gu1gdwqlixi5" path="res://images/powers/bend_spears_bloodbath_power.png" id="1_4b17t"]
+
+[resource]
+atlas = ExtResource("1_4b17t")

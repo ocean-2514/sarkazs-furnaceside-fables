@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://b0n1i2yrk62lu"]
+
+[ext_resource type="Texture2D" uid="uid://722c4828959946c5b7ac14f8db595d69" path="res://images/relics/soul_binding_bone.png" id="1_91ffdfaa"]
+
+[resource]
+atlas = ExtResource("1_91ffdfaa")

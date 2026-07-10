@@ -226,6 +226,9 @@ public partial class NThoughtInterpretScreen : Control, ICapstoneScreen, IScreen
                 break;
         }
 
+        // 解读完成钩子（思维捕手等遗物响应）
+        await Hooks.SarkazHook.AfterInterpreted(_player.RunState, _player, result);
+
         ShowResultOverlay(result);
     }
 

@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://ciof5yop5i453"]
+
+[ext_resource type="Texture2D" uid="uid://275b899161c24350803ba0bbf3215498" path="res://images/relics/the_whisperer_in_darknight.png" id="1_c01747b8"]
+
+[resource]
+atlas = ExtResource("1_c01747b8")

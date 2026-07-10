@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://bicimuljgm2py"]
+
+[ext_resource type="Texture2D" uid="uid://51e9454ff9014c7f8b46b8fbffa1dd58" path="res://images/relics/civilight_eterna_collectible.png" id="1_70e08c41"]
+
+[resource]
+atlas = ExtResource("1_70e08c41")

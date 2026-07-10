@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://dx66v8igvxbrn"]
+
+[ext_resource type="Texture2D" uid="uid://2518c26d8daa4abd8546f699e100e431" path="res://images/relics/rosmontiss_embrace.png" id="1_615c10bd"]
+
+[resource]
+atlas = ExtResource("1_615c10bd")

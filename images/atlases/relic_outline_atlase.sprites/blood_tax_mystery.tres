@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://dorctvx05jx7u"]
+
+[ext_resource type="Texture2D" uid="uid://bb8b4221d9c84b2b86d2b7ef57de0f1f" path="res://images/relics/blood_tax_mystery.png" id="1_3fbfe34b"]
+
+[resource]
+atlas = ExtResource("1_3fbfe34b")

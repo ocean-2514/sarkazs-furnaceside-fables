@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://bnbaeqia216j3"]
+
+[ext_resource type="Texture2D" uid="uid://0d13b266d9974a74ba0001745db08628" path="res://images/relics/support_landmine_set.png" id="1_7bd8368f"]
+
+[resource]
+atlas = ExtResource("1_7bd8368f")

@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://bh5kaehk5k88x"]
+
+[ext_resource type="Texture2D" uid="uid://97d667d6cbb446abb167e07447aed93e" path="res://images/relics/military_mirror_armor.png" id="1_c78a89d3"]
+
+[resource]
+atlas = ExtResource("1_c78a89d3")

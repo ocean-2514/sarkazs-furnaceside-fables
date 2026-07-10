@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://dcdi8cjwolnm6"]
+
+[ext_resource type="Texture2D" uid="uid://1383585ee2804e1692970dfa46ef4613" path="res://images/relics/pried_open_toolbox.png" id="1_ca1fceaa"]
+
+[resource]
+atlas = ExtResource("1_ca1fceaa")

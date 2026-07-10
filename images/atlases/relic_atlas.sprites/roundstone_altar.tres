@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://ckf04dxbt135n"]
+
+[ext_resource type="Texture2D" uid="uid://eb0a364689a54322885b7972a16b1541" path="res://images/relics/roundstone_altar.png" id="1_b78af9b5"]
+
+[resource]
+atlas = ExtResource("1_b78af9b5")

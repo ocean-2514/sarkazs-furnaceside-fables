@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://c4qfqbosg7vrx"]
+
+[ext_resource type="Texture2D" uid="uid://8aef6f7c0c0c438abbe8a1a3f52be349" path="res://images/relics/captain_morgans_wine.png" id="1_8f390c37"]
+
+[resource]
+atlas = ExtResource("1_8f390c37")

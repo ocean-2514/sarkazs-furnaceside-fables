@@ -88,6 +88,12 @@ public static class SarkazSaveIO
                 pdict["pending_gold_multiplier"] = mgr.PendingGoldMultiplier;
             }
 
+            // 诡谲断章行程标记："上一幕是否是子幕"（返程不结算换幕效果）。
+            if (mgr != null && mgr.PreviousActWasFragment)
+            {
+                pdict["prev_act_was_fragment"] = true;
+            }
+
             // 诡谲断章固定事件节点坐标（按层）。地图重建(读档/回程)时靠它识别节点，不重掷。
             if (mgr != null && mgr.FragmentCoords.Count > 0)
             {
@@ -191,6 +197,12 @@ public static class SarkazSaveIO
             if (pd.ContainsKey("pending_gold_multiplier"))
             {
                 player.GetSarkazManager()?.RestorePendingGoldMultiplier(pd["pending_gold_multiplier"].AsSingle());
+            }
+
+            if (pd.ContainsKey("prev_act_was_fragment"))
+            {
+                SarkazManagerModel mgrFlag = player.GetSarkazManager();
+                if (mgrFlag != null) mgrFlag.PreviousActWasFragment = pd["prev_act_was_fragment"].AsBool();
             }
 
             if (pd.ContainsKey("fragment_coords"))

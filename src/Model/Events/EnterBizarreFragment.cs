@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Events;
 using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Models;
@@ -41,14 +42,14 @@ public sealed class EnterBizarreFragment : EventModel
         // EventRoom.Exit → EventSynchronizer.AwaitPendingOptionTasks 会等本选项 task
         // 完成 → 自己等自己死锁。拆成 fire-and-forget，选项 task 先结束，
         // 切层（压书签 → 追加子层 act → EnterAct）在下一个异步节拍执行。
-        TaskHelper.RunSafely(EnterFragmentDetached(Owner.RunState as RunState));
+        TaskHelper.RunSafely(EnterFragmentDetached(Owner.RunState as RunState, Owner));
         return Task.CompletedTask;
     }
 
-    private static async Task EnterFragmentDetached(RunState state)
+    private static async Task EnterFragmentDetached(RunState state, Player player)
     {
         await Task.Yield(); // 等本次选项调用栈完全退出再开始切层
-        await MapDetour.EnterFragment(state);
+        await MapDetour.EnterFragment(state, player);
     }
 
     private async Task LeaveInternal()

@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://b76b4j8i4yvay"]
+
+[ext_resource type="Texture2D" uid="uid://e2dbfa77b3514fc6b34c50173d61c323" path="res://images/relics/ribbon_of_honor.png" id="1_dafbf9ce"]
+
+[resource]
+atlas = ExtResource("1_dafbf9ce")

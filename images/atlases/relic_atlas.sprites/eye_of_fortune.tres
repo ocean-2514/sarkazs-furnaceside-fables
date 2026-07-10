@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://beo4oqvhsp6o2"]
+
+[ext_resource type="Texture2D" uid="uid://c74ea99e9b2c478bab2c491a79c6b212" path="res://images/relics/eye_of_fortune.png" id="1_1d789461"]
+
+[resource]
+atlas = ExtResource("1_1d789461")

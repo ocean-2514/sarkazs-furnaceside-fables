@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://dxefed3mf43sv"]
+
+[ext_resource type="Texture2D" uid="uid://81959a5c2fa840cbb73955178d4e8861" path="res://images/relics/coffee_plains_coffee_candy.png" id="1_e563ec22"]
+
+[resource]
+atlas = ExtResource("1_e563ec22")

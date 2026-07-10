@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://cabim6pt1bn5p"]
+
+[ext_resource type="Texture2D" uid="uid://41bfd784f3a44f2080e0fabe51dce53a" path="res://images/relics/devilbane_banner.png" id="1_633b0ad9"]
+
+[resource]
+atlas = ExtResource("1_633b0ad9")

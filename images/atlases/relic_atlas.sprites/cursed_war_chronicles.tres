@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://c5y1m53npysqg"]
+
+[ext_resource type="Texture2D" uid="uid://599871177039480a95aa5ad4d09d528e" path="res://images/relics/cursed_war_chronicles.png" id="1_611cf15c"]
+
+[resource]
+atlas = ExtResource("1_611cf15c")

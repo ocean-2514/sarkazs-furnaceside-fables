@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://183ivg5g2kff"]
+
+[ext_resource type="Texture2D" uid="uid://ea012a1b6f954e6796c98abddeb66d81" path="res://images/relics/vampires_bed.png" id="1_a64efc3a"]
+
+[resource]
+atlas = ExtResource("1_a64efc3a")

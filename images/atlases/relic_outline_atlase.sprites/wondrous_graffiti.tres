@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://g2x7uyb23eos"]
+
+[ext_resource type="Texture2D" uid="uid://2eb89d88c50a45febf9da7285a75aa07" path="res://images/relics/wondrous_graffiti.png" id="1_846a030b"]
+
+[resource]
+atlas = ExtResource("1_846a030b")

@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://c15gobd57gpin"]
+
+[ext_resource type="Texture2D" uid="uid://17a2a722ac464f8eb9ea9db8f330d25c" path="res://images/relics/survivor_contract.png" id="1_b7a8c640"]
+
+[resource]
+atlas = ExtResource("1_b7a8c640")

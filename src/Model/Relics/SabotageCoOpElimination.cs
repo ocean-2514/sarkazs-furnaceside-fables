@@ -1,0 +1,36 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using MegaCrit.Sts2.Core.CardSelection;
+using MegaCrit.Sts2.Core.Combat;
+using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Entities.Players;
+using MegaCrit.Sts2.Core.Entities.Relics;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Powers;
+using MegaCrit.Sts2.Core.Rooms;
+using MegaCrit.Sts2.Core.Saves.Runs;
+using MegaCrit.Sts2.Core.ValueProps;
+using Skz.Ocean.Entities.Players;
+using Skz.Ocean.Helper;
+using Skz.Ocean.Model.Powers;
+using Skz.Ocean.Model.Relics.Base;
+
+namespace Skz.Ocean.Model.Relics;
+
+// 053 破坏协议-消除：牌组每有一张能力牌，攻击力+3%
+public sealed class SabotageCoOpElimination : RelicModel
+{
+    public override RelicRarity Rarity => RelicRarity.Common;
+
+    public override async Task BeforeCombatStart()
+    {
+        Flash();
+        int n = PileType.Deck.GetPile(Owner).Cards.Count(c => c.Type == CardType.Power);
+        if (n > 0) await SarkazRelicFx.ApplySelf<AttackPower>(this, n * 3);
+    }
+}

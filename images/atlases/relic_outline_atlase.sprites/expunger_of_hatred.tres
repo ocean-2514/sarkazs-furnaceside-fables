@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://n3phrhtf16ny"]
+
+[ext_resource type="Texture2D" uid="uid://6f601f47b9f54c84ad241fdb2dcf09d1" path="res://images/relics/expunger_of_hatred.png" id="1_6ff29c5e"]
+
+[resource]
+atlas = ExtResource("1_6ff29c5e")

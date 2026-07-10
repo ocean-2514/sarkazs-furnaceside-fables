@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://btgh0snqg0l8w"]
+
+[ext_resource type="Texture2D" uid="uid://e7bea97230c44ffd9876625496a7f4bb" path="res://images/relics/timeworn_poetry_strips.png" id="1_3eb36646"]
+
+[resource]
+atlas = ExtResource("1_3eb36646")

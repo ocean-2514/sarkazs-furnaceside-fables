@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://dn0j5b6j5rvu7"]
+
+[ext_resource type="Texture2D" uid="uid://534369c77ba746fc9987bd753153c239" path="res://images/relics/ancient_gaulish_silver_coin.png" id="1_cc60b172"]
+
+[resource]
+atlas = ExtResource("1_cc60b172")

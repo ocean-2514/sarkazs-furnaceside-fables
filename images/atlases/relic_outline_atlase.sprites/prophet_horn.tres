@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://6qlne74nvwua"]
+
+[ext_resource type="Texture2D" uid="uid://131270e0581f46c4963c66ecf6a7a366" path="res://images/relics/prophet_horn.png" id="1_5b0e8975"]
+
+[resource]
+atlas = ExtResource("1_5b0e8975")

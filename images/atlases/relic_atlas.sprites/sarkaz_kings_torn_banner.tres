@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://hqtecyhncsp1"]
+
+[ext_resource type="Texture2D" uid="uid://aaabc5ea254a496aa0bdd6933e2e6665" path="res://images/relics/sarkaz_kings_torn_banner.png" id="1_a08b762e"]
+
+[resource]
+atlas = ExtResource("1_a08b762e")

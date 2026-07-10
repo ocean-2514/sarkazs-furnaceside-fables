@@ -11,6 +11,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Rooms;
+using MegaCrit.Sts2.Core.Runs;
 using Skz.Ocean.Commands;
 using Skz.Ocean.DynamicVars;
 using Skz.Ocean.Entities.Players;
@@ -261,9 +262,11 @@ public abstract class ThoughtModel : AbstractModel, ISarkazModel
         return Task.CompletedTask;
     }
 
-    // 显式实现 ISarkazModel.AfterThoughtUsed，并设为 virtual 方便思绪子类重写
-    // “当（任意）思绪被使用时”的反应（例如某些遗愿/遗物联动）
-    public virtual Task AfterThoughtUsed()
+    // 实现 ISarkazModel.AfterThoughtUsed，并设为 virtual 方便思绪子类重写。
+    // “当（任意）思绪被使用时”的反应（例如某些遗愿/遗物联动）。
+    // 注意：签名必须与 ISarkazModel 完全一致——默认接口方法只有签名相同的
+    // public 方法才算实现，签名不一致会静默走接口的空默认实现（重写永不触发）。
+    public virtual Task AfterThoughtUsed(IRunState runState, ThoughtModel thought)
     {
         return Task.CompletedTask;
     }

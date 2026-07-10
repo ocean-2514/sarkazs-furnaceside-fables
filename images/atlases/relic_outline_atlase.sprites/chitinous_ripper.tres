@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://cu67yvvlmq5ok"]
+
+[ext_resource type="Texture2D" uid="uid://6347b0c7908d4cf48d9fc6525680bc1d" path="res://images/relics/chitinous_ripper.png" id="1_20a1599a"]
+
+[resource]
+atlas = ExtResource("1_20a1599a")

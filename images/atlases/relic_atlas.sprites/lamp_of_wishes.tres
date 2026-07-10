@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://boj2t3ors7mrn"]
+
+[ext_resource type="Texture2D" uid="uid://851e3aeac78345ec9f4044e929b13b0f" path="res://images/relics/lamp_of_wishes.png" id="1_8b493585"]
+
+[resource]
+atlas = ExtResource("1_8b493585")

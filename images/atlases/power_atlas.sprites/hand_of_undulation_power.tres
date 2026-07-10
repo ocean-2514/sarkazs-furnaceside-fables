@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://767a0lh7o3xr"]
+
+[ext_resource type="Texture2D" uid="uid://0htkrd1dp4hq" path="res://images/powers/hand_of_undulation_power.png" id="1_96gfj"]
+
+[resource]
+atlas = ExtResource("1_96gfj")

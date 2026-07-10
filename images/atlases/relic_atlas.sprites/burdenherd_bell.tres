@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://kkl5amgd6w0s"]
+
+[ext_resource type="Texture2D" uid="uid://90f0ce52156d4f72b48f2bd71cdcc462" path="res://images/relics/burdenherd_bell.png" id="1_3d8e2880"]
+
+[resource]
+atlas = ExtResource("1_3d8e2880")

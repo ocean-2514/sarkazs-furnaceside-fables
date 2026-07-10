@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://dn8dq451ni5rf"]
+
+[ext_resource type="Texture2D" uid="uid://7c83a57c6b774999b972db928a18001d" path="res://images/relics/profound_silence.png" id="1_c7f215ae"]
+
+[resource]
+atlas = ExtResource("1_c7f215ae")

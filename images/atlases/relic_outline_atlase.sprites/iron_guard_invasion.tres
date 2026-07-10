@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://bkwphmpko4bqt"]
+
+[ext_resource type="Texture2D" uid="uid://79fb28d7539a4e03abeea349218470a9" path="res://images/relics/iron_guard_invasion.png" id="1_50468dcb"]
+
+[resource]
+atlas = ExtResource("1_50468dcb")

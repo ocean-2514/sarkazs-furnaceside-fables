@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://cr2v5rp5on6rm"]
+
+[ext_resource type="Texture2D" uid="uid://add472486dda44b392fc9a357df4ff06" path="res://images/relics/royal_rapier.png" id="1_a5ad23a2"]
+
+[resource]
+atlas = ExtResource("1_a5ad23a2")

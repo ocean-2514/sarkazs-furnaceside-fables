@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://6ppjnod6ni02"]
+
+[ext_resource type="Texture2D" uid="uid://157b2710d4e54caaa2a0118ec7c4f792" path="res://images/relics/golden_chalice.png" id="1_483e7bc2"]
+
+[resource]
+atlas = ExtResource("1_483e7bc2")

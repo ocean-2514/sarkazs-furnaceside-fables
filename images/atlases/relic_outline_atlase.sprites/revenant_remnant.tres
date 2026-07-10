@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://c7ljymikfc8k8"]
+
+[ext_resource type="Texture2D" uid="uid://6aa02cce3f8641a8aa17fe62f6406610" path="res://images/relics/revenant_remnant.png" id="1_90369f99"]
+
+[resource]
+atlas = ExtResource("1_90369f99")

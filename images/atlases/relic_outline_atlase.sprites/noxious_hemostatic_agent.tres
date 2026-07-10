@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://ib2ai6xtr25s"]
+
+[ext_resource type="Texture2D" uid="uid://146d41df2ebc41228a169a8f191436c2" path="res://images/relics/noxious_hemostatic_agent.png" id="1_73763a72"]
+
+[resource]
+atlas = ExtResource("1_73763a72")

@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://sjijblb22ss"]
+
+[ext_resource type="Texture2D" uid="uid://a4d82ac7902e4066b49c3ce90271f502" path="res://images/relics/weird_flute.png" id="1_80bc4387"]
+
+[resource]
+atlas = ExtResource("1_80bc4387")

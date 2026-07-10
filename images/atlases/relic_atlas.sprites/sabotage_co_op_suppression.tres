@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://ls8fydxhc5tq"]
+
+[ext_resource type="Texture2D" uid="uid://40ccb2d8f8b14503ae5d72796c3c2e3a" path="res://images/relics/sabotage_co_op_suppression.png" id="1_5e1e85c5"]
+
+[resource]
+atlas = ExtResource("1_5e1e85c5")

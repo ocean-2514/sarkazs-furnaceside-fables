@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://t73no0f0p5ui"]
+
+[ext_resource type="Texture2D" uid="uid://bg6kt23rd5x51" path="res://images/powers/hand_of_mystery_power.png" id="1_o0ssi"]
+
+[resource]
+atlas = ExtResource("1_o0ssi")

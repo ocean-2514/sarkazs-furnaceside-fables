@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://j7wnqo7lddcv"]
+
+[ext_resource type="Texture2D" uid="uid://292589d5519948418a77076d9df9993a" path="res://images/relics/flash_camera.png" id="1_5d3d4537"]
+
+[resource]
+atlas = ExtResource("1_5d3d4537")

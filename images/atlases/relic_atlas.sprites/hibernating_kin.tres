@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://c3vjeuqb4p0ah"]
+
+[ext_resource type="Texture2D" uid="uid://821c2808ed3848629c0d99cb01533094" path="res://images/relics/hibernating_kin.png" id="1_10c7452c"]
+
+[resource]
+atlas = ExtResource("1_10c7452c")

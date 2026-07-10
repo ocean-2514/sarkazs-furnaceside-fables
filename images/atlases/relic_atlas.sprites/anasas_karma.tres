@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://6hbi8gv2sgyp"]
+
+[ext_resource type="Texture2D" uid="uid://e47aeb2ad6024206806a706991681fe0" path="res://images/relics/anasas_karma.png" id="1_dbdba21c"]
+
+[resource]
+atlas = ExtResource("1_dbdba21c")

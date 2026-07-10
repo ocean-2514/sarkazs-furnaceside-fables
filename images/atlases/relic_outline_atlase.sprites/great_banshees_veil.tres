@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://12sqmtc4tofw"]
+
+[ext_resource type="Texture2D" uid="uid://275f74f7fbaf4c0fb88f7452b7f4df7d" path="res://images/relics/great_banshees_veil.png" id="1_ebcbf8c1"]
+
+[resource]
+atlas = ExtResource("1_ebcbf8c1")

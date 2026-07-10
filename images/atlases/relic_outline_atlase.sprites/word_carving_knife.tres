@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://je127so5ymu5"]
+
+[ext_resource type="Texture2D" uid="uid://ecb03616feb1440e9b33ca10f1d3522b" path="res://images/relics/word_carving_knife.png" id="1_a385de56"]
+
+[resource]
+atlas = ExtResource("1_a385de56")

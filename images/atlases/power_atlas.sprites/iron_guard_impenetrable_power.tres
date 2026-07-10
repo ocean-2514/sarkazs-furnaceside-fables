@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://1vs0q7yqs8pi"]
+
+[ext_resource type="Texture2D" uid="uid://pkxltft8dejm" path="res://images/powers/iron_guard_impenetrable_power.png" id="1_kvgtt"]
+
+[resource]
+atlas = ExtResource("1_kvgtt")

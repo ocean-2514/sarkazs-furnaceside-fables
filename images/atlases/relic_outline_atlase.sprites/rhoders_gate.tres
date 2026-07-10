@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://8e4dxkp1fynb"]
+
+[ext_resource type="Texture2D" uid="uid://8be580ae0b2e4078a8d0e10f6f543ec8" path="res://images/relics/rhoders_gate.png" id="1_d1113424"]
+
+[resource]
+atlas = ExtResource("1_d1113424")

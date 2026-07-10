@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://dgm8ge41a4pac"]
+
+[ext_resource type="Texture2D" uid="uid://5293eed690574b2eae8cd271b270de68" path="res://images/relics/miss_christine_petting_ticket.png" id="1_3d18dce0"]
+
+[resource]
+atlas = ExtResource("1_3d18dce0")

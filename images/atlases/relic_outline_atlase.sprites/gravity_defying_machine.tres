@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://bfbg5pfho0f68"]
+
+[ext_resource type="Texture2D" uid="uid://35d9cfe4b1824291897d3eae5a4494e1" path="res://images/relics/gravity_defying_machine.png" id="1_e7265b0d"]
+
+[resource]
+atlas = ExtResource("1_e7265b0d")

@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://dgkrodui4fbpr"]
+
+[ext_resource type="Texture2D" uid="uid://138ac441628e4ddba12454fdc815a43a" path="res://images/relics/expeditioners_field_pack.png" id="1_932f52ad"]
+
+[resource]
+atlas = ExtResource("1_932f52ad")

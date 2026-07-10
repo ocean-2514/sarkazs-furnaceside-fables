@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://sdbvnv7lckai"]
+
+[ext_resource type="Texture2D" uid="uid://7307a88c67f7414f9e66f6a37d64a46d" path="res://images/relics/oriron_round_shield.png" id="1_7e9d19d1"]
+
+[resource]
+atlas = ExtResource("1_7e9d19d1")

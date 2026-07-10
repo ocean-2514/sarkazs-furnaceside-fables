@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using Skz.Ocean.Commands;
+using Skz.Ocean.Entities.Players;
 using Skz.Ocean.Entities.Thoughts;
 
 namespace Skz.Ocean.Model.Thoughts.Lingers;
@@ -14,6 +15,7 @@ public sealed class ShrivelAndSprout : ThoughtModel
 
     public override async Task AfterActEntered()
     {
+        if (Owner.GetSarkazManager().PreviousActWasFragment) return;
         await ThoughtCmd.Obtain<ShrivelAndSprout>(Owner);
     }
 }

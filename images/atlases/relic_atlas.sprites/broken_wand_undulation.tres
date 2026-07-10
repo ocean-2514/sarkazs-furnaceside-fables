@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://m64638hp2ryb"]
+
+[ext_resource type="Texture2D" uid="uid://386606c70ffb40aa875789b6640e7da8" path="res://images/relics/broken_wand_undulation.png" id="1_efb1a0ad"]
+
+[resource]
+atlas = ExtResource("1_efb1a0ad")

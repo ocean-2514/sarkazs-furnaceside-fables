@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://b1j1o1qdrkt2b"]
+
+[ext_resource type="Texture2D" uid="uid://8c463208e4a149d8b66369b06b877512" path="res://images/relics/pitts_assorted_fruits.png" id="1_03131f73"]
+
+[resource]
+atlas = ExtResource("1_03131f73")

@@ -9,6 +9,7 @@ using MegaCrit.Sts2.Core.Models.Events;
 using MegaCrit.Sts2.Core.Random;
 using MegaCrit.Sts2.Core.Timeline.Epochs;
 using MegaCrit.Sts2.Core.Unlocks;
+using Skz.Ocean.Saves;
 
 namespace Skz.Ocean.Model.Acts;
 
@@ -94,34 +95,7 @@ public sealed class BizarreFragment : ActModel
     // ────────────────────────────
     public override IEnumerable<EncounterModel> GenerateAllEncounters()
     {
-        return new EncounterModel[]
-        {
-            // — Boss —
-            ModelDb.Encounter<CeremonialBeastBoss>(),
-            ModelDb.Encounter<TheKinBoss>(),
-            ModelDb.Encounter<VantomBoss>(),
-            // — Elite —
-            ModelDb.Encounter<BygoneEffigyElite>(),
-            ModelDb.Encounter<ByrdonisElite>(),
-            ModelDb.Encounter<PhrogParasiteElite>(),
-            // — Normal —
-            ModelDb.Encounter<CubexConstructNormal>(),
-            ModelDb.Encounter<FlyconidNormal>(),
-            ModelDb.Encounter<FogmogNormal>(),
-            ModelDb.Encounter<InkletsNormal>(),
-            ModelDb.Encounter<MawlerNormal>(),
-            ModelDb.Encounter<NibbitsNormal>(),
-            ModelDb.Encounter<RubyRaidersNormal>(),
-            ModelDb.Encounter<SlimesNormal>(),
-            ModelDb.Encounter<SlitheringStranglerNormal>(),
-            ModelDb.Encounter<SnappingJaxfruitNormal>(),
-            ModelDb.Encounter<VineShamblerNormal>(),
-            // — Weak —
-            ModelDb.Encounter<FuzzyWurmCrawlerWeak>(),
-            ModelDb.Encounter<NibbitsWeak>(),
-            ModelDb.Encounter<ShrinkerBeetleWeak>(),
-            ModelDb.Encounter<SlimesWeak>(),
-        };
+        return MapDetour.GetSourceAct().GenerateAllEncounters();
     }
 
     // ────────────────────────────

@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://b42qo710rhlwj"]
+
+[ext_resource type="Texture2D" uid="uid://619e64ad2f784393bb3e3d2415889dab" path="res://images/relics/minoan_ode.png" id="1_7bad25c6"]
+
+[resource]
+atlas = ExtResource("1_7bad25c6")

@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://x3m237wyfby3"]
+
+[ext_resource type="Texture2D" uid="uid://fedba947b4b842428e015c71201aac85" path="res://images/relics/rolling_ancestors.png" id="1_22fe6e4a"]
+
+[resource]
+atlas = ExtResource("1_22fe6e4a")

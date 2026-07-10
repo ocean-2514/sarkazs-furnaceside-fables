@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://bmde2m5chahgv"]
+
+[ext_resource type="Texture2D" uid="uid://f6175a4863fd488cb980fcdd7fdfd666" path="res://images/relics/dawn_of_literature.png" id="1_63295875"]
+
+[resource]
+atlas = ExtResource("1_63295875")

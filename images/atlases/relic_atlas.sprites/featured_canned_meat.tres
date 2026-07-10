@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://d2tujurnpkm3f"]
+
+[ext_resource type="Texture2D" uid="uid://bce89651312f47b5b6907c09eecc263f" path="res://images/relics/featured_canned_meat.png" id="1_1c9e3d16"]
+
+[resource]
+atlas = ExtResource("1_1c9e3d16")

@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://drpv32w4uhplb"]
+
+[ext_resource type="Texture2D" uid="uid://323c17c9d7b74b3da0d403011e5d842c" path="res://images/relics/doctor_silver_seal.png" id="1_e058d677"]
+
+[resource]
+atlas = ExtResource("1_e058d677")

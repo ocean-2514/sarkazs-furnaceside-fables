@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://cjc43nuuuoprt"]
+
+[ext_resource type="Texture2D" uid="uid://f76b949f5c7c461dafd0bbdbdc456583" path="res://images/relics/hand_of_mystery.png" id="1_0b1e6bf0"]
+
+[resource]
+atlas = ExtResource("1_0b1e6bf0")

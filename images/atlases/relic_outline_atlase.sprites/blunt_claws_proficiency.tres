@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://j3m0rwgwkkj7"]
+
+[ext_resource type="Texture2D" uid="uid://9a7290a121f245d189fc365b6c574f61" path="res://images/relics/blunt_claws_proficiency.png" id="1_f92c2840"]
+
+[resource]
+atlas = ExtResource("1_f92c2840")

@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://bjhlvp5f4gxl7"]
+
+[ext_resource type="Texture2D" uid="uid://4c29dd67a7e54fa7b8d3c6088e199922" path="res://images/relics/banshees_kiss.png" id="1_c1de5eff"]
+
+[resource]
+atlas = ExtResource("1_c1de5eff")

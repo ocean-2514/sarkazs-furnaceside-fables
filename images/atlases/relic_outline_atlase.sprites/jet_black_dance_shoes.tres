@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://c8xeaufpxma02"]
+
+[ext_resource type="Texture2D" uid="uid://c84cc27da58447d1bb7ac3c6c16eeaf6" path="res://images/relics/jet_black_dance_shoes.png" id="1_9acdfac8"]
+
+[resource]
+atlas = ExtResource("1_9acdfac8")

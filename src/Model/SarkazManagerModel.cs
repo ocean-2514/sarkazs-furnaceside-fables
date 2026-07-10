@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -79,8 +80,42 @@ public class SarkazManagerModel : AbstractModel, ISarkazModel
 
     public override async Task AfterActEntered()
     {
-        _manager?.ClearRefreshCounts();
-        if (_manager != null) await _manager.GrantReturns();
+        if (_manager == null) return;
+        // 行程标记自维护：本次读"上一幕是否是子幕"，再记录本次进入的幕。
+        // 子幕 → 真实幕（返程）不结算换幕效果；真实幕 → 子幕算进入新的一层，正常结算。
+        bool cameFromFragment = _manager.PreviousActWasFragment;
+        _manager.PreviousActWasFragment = _owner?.RunState?.Act is BizarreFragment;
+        if (cameFromFragment) return;
+
+        _manager.ClearRefreshCounts();
+        await _manager.GrantReturns();
+        await GrantAct3CursedRelic();
+    }
+
+    // 进入第三幕时获得一件负面遗物（172-176 五选一，排除已持有的）。
+    // 返程不重复发由 AfterActEntered 的行程标记统一挡掉；子幕的索引是 3，不会误中。
+    private async Task GrantAct3CursedRelic()
+    {
+        if (_owner?.RunState is not MegaCrit.Sts2.Core.Runs.RunState state) return;
+        if (state.CurrentActIndex != 2) return;
+
+        System.Type[] pool =
+        {
+            typeof(Relics.GuldulsSilence),
+            typeof(Relics.QuisartustajsPromise),
+            typeof(Relics.BalorsacasArrogance),
+            typeof(Relics.YlissRavings),
+            typeof(Relics.ShardOfTheUntoldKings),
+        };
+        List<System.Type> candidates = pool
+            .Where(t => _owner.Relics.All(r => r.GetType() != t))
+            .ToList();
+        if (candidates.Count == 0) return;
+
+        System.Type pick = candidates[_owner.PlayerRng.Rewards.NextInt(candidates.Count)];
+        RelicModel relic = (RelicModel)Helper.SarkazHelper.ModelDbGet(pick);
+        if (relic == null) return;
+        await MegaCrit.Sts2.Core.Commands.RelicCmd.Obtain(relic.ToMutable(), _owner);
     }
 
     public override bool TryModifyRestSiteOptions(Player player, ICollection<RestSiteOption> options)
@@ -101,8 +136,17 @@ public class SarkazManagerModel : AbstractModel, ISarkazModel
     public int PendingPlanRewards => _manager?.PendingPlanRewards ?? 0;
     public void RestorePendingPlanRewards(int count) => _manager?.RestorePendingPlanRewards(count);
 
+    // ===== 诡谲断章行程标记：供侧存档持久化 =====
+    public bool PreviousActWasFragment
+    {
+        get => _manager?.PreviousActWasFragment ?? false;
+        set { if (_manager != null) _manager.PreviousActWasFragment = value; }
+    }
+
     // ===== 节点刷新：供 NNormalMapPoint 补丁调用 =====
     public int MaxRefreshCount => _manager?.MaxRefreshCount ?? 0;
+    // 死魂灵残躯等遗物：每节点可刷新次数+delta
+    public void AddMaxRefreshCount(int delta) { if (_manager != null) _manager.MaxRefreshCount += delta; }
     public bool CanRefreshNode(MapPoint point) => _manager?.CanRefresh(point) ?? false;
     public bool RefreshNode(MapPoint point) => _manager?.Refresh(point) ?? false;
 

@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://dkxl5bsm2o4ga"]
+
+[ext_resource type="Texture2D" uid="uid://53ae2590040a40a0a29990a41ba0d04e" path="res://images/relics/hand_of_rumble.png" id="1_2cdde6bd"]
+
+[resource]
+atlas = ExtResource("1_2cdde6bd")

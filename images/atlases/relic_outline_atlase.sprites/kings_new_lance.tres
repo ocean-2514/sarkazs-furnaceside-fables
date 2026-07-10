@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://bjh73ykyrdp21"]
+
+[ext_resource type="Texture2D" uid="uid://d7fb2217c5ef4af0b807452e474c88c4" path="res://images/relics/kings_new_lance.png" id="1_59e9b0bd"]
+
+[resource]
+atlas = ExtResource("1_59e9b0bd")

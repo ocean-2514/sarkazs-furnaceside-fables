@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://c8dciswcwfc"]
+
+[ext_resource type="Texture2D" uid="uid://qccqry5d6fv4" path="res://images/relics/h_r_bronze_seal.png" id="1_098563e5"]
+
+
+[resource]
+atlas = ExtResource("1_098563e5")

@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://biukphxmj343t"]
+
+[ext_resource type="Texture2D" uid="uid://7c4909d8a59f4653b0e0c620a4189e7a" path="res://images/relics/support_fog_machine.png" id="1_db82947f"]
+
+[resource]
+atlas = ExtResource("1_db82947f")

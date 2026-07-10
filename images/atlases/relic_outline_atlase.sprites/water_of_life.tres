@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://iymuho5h76jb"]
+
+[ext_resource type="Texture2D" uid="uid://540657ad43044439a951003c03f45128" path="res://images/relics/water_of_life.png" id="1_3b476c29"]
+
+[resource]
+atlas = ExtResource("1_3b476c29")

@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://urcarjbulkj3"]
+
+[ext_resource type="Texture2D" uid="uid://7643bc61be5f4f15b1d643c993a4e8d2" path="res://images/relics/assault_co_op_skirmish.png" id="1_4f638860"]
+
+[resource]
+atlas = ExtResource("1_4f638860")

@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://dr15quxyq7d2x"]
+
+[ext_resource type="Texture2D" uid="uid://b592279e58054ebfa796fff684692a5e" path="res://images/relics/nameless_totem.png" id="1_b416cf8c"]
+
+[resource]
+atlas = ExtResource("1_b416cf8c")

@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://85cad7n3h33w"]
+
+[ext_resource type="Texture2D" uid="uid://dw1bx3bmnu75g" path="res://images/relics/acahuallan_bowl.png" id="1_60986f10"]
+
+[resource]
+atlas = ExtResource("1_60986f10")

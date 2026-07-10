@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://b5sabftlfp4oc"]
+
+[ext_resource type="Texture2D" uid="uid://b6211770d1d346c8bc5d874551695c4a" path="res://images/relics/bend_spears_rending.png" id="1_71b922a2"]
+
+[resource]
+atlas = ExtResource("1_71b922a2")

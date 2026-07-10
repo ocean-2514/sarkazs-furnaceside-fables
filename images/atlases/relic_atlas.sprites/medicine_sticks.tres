@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://2sdwwp7ce4cu"]
+
+[ext_resource type="Texture2D" uid="uid://731bf8b19a1541e788d016390640803f" path="res://images/relics/medicine_sticks.png" id="1_b9ad7b64"]
+
+[resource]
+atlas = ExtResource("1_b9ad7b64")
