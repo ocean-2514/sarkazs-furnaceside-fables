@@ -3,3 +3,5 @@
 /android/
 *.txt
 *.py
+steam/
+build/
