@@ -8,10 +8,11 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 using Skz.Ocean.Entities.Thoughts;
+using MegaCrit.Sts2.Core.Extensions;
 
 namespace Skz.Ocean.Model.Thoughts.Inspirers;
 
-// 042 驱城：使用后下次战斗的每回合结束时将所有牌放回抽牌堆。
+// 042 驱城：使用后下次战斗的每回合开始时将弃牌堆随机一张牌放入手牌。
 public sealed class CityDriving : ThoughtModel
 {
     protected override int InitialRarity => 2;
@@ -19,12 +20,18 @@ public sealed class CityDriving : ThoughtModel
     public override ThoughtType ThoughtType => ThoughtType.Inspirer;
     public override ThoughtRarity ThoughtRarity => ThoughtRarity.Common;
 
-    public override async Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)
-    {
-        if (Status != ThoughtStatus.Used || side != Owner.Creature.Side) return;
-        List<CardModel> cards = new List<CardModel>();
-        cards.AddRange(PileType.Hand.GetPile(Owner).Cards);
-        cards.AddRange(PileType.Discard.GetPile(Owner).Cards);
-        if (cards.Count > 0) await CardPileCmd.Add(cards, PileType.Draw);
-    }
+    public override async Task BeforeSideTurnStart(PlayerChoiceContext choiceContext, CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
+	{
+		if (!participants.Contains(base.Owner.Creature))
+		{
+			return;
+		}
+		CardPile pile = PileType.Discard.GetPile(base.Owner);
+		IEnumerable<CardModel> source = pile.Cards.Where((CardModel c) => c.Type == CardType.Attack || c.Type == CardType.Skill || c.Type == CardType.Power);
+		IEnumerable<CardModel> enumerable = source.ToList().UnstableShuffle(base.Owner.RunState.Rng.CombatCardSelection).Take(1);
+        foreach (CardModel card in enumerable)
+		{
+			await CardPileCmd.Add(card, PileType.Hand);
+		}
+	}
 }

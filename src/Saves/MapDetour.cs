@@ -208,8 +208,8 @@ public static class MapDetour
             {
                 await RelicCmd.Obtain(rng.NextItem(mysteries).ToMutable(), player);
             }
-            // 补偿：一件 Rare 遗物
-            RelicModel rare = RelicFactory.PullNextRelicFromFront(player, RelicRarity.Rare);
+            // 补偿：一件 Uncommon 遗物
+            RelicModel rare = RelicFactory.PullNextRelicFromFront(player, RelicRarity.Uncommon);
             if (rare != null)
             {
                 await RelicCmd.Obtain(rare.ToMutable(), player);

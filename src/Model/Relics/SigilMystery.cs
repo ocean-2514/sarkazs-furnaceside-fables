@@ -29,7 +29,7 @@ using Skz.Ocean.Model.Relics.Base;
 
 namespace Skz.Ocean.Model.Relics;
 
-// 163 烙印之谜：第一回合所有牌费用为0，第二回合开始你打出的前2张牌费用+1，仅诡谲断章内生效。所有敌人生命值+10%。
+// 163 烙印之谜：第一回合所有牌费用为0，第二回合开始你打出的前1张牌费用+1，仅诡谲断章内生效。所有敌人生命值+10%。
 public sealed class SigilMystery : FragmentMysteryRelic
 {
     private int _playedThisTurn;
@@ -44,7 +44,7 @@ public sealed class SigilMystery : FragmentMysteryRelic
             modifiedCost = 0;
             return true;
         }
-        if (_playedThisTurn < 2)
+        if (_playedThisTurn < 1)
         {
             modifiedCost = originalCost + 1;
             return true;

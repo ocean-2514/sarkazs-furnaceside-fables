@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://dt63lir5qvlg"]
+
+[ext_resource type="Texture2D" uid="uid://d0vgng1hedb1k" path="res://images/powers/spines_of_epoch_power.png" id="1_2kijn"]
+
+[resource]
+atlas = ExtResource("1_2kijn")

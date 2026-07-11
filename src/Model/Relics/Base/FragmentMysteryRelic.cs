@@ -31,9 +31,6 @@ public abstract class FragmentMysteryRelic : RelicModel, IFragmentMystery
 
     public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
     {
-        if (side != Owner.Creature.Side) {
-            return;
-        }
         foreach (Creature enemy in combatState.Enemies.ToList())
         {
             if (enemy == null || !enemy.IsAlive || _hpApplied.Contains(enemy))
@@ -43,6 +40,9 @@ public abstract class FragmentMysteryRelic : RelicModel, IFragmentMystery
             _hpApplied.Add(enemy);
             await CreatureCmd.GainMaxHp(enemy, enemy.MaxHp * 20 / 100);
             await SarkazRelicFx.ApplyPower<AttackPower>(this, enemy, 10);
+        }
+        if (side != Owner.Creature.Side) {
+            return;
         }
         if (!InFragment)
         {

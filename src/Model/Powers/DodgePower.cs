@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
@@ -22,6 +23,8 @@ public sealed class DodgePower : PowerModel, ISarkazModel
     {
         if (target != Owner) return amount;
         if (amount <= 0) return amount;
+        if (dealer == null) return amount;
+        if (dealer.Side != CombatSide.Enemy) return amount;
         Rng rng = Owner.Player?.RunState.Rng.Niche ?? Owner.Monster.Rng;
         if (rng.NextInt(100) < Amount)
         {

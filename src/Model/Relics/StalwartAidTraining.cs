@@ -18,7 +18,7 @@ namespace Skz.Ocean.Model.Relics;
 // 036 支柱-典训：升级一张能力牌
 public sealed class StalwartAidTraining : RelicModel
 {
-    public override RelicRarity Rarity => RelicRarity.Common;
+    public override RelicRarity Rarity => RelicRarity.Event;
 
     public override bool HasUponPickupEffect => true;
 

@@ -23,7 +23,7 @@ namespace Skz.Ocean.Model.Relics;
 // 142 魔王的床榻：目标生命值达到上限时，每回合开始获得10点格挡
 public sealed class SarkazKingsRegalRest : RelicModel
 {
-    public override RelicRarity Rarity => RelicRarity.Common;
+    public override RelicRarity Rarity => RelicRarity.Uncommon;
 
     public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
     {

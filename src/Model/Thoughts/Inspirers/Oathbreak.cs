@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 using Skz.Ocean.Entities.Thoughts;
@@ -23,6 +24,14 @@ public sealed class Oathbreak : ThoughtModel
     private const int _amount = 50;
     private const int _duration = 2;
     private readonly Dictionary<Creature, int> _timers = new Dictionary<Creature, int>();
+
+    // public override Task AfterDamageReceived(PlayerChoiceContext choiceContext, Creature target, DamageResult result, ValueProp props, Creature dealer, CardModel cardSource)
+    // {
+    //     Log.Info("[srakaz] damage received");
+    //     return base.AfterDamageReceived(choiceContext, target, result, props, dealer, cardSource);
+    // }
+
+
 
     public override async Task AfterDamageReceived(PlayerChoiceContext choiceContext, Creature target,
         DamageResult result, ValueProp props, Creature dealer, CardModel cardSource)

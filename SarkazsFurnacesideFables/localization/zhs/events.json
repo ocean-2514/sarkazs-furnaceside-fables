@@ -15,6 +15,21 @@
     "EXIT_BIZARRE_FRAGMENT.pages.INITIAL.options.EXIT_FRAGMENT.description": "离开诡谲断章，继续你的冒险",
     "EXIT_BIZARRE_FRAGMENT.pages.EXIT.description": "裂隙消失了，在你的思维中留下了一些零碎的认知。",
 
+    "SARKAZ_COMMON_EVENT.pages.INITIAL.options.GET_HELP.description": "妮芙的创想尽在眼前",
+    "SARKAZ_COMMON_EVENT.pages.INITIAL.options.GET_HELP.title": "真的？",
+    "SARKAZ_COMMON_EVENT.pages.options.GET_RELIC.title": "索物的妮",
+    "SARKAZ_COMMON_EVENT.pages.options.GET_RELIC.description": "获得随机遗物",
+    "SARKAZ_COMMON_EVENT.pages.options.GET_PLAN.title": "婉拒的芙",
+    "SARKAZ_COMMON_EVENT.pages.options.GET_PLAN.description": "花费[red]50[/red]金币，获得[blue]1[/blue]缕构想",
+    "SARKAZ_COMMON_EVENT.pages.EXIT.description": "该离开了",
+    "SARKAZ_COMMON_EVENT.pages.options.ENTER_FRAGMENT.title": "那是……妮芙？",
+    "SARKAZ_COMMON_EVENT.pages.options.ENTER_FRAGMENT.description": "进入诡谲断章",
+    "SARKAZ_COMMON_EVENT.pages.options.GET_KING_RELIC.title": "珍宝？",
+    "SARKAZ_COMMON_EVENT.pages.options.GET_KING_RELIC.description": "获得一件国王遗物",
+    "SARKAZ_COMMON_EVENT.pages.options.GET_SARKAZ_KING_RELIC.title": "珍宝？",
+    "SARKAZ_COMMON_EVENT.pages.options.GET_SARKAZ_KING_RELIC.description": "获得一件魔王遗物",
+
+
     "ENTER_MY_ACT.title": "进入诡谲断章",
     "ENTER_MY_ACT.pages.INITIAL.description": "你遇到了一个神秘的事件。你感觉到一股强大的力量在考验着你。",
     "ENTER_MY_ACT.pages.INITIAL.options.ENTER_MY_ACT.title": "前进",

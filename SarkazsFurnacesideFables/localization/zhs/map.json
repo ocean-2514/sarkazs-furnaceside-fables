@@ -1,0 +1,7 @@
+{
+  "LEGEND_EVENT.hoverTip.description": "这些房间里会发生不寻常的事情，也许能得到妮芙的帮助？",
+  "LEGEND_MERCHANT.hoverTip.description": "神秘的商人会在这些房间中出售他的货物。\n\n辛苦赚到的[gold]金币[/gold]就用在这里吧！",
+  "LEGEND_REST.hoverTip.description": "在这些房间可以[green]回复[/green]一些生命，[gold]升级[/gold]一张卡牌或者进行[gold]解读[/gold]。",
+  "LEGEND_TREASURE.hoverTip.description": "这些房间中有着众人觊觎的[gold]遗物[/gold]与[gold]金币[/gold]。",
+  "LEGEND_UNKNOWN.hoverTip.description": "情报不明的房间。\n\n可能遭遇事件、敌人、商店或宝箱，也可能得到妮芙的帮助。"
+}

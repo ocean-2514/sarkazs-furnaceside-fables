@@ -18,7 +18,7 @@ namespace Skz.Ocean.Model.Relics;
 // 034 折戟-典训：升级一张攻击牌
 public sealed class BendSpearsTraining : RelicModel
 {
-    public override RelicRarity Rarity => RelicRarity.Common;
+    public override RelicRarity Rarity => RelicRarity.Event;
 
     public override bool HasUponPickupEffect => true;
 

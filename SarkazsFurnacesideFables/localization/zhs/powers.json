@@ -54,5 +54,8 @@
   "FEARLESS_BLADE_POWER.description": "手牌中费用最高的攻击牌伤害翻倍，每回合生效1次",
   "UNLEASHINGS_POWER.title": "绽放",
   "UNLEASHINGS_POWER.description": "每次受到伤害时回复1点能量，每次受到元素损伤时额外回复1点能量",
-  "NECROSIS_BURST_POWER.title": "凋亡损伤爆发"
+  "NECROSIS_BURST_POWER.title": "凋亡损伤爆发",
+  "SPINES_OF_EPOCH_POWER.title": "年代之刺",
+  "SPINES_OF_EPOCH_POWER.description": "每回合给予[red]2[/red]点凋亡损伤"
+  
 }

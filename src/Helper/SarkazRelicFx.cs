@@ -9,6 +9,7 @@ using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.ValueProps;
 
 namespace Skz.Ocean.Helper;
 
@@ -68,5 +69,17 @@ public static class SarkazRelicFx
         CardModel card = player.RunState.CreateCard(canonical, player);
         CardCmd.Upgrade(card);
         CardCmd.PreviewCardPileAdd(await CardPileCmd.Add(card, PileType.Deck), 2f);
+    }
+
+    public static async Task LoseMaxHp(Creature creature, int amount)
+    {
+        if (amount < 0 || amount >= creature.MaxHp)
+        {
+            throw new InvalidOperationException("LoseMaxHp but amount is negative/amount >= MaxHp(should not happen)");
+        }
+        float ratio = (float)creature.CurrentHp / (float)creature.MaxHp;
+        int newHp = Math.Max((int)((creature.MaxHp - amount) * ratio), 1);
+        await CreatureCmd.Damage(new ThrowingPlayerChoiceContext(), creature, (decimal)creature.CurrentHp - newHp, (ValueProp.Unblockable | ValueProp.Unpowered), null, null);
+        await CreatureCmd.LoseMaxHp(new ThrowingPlayerChoiceContext(), creature, amount, false);
     }
 }

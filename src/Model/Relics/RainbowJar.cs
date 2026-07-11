@@ -26,7 +26,7 @@ using Skz.Ocean.Model.Powers;
 
 namespace Skz.Ocean.Model.Relics;
 
-// 166 彩虹瓮：受到敌人攻击时，将弃牌堆中随机一张牌放入你的手牌，每回合最多触发3次
+// 166 彩虹瓮：受到敌人攻击时，将弃牌堆中随机一张牌放入你的手牌，每回合最多触发2次
 public sealed class RainbowJar : RelicModel
 {
     private int _triggersThisTurn;
@@ -36,7 +36,7 @@ public sealed class RainbowJar : RelicModel
     public override async Task AfterDamageReceived(PlayerChoiceContext choiceContext, Creature target, DamageResult result, ValueProp props, Creature dealer, CardModel cardSource)
     {
         if (target != Owner.Creature || dealer == null || !dealer.IsEnemy) return;
-        if (!props.IsPoweredAttack() || _triggersThisTurn >= 3) return;
+        if (!props.IsPoweredAttack() || _triggersThisTurn >= 2) return;
         List<CardModel> discard = PileType.Discard.GetPile(Owner).Cards.ToList();
         if (discard.Count == 0) return;
         _triggersThisTurn++;

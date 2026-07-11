@@ -19,6 +19,7 @@ public sealed class SpinesOfEpoch : MonsterModel
     {
         await base.AfterAddedToRoom();
         await PowerCmd.Apply<RewardPlanPower>(new ThrowingPlayerChoiceContext(), Creature, 1, Creature, null);
+        await PowerCmd.Apply<SpinesOfEpochPower>(new ThrowingPlayerChoiceContext(), Creature, 1, Creature, null);
     }
 
     protected override MonsterMoveStateMachine GenerateMoveStateMachine()

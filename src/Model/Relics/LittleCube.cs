@@ -49,7 +49,7 @@ public sealed class LittleCube : RelicModel
     {
         if (_granted > 0 && Owner.Creature.CurrentHp > 0)
         {
-            await CreatureCmd.LoseMaxHp(new ThrowingPlayerChoiceContext(), Owner.Creature, _granted, isFromCard: false);
+            await SarkazRelicFx.LoseMaxHp(Owner.Creature, _granted);
         }
         _granted = 0;
     }

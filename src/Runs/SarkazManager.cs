@@ -70,19 +70,19 @@ public class SarkazManager  //for one player
         _pendingPlanRewards = 0;
         await HandleToil();
         HandleHorizontalTravelCost();
-        if (room is RestSiteRoom)
-        {
+        // if (room is RestSiteRoom)
+        // {
             // _player.GainShield(10);
-            await ThoughtCmd.Obtain<Plan>(_player);
-        }
-        else if (room is TreasureRoom)
-        {
-            RelicModel relic = RelicFactory.PullNextRelicFromFront(_player, RelicRarity.Common);
-            if (relic != null)
-            {
-                await RelicCmd.Obtain(relic.ToMutable(), _player);
-            }
-        }
+            // await ThoughtCmd.Obtain<Plan>(_player);
+        // }
+        // else if (room is TreasureRoom)
+        // {
+            // RelicModel relic = RelicFactory.PullNextRelicFromFront(_player, RelicRarity.Common);
+            // if (relic != null)
+            // {
+            //     await RelicCmd.Obtain(relic.ToMutable(), _player);
+            // }
+        // }
     }
 
     private async Task HandleToil()
@@ -265,7 +265,7 @@ public class SarkazManager  //for one player
 
     public bool TryAddPlanReward(Player player, List<Reward> rewards, AbstractRoom? room)
     {
-        Log.Info($"[sarkaz]: { _pendingPlanRewards }");
+        // Log.Info($"[sarkaz]: { _pendingPlanRewards }");
         if (player != _player || _pendingPlanRewards <= 0 || room is not CombatRoom) return false;
         for (int i = 0; i < _pendingPlanRewards; i++)
         {
@@ -303,7 +303,7 @@ public class SarkazManager  //for one player
     // ===== 诡谲断章：每层地图后半段钉 1(概率 2)个固定事件节点 =====
     // 地图生成后选点记坐标(ModifyGeneratedMapLate)；进点时对该坐标强制事件房型 +
     // 强制 EnterBizarreFragment 事件(LanternKey 同款组合)。坐标持久化到侧存档。
-    public const float SecondFragmentChance = 0.25f;
+    public const float SecondFragmentChance = 0.5f;
 
     // actIndex → 该层的固定事件节点坐标（一般 1 个，概率 2 个）
     private readonly Dictionary<int, List<MapCoord>> _fragmentCoords = new Dictionary<int, List<MapCoord>>();
@@ -341,6 +341,11 @@ public class SarkazManager  //for one player
         if (candidates.Count == 0) return;
 
         List<MapCoord> chosen = new List<MapCoord>();
+
+        // foreach (MapPoint mapPoint in candidates)
+        // {
+        //     chosen.Add(mapPoint.coord);
+        // }
 
         MapPoint first = candidates[rng.NextInt(candidates.Count)];
         chosen.Add(first.coord);

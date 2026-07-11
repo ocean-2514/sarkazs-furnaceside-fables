@@ -28,7 +28,7 @@ public sealed class LakebedAegis : RelicModel
 {
     private int _granted;
 
-    public override RelicRarity Rarity => RelicRarity.Uncommon;
+    public override RelicRarity Rarity => RelicRarity.Rare;
 
     public override bool HasUponPickupEffect => true;
 
@@ -50,7 +50,7 @@ public sealed class LakebedAegis : RelicModel
     {
         if (_granted > 0 && Owner.Creature.CurrentHp > 0)
         {
-            await CreatureCmd.LoseMaxHp(new ThrowingPlayerChoiceContext(), Owner.Creature, _granted, isFromCard: false);
+            await SarkazRelicFx.LoseMaxHp(Owner.Creature, _granted);
         }
         _granted = 0;
     }

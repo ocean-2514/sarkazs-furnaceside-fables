@@ -9,7 +9,7 @@ using Skz.Ocean.Helper;
 
 namespace Skz.Ocean.Model.Thoughts.Inspirers;
 
-// 023 筑墙：使用后，下次战斗所有我方单位部署后立刻获得 1 层缓冲。
+// 023 筑墙：使用后，下次战斗所有我方单位部署后立刻获得 2 层缓冲。
 public sealed class Wall : ThoughtModel
 {
     protected override int InitialRarity => 3;
@@ -24,6 +24,6 @@ public sealed class Wall : ThoughtModel
     {
         if (Status != ThoughtStatus.Used) return;
         if (side != Owner.Creature.Side || combatState.RoundNumber != 1) return;
-        await ThoughtFx.ApplyToAllAllies<BufferPower>(combatState, Owner.Creature, 1);
+        await ThoughtFx.ApplyToAllAllies<BufferPower>(combatState, Owner.Creature, 2);
     }
 }

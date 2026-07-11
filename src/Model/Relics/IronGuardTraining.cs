@@ -18,7 +18,7 @@ namespace Skz.Ocean.Model.Relics;
 // 035 铁卫-典训：升级一张技能牌
 public sealed class IronGuardTraining : RelicModel
 {
-    public override RelicRarity Rarity => RelicRarity.Common;
+    public override RelicRarity Rarity => RelicRarity.Event;
 
     public override bool HasUponPickupEffect => true;
 
