@@ -44,6 +44,11 @@ public sealed class DetourFrame
 
     // 原层的地图快照。引擎存档只保存"当前层"地图，离开后原图会丢，所以必须自己带。
     [JsonPropertyName("return_map")] public SerializableActMap ReturnMap { get; set; } = null!;
+
+    // 进入子层时所在的事件（EnterBizarreFragment 或带通用选项的任意事件）。
+    // 返回后用它存一个 pre-finished 事件房，SL 读档时按"已完成"重进节点，
+    // 而不是重掷房间被 ModifyNextEvent 再次强制成入口事件。
+    [JsonPropertyName("entry_event_id")] public string EntryEventId { get; set; }
 }
 
 // ──────────────────────────────────────────────────────────────
@@ -215,6 +220,11 @@ public static class MapDetour
                 await RelicCmd.Obtain(rare.ToMutable(), player);
             }
         }
+
+        // 立刻把 run 存档落盘：EnterAct 本身不存档，不存的话最近一次 run 存档
+        // 还停在"原层入口事件房"，此时 SL 会回到入口事件、再进一次就压出重复书签
+        // (还会重掷进层遗物)。落盘后 run 存档与 detour 文件保持同步。
+        await SaveManager.Instance.SaveRun(null);
     }
 
     // ── 进入子地图前调用：把"我现在在哪"压栈存盘。必须在 EnterAct 之前调用！──
@@ -239,6 +249,8 @@ public static class MapDetour
             ReturnActFloor = state.ActFloor,
             VisitedCoords = state.VisitedMapCoords.ToList(),
             ReturnMap = SerializableActMap.FromActMap(state.Map),
+            // 此刻还站在入口事件房里（EnterAct 尚未退出它）
+            EntryEventId = (state.CurrentRoom as MegaCrit.Sts2.Core.Rooms.EventRoom)?.CanonicalEvent.Id.ToString(),
         });
         Store(data, startTime);
         Log.Info($"[Sarkaz] Pushed return bookmark: act={state.CurrentActIndex}, " +
@@ -340,6 +352,31 @@ public static class MapDetour
         _sourceActCache = null;
 
         Store(data, startTime);
+
+        // 立刻把 run 存档落盘：不存的话最近一次 run 存档还停在"断章出口事件房"，
+        // 而书签已经弹掉——SL 读档会回到断章事件，再点离开选项时无书签可弹，人就卡死。
+        //
+        // 存的时候带上"已完成"的入口事件房（原版祖先事件 SL 保留结果的同款机制）：
+        // 读档的 LoadIntoLatestMapCoord 会重进最后一个 visited 节点，若不带
+        // PreFinishedRoom，会重掷房间并被 ModifyNextEvent 再次强制成入口事件，
+        // 玩家就能反复进诡谲断章。pre-finished 的加载路径由 InitialEventOptionPatch 处理。
+        MegaCrit.Sts2.Core.Rooms.EventRoom entryRoom = null;
+        try
+        {
+            EventModel entryEvent = null;
+            if (!string.IsNullOrEmpty(frame.EntryEventId))
+            {
+                entryEvent = ModelDb.GetById<EventModel>(ModelId.Deserialize(frame.EntryEventId));
+            }
+            entryEvent ??= ModelDb.Event<Model.Events.EnterBizarreFragment>();
+            entryRoom = new MegaCrit.Sts2.Core.Rooms.EventRoom(entryEvent);
+            entryRoom.MarkPreFinished();
+        }
+        catch (Exception e)
+        {
+            Log.Warn($"[Sarkaz] 无法重建入口事件房，退回普通存档: {e.Message}");
+        }
+        await SaveManager.Instance.SaveRun(entryRoom);
         Log.Info($"[Sarkaz] Returned to act={frame.ReturnActIndex}, " +
                  $"restored visited={frame.VisitedCoords.Count}, floor={frame.ReturnActFloor}");
     }

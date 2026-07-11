@@ -21,19 +21,4 @@ public class InterpretRestSiteOption : RestSiteOption
         bool opened = NThoughtInterpretScreen.ShowScreen(base.Owner) != null;
         return Task.FromResult(opened);
     }
-
-    // 选中成功后，原版会把所有选项 Clear()（其他选项消失，符合预期）。
-    // 这个回调恰好在 Clear() 之后、UpdateRestSiteOptions() 重建按钮之前执行，
-    // 把"解读"自己加回去 → 按钮重建后只剩解读，可重复进入。
-    // 选其他选项时不经过这里，走原版全清逻辑。
-    public override Task DoLocalPostSelectVfx(CancellationToken ct = default)
-    {
-        if (RunManager.Instance.RestSiteSynchronizer.GetOptionsForPlayer(base.Owner)
-                is List<RestSiteOption> options
-            && !options.Contains(this))
-        {
-            options.Add(this);
-        }
-        return Task.CompletedTask;
-    }
 }

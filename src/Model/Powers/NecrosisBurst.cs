@@ -1,3 +1,4 @@
+using MegaCrit.Sts2.Core.Entities.Cards;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Combat;
@@ -60,7 +61,7 @@ public sealed class NecrosisBurst : PowerModel, ISarkazModel
         await PowerCmd.Decrement(this);
     }
 
-    public override decimal ModifyDamageMultiplicative(Creature target, decimal amount, ValueProp props, Creature dealer, CardModel cardSource)
+    public override decimal ModifyDamageMultiplicative(Creature? target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource, CardPlay? cardPlay)
     {
         if (dealer != Owner) return 1.0m;
         if (!props.IsPoweredAttack()) return 1.0m;

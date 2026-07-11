@@ -38,7 +38,7 @@ public sealed class HandOfBuckler : RelicModel
         if (!props.IsPoweredAttack()) return;
         decimal extra = Math.Max(2m, target.CurrentHp * 3 / 100);
         await CreatureCmd.Damage(choiceContext, target, extra,
-            ValueProp.Unblockable | ValueProp.Unpowered, Owner.Creature, null);
+            ValueProp.Unblockable | ValueProp.Unpowered, Owner.Creature);
     }
     public override async Task BeforeCombatStart()
     {

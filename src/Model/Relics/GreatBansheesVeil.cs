@@ -39,7 +39,7 @@ public sealed class GreatBansheesVeil : EnemyDebuffRelic
         await SarkazRelicFx.ApplyPower<InjuredPower>(this, enemy, 10);
     }
 
-    public override decimal ModifyDamageAdditive(Creature target, decimal amount, ValueProp props, Creature dealer, CardModel cardSource)
+    public override decimal ModifyDamageAdditive(Creature? target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource, CardPlay? cardPlay)
     {
         if (target == null || !target.IsEnemy || dealer != null) return 0m;
         if (!props.HasFlag(ValueProp.Unblockable) || !props.HasFlag(ValueProp.Unpowered)) return 0m;

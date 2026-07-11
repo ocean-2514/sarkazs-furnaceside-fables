@@ -280,9 +280,10 @@ public class SarkazManager  //for one player
     // ===== 旧乡晶尘：失去后进入新一层回到手上 =====
     private readonly List<ModelId> _pendingReturns = new List<ModelId>();
 
+    // 不去重：ModelId 是类型级 id，同名思绪失去几个就要返还几个
     public void RegisterReturn(ModelId id)
     {
-        if (!_pendingReturns.Contains(id)) _pendingReturns.Add(id);
+        _pendingReturns.Add(id);
     }
 
     public async Task GrantReturns()

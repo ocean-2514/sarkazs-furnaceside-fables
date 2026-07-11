@@ -17,7 +17,7 @@ public sealed class AttackPower : PowerModel, ISarkazModel
     // 敌方攻击力-x%（开裂的束缚带等）与未叙魔王残片都需要负层数
     public override bool AllowNegative => true;
 
-    public override decimal ModifyDamageAdditive(Creature target, decimal amount, ValueProp props, Creature dealer, CardModel cardSource)
+    public override decimal ModifyDamageAdditive(Creature? target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource, CardPlay? cardPlay)
     {
         if (dealer != Owner) return 0m;
         if (!props.IsPoweredAttack()) return 0m;

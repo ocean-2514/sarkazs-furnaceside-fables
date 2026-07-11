@@ -49,7 +49,7 @@ public sealed class HandOfFireworks : RelicModel
         {
             if (enemy == null || !enemy.IsAlive) continue;
             await CreatureCmd.Damage(choiceContext, enemy, aoe,
-                ValueProp.Unblockable | ValueProp.Unpowered, Owner.Creature, null);
+                ValueProp.Unblockable | ValueProp.Unpowered, Owner.Creature);
         }
     }
     public override async Task BeforeCombatStart()

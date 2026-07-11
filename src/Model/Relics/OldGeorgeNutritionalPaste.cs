@@ -28,7 +28,7 @@ public sealed class OldGeorgeNutritionalPaste : RelicModel
 {
     public override RelicRarity Rarity => RelicRarity.Uncommon;
 
-    public override decimal ModifyDamageAdditive(Creature target, decimal amount, ValueProp props, Creature dealer, CardModel cardSource)
+    public override decimal ModifyDamageAdditive(Creature? target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource, CardPlay? cardPlay)
     {
         if (dealer != Owner.Creature) return 0m;
         if (!props.IsPoweredAttack()) return 0m;

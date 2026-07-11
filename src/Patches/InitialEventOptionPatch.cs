@@ -26,13 +26,16 @@ public static class InitialEventOptionPatch
         Log.Info("[sarkaz] Patching...");
 
         if (__instance is AncientEventModel) return true;
-        if (__instance.Owner.RunState.Act is BizarreFragment) return true;
 
-        if (isPreFinished)
-		{
-			throw new InvalidOperationException($"Tried to load into pre-finished event {__instance}! Only ancient events can be pre-finished.");
-		}
         Traverse traverse = Traverse.Create(__instance);
+        if (isPreFinished)
+        {
+            // 读档进入"已完成"的事件房（如从诡谲断章返回后 SL）：仿照祖先事件的
+            // StartPreFinished——直接摆完成态（无选项 + Proceed），不重跑事件。
+            traverse.Method("SetEventFinished", __instance.InitialDescription).GetValue();
+            return false;
+        }
+        if (__instance.Owner.RunState.Act is BizarreFragment) return true;
         List<EventOption> options =
         [
             .. traverse.Method("GenerateInitialOptionsWrapper").
