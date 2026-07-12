@@ -37,7 +37,11 @@ public sealed class RhodesIslandTacticalTransceiver : RelicModel
     public override bool TryModifyCardRewardOptions(Player player, List<CardCreationResult> cardRewardOptions, CardCreationOptions creationOptions)
     {
         if (player != Owner || cardRewardOptions.Count == 0) return false;
-        cardRewardOptions.AddRange(CardFactory.CreateForReward(Owner, 1, creationOptions));
+        // CreateForReward 结尾会再次触发 TryModifyCardRewardOptions 钩子，直接复用
+        // creationOptions 会无限递归。克隆一份（WithFlags 是原地改，不能污染外层
+        // 还在用的实例）并带上 NoModifyHooks，让内层生成跳过钩子。
+        CardCreationOptions inner = (creationOptions with { }).WithFlags(CardCreationFlags.NoModifyHooks);
+        cardRewardOptions.AddRange(CardFactory.CreateForReward(Owner, 1, inner));
         return true;
     }
 }

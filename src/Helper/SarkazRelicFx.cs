@@ -8,6 +8,7 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 
@@ -75,7 +76,8 @@ public static class SarkazRelicFx
     {
         if (amount < 0 || amount >= creature.MaxHp)
         {
-            throw new InvalidOperationException("LoseMaxHp but amount is negative/amount >= MaxHp(should not happen)");
+            Log.Warn("LoseMaxHp but amount is negative/amount >= MaxHp");
+            return;
         }
         float ratio = (float)creature.CurrentHp / (float)creature.MaxHp;
         int newHp = Math.Max((int)((creature.MaxHp - amount) * ratio), 1);
