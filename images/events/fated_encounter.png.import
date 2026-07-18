@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pm4ojfrdw4p1"
-path="res://.godot/imported/exit_my_act.png-c335fffa8bac752f4515e48eba82c126.ctex"
+uid="uid://cdhlfkl0kyeuo"
+path="res://.godot/imported/fated_encounter.png-90a00717cdc97a3dd9d9f45e53cf60c3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/events/exit_my_act.png"
-dest_files=["res://.godot/imported/exit_my_act.png-c335fffa8bac752f4515e48eba82c126.ctex"]
+source_file="res://images/events/fated_encounter.png"
+dest_files=["res://.godot/imported/fated_encounter.png-90a00717cdc97a3dd9d9f45e53cf60c3.ctex"]
 
 [params]
 

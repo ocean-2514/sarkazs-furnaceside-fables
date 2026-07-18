@@ -17,6 +17,6 @@
 //         __result = __result
 //             .Concat(new[] { ModelDb.Encounter<MockSpinesOfEpoch>() })
 //             .Distinct();
-//         __result = new EncounterModel[] { ModelDb.Encounter<ThievingHopperWeak>(), ModelDb.Encounter<GremlinMercNormal>() };
+//         __result = new EncounterModel[] { ModelDb.Encounter<MockSpinesOfEpoch>() };
 //     }
 // }

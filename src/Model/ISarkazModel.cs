@@ -20,7 +20,7 @@ public interface ISarkazModel
         return Task.CompletedTask;
     }
 
-    public MapPointType ModifyRefreshedPointType(IRunState runState, MapPointType pointType)
+    public virtual MapPointType ModifyRefreshedPointType(IRunState runState, MapPointType pointType, MapPointType initialType)
     {
         return pointType;
     }

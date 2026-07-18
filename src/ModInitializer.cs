@@ -40,10 +40,9 @@ class ModInitializer
             // 把 mod 遗物按稀有度注册进奖励池（必须在游戏初始化冻结池之前）。
             RegisterRelicPools();
 
-            // [SavedProperty] 持久化：SavedPropertiesTypeCache 的静态构造器只扫描
-            // 原版的 AbstractModelSubtypes 清单，mod 类型不注入的话 SavedProperties.From
-            // 会静默返回空（存档丢字段）。官方为 mod 留了 InjectTypeIntoCache 接口。
-            RegisterSavedProperties();
+            // [SavedProperty] 持久化不再需要手动注入：原版已把 SavedProperties 缓存
+            // 并入 ModelIdSerializationCache，其 Init() 在 mod 装载之后遍历 ModelDb.All
+            // （含 mod 模型）统一收集并计入 hash。
         }
         catch (Exception e)
         {
@@ -85,15 +84,6 @@ class ModInitializer
                     ModHelper.AddModelToPool(typeof(EventRelicPool), type);
                     break;
             }
-        }
-    }
-
-    private static void RegisterSavedProperties()
-    {
-        foreach (Type type in Assembly.GetExecutingAssembly().GetTypes())
-        {
-            if (type.IsAbstract || !typeof(AbstractModel).IsAssignableFrom(type)) continue;
-            MegaCrit.Sts2.Core.Saves.Runs.SavedPropertiesTypeCache.InjectTypeIntoCache(type);
         }
     }
 

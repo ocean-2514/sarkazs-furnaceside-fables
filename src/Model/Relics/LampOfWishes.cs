@@ -29,7 +29,7 @@ using Skz.Ocean.Model.Thoughts.Inspirers;
 
 namespace Skz.Ocean.Model.Relics;
 
-// 156 美愿时代的留恋：金币+40，刷新节点时更容易出现宝箱，打开宝箱时额外获得一件遗物
+// 156 美愿时代的留恋：护盾+12，刷新节点时更容易出现宝箱，打开宝箱时额外获得一件遗物
 public sealed class LampOfWishes : RelicModel, ISarkazModel
 {
     public override RelicRarity Rarity => RelicRarity.Event;
@@ -38,14 +38,15 @@ public sealed class LampOfWishes : RelicModel, ISarkazModel
 
     public override async Task AfterObtained()
     {
-        await PlayerCmd.GainGold(40, Owner);
+        Owner.GainShield(12);
+        await Task.CompletedTask;
     }
 
-    public MapPointType ModifyRefreshedPointType(IRunState runState, MapPointType pointType)
+    public MapPointType ModifyRefreshedPointType(IRunState runState, MapPointType pointType, MapPointType initialType)
     {
-        if (pointType == MapPointType.Treasure) return pointType;
+        if (pointType == MapPointType.Treasure || initialType == MapPointType.Treasure) return pointType;
         Rng rng = (runState as RunState)?.Rng.Niche;
-        if (rng != null && rng.NextFloat() < 0.25f) return MapPointType.Treasure;
+        if (rng != null && rng.NextFloat() < 0.8f) return MapPointType.Treasure;
         return pointType;
     }
 

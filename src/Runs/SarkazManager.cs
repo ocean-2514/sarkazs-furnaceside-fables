@@ -70,19 +70,6 @@ public class SarkazManager  //for one player
         _pendingPlanRewards = 0;
         await HandleToil();
         HandleHorizontalTravelCost();
-        // if (room is RestSiteRoom)
-        // {
-            // _player.GainShield(10);
-            // await ThoughtCmd.Obtain<Plan>(_player);
-        // }
-        // else if (room is TreasureRoom)
-        // {
-            // RelicModel relic = RelicFactory.PullNextRelicFromFront(_player, RelicRarity.Common);
-            // if (relic != null)
-            // {
-            //     await RelicCmd.Obtain(relic.ToMutable(), _player);
-            // }
-        // }
     }
 
     private async Task HandleToil()
@@ -199,8 +186,9 @@ public class SarkazManager  //for one player
         if (!CanRefresh(point)) return false;
 
         Rng rng = (_player.RunState as RunState)?.Rng.Niche;
+        MapPointType initialType = point.PointType;
         point.PointType = PickNewType(point.PointType, rng, _player);
-        point.PointType = SarkazHook.ModifyRefreshedPointType(_player.RunState, point.PointType);
+        point.PointType = SarkazHook.ModifyRefreshedPointType(_player.RunState, point.PointType, initialType);
         _refreshCounts[point.coord] = GetRefreshCount(point.coord) + 1;
         _player.RemovePlans(1); // 会触发 PlayerThoughtChanged → 所有刷新按钮刷新可见性
         return true;
@@ -255,6 +243,9 @@ public class SarkazManager  //for one player
     // 从子幕返回真实幕时不结算换幕效果（GrantReturns/第三幕诅咒遗物等）；
     // 真实幕 → 子幕算进入新的一层，正常结算。
     public bool PreviousActWasFragment { get; set; }
+
+    // ===== 注定相遇：本局第一个 ? 房强制 FatedEncounter 事件，触发后置位（持久化）=====
+    public bool FatedEncounterDone { get; set; }
 
     // ===== 年代之刺：被玩家击杀后战斗奖励追加构想 =====
     // RewardPlanPower.BeforeDeath 时 ++，发奖(TryModifyRewards)时消费。

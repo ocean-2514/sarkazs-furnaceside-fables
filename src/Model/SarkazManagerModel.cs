@@ -143,6 +143,13 @@ public class SarkazManagerModel : AbstractModel, ISarkazModel
         set { if (_manager != null) _manager.PreviousActWasFragment = value; }
     }
 
+    // ===== 注定相遇：本局第一个 ? 房已触发（供侧存档持久化）=====
+    public bool FatedEncounterDone
+    {
+        get => _manager?.FatedEncounterDone ?? false;
+        set { if (_manager != null) _manager.FatedEncounterDone = value; }
+    }
+
     // ===== 节点刷新：供 NNormalMapPoint 补丁调用 =====
     public int MaxRefreshCount => _manager?.MaxRefreshCount ?? 0;
     // 死魂灵残躯等遗物：每节点可刷新次数+delta
@@ -190,6 +197,11 @@ public class SarkazManagerModel : AbstractModel, ISarkazModel
         {
             return new HashSet<RoomType> { RoomType.Event };
         }
+        // 本局第一个 ? 房：钉成事件房（具体事件由 ModifyNextEvent 强制）
+        if (IsFatedEncounterPending())
+        {
+            return new HashSet<RoomType> { RoomType.Event };
+        }
         return roomTypes;
     }
 
@@ -203,7 +215,26 @@ public class SarkazManagerModel : AbstractModel, ISarkazModel
         {
             return ModelDb.Event<Events.EnterBizarreFragment>();
         }
+        // 本局第一个 ? 房 → 注定相遇。断章节点优先（上面已 return），不消耗本标记。
+        // ModifyNextEvent 对固定事件房也会触发，所以必须确认脚下是 Unknown 节点。
+        // 消费时机：PullNextEvent 只在真正创建事件房时调用（非预览）；节点入口的
+        // 存档发生在这之前，SL 后标记仍是未消费态，会一致地重进本事件。
+        if (IsFatedEncounterPending() && IsOnUnknownPoint())
+        {
+            _manager.FatedEncounterDone = true;
+            return ModelDb.Event<Events.FatedEncounter>();
+        }
         return currentEvent;
+    }
+
+    private bool IsFatedEncounterPending() => _manager != null && !_manager.FatedEncounterDone;
+
+    private bool IsOnUnknownPoint()
+    {
+        IRunState state = _owner?.RunState;
+        MapCoord? coord = state?.CurrentMapCoord;
+        if (state?.Map == null || !coord.HasValue) return false;
+        return state.Map.GetPoint(coord.Value)?.PointType == MapPointType.Unknown;
     }
 
     private bool IsOnFragmentNode()

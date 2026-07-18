@@ -1,4 +1,6 @@
 {
   "SPINES_OF_EPOCH.name": "年代之刺",
-  "SPINES_OF_EPOCH.moves.INFLICT_NECROSIS.title": "施加凋亡损伤"
+  "SPINES_OF_EPOCH.moves.INFLICT_NECROSIS.title": "施加凋亡损伤",
+  "SARKAZ_MAZE_GUIDE.name": "萨卡兹迷宫劝导者",
+  "SARKAZ_MAZE_GUIDE.moves.ATTACK.title": "攻击"
 }

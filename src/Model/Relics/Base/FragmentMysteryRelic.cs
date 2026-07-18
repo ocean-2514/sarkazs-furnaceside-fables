@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -38,7 +39,7 @@ public abstract class FragmentMysteryRelic : RelicModel, IFragmentMystery
                 continue;
             }
             _hpApplied.Add(enemy);
-            await CreatureCmd.GainMaxHp(enemy, enemy.MaxHp * 20 / 100);
+            await CreatureCmd.GainMaxHp(enemy, Math.Max(enemy.MaxHp * 20 / 100, 0));
             await SarkazRelicFx.ApplyPower<AttackPower>(this, enemy, 10);
         }
         if (side != Owner.Creature.Side) {

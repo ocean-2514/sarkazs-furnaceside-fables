@@ -10,13 +10,13 @@ public sealed class MockSpinesOfEpoch : EncounterModel
     public override RoomType RoomType => RoomType.Monster;
 
     public override IEnumerable<MonsterModel> AllPossibleMonsters => [
-        ModelDb.Monster<SpinesOfEpoch>()
+        ModelDb.Monster<SarkazMazeGuide>()
     ];
 
     protected override IReadOnlyList<(MonsterModel, string)> GenerateMonsters()
     {
         return [
-            (ModelDb.Monster<SpinesOfEpoch>().ToMutable(), null)
+            (ModelDb.Monster<SarkazMazeGuide>().ToMutable(), null)
         ];
     }
 }

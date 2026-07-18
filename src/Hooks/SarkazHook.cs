@@ -11,12 +11,12 @@ namespace Skz.Ocean.Hooks;
 
 public static class SarkazHook
 {
-    public static MapPointType ModifyRefreshedPointType(IRunState runState, MapPointType pointType)
+    public static MapPointType ModifyRefreshedPointType(IRunState runState, MapPointType pointType, MapPointType initialType)
     {
         MapPointType type = pointType;
         foreach (ISarkazModel model in runState.IterateSarkazHookListeners(null).ToList())
         {
-            type = model.ModifyRefreshedPointType(runState, type);
+            type = model.ModifyRefreshedPointType(runState, type, initialType);
         }
         return type;
     }

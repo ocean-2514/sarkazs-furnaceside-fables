@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmx33tg7yjb6o"
-path="res://.godot/imported/enter_my_act.png-417b68a74c6ac5d773a6f57164d71a5d.ctex"
+uid="uid://bjjl7dmqjjvj4"
+path="res://.godot/imported/enemy_2063_skzlch.png-dd8cb5abf148d56a62236dc40936e014.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/events/enter_my_act.png"
-dest_files=["res://.godot/imported/enter_my_act.png-417b68a74c6ac5d773a6f57164d71a5d.ctex"]
+source_file="res://animations/monsters/sarkaz_maze_guide/enemy_2063_skzlch.png"
+dest_files=["res://.godot/imported/enemy_2063_skzlch.png-dd8cb5abf148d56a62236dc40936e014.ctex"]
 
 [params]
 

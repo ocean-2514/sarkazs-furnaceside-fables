@@ -14,6 +14,10 @@ config/name="SarkazsFurnacesideFables"
 config/features=PackedStringArray("4.5", "C#", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+FmodManager="*res://addons/fmod/FmodManager.gd"
+
 [debug]
 
 settings/gdscript/always_track_call_stacks=true
@@ -29,7 +33,7 @@ project/assembly_name="SarkazsFurnacesideFables"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/mega_text/plugin.cfg")
+enabled=PackedStringArray("res://addons/atlas_generator/plugin.cfg", "res://addons/dev_tools/plugin.cfg", "res://addons/fmod/plugin.cfg", "res://addons/mega_text/plugin.cfg", "res://addons/megacontentcreator/plugin.cfg")
 
 [rendering]
 

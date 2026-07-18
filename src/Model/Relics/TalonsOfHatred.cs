@@ -29,10 +29,18 @@ using Skz.Ocean.Model.Thoughts.Inspirers;
 
 namespace Skz.Ocean.Model.Relics;
 
-// 155 死仇时代的恨意：所有友方单位和敌人攻击力+20%，刷新节点时更容易出现精英作战（事件联动后续补）
+// 155 死仇时代的恨意：所有友方单位和敌人攻击力+20点，刷新节点时更容易出现精英作战。获得[gold]米诺斯颂诗[/gold]。
 public sealed class TalonsOfHatred : EnemyDebuffRelic, ISarkazModel
 {
     public override RelicRarity Rarity => RelicRarity.Event;
+
+    public override bool HasUponPickupEffect => true;
+
+    public override async Task AfterObtained()
+    {
+        await RelicCmd.Obtain<MinoanOde>(Owner);
+    }
+
 
     public override async Task BeforeCombatStart()
     {
@@ -44,11 +52,11 @@ public sealed class TalonsOfHatred : EnemyDebuffRelic, ISarkazModel
         await SarkazRelicFx.ApplyPower<AttackPower>(this, enemy, 20);
     }
 
-    public MapPointType ModifyRefreshedPointType(IRunState runState, MapPointType pointType)
+    public MapPointType ModifyRefreshedPointType(IRunState runState, MapPointType pointType, MapPointType initialType)
     {
-        if (pointType == MapPointType.Elite) return pointType;
+        if (pointType == MapPointType.Elite || initialType == MapPointType.Elite) return pointType;
         Rng rng = (runState as RunState)?.Rng.Niche;
-        if (rng != null && rng.NextFloat() < 0.75f) return MapPointType.Elite;
+        if (rng != null && rng.NextFloat() < 0.8f) return MapPointType.Elite;
         return pointType;
     }
 }

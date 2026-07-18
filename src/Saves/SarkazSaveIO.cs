@@ -94,6 +94,12 @@ public static class SarkazSaveIO
                 pdict["prev_act_was_fragment"] = true;
             }
 
+            // 注定相遇：本局第一个 ? 房是否已触发。
+            if (mgr != null && mgr.FatedEncounterDone)
+            {
+                pdict["fated_encounter_done"] = true;
+            }
+
             // 诡谲断章固定事件节点坐标（按层）。地图重建(读档/回程)时靠它识别节点，不重掷。
             if (mgr != null && mgr.FragmentCoords.Count > 0)
             {
@@ -203,6 +209,12 @@ public static class SarkazSaveIO
             {
                 SarkazManagerModel mgrFlag = player.GetSarkazManager();
                 if (mgrFlag != null) mgrFlag.PreviousActWasFragment = pd["prev_act_was_fragment"].AsBool();
+            }
+
+            if (pd.ContainsKey("fated_encounter_done"))
+            {
+                SarkazManagerModel mgrFated = player.GetSarkazManager();
+                if (mgrFated != null) mgrFated.FatedEncounterDone = pd["fated_encounter_done"].AsBool();
             }
 
             if (pd.ContainsKey("fragment_coords"))
