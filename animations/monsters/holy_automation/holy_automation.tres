@@ -1,0 +1,8 @@
+[gd_resource type="SpineSkeletonDataResource" load_steps=3 format=3 uid="uid://cwug43aqjrnfl"]
+
+[ext_resource type="SpineAtlasResource" uid="uid://w48aeyi56ynp" path="res://animations/monsters/holy_automation/enemy_2068_skzirn.atlas" id="1_dvkkm"]
+[ext_resource type="SpineSkeletonFileResource" uid="uid://np3q4gdrtpv7" path="res://animations/monsters/holy_automation/enemy_2068_skzirn.skel" id="2_t0kxw"]
+
+[resource]
+atlas_res = ExtResource("1_dvkkm")
+skeleton_file_res = ExtResource("2_t0kxw")

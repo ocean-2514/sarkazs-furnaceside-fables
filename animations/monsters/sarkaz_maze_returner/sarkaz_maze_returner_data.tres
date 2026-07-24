@@ -1,0 +1,8 @@
+[gd_resource type="SpineSkeletonDataResource" load_steps=3 format=3 uid="uid://6ljvj1vgyf8l"]
+
+[ext_resource type="SpineAtlasResource" uid="uid://bhipt4b2bxf8c" path="res://animations/monsters/sarkaz_maze_returner/enemy_2064_skzwdd.atlas" id="1_1mgg5"]
+[ext_resource type="SpineSkeletonFileResource" uid="uid://dnqps36y7llhu" path="res://animations/monsters/sarkaz_maze_returner/enemy_2064_skzwdd.skel" id="2_d2wqa"]
+
+[resource]
+atlas_res = ExtResource("1_1mgg5")
+skeleton_file_res = ExtResource("2_d2wqa")

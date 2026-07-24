@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://bhipt4b2bxf8c"
+path="res://.godot/imported/enemy_2064_skzwdd.atlas-2dce6492497b1eaee0a3010d5ebe8ed6.spatlas"
+
+[deps]
+
+source_file="res://animations/monsters/sarkaz_maze_returner/enemy_2064_skzwdd.atlas"
+dest_files=["res://.godot/imported/enemy_2064_skzwdd.atlas-2dce6492497b1eaee0a3010d5ebe8ed6.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

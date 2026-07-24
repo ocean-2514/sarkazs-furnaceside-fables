@@ -5,6 +5,7 @@ using Godot;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -14,6 +15,7 @@ using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Runs;
 using Skz.Ocean.Model;
 using Skz.Ocean.Model.Acts;
+using Skz.Ocean.Model.Cards;
 using Skz.Ocean.Model.Monsters;
 using Skz.Ocean.Saves;
 
@@ -82,6 +84,9 @@ public class SarkazCombatManager
                     await CreatureCmd.LoseMaxHp(new ThrowingPlayerChoiceContext(), creature,
                         creature.MaxHp * 30 / 100, isFromCard: false);
                 }
+
+                //防暴桩
+                await CardPileCmd.AddGeneratedCardToCombat(combatState.CreateCard<RiotPileCard>(_player), PileType.Hand, null);
             }
         }
     }

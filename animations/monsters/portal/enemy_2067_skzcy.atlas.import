@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://bf1oalxwlccok"
+path="res://.godot/imported/enemy_2067_skzcy.atlas-186bf6a2aa8ccdeb9e6b605346503077.spatlas"
+
+[deps]
+
+source_file="res://animations/monsters/portal/enemy_2067_skzcy.atlas"
+dest_files=["res://.godot/imported/enemy_2067_skzcy.atlas-186bf6a2aa8ccdeb9e6b605346503077.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://cagm62whn04c"
+path="res://.godot/imported/enemy_2065_skzjs.atlas-2aa9c0f976ffffd4bd2bd5ad9010021b.spatlas"
+
+[deps]
+
+source_file="res://animations/monsters/dreadkaz/enemy_2065_skzjs.atlas"
+dest_files=["res://.godot/imported/enemy_2065_skzjs.atlas-2aa9c0f976ffffd4bd2bd5ad9010021b.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

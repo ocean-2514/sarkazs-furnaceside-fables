@@ -61,7 +61,7 @@ public sealed class BizarreFragment : ActModel
     // ────────────────────────────
     //  房间数量
     // ────────────────────────────
-    protected override int NumberOfWeakEncounters => 3;
+    protected override int NumberOfWeakEncounters => 1;
     protected override int BaseNumberOfRooms => 16;
 
     // ────────────────────────────
@@ -82,9 +82,6 @@ public sealed class BizarreFragment : ActModel
         ModelDb.AncientEvent<Neow>(),
     };
 
-    // ────────────────────────────
-    //  普通事件（混合 Act1 + 共享事件）
-    // ────────────────────────────
     public override IEnumerable<EventModel> AllEvents => new EventModel[]
     {
         ModelDb.Event<Skz.Ocean.Model.Events.ExitBizarreFragment>()

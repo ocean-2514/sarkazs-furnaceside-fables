@@ -1,0 +1,8 @@
+[gd_resource type="SpineSkeletonDataResource" load_steps=3 format=3 uid="uid://bbrxfx3m28rx4"]
+
+[ext_resource type="SpineAtlasResource" uid="uid://cp1m3jdg1j2ga" path="res://animations/monsters/lost_hovercraft/enemy_2070_skzfbx.atlas" id="1_jiwex"]
+[ext_resource type="SpineSkeletonFileResource" uid="uid://ct7c1h157i7hi" path="res://animations/monsters/lost_hovercraft/enemy_2070_skzfbx.skel" id="2_b6kw8"]
+
+[resource]
+atlas_res = ExtResource("1_jiwex")
+skeleton_file_res = ExtResource("2_b6kw8")

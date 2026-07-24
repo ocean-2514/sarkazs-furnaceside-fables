@@ -43,6 +43,11 @@ public static class IRunStateExtensions
         }
         if (combatState != null)
         {
+            // 波次型 encounter（SarkazEncounterModel）也要收 SarkazHook（如 AfterMonsterEscaped）
+            if (combatState.Encounter is ISarkazModel encounter)
+            {
+                yield return encounter;
+            }
             foreach (Creature creature in combatState.Enemies)
             {
                 foreach (PowerModel power in creature.Powers)

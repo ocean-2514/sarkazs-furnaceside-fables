@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://bt1g6rpfm28xl"
+path="res://.godot/imported/enemy_2090_skzjbc.skel-1b0b812961a56bc394668d8d05c91256.spskel"
+
+[deps]
+
+source_file="res://animations/monsters/padmasana_of_rebirth/enemy_2090_skzjbc.skel"
+dest_files=["res://.godot/imported/enemy_2090_skzjbc.skel-1b0b812961a56bc394668d8d05c91256.spskel"]
+
+[params]
+

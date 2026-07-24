@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://np3q4gdrtpv7"
+path="res://.godot/imported/enemy_2068_skzirn.skel-49b316cd0bffd3d5549bfbc26098d177.spskel"
+
+[deps]
+
+source_file="res://animations/monsters/holy_automation/enemy_2068_skzirn.skel"
+dest_files=["res://.godot/imported/enemy_2068_skzirn.skel-49b316cd0bffd3d5549bfbc26098d177.spskel"]
+
+[params]
+

@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://h2d76jc6d8j"]
+
+[ext_resource type="Texture2D" uid="uid://d3ls08pkhdt8" path="res://images/packed/card_portraits/event/fog_machine_card.png" id="1_lhwpx"]
+
+[resource]
+atlas = ExtResource("1_lhwpx")

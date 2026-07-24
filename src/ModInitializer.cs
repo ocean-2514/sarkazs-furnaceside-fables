@@ -10,6 +10,10 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.RelicPools;
 using MegaCrit.Sts2.Core.Runs;
 using Skz.Ocean.Entities.Players;
+using MegaCrit.Sts2.Core.Models.CardPools;
+using MegaCrit.Sts2.Core.Entities.Cards;
+using Skz.Ocean.Model.Cards;
+using Skz.Ocean.Model.Powers;
 
 namespace Skz.Ocean;
 
@@ -31,7 +35,7 @@ class ModInitializer
             ModHelper.SubscribeForRunStateHooks("ocean.sarkaz.thoughts",
                 runState => CollectSarkazModels(runState));
             ModHelper.SubscribeForCombatStateHooks("ocean.sarkaz.thoughts",
-                combatState => CollectSarkazCombatModels(combatState.RunState));
+                combatState => CollectSarkazCombatModels(combatState));
 
             // 若 LocManager 已构造（mod 初始化晚于它），这里立即注入 thoughts 表；
             // 否则初始 SetLanguage 会被 ThoughtsLocPatch 拦到。语言切换由 patch 处理。
@@ -40,9 +44,12 @@ class ModInitializer
             // 把 mod 遗物按稀有度注册进奖励池（必须在游戏初始化冻结池之前）。
             RegisterRelicPools();
 
-            // [SavedProperty] 持久化不再需要手动注入：原版已把 SavedProperties 缓存
-            // 并入 ModelIdSerializationCache，其 Init() 在 mod 装载之后遍历 ModelDb.All
-            // （含 mod 模型）统一收集并计入 hash。
+            ModHelper.AddModelToPool(typeof(EventCardPool), typeof(EscapeCraneCard));
+            ModHelper.AddModelToPool(typeof(EventCardPool), typeof(FogMachineCard));
+            ModHelper.AddModelToPool(typeof(EventCardPool), typeof(InterferenceMineCard));
+            ModHelper.AddModelToPool(typeof(EventCardPool), typeof(MrBoomCard));
+            ModHelper.AddModelToPool(typeof(EventCardPool), typeof(ReplenishmentStationCard));
+            ModHelper.AddModelToPool(typeof(EventCardPool), typeof(RiotPileCard));
         }
         catch (Exception e)
         {
@@ -99,13 +106,18 @@ class ModInitializer
         return list;
     }
     
-    private static IEnumerable<AbstractModel> CollectSarkazCombatModels(IRunState runState)
+    private static IEnumerable<AbstractModel> CollectSarkazCombatModels(MegaCrit.Sts2.Core.Combat.ICombatState combatState)
     {
         List<AbstractModel> list = new List<AbstractModel>();
-        foreach (Player player in runState.Players)
+        foreach (Player player in combatState.RunState.Players)
         {
             if (player.GetThoughtUsed() is { } used) list.Add(used);
             if (player.GetCombatManager() is { } combatMgr) list.Add(combatMgr);
+        }
+        // 波次型 encounter：要收 AfterDeath / ShouldStopCombatFromEnding 等原版战斗钩子
+        if (combatState.Encounter is Model.Encounters.Base.SarkazEncounterModel encounter)
+        {
+            list.Add(encounter);
         }
         return list;
     }

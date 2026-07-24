@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://bdal2dryvb6f0"]
+
+[ext_resource type="Texture2D" uid="uid://bwuw6yorkx3ax" path="res://images/packed/card_portraits/event/riot_pile_card.png" id="1_dj7r1"]
+
+[resource]
+atlas = ExtResource("1_dj7r1")

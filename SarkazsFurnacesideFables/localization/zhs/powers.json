@@ -56,6 +56,19 @@
   "UNLEASHINGS_POWER.description": "每次受到伤害时回复1点能量，每次受到元素损伤时额外回复1点能量",
   "NECROSIS_BURST_POWER.title": "凋亡损伤爆发",
   "SPINES_OF_EPOCH_POWER.title": "年代之刺",
-  "SPINES_OF_EPOCH_POWER.description": "每回合给予[red]2[/red]点凋亡损伤"
-  
+  "SPINES_OF_EPOCH_POWER.description": "每回合给予[red]2[/red]点凋亡损伤",
+  "ENTER_PROTECTION_OBJECTIVE_POWER.title": "惦终防",
+  "ENTER_PROTECTION_OBJECTIVE_POWER.description": "1回合后逃离战场并造成5点伤害",
+  "ENTER_PROTECTION_OBJECTIVE_POWER.smartDescription": "在[blue]{Amount}[/blue]回合后逃离战斗并造成5点伤害，受移速及阻挡影响",
+  "MOVE_SPEED.title": "移速",
+  "MOVE_SPEED.description": "敌人移速越快，侵入保护点的速度越快",
+  "BLOCK_POWER.title": "防暴桩",
+  "BLOCK_POWER.description": "防暴桩可以阻挡敌人使其不向前移动。",
+  "INTERFERENCE_MINE_POWER.title": "干扰地雷",
+  "INTERFERENCE_MINE_POWER.description": "一回合后引爆，造成10点真实伤害",
+  "MR_BOOM_POWER.title": "轰隆隆先生",
+  "MR_BOOM_POWER.description": "一回合后晕眩目标",
+  "FOG_MACHINE_POWER.title": "支援雾机",
+  "FOG_MACHINE_POWER.description": "使敌人减速60%",
+  "FOG_MACHINE_POWER.smartDescription": "使敌人减速60%，持续[blue]{Amount}[/blue]回合"
 }

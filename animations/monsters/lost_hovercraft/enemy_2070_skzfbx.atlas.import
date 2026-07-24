@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://cp1m3jdg1j2ga"
+path="res://.godot/imported/enemy_2070_skzfbx.atlas-13af81a5b6f4f27f4f414d0a2566ab4a.spatlas"
+
+[deps]
+
+source_file="res://animations/monsters/lost_hovercraft/enemy_2070_skzfbx.atlas"
+dest_files=["res://.godot/imported/enemy_2070_skzfbx.atlas-13af81a5b6f4f27f4f414d0a2566ab4a.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

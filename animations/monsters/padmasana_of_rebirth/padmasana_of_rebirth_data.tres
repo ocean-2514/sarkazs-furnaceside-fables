@@ -1,0 +1,8 @@
+[gd_resource type="SpineSkeletonDataResource" load_steps=3 format=3 uid="uid://ypbidn1vnhif"]
+
+[ext_resource type="SpineAtlasResource" uid="uid://dfbolkcg24khj" path="res://animations/monsters/padmasana_of_rebirth/enemy_2090_skzjbc.atlas" id="1_lc2oi"]
+[ext_resource type="SpineSkeletonFileResource" uid="uid://bt1g6rpfm28xl" path="res://animations/monsters/padmasana_of_rebirth/enemy_2090_skzjbc.skel" id="2_nlfof"]
+
+[resource]
+atlas_res = ExtResource("1_lc2oi")
+skeleton_file_res = ExtResource("2_nlfof")

@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://k58iebas5wr"]
+
+[ext_resource type="Script" uid="uid://dgsjq3haioact" path="res://src/Wrapper/NCreatureVisualsWrapper.cs" id="1_40tbg"]
+[ext_resource type="SpineSkeletonDataResource" uid="uid://ypbidn1vnhif" path="res://animations/monsters/padmasana_of_rebirth/padmasana_of_rebirth_data.tres" id="1_84sv6"]
+
+[node name="PadmasanaOfRebirth" type="Node2D"]
+script = ExtResource("1_40tbg")
+
+[node name="Bounds" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -187.0
+offset_top = -384.0
+offset_right = 192.0
+offset_bottom = -154.0
+mouse_filter = 2
+
+[node name="IntentPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -420)
+
+[node name="CenterPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -250)
+
+[node name="Visuals" type="SpineSprite" parent="."]
+unique_name_in_owner = true
+position = Vector2(-2.6253138e-05, -184.99997)
+scale = Vector2(-0.7, 0.7)
+skeleton_data_res = ExtResource("1_84sv6")
+preview_skin = "Default"
+preview_animation = "Idle"
+preview_frame = false
+preview_time = 0.0

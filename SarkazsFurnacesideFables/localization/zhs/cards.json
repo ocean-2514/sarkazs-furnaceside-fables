@@ -1,2 +1,15 @@
 {
+    "RIOT_PILE_CARD.title": "便携式防暴桩",
+    "RIOT_PILE_CARD.description": "给予一个敌人1层[gold]防暴桩[/gold]",
+    "INTERFERENCE_MINE_CARD.title": "干扰地雷",
+    "INTERFERENCE_MINE_CARD.description": "给予敌人一个[gold]干扰地雷[/gold]，1回合后引爆，造成10点真实伤害",
+    "MR_BOOM_CARD.title": "轰隆隆先生",
+    "MR_BOOM_CARD.description": "1回合后晕眩敌人",
+    "ESCAPE_CRANE_CARD.title": "雪雉的安全起重机",
+    "ESCAPE_CRANE_CARD.description": "选择弃牌堆的1张牌加入手牌",
+    "ESCAPE_CRANE_CARD.selectionScreenPrompt": "选择弃牌堆的1张牌加入手牌",
+    "FOG_MACHINE_CARD.title": "支援雾机",
+    "FOG_MACHINE_CARD.description": "使目标的移速减少60%，持续2回合",
+    "REPLENISHMENT_STATION_CARD.title": "便携式补给站",
+    "REPLENISHMENT_STATION_CARD.description": "获得1点能量"
 }

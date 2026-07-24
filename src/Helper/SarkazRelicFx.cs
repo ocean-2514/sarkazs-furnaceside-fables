@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.CardSelection;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -70,6 +71,19 @@ public static class SarkazRelicFx
         CardModel card = player.RunState.CreateCard(canonical, player);
         CardCmd.Upgrade(card);
         CardCmd.PreviewCardPileAdd(await CardPileCmd.Add(card, PileType.Deck), 2f);
+    }
+
+    // 战斗开始时向抽牌堆随机加入 count 张牌 T（战斗内生成，非永久牌组）。
+    public static async Task AddCardsToDraw<T>(RelicModel relic, int count) where T : CardModel
+    {
+        ICombatState combatState = relic.Owner.Creature.CombatState;
+        if (combatState == null || count <= 0) return;
+        for (int i = 0; i < count; i++)
+        {
+            CardModel card = combatState.CreateCard<T>(relic.Owner);
+            await CardPileCmd.AddGeneratedCardToCombat(card, PileType.Draw, relic.Owner, CardPilePosition.Random);
+        }
+        relic.Flash();
     }
 
     public static async Task LoseMaxHp(Creature creature, int amount)

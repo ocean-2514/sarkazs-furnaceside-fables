@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://dfbolkcg24khj"
+path="res://.godot/imported/enemy_2090_skzjbc.atlas-127b05936adf4d2fcc078b234f97f379.spatlas"
+
+[deps]
+
+source_file="res://animations/monsters/padmasana_of_rebirth/enemy_2090_skzjbc.atlas"
+dest_files=["res://.godot/imported/enemy_2090_skzjbc.atlas-127b05936adf4d2fcc078b234f97f379.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

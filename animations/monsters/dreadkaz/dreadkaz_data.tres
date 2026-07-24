@@ -1,0 +1,8 @@
+[gd_resource type="SpineSkeletonDataResource" load_steps=3 format=3 uid="uid://cgratx5d8u0oh"]
+
+[ext_resource type="SpineAtlasResource" uid="uid://cagm62whn04c" path="res://animations/monsters/dreadkaz/enemy_2065_skzjs.atlas" id="1_wni8c"]
+[ext_resource type="SpineSkeletonFileResource" uid="uid://cj0uhf2vk8xaw" path="res://animations/monsters/dreadkaz/enemy_2065_skzjs.skel" id="2_h1001"]
+
+[resource]
+atlas_res = ExtResource("1_wni8c")
+skeleton_file_res = ExtResource("2_h1001")

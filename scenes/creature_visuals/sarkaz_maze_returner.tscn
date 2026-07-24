@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://cod0y8728it4c"]
+
+[ext_resource type="Script" uid="uid://dgsjq3haioact" path="res://src/Wrapper/NCreatureVisualsWrapper.cs" id="1_6iyac"]
+[ext_resource type="SpineSkeletonDataResource" uid="uid://6ljvj1vgyf8l" path="res://animations/monsters/sarkaz_maze_returner/sarkaz_maze_returner_data.tres" id="1_w55qb"]
+
+[node name="SarkazMazeReturner" type="Node2D"]
+script = ExtResource("1_6iyac")
+
+[node name="Bounds" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -110.0
+offset_top = -247.0
+offset_right = 119.0
+offset_bottom = -1.0
+mouse_filter = 2
+
+[node name="IntentPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -370)
+
+[node name="CenterPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -115)
+
+[node name="Visuals" type="SpineSprite" parent="."]
+unique_name_in_owner = true
+scale = Vector2(-0.75, 0.75)
+skeleton_data_res = ExtResource("1_w55qb")
+preview_skin = "Default"
+preview_animation = "Idle"
+preview_frame = false
+preview_time = 0.0

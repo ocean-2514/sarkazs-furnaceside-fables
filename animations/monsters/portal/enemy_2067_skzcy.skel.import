@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://bqpes5bvwqhpb"
+path="res://.godot/imported/enemy_2067_skzcy.skel-35ced31846b7807748cc7cc45993690c.spskel"
+
+[deps]
+
+source_file="res://animations/monsters/portal/enemy_2067_skzcy.skel"
+dest_files=["res://.godot/imported/enemy_2067_skzcy.skel-35ced31846b7807748cc7cc45993690c.spskel"]
+
+[params]
+

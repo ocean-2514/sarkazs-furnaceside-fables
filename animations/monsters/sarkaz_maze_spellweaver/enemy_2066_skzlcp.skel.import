@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://drcucgp4oqfrq"
+path="res://.godot/imported/enemy_2066_skzlcp.skel-792e26a1a0760b017f97a2820b56f20b.spskel"
+
+[deps]
+
+source_file="res://animations/monsters/sarkaz_maze_spellweaver/enemy_2066_skzlcp.skel"
+dest_files=["res://.godot/imported/enemy_2066_skzlcp.skel-792e26a1a0760b017f97a2820b56f20b.spskel"]
+
+[params]
+

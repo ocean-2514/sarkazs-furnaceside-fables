@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://bccion0pedy81"
+path="res://.godot/imported/enemy_2069_skzbox.atlas-1b86b2d6c16ae6f5905546fd035d8a30.spatlas"
+
+[deps]
+
+source_file="res://animations/monsters/lost_contraption/enemy_2069_skzbox.atlas"
+dest_files=["res://.godot/imported/enemy_2069_skzbox.atlas-1b86b2d6c16ae6f5905546fd035d8a30.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"
