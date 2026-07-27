@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://mc84gjy2cj27"
+path="res://.godot/imported/enemy_1267_nhpbr.skel-721de1a8cc30886e37242515b042b738.spskel"
+
+[deps]
+
+source_file="res://animations/monsters/sarkaz_witherer/enemy_1267_nhpbr.skel"
+dest_files=["res://.godot/imported/enemy_1267_nhpbr.skel-721de1a8cc30886e37242515b042b738.spskel"]
+
+[params]
+

@@ -1,0 +1,8 @@
+[gd_resource type="SpineSkeletonDataResource" load_steps=3 format=3 uid="uid://dnbempxv17u5i"]
+
+[ext_resource type="SpineAtlasResource" uid="uid://cpfw5fryp6ds8" path="res://animations/monsters/icefield_arts_fighter/enemy_1191_krgrg.atlas" id="1_tdywg"]
+[ext_resource type="SpineSkeletonFileResource" uid="uid://cdljglx6nmyph" path="res://animations/monsters/icefield_arts_fighter/enemy_1191_krgrg.skel" id="2_qkd1g"]
+
+[resource]
+atlas_res = ExtResource("1_tdywg")
+skeleton_file_res = ExtResource("2_qkd1g")

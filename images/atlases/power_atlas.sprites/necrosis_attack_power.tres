@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://csyh1k2rop4df"]
+
+[ext_resource type="Texture2D" uid="uid://cvu8tuvkt4s5s" path="res://images/powers/necrosis_attack_power.png" id="1_apmya"]
+
+[resource]
+atlas = ExtResource("1_apmya")

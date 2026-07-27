@@ -1,6 +1,102 @@
 {
   "SPINES_OF_EPOCH.name": "年代之刺",
   "SPINES_OF_EPOCH.moves.INFLICT_NECROSIS.title": "施加凋亡损伤",
+
+  "RADIOACTIVE_ORIGINIUM_SLUG.name": "辐能源石虫",
+  "RADIOACTIVE_ORIGINIUM_SLUG.moves.ATTACK1.title": "攻击",
+  "RADIOACTIVE_ORIGINIUM_SLUG.moves.ATTACK2.title": "连击",
+
+  "METAL_CRAB.name": "磐蟹",
+  "METAL_CRAB.moves.DEFEND.title": "格挡",
+  "METAL_CRAB.moves.ATTACK.title": "攻击",
+
+  "ORIGINIUM_SLUG_BETA.name": "源石虫·β",
+  "ORIGINIUM_SLUG_BETA.moves.ATTACK.title": "攻击",
+
+  "HOUND.name": "猎狗",
+  "HOUND.moves.ATTACK.title": "撕咬",
+
+  "REMNANT_SAXOPHONIST.name": "残党萨克斯手",
+  "REMNANT_SAXOPHONIST.moves.BUFF.title": "蓄力",
+  "REMNANT_SAXOPHONIST.moves.SKILL.title": "强音",
+  "REMNANT_SAXOPHONIST.moves.ATTACK.title": "攻击",
+
+  "HOUND_PRO.name": "猎狗pro",
+  "HOUND_PRO.moves.ATTACK.title": "撕咬",
+
+  "SARKAZ_CROSSBOWMAN.name": "萨卡兹狙击手",
+  "SARKAZ_CROSSBOWMAN.moves.ATTACK.title": "射击",
+  "SARKAZ_CROSSBOWMAN.moves.DEBUFF.title": "瞄准",
+
+  "CROWNSLAYER.name": "弑君者",
+  "CROWNSLAYER.moves.ATTACK1.title": "攻击",
+  "CROWNSLAYER.moves.ATTACK2.title": "重击",
+
+  "INFUSED_GLACIAL_ORIGINIUM_SLUG.name": "冰爆源石虫",
+  "INFUSED_GLACIAL_ORIGINIUM_SLUG.moves.ATTACK1.title": "攻击",
+  "INFUSED_GLACIAL_ORIGINIUM_SLUG.moves.ATTACK2.title": "连击",
+
+  "ICEFIELD_ARTS_FIGHTER.name": "冰原卫法者",
+  "ICEFIELD_ARTS_FIGHTER.moves.ATTACK.title": "攻击",
+  "ICEFIELD_ARTS_FIGHTER.moves.DEBUFF1.title": "寒流",
+  "ICEFIELD_ARTS_FIGHTER.moves.DEBUFF2.title": "使一张卡牌获得消耗",
+
+  "SARKAZ_CASTER.name": "萨卡兹术士",
+  "SARKAZ_CASTER.moves.DEBUFF.title": "鸣响",
+  "SARKAZ_CASTER.moves.ATTACK1.title": "术法",
+  "SARKAZ_CASTER.moves.ATTACK2.title": "连术",
+  "SARKAZ_CASTER.moves.ATTACK3.title": "爆术",
+
   "SARKAZ_MAZE_GUIDE.name": "萨卡兹迷宫劝导者",
-  "SARKAZ_MAZE_GUIDE.moves.ATTACK.title": "攻击"
+  "SARKAZ_MAZE_GUIDE.moves.ATTACK.title": "攻击",
+  "SARKAZ_MAZE_GUIDE.moves.SUMMON.title": "召唤",
+  "SARKAZ_MAZE_GUIDE.moves.ATTACK_LOOP.title": "攻击",
+  "SARKAZ_MAZE_GUIDE.moves.DEBUFF.title": "虚空",
+
+  "SARKAZ_MAZE_RETURNER.name": "萨卡兹迷宫归乡者",
+  "SARKAZ_MAZE_RETURNER.moves.BUFF.title": "蓄力",
+  "SARKAZ_MAZE_RETURNER.moves.ATTACK1.title": "攻击",
+  "SARKAZ_MAZE_RETURNER.moves.ATTACK2.title": "削弱",
+  "SARKAZ_MAZE_RETURNER.moves.ATTACK3.title": "攻击",
+
+  "SARKAZ_LANCER.name": "萨卡兹穿刺手",
+  "SARKAZ_LANCER.moves.ATTACK.title": "穿刺",
+
+  "ARC_COMMANDO.name": "弧光突击队",
+  "ARC_COMMANDO.moves.ATTACK_PLAIN.title": "攻击",
+  "ARC_COMMANDO.moves.BUFF.title": "翱翔",
+  "ARC_COMMANDO.moves.ATTACK_SOAR.title": "连击",
+
+  "SARKAZ_SWORDSMAN.name": "萨卡兹刀兵",
+  "SARKAZ_SWORDSMAN.moves.ATTACK.title": "挥砍",
+
+  "GUERRILLA_HERALD.name": "游击队传令兵",
+  "GUERRILLA_HERALD.moves.BUFF.title": "号令",
+  "GUERRILLA_HERALD.moves.HEAL.title": "鼓舞",
+  "GUERRILLA_HERALD.moves.ATTACK.title": "攻击",
+
+  "SARKAZ_GUERRILLA_FIGHTER.name": "游击队萨卡兹战士",
+  "SARKAZ_GUERRILLA_FIGHTER.moves.BUFF.title": "备战",
+  "SARKAZ_GUERRILLA_FIGHTER.moves.ATTACK.title": "攻击",
+
+  "SARKAZ_WITHERER.name": "萨卡兹枯朽战士",
+  "SARKAZ_WITHERER.moves.ATTACK1.title": "连击",
+  "SARKAZ_WITHERER.moves.ATTACK2.title": "攻击",
+
+  "SARKAZ_WITHER_TANK.name": "萨卡兹枯朽战车",
+  "SARKAZ_WITHER_TANK.moves.ATTACK1.title": "攻击",
+  "SARKAZ_WITHER_TANK.moves.DEBUFF.title": "腐蚀",
+  "SARKAZ_WITHER_TANK.moves.ATTACK2.title": "连击",
+
+  "RAGING_SLUG_EATER.name": "暴走食虫花",
+  "RAGING_SLUG_EATER.moves.DEVOUR.title": "吞食",
+  "RAGING_SLUG_EATER.moves.IDLE.title": "消化",
+  "RAGING_SLUG_EATER.moves.ATTACK.title": "啃咬",
+
+  "SARKAZ_BLADEWEAVER.name": "萨卡兹魔剑士",
+  "SARKAZ_BLADEWEAVER.moves.SLEEP.title": "潜伏",
+  "SARKAZ_BLADEWEAVER.moves.ATTACK.title": "斩击",
+
+  "SARKAZ_SENTINEL.name": "萨卡兹哨兵",
+  "SARKAZ_SENTINEL.moves.IDLE.title": "戒备"
 }

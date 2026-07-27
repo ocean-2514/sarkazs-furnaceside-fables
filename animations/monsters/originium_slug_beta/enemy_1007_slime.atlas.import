@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://cgoqrse0jkmnc"
+path="res://.godot/imported/enemy_1007_slime.atlas-fa4c2bdddf98da2874147b9e16725e3a.spatlas"
+
+[deps]
+
+source_file="res://animations/monsters/originium_slug_beta/enemy_1007_slime.atlas"
+dest_files=["res://.godot/imported/enemy_1007_slime.atlas-fa4c2bdddf98da2874147b9e16725e3a.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

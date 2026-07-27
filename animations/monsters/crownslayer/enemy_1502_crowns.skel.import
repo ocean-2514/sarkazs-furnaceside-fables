@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://dv27t5cmphebn"
+path="res://.godot/imported/enemy_1502_crowns.skel-0a88cb07f41067371c64aa23a7f33591.spskel"
+
+[deps]
+
+source_file="res://animations/monsters/crownslayer/enemy_1502_crowns.skel"
+dest_files=["res://.godot/imported/enemy_1502_crowns.skel-0a88cb07f41067371c64aa23a7f33591.spskel"]
+
+[params]
+

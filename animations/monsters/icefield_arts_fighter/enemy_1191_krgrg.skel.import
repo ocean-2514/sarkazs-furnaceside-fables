@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://cdljglx6nmyph"
+path="res://.godot/imported/enemy_1191_krgrg.skel-6f8d12804e65828bb3af66d75da20815.spskel"
+
+[deps]
+
+source_file="res://animations/monsters/icefield_arts_fighter/enemy_1191_krgrg.skel"
+dest_files=["res://.godot/imported/enemy_1191_krgrg.skel-6f8d12804e65828bb3af66d75da20815.spskel"]
+
+[params]
+

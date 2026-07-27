@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://das70ulxs7vpg"
+path="res://.godot/imported/enemy_1327_cbrokt.atlas-b071f9bb3554e1ff78c4d584c8081254.spatlas"
+
+[deps]
+
+source_file="res://animations/monsters/arc_commando/enemy_1327_cbrokt.atlas"
+dest_files=["res://.godot/imported/enemy_1327_cbrokt.atlas-b071f9bb3554e1ff78c4d584c8081254.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

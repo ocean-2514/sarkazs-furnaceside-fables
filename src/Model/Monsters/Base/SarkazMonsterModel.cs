@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MegaCrit.Sts2.Core.Animation;
+using MegaCrit.Sts2.Core.Bindings.MegaSpine;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -34,6 +36,12 @@ public abstract class SarkazMonsterModel : MonsterModel
 
     public bool Blockable = true;
 
+    protected readonly Dictionary<string, string> _dict = new Dictionary<string, string>{
+        {"first", "forth"},
+        {"second", "fifth"},
+        {"third", "sixth"}
+    };
+
     // 当前移速 = 基础移速 × 各监听者乘数（减速/加速等持续效果走这里，实时生效；
     // 未入战斗时无法遍历监听者，退回基础移速）。
     public decimal CurrentSpeed
@@ -42,7 +50,7 @@ public abstract class SarkazMonsterModel : MonsterModel
         {
             ICombatState combatState = Creature?.CombatState;
             if (combatState == null) return InitialSpeed;
-            return SarkazHook.ModifyMoveSpeedMultiplicative(combatState.RunState, combatState, this, InitialSpeed);
+            return SarkazHook.ModifyMoveSpeed(combatState.RunState, combatState, this, InitialSpeed);
         }
     }
 
@@ -114,5 +122,27 @@ public abstract class SarkazMonsterModel : MonsterModel
         {
             await PowerCmd.ModifyAmount(choiceContext, timer, CalculatedLeftTurn - timer.Amount, Creature, null, silent: true);
         }
+    }
+
+    // 默认动画机：Idle 循环 + Attack + Die(死亡触发 "Dead")。
+    // 攻击招式用 WithAttackerAnim("Attack",...)，非攻击招式不触发动画。
+    // 有额外动画需求的子类可再 override。
+    public override CreatureAnimator GenerateAnimator(MegaSprite controller)
+    {
+        AnimState idle = new AnimState("Idle", isLooping: true);
+        AnimState attack = new AnimState("Attack");
+        AnimState die = new AnimState("Die");
+        AnimState skillBegin = new AnimState("Skill_Begin");
+        AnimState skillLoop = new AnimState("Skill_Loop");
+        AnimState skillEnd = new AnimState("Skill_End");
+        attack.NextState = idle;
+        skillBegin.NextState = skillLoop;
+        skillLoop.NextState = skillEnd;
+        skillEnd.NextState = idle;
+        CreatureAnimator animator = new CreatureAnimator(idle, controller);
+        animator.AddAnyState("Attack", attack);
+        animator.AddAnyState("Dead", die);
+        animator.AddAnyState("Skill", skillBegin);
+        return animator;
     }
 }

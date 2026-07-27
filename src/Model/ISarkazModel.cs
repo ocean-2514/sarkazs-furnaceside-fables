@@ -48,10 +48,23 @@ public interface ISarkazModel
     {
         return 1m;
     }
+    
+    public virtual decimal ModifyMoveSpeedAdditive(IRunState runState, ICombatState combatState,
+        SarkazMonsterModel monster, decimal baseSpeed)
+    {
+        return 0m;
+    }
 
     // Sarkaz 怪物进蓝门逃离战斗后触发（此时它已从敌人列表移除）。
     // 波次型 encounter 靠它推进出怪；遗物/思绪也可借此结算"敌人逃走"效果。
     public virtual Task AfterMonsterEscaped(IRunState runState, ICombatState combatState,
+        SarkazMonsterModel monster)
+    {
+        return Task.CompletedTask;
+    }
+    
+    
+    public virtual Task AfterMonsterBlocked(IRunState runState, ICombatState combatState,
         SarkazMonsterModel monster)
     {
         return Task.CompletedTask;

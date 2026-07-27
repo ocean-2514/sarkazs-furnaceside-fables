@@ -1,0 +1,8 @@
+[gd_resource type="SpineSkeletonDataResource" load_steps=3 format=3 uid="uid://dwgbonwxabgff"]
+
+[ext_resource type="SpineAtlasResource" uid="uid://jrrqhj0vjeaa" path="res://animations/monsters/remnant_saxophonist/enemy_1243_ltswar.atlas" id="1_exm32"]
+[ext_resource type="SpineSkeletonFileResource" uid="uid://qbdudmkpj5fj" path="res://animations/monsters/remnant_saxophonist/enemy_1243_ltswar.skel" id="2_cwwdh"]
+
+[resource]
+atlas_res = ExtResource("1_exm32")
+skeleton_file_res = ExtResource("2_cwwdh")

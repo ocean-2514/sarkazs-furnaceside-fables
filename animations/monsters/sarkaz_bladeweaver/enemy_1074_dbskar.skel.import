@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://b0b3h7pgs2ghy"
+path="res://.godot/imported/enemy_1074_dbskar.skel-50ba04c96f298b259c5bdd2383444007.spskel"
+
+[deps]
+
+source_file="res://animations/monsters/sarkaz_bladeweaver/enemy_1074_dbskar.skel"
+dest_files=["res://.godot/imported/enemy_1074_dbskar.skel-50ba04c96f298b259c5bdd2383444007.spskel"]
+
+[params]
+

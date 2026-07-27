@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://bfpyxvxqaahlw"]
+
+[ext_resource type="Texture2D" uid="uid://bmf2ib71aq5oq" path="res://images/powers/rhine_armor_power.png" id="1_knpjg"]
+
+[resource]
+atlas = ExtResource("1_knpjg")

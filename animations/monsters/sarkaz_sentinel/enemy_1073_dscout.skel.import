@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://cjc6spx2ouhhx"
+path="res://.godot/imported/enemy_1073_dscout.skel-671b53f16a6e3c36fc9c413da8d66ac8.spskel"
+
+[deps]
+
+source_file="res://animations/monsters/sarkaz_sentinel/enemy_1073_dscout.skel"
+dest_files=["res://.godot/imported/enemy_1073_dscout.skel-671b53f16a6e3c36fc9c413da8d66ac8.spskel"]
+
+[params]
+

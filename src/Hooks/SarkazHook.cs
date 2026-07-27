@@ -70,7 +70,13 @@ public static class SarkazHook
         }
     }
 
-    // 乘法合成：各监听者返回倍率，连乘后作用到基础移速（原版 ModifyDamageMultiplicative 同款语义）。
+    public static decimal ModifyMoveSpeed(IRunState runState, ICombatState combatState,
+        Model.Monsters.Base.SarkazMonsterModel monster, decimal baseSpeed)
+    {
+        return (baseSpeed + ModifyMoveSpeedAdditive(runState, combatState, monster, baseSpeed))
+            * ModifyMoveSpeedMultiplicative(runState, combatState, monster, baseSpeed);
+    }
+
     public static decimal ModifyMoveSpeedMultiplicative(IRunState runState, ICombatState combatState,
         Model.Monsters.Base.SarkazMonsterModel monster, decimal baseSpeed)
     {
@@ -79,6 +85,26 @@ public static class SarkazHook
         {
             factor *= model.ModifyMoveSpeedMultiplicative(runState, combatState, monster, baseSpeed);
         }
-        return Math.Max(0, baseSpeed * factor);
+        return Math.Max(0, factor);
+    }
+    
+    public static decimal ModifyMoveSpeedAdditive(IRunState runState, ICombatState combatState,
+        Model.Monsters.Base.SarkazMonsterModel monster, decimal baseSpeed)
+    {
+        decimal num = 0m;
+        foreach (ISarkazModel model in runState.IterateSarkazHookListeners(combatState).ToList())
+        {
+            num += model.ModifyMoveSpeedAdditive(runState, combatState, monster, baseSpeed);
+        }
+        return num;
+    }
+
+    public static async Task AfterMonsterBlocked(IRunState runState, ICombatState combatState,
+        Model.Monsters.Base.SarkazMonsterModel monster)
+    {
+        foreach (ISarkazModel model in runState.IterateSarkazHookListeners(combatState).ToList())
+        {
+            await model.AfterMonsterBlocked(runState, combatState, monster);
+        }
     }
 }

@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://cvoby17733sra"]
+
+[ext_resource type="Texture2D" uid="uid://clqyffgfqhcvi" path="res://images/powers/death_blast.png" id="1_ph6ul"]
+
+[resource]
+atlas = ExtResource("1_ph6ul")

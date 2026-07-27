@@ -1,0 +1,8 @@
+[gd_resource type="SpineSkeletonDataResource" load_steps=3 format=3 uid="uid://bytsrcuhnfv16"]
+
+[ext_resource type="SpineAtlasResource" uid="uid://dwadv3g2xkado" path="res://animations/monsters/sarkaz_wither_tank/enemy_1272_nhtank.atlas" id="1_3rulk"]
+[ext_resource type="SpineSkeletonFileResource" uid="uid://mgbtom4bxhx1" path="res://animations/monsters/sarkaz_wither_tank/enemy_1272_nhtank.skel" id="2_y00rv"]
+
+[resource]
+atlas_res = ExtResource("1_3rulk")
+skeleton_file_res = ExtResource("2_y00rv")

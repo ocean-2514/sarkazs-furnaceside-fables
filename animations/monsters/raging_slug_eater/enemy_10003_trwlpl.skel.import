@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://cehbx5udxhbd3"
+path="res://.godot/imported/enemy_10003_trwlpl.skel-f98c0e22b902eaa3a22ef9f30e322102.spskel"
+
+[deps]
+
+source_file="res://animations/monsters/raging_slug_eater/enemy_10003_trwlpl.skel"
+dest_files=["res://.godot/imported/enemy_10003_trwlpl.skel-f98c0e22b902eaa3a22ef9f30e322102.spskel"]
+
+[params]
+

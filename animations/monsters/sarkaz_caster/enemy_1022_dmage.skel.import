@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://b7qyj405ola6p"
+path="res://.godot/imported/enemy_1022_dmage.skel-d494fbe242804b3dab25efb207e6b5f5.spskel"
+
+[deps]
+
+source_file="res://animations/monsters/sarkaz_caster/enemy_1022_dmage.skel"
+dest_files=["res://.godot/imported/enemy_1022_dmage.skel-d494fbe242804b3dab25efb207e6b5f5.spskel"]
+
+[params]
+

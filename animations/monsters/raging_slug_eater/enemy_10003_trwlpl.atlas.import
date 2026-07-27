@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://bxc2uvt0udv17"
+path="res://.godot/imported/enemy_10003_trwlpl.atlas-b1c868e7a9e9b45aaee4360f11dff7c7.spatlas"
+
+[deps]
+
+source_file="res://animations/monsters/raging_slug_eater/enemy_10003_trwlpl.atlas"
+dest_files=["res://.godot/imported/enemy_10003_trwlpl.atlas-b1c868e7a9e9b45aaee4360f11dff7c7.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

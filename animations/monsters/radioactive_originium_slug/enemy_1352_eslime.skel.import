@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://vrj6xnq6bcdj"
+path="res://.godot/imported/enemy_1352_eslime.skel-7ed4d6eac02ebaa8f5783f0a0331e46b.spskel"
+
+[deps]
+
+source_file="res://animations/monsters/radioactive_originium_slug/enemy_1352_eslime.skel"
+dest_files=["res://.godot/imported/enemy_1352_eslime.skel-7ed4d6eac02ebaa8f5783f0a0331e46b.spskel"]
+
+[params]
+

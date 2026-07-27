@@ -85,9 +85,9 @@ public class SarkazCombatManager
                         creature.MaxHp * 30 / 100, isFromCard: false);
                 }
 
-                //防暴桩
-                await CardPileCmd.AddGeneratedCardToCombat(combatState.CreateCard<RiotPileCard>(_player), PileType.Hand, null);
             }
+            //防暴桩
+            await CardPileCmd.AddGeneratedCardToCombat(combatState.CreateCard<RiotPileCard>(_player), PileType.Hand, null);
         }
     }
 }

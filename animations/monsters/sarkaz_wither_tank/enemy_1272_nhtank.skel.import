@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://mgbtom4bxhx1"
+path="res://.godot/imported/enemy_1272_nhtank.skel-e87866176742f5207ff85ed40636a43f.spskel"
+
+[deps]
+
+source_file="res://animations/monsters/sarkaz_wither_tank/enemy_1272_nhtank.skel"
+dest_files=["res://.godot/imported/enemy_1272_nhtank.skel-e87866176742f5207ff85ed40636a43f.spskel"]
+
+[params]
+

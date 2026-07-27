@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://bdmp7r0u5u6x1"
+path="res://.godot/imported/enemy_1067_snslime.skel-4e30fac33698a7384d94a94491403504.spskel"
+
+[deps]
+
+source_file="res://animations/monsters/infused_glacial_originium_slug/enemy_1067_snslime.skel"
+dest_files=["res://.godot/imported/enemy_1067_snslime.skel-4e30fac33698a7384d94a94491403504.spskel"]
+
+[params]
+

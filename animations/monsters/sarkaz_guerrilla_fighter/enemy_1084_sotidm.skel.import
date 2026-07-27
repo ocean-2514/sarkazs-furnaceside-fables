@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://cdcddtv5p7iyw"
+path="res://.godot/imported/enemy_1084_sotidm.skel-761837f5050d08698e26671e0a1fe29f.spskel"
+
+[deps]
+
+source_file="res://animations/monsters/sarkaz_guerrilla_fighter/enemy_1084_sotidm.skel"
+dest_files=["res://.godot/imported/enemy_1084_sotidm.skel-761837f5050d08698e26671e0a1fe29f.spskel"]
+
+[params]
+

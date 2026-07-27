@@ -1,0 +1,8 @@
+[gd_resource type="SpineSkeletonDataResource" load_steps=3 format=3 uid="uid://c4e7ieoo6ekpm"]
+
+[ext_resource type="SpineAtlasResource" uid="uid://bgw6464copsfr" path="res://animations/monsters/hound_pro/enemy_1000_gopro_3.atlas" id="1_grw3o"]
+[ext_resource type="SpineSkeletonFileResource" uid="uid://cddj4l4476n6j" path="res://animations/monsters/hound_pro/enemy_1000_gopro_3.skel" id="2_og7xs"]
+
+[resource]
+atlas_res = ExtResource("1_grw3o")
+skeleton_file_res = ExtResource("2_og7xs")

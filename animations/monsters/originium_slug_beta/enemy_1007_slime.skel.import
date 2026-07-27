@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://bk14lum3gb6ln"
+path="res://.godot/imported/enemy_1007_slime.skel-c16375cf523c990aaf335c2f106ebb79.spskel"
+
+[deps]
+
+source_file="res://animations/monsters/originium_slug_beta/enemy_1007_slime.skel"
+dest_files=["res://.godot/imported/enemy_1007_slime.skel-c16375cf523c990aaf335c2f106ebb79.spskel"]
+
+[params]
+

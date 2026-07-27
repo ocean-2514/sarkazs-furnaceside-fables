@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://dguptr3wnob5g"
+path="res://.godot/imported/enemy_1012_dcross.skel-40938324d6f47c3dd2834ac508c7c465.spskel"
+
+[deps]
+
+source_file="res://animations/monsters/sarkaz_crossbowman/enemy_1012_dcross.skel"
+dest_files=["res://.godot/imported/enemy_1012_dcross.skel-40938324d6f47c3dd2834ac508c7c465.spskel"]
+
+[params]
+

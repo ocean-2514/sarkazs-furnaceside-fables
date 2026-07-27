@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://bgrx5ntnbya6d"
+path="res://.godot/imported/enemy_1502_crowns.atlas-73901153a5564418a1e64c8b87fce6d8.spatlas"
+
+[deps]
+
+source_file="res://animations/monsters/crownslayer/enemy_1502_crowns.atlas"
+dest_files=["res://.godot/imported/enemy_1502_crowns.atlas-73901153a5564418a1e64c8b87fce6d8.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

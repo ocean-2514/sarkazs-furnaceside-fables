@@ -1,0 +1,8 @@
+[gd_resource type="SpineSkeletonDataResource" load_steps=3 format=3 uid="uid://ci8eeddib413t"]
+
+[ext_resource type="SpineAtlasResource" uid="uid://bxc2uvt0udv17" path="res://animations/monsters/raging_slug_eater/enemy_10003_trwlpl.atlas" id="1_py7ad"]
+[ext_resource type="SpineSkeletonFileResource" uid="uid://cehbx5udxhbd3" path="res://animations/monsters/raging_slug_eater/enemy_10003_trwlpl.skel" id="2_1xg8h"]
+
+[resource]
+atlas_res = ExtResource("1_py7ad")
+skeleton_file_res = ExtResource("2_1xg8h")

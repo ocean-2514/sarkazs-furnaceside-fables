@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://bgw6464copsfr"
+path="res://.godot/imported/enemy_1000_gopro_3.atlas-c2d74b928b65b25a12312547955e0669.spatlas"
+
+[deps]
+
+source_file="res://animations/monsters/hound_pro/enemy_1000_gopro_3.atlas"
+dest_files=["res://.godot/imported/enemy_1000_gopro_3.atlas-c2d74b928b65b25a12312547955e0669.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://cjfx0al5wbxut"
+path="res://.godot/imported/enemy_1012_dcross.atlas-a6c998feeaa9950fb0c8a40e69604d6f.spatlas"
+
+[deps]
+
+source_file="res://animations/monsters/sarkaz_crossbowman/enemy_1012_dcross.atlas"
+dest_files=["res://.godot/imported/enemy_1012_dcross.atlas-a6c998feeaa9950fb0c8a40e69604d6f.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2co07c7e0kra"
-path="res://.godot/imported/injured_power2.png-4c99f86501e44ce7ba6ce251b310455c.ctex"
+uid="uid://bgyusxcxaca2c"
+path="res://.godot/imported/debt_power.png-59e4acdd0f659856972e5404b596cc02.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/powers/injured_power2.png"
-dest_files=["res://.godot/imported/injured_power2.png-4c99f86501e44ce7ba6ce251b310455c.ctex"]
+source_file="res://images/powers/debt_power.png"
+dest_files=["res://.godot/imported/debt_power.png-59e4acdd0f659856972e5404b596cc02.ctex"]
 
 [params]
 

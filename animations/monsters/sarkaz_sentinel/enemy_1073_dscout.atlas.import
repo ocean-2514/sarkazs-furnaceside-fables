@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://ca0qlbr3ny0if"
+path="res://.godot/imported/enemy_1073_dscout.atlas-d04f8c2572fb7e6c8e6e5cc96835a2a9.spatlas"
+
+[deps]
+
+source_file="res://animations/monsters/sarkaz_sentinel/enemy_1073_dscout.atlas"
+dest_files=["res://.godot/imported/enemy_1073_dscout.atlas-d04f8c2572fb7e6c8e6e5cc96835a2a9.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

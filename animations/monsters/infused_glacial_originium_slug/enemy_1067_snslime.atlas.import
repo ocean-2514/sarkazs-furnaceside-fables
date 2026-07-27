@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://edlccj00ha1c"
+path="res://.godot/imported/enemy_1067_snslime.atlas-7d0b86a64723cfd952f378fad8121634.spatlas"
+
+[deps]
+
+source_file="res://animations/monsters/infused_glacial_originium_slug/enemy_1067_snslime.atlas"
+dest_files=["res://.godot/imported/enemy_1067_snslime.atlas-7d0b86a64723cfd952f378fad8121634.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

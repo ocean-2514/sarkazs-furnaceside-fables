@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://clw8mhqay001h"
+path="res://.godot/imported/enemy_1022_dmage.atlas-19e77c0df4178fff5944022f5ab57936.spatlas"
+
+[deps]
+
+source_file="res://animations/monsters/sarkaz_caster/enemy_1022_dmage.atlas"
+dest_files=["res://.godot/imported/enemy_1022_dmage.atlas-19e77c0df4178fff5944022f5ab57936.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

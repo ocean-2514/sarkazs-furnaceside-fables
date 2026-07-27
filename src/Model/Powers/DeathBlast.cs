@@ -1,0 +1,28 @@
+using System.Threading.Tasks;
+using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Entities.Players;
+using MegaCrit.Sts2.Core.Entities.Powers;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Logging;
+using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.ValueProps;
+
+namespace Skz.Ocean.Model.Powers;
+
+public sealed class DeathBlast : PowerModel, ISarkazModel
+{
+    public override PowerType Type => PowerType.Debuff;
+
+    public override PowerStackType StackType => PowerStackType.Counter;
+
+    public override async Task BeforeDeath(Creature creature)
+    {
+        if (Owner != creature) return;
+        foreach (Player player in creature.CombatState.Players)
+        {
+            await CreatureCmd.Damage(new ThrowingPlayerChoiceContext(), player.Creature, Amount, ValueProp.Unpowered, null);
+            await PlayerCmd.GainEnergy(1, player);
+        }
+    }
+}

@@ -339,7 +339,7 @@
   "BROKEN_WAND_UNDULATION.description": "场上每有一名敌人，所有敌人获得5%易伤（最多叠加8层）",
   "BROKEN_WAND_UNDULATION.flavor": "调谐到同一频率，让我们奏起旋律。",
   "HAND_OF_BUCKLER.title": "扣挠之手",
-  "HAND_OF_BUCKLER.description": "攻击时额外造成目标当前生命值3%的真实伤害，最少为2",
+  "HAND_OF_BUCKLER.description": "攻击时额外造成目标最大生命值3%的真实伤害，最少为2",
   "HAND_OF_BUCKLER.flavor": "点点滴滴，挡无可挡。",
   "HAND_OF_PREDATION.title": "掠食之手",
   "HAND_OF_PREDATION.description": "打出技能牌时自身攻击力+10点（最多叠加10层），拥有钝爪-掠食时，每2个回合获得能量",

@@ -1,4 +1,18 @@
 {
   "MOCK_SPINES_OF_EPOCH.title": "年代之刺",
-  "MOCK_SPINES_OF_EPOCH.loss": "{character}被[gold]{encounter}[/gold]解决掉了。"
+  "MOCK_SPINES_OF_EPOCH.loss": "{character}死于[gold]{encounter}[/gold]。",
+  "ICE_AGE_NORMAL.title": "冰川期",
+  "ICE_AGE_NORMAL.loss": "{character}死于[gold]{encounter}[/gold]。",
+  "TEMPORARY_PATCHUP_ELITE.title": "拆东补西",
+  "TEMPORARY_PATCHUP_ELITE.loss": "{character}死于[gold]{encounter}[/gold]。",
+  "EXHAUST_VENTS_NORMAL.title": "排风口",
+  "EXHAUST_VENTS_NORMAL.loss": "{character}死于[gold]{encounter}[/gold]。",
+  "FURNACE_VOLUNTEERS_NORMAL.title": "炉工志愿队",
+  "FURNACE_VOLUNTEERS_NORMAL.loss": "{character}死于[gold]{encounter}[/gold]。",
+  "CLEARTHE_CROWD_ELITE.title": "有序清场",
+  "CLEARTHE_CROWD_ELITE.loss": "{character}死于[gold]{encounter}[/gold]。",
+  "DISSUASION_SEMINAR_NORMAL.title": "见闻峰会",
+  "DISSUASION_SEMINAR_NORMAL.loss": "{character}死于[gold]{encounter}[/gold]。",
+  "DENSE_JUNGLE_ELITE.title": "丛林密布",
+  "DENSE_JUNGLE_ELITE.loss": "{character}死于[gold]{encounter}[/gold]。"
 }

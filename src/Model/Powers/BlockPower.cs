@@ -7,6 +7,7 @@ using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Runs;
+using Skz.Ocean.Hooks;
 using Skz.Ocean.Model.Monsters.Base;
 
 namespace Skz.Ocean.Model.Powers;
@@ -28,6 +29,7 @@ public sealed class BlockPower : PowerModel, ISarkazModel
         if (Owner.Monster == null) return 1m;
         if (!(Owner.Monster is SarkazMonsterModel sarkazMonster)) return 1m;
         if (sarkazMonster != monster) return 1m;
+        _ = SarkazHook.AfterMonsterBlocked(runState, combatState, monster);
         return 0m;
     }
 

@@ -61,7 +61,7 @@ public sealed class BizarreFragment : ActModel
     // ────────────────────────────
     //  房间数量
     // ────────────────────────────
-    protected override int NumberOfWeakEncounters => 1;
+    protected override int NumberOfWeakEncounters => 0;
     protected override int BaseNumberOfRooms => 16;
 
     // ────────────────────────────

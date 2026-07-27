@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://cyaxlduh4leql"
+path="res://.godot/imported/enemy_1016_diaman.atlas-c78325a7c449d89ca59bc1832843ac2e.spatlas"
+
+[deps]
+
+source_file="res://animations/monsters/metal_crab/enemy_1016_diaman.atlas"
+dest_files=["res://.godot/imported/enemy_1016_diaman.atlas-c78325a7c449d89ca59bc1832843ac2e.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://c5xkf5nntrflo"
+path="res://.godot/imported/enemy_1016_diaman.skel-ff538ecc853ece810a419de8cea0b017.spskel"
+
+[deps]
+
+source_file="res://animations/monsters/metal_crab/enemy_1016_diaman.skel"
+dest_files=["res://.godot/imported/enemy_1016_diaman.skel-ff538ecc853ece810a419de8cea0b017.spskel"]
+
+[params]
+

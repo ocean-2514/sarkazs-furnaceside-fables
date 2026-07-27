@@ -1,0 +1,8 @@
+[gd_resource type="SpineSkeletonDataResource" load_steps=3 format=3 uid="uid://bkxgv84thvnns"]
+
+[ext_resource type="SpineAtlasResource" uid="uid://cgoqrse0jkmnc" path="res://animations/monsters/originium_slug_beta/enemy_1007_slime.atlas" id="1_eiii3"]
+[ext_resource type="SpineSkeletonFileResource" uid="uid://bk14lum3gb6ln" path="res://animations/monsters/originium_slug_beta/enemy_1007_slime.skel" id="2_s7ent"]
+
+[resource]
+atlas_res = ExtResource("1_eiii3")
+skeleton_file_res = ExtResource("2_s7ent")

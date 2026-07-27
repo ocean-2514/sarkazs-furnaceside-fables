@@ -1,0 +1,8 @@
+[gd_resource type="SpineSkeletonDataResource" load_steps=3 format=3 uid="uid://cyjary3faoykj"]
+
+[ext_resource type="SpineAtlasResource" uid="uid://ca0qlbr3ny0if" path="res://animations/monsters/sarkaz_sentinel/enemy_1073_dscout.atlas" id="1_ngc63"]
+[ext_resource type="SpineSkeletonFileResource" uid="uid://cjc6spx2ouhhx" path="res://animations/monsters/sarkaz_sentinel/enemy_1073_dscout.skel" id="2_rb4vo"]
+
+[resource]
+atlas_res = ExtResource("1_ngc63")
+skeleton_file_res = ExtResource("2_rb4vo")

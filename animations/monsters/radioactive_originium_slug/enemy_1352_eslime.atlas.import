@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://b4ph87i7j6xmj"
+path="res://.godot/imported/enemy_1352_eslime.atlas-7784cfc91c8ec7b07db7918ab0200882.spatlas"
+
+[deps]
+
+source_file="res://animations/monsters/radioactive_originium_slug/enemy_1352_eslime.atlas"
+dest_files=["res://.godot/imported/enemy_1352_eslime.atlas-7784cfc91c8ec7b07db7918ab0200882.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

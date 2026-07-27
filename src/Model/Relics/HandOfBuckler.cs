@@ -26,7 +26,7 @@ using Skz.Ocean.Model.Powers;
 
 namespace Skz.Ocean.Model.Relics;
 
-// 114 扣挠之手：攻击时额外造成目标当前生命值3%的真实伤害，最少为2
+// 114 扣挠之手：攻击时额外造成目标生命值3%的真实伤害，最少为2
 public sealed class HandOfBuckler : RelicModel
 {
     public override RelicRarity Rarity => RelicRarity.Rare;
@@ -36,7 +36,7 @@ public sealed class HandOfBuckler : RelicModel
         if (dealer != Owner.Creature || target == null || !target.IsEnemy || !target.IsAlive) return;
         // 只对"有威力加成的攻击"触发；追加的真实伤害是 Unpowered，不会递归触发自身
         if (!props.IsPoweredAttack()) return;
-        decimal extra = Math.Max(2m, target.CurrentHp * 3 / 100);
+        decimal extra = Math.Max(2m, target.MaxHp * 3 / 100);
         await CreatureCmd.Damage(choiceContext, target, extra,
             ValueProp.Unblockable | ValueProp.Unpowered, Owner.Creature);
     }

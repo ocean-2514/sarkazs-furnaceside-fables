@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://xcfcmtpt1b4h"
+path="res://.godot/imported/enemy_1084_sotidm.atlas-6b5c4cce3a73b654c25fd25faf2fb88b.spatlas"
+
+[deps]
+
+source_file="res://animations/monsters/sarkaz_guerrilla_fighter/enemy_1084_sotidm.atlas"
+dest_files=["res://.godot/imported/enemy_1084_sotidm.atlas-6b5c4cce3a73b654c25fd25faf2fb88b.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

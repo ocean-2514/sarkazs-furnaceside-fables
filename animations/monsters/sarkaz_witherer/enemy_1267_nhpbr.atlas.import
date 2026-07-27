@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://bfnp87kftkiat"
+path="res://.godot/imported/enemy_1267_nhpbr.atlas-da563ef867bbfcf400439b999164a0d7.spatlas"
+
+[deps]
+
+source_file="res://animations/monsters/sarkaz_witherer/enemy_1267_nhpbr.atlas"
+dest_files=["res://.godot/imported/enemy_1267_nhpbr.atlas-da563ef867bbfcf400439b999164a0d7.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://dofu8jksiscos"
+path="res://.godot/imported/enemy_1071_dftman.atlas-45d8c0df8906da9f86812e49fb1ec4f8.spatlas"
+
+[deps]
+
+source_file="res://animations/monsters/sarkaz_swordsman/enemy_1071_dftman.atlas"
+dest_files=["res://.godot/imported/enemy_1071_dftman.atlas-45d8c0df8906da9f86812e49fb1ec4f8.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

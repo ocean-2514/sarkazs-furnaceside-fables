@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://b1lakbblwrx7s"
+path="res://.godot/imported/enemy_1080_sotidp.skel-4c288315adbe6061d2cf848c8016c58a.spskel"
+
+[deps]
+
+source_file="res://animations/monsters/guerrilla_herald/enemy_1080_sotidp.skel"
+dest_files=["res://.godot/imported/enemy_1080_sotidp.skel-4c288315adbe6061d2cf848c8016c58a.spskel"]
+
+[params]
+

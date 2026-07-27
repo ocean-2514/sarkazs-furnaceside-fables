@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://cidjiiq055shx"]
+
+[ext_resource type="Texture2D" uid="uid://bf4ghj56bvf4" path="res://images/powers/sanguinarch_power.png" id="1_4bckl"]
+
+[resource]
+atlas = ExtResource("1_4bckl")

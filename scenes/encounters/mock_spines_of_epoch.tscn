@@ -10,19 +10,19 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="first" type="Marker2D" parent="."]
-position = Vector2(1666, 719)
+position = Vector2(1666, 749)
 
 [node name="second" type="Marker2D" parent="."]
-position = Vector2(1368, 737)
+position = Vector2(1368, 769)
 
 [node name="third" type="Marker2D" parent="."]
-position = Vector2(1099, 722)
+position = Vector2(1092, 743)
 
 [node name="forth" type="Marker2D" parent="."]
-position = Vector2(1637, 370)
+position = Vector2(1637, 396)
 
 [node name="fifth" type="Marker2D" parent="."]
-position = Vector2(1335, 408)
+position = Vector2(1335, 427)
 
 [node name="sixth" type="Marker2D" parent="."]
-position = Vector2(1044, 378)
+position = Vector2(1044, 398)

@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://owu63qo5oola"
+path="res://.godot/imported/enemy_1327_cbrokt.skel-fe23184de5b1b91f4773b3da43ddc9f6.spskel"
+
+[deps]
+
+source_file="res://animations/monsters/arc_commando/enemy_1327_cbrokt.skel"
+dest_files=["res://.godot/imported/enemy_1327_cbrokt.skel-fe23184de5b1b91f4773b3da43ddc9f6.spskel"]
+
+[params]
+

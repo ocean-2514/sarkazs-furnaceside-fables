@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://dfw2fd3wcmww5"
+path="res://.godot/imported/enemy_1072_dlancer.atlas-c6e05ea160a5e85d88effa8337c30168.spatlas"
+
+[deps]
+
+source_file="res://animations/monsters/sarkaz_lancer/enemy_1072_dlancer.atlas"
+dest_files=["res://.godot/imported/enemy_1072_dlancer.atlas-c6e05ea160a5e85d88effa8337c30168.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

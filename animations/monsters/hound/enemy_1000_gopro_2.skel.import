@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://djcyf4jeuw3x5"
+path="res://.godot/imported/enemy_1000_gopro_2.skel-b0af0b10355cefd58d2c0890c7944592.spskel"
+
+[deps]
+
+source_file="res://animations/monsters/hound/enemy_1000_gopro_2.skel"
+dest_files=["res://.godot/imported/enemy_1000_gopro_2.skel-b0af0b10355cefd58d2c0890c7944592.spskel"]
+
+[params]
+

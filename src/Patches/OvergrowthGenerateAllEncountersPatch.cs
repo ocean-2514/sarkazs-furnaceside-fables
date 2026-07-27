@@ -6,6 +6,7 @@ using HarmonyLib;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Acts;
 using MegaCrit.Sts2.Core.Models.Encounters;
+using Skz.Ocean.Model.Encounters;
 using Skz.Ocean.Model.Encounters.Mocks;
 using Skz.Ocean.Model.Monsters;
 
@@ -15,9 +16,32 @@ public static class OvergrowthGenerateAllEncountersPatch
     static void Postfix(ref IEnumerable<EncounterModel> __result)
     {
         __result = __result
-            .Concat(new[] { ModelDb.Encounter<MockSpinesOfEpoch>() })
+            .Concat(new EncounterModel[] {
+                ModelDb.Encounter<BadNeighborsNormal>(),
+                ModelDb.Encounter<HastyEscape>(),
+                ModelDb.Encounter<VerminWeak>(),
+                ModelDb.Encounter<IceAgeNormal>(),
+                ModelDb.Encounter<TemporaryPatchupElite>(),
+                ModelDb.Encounter<ExhaustVentsNormal>(),
+                ModelDb.Encounter<FurnaceVolunteersNormal>(),
+                ModelDb.Encounter<CleartheCrowdElite>(),
+                ModelDb.Encounter<DissuasionSeminarNormal>(),
+                ModelDb.Encounter<DenseJungleElite>(),
+            })
             .Distinct();
-        __result = new EncounterModel[] { ModelDb.Encounter<MockSpinesOfEpoch>(), ModelDb.Encounter<CeremonialBeastBoss>() };
+        __result = new EncounterModel[] {
+            ModelDb.Encounter<BadNeighborsNormal>(),
+            ModelDb.Encounter<HastyEscape>(),
+            ModelDb.Encounter<VerminWeak>(),
+            ModelDb.Encounter<IceAgeNormal>(),
+            ModelDb.Encounter<TemporaryPatchupElite>(),
+            ModelDb.Encounter<ExhaustVentsNormal>(),
+            ModelDb.Encounter<FurnaceVolunteersNormal>(),
+            ModelDb.Encounter<CleartheCrowdElite>(),
+            ModelDb.Encounter<DissuasionSeminarNormal>(),
+            ModelDb.Encounter<DenseJungleElite>(),
+            ModelDb.Encounter<CeremonialBeastBoss>(),
+        };
     }
 }
 
@@ -28,8 +52,31 @@ public static class UnderdocksGenerateAllEncountersPatch
     static void Postfix(ref IEnumerable<EncounterModel> __result)
     {
         __result = __result
-            .Concat(new[] { ModelDb.Encounter<MockSpinesOfEpoch>() })
+            .Concat(new EncounterModel[] {
+                ModelDb.Encounter<BadNeighborsNormal>(),
+                ModelDb.Encounter<HastyEscape>(),
+                ModelDb.Encounter<VerminWeak>(),
+                ModelDb.Encounter<IceAgeNormal>(),
+                ModelDb.Encounter<TemporaryPatchupElite>(),
+                ModelDb.Encounter<ExhaustVentsNormal>(),
+                ModelDb.Encounter<FurnaceVolunteersNormal>(),
+                ModelDb.Encounter<CleartheCrowdElite>(),
+                ModelDb.Encounter<DissuasionSeminarNormal>(),
+                ModelDb.Encounter<DenseJungleElite>(),
+            })
             .Distinct();
-        __result = new EncounterModel[] { ModelDb.Encounter<MockSpinesOfEpoch>(), ModelDb.Encounter<CeremonialBeastBoss>() };
+        __result = new EncounterModel[] {
+            ModelDb.Encounter<BadNeighborsNormal>(),
+            ModelDb.Encounter<HastyEscape>(),
+            ModelDb.Encounter<VerminWeak>(),
+            ModelDb.Encounter<IceAgeNormal>(),
+            ModelDb.Encounter<TemporaryPatchupElite>(),
+            ModelDb.Encounter<ExhaustVentsNormal>(),
+            ModelDb.Encounter<FurnaceVolunteersNormal>(),
+            ModelDb.Encounter<CleartheCrowdElite>(),
+            ModelDb.Encounter<DissuasionSeminarNormal>(),
+            ModelDb.Encounter<DenseJungleElite>(),
+            ModelDb.Encounter<CeremonialBeastBoss>(),
+        };
     }
 }

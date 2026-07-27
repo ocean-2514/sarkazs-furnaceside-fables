@@ -1,0 +1,8 @@
+[gd_resource type="SpineSkeletonDataResource" load_steps=3 format=3 uid="uid://digloakq7oxcg"]
+
+[ext_resource type="SpineAtlasResource" uid="uid://bfnp87kftkiat" path="res://animations/monsters/sarkaz_witherer/enemy_1267_nhpbr.atlas" id="1_82l54"]
+[ext_resource type="SpineSkeletonFileResource" uid="uid://mc84gjy2cj27" path="res://animations/monsters/sarkaz_witherer/enemy_1267_nhpbr.skel" id="2_xbf7j"]
+
+[resource]
+atlas_res = ExtResource("1_82l54")
+skeleton_file_res = ExtResource("2_xbf7j")

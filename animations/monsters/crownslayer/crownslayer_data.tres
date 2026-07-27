@@ -1,0 +1,8 @@
+[gd_resource type="SpineSkeletonDataResource" load_steps=3 format=3 uid="uid://d0fqdhf0o1201"]
+
+[ext_resource type="SpineAtlasResource" uid="uid://bgrx5ntnbya6d" path="res://animations/monsters/crownslayer/enemy_1502_crowns.atlas" id="1_orlli"]
+[ext_resource type="SpineSkeletonFileResource" uid="uid://dv27t5cmphebn" path="res://animations/monsters/crownslayer/enemy_1502_crowns.skel" id="2_07nft"]
+
+[resource]
+atlas_res = ExtResource("1_orlli")
+skeleton_file_res = ExtResource("2_07nft")
