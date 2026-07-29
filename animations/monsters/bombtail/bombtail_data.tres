@@ -1,0 +1,8 @@
+[gd_resource type="SpineSkeletonDataResource" load_steps=3 format=3 uid="uid://l8gqiwgk5cyf"]
+
+[ext_resource type="SpineAtlasResource" uid="uid://dk7uqiujrahxh" path="res://animations/monsters/bombtail/enemy_1040_bombd.atlas" id="1_b5pbn"]
+[ext_resource type="SpineSkeletonFileResource" uid="uid://3niy1emn8rtl" path="res://animations/monsters/bombtail/enemy_1040_bombd.skel" id="2_6skdb"]
+
+[resource]
+atlas_res = ExtResource("1_b5pbn")
+skeleton_file_res = ExtResource("2_6skdb")

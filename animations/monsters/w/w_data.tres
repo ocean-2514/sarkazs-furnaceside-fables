@@ -1,0 +1,8 @@
+[gd_resource type="SpineSkeletonDataResource" load_steps=3 format=3 uid="uid://ckoif1sk82g3v"]
+
+[ext_resource type="SpineAtlasResource" uid="uid://da1tesyo2680v" path="res://animations/monsters/w/enemy_1504_cqbw.atlas" id="1_rmr4m"]
+[ext_resource type="SpineSkeletonFileResource" uid="uid://b5di3dd6wnuix" path="res://animations/monsters/w/enemy_1504_cqbw.skel" id="2_bnpuu"]
+
+[resource]
+atlas_res = ExtResource("1_rmr4m")
+skeleton_file_res = ExtResource("2_bnpuu")

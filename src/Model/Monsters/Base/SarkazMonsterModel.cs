@@ -12,8 +12,10 @@ using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Nodes.Vfx;
+using MegaCrit.Sts2.Core.Runs;
 using MegaCrit.Sts2.Core.ValueProps;
 using Skz.Ocean.Hooks;
+using Skz.Ocean.Model;
 using Skz.Ocean.Model.Powers;
 
 namespace Skz.Ocean.Model.Monsters.Base;
@@ -21,7 +23,7 @@ namespace Skz.Ocean.Model.Monsters.Base;
 // 带"位置/移速"的萨卡兹怪物基类：每回合结束按移速移动，
 // 到达 Destination 后对全体玩家造成可格挡伤害并逃离战斗。
 // 战斗中途不存档（SL 会整场重打），位置/移速无需 [SavedProperty]。
-public abstract class SarkazMonsterModel : MonsterModel
+public abstract class SarkazMonsterModel : MonsterModel, ISarkazModel
 {
     // 注意：以下虚属性在基类构造器里被读取（派生类构造器尚未执行），
     // 子类重写必须是常量表达式，不能依赖实例字段。
@@ -34,7 +36,10 @@ public abstract class SarkazMonsterModel : MonsterModel
     // 到达终点逃离时对每名玩家造成的可格挡伤害
     public virtual decimal EscapeDamage => 5m;
 
-    public bool Blockable = true;
+    public virtual bool Blockable => true;
+
+    // 子类可写：额外附加的基础移速（永久加成），CurrentSpeed 计算时自动计入
+    protected decimal _baseSpeedBonus;
 
     protected readonly Dictionary<string, string> _dict = new Dictionary<string, string>{
         {"first", "forth"},
@@ -50,7 +55,7 @@ public abstract class SarkazMonsterModel : MonsterModel
         {
             ICombatState combatState = Creature?.CombatState;
             if (combatState == null) return InitialSpeed;
-            return SarkazHook.ModifyMoveSpeed(combatState.RunState, combatState, this, InitialSpeed);
+            return SarkazHook.ModifyMoveSpeed(combatState.RunState, combatState, this, InitialSpeed + _baseSpeedBonus);
         }
     }
 
@@ -103,6 +108,8 @@ public abstract class SarkazMonsterModel : MonsterModel
 
         if (_currentLocation >= Destination)
         {
+            // Escape 前广播：外部监听者（遗物/思绪/Power）以及子类 ISarkazModel 覆写在此收回光环
+            await SarkazHook.BeforeMonsterEscape(combatState.RunState, combatState, this);
             foreach (Player player in combatState.Players)
             {
                 Creature target = player.Creature;
@@ -122,6 +129,12 @@ public abstract class SarkazMonsterModel : MonsterModel
         {
             await PowerCmd.ModifyAmount(choiceContext, timer, CalculatedLeftTurn - timer.Amount, Creature, null, silent: true);
         }
+    }
+
+    public virtual Task BeforeMonsterEscape(IRunState runState, ICombatState combatState,
+        SarkazMonsterModel monster)
+    {
+        return Task.CompletedTask;
     }
 
     // 默认动画机：Idle 循环 + Attack + Die(死亡触发 "Dead")。
@@ -145,4 +158,5 @@ public abstract class SarkazMonsterModel : MonsterModel
         animator.AddAnyState("Skill", skillBegin);
         return animator;
     }
+
 }

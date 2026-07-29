@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://xh7a4ne3kytn"
+path="res://.godot/imported/enemy_1144_merlgd.skel-8c0fc332fd972f7943043cd51a23c203.spskel"
+
+[deps]
+
+source_file="res://animations/monsters/war_phantom/enemy_1144_merlgd.skel"
+dest_files=["res://.godot/imported/enemy_1144_merlgd.skel-8c0fc332fd972f7943043cd51a23c203.spskel"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://cjv1bx0svo0t6"
+path="res://.godot/imported/enemy_1415_mmkabi.skel-2d7d53b8bc59c06389a501c0c22260ef.spskel"
+
+[deps]
+
+source_file="res://animations/monsters/armored_burdenbeast/enemy_1415_mmkabi.skel"
+dest_files=["res://.godot/imported/enemy_1415_mmkabi.skel-2d7d53b8bc59c06389a501c0c22260ef.spskel"]
+
+[params]
+

@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://dn40v73y2c02r"
+path="res://.godot/imported/enemy_1250_lyengs.atlas-bba8cb273f86753717b8c3bfd31f9693.spatlas"
+
+[deps]
+
+source_file="res://animations/monsters/rhine_engineering_member/enemy_1250_lyengs.atlas"
+dest_files=["res://.godot/imported/enemy_1250_lyengs.atlas-bba8cb273f86753717b8c3bfd31f9693.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

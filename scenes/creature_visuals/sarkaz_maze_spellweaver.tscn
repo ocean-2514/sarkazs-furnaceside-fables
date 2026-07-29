@@ -18,17 +18,17 @@ mouse_filter = 2
 
 [node name="IntentPos" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(0, -311)
+position = Vector2(0, -314)
 
 [node name="CenterPos" type="Marker2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(0, -86)
 
 [node name="Visuals" type="SpineSprite" parent="."]
-unique_name_in_owner = true
-scale = Vector2(-0.65, 0.65)
 skeleton_data_res = ExtResource("1_k7v8d")
 preview_skin = "default"
 preview_animation = "Idle"
 preview_frame = false
 preview_time = 0.0
+unique_name_in_owner = true
+scale = Vector2(-0.65, 0.65)

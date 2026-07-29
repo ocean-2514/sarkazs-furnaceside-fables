@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://jadfg2y37t7q"
+path="res://.godot/imported/enemy_1021_bslime.atlas-e191481fb9f5379351fdf282b1a195d5.spatlas"
+
+[deps]
+
+source_file="res://animations/monsters/infused_originium_slug/enemy_1021_bslime.atlas"
+dest_files=["res://.godot/imported/enemy_1021_bslime.atlas-e191481fb9f5379351fdf282b1a195d5.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

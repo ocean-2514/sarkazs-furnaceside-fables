@@ -1,0 +1,8 @@
+[gd_resource type="SpineSkeletonDataResource" load_steps=3 format=3 uid="uid://wtcftvk2nq13"]
+
+[ext_resource type="SpineAtlasResource" uid="uid://cda0p4hw0ob25" path="res://animations/monsters/sniper/enemy_1047_sagent.atlas" id="1_i71ak"]
+[ext_resource type="SpineSkeletonFileResource" uid="uid://bcbw7d2ykqh8m" path="res://animations/monsters/sniper/enemy_1047_sagent.skel" id="2_xv11w"]
+
+[resource]
+atlas_res = ExtResource("1_i71ak")
+skeleton_file_res = ExtResource("2_xv11w")

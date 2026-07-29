@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://bkgc87tiwdywh"
+path="res://.godot/imported/enemy_1415_mmkabi.atlas-3137191959c62bb23c3b52b3769c39ab.spatlas"
+
+[deps]
+
+source_file="res://animations/monsters/armored_burdenbeast/enemy_1415_mmkabi.atlas"
+dest_files=["res://.godot/imported/enemy_1415_mmkabi.atlas-3137191959c62bb23c3b52b3769c39ab.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

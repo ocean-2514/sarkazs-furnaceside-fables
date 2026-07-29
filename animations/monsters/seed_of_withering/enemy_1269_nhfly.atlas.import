@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://scxie03tfd76"
+path="res://.godot/imported/enemy_1269_nhfly.atlas-9917a1885051c9a888d37d3f969a265d.spatlas"
+
+[deps]
+
+source_file="res://animations/monsters/seed_of_withering/enemy_1269_nhfly.atlas"
+dest_files=["res://.godot/imported/enemy_1269_nhfly.atlas-9917a1885051c9a888d37d3f969a265d.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

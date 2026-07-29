@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://b8ni6hof51bvy"
+path="res://.godot/imported/enemy_1271_nhkodo.skel-d112d2a470756ec329557d135b528e31.spskel"
+
+[deps]
+
+source_file="res://animations/monsters/sarkaz_wither_devourer/enemy_1271_nhkodo.skel"
+dest_files=["res://.godot/imported/enemy_1271_nhkodo.skel-d112d2a470756ec329557d135b528e31.spskel"]
+
+[params]
+

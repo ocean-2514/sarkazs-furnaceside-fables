@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://bdqildile2l3g"
+path="res://.godot/imported/enemy_1270_nhstlk.atlas-8a9bbd3a01a6675a14fc4798620635be.spatlas"
+
+[deps]
+
+source_file="res://animations/monsters/rotchaser/enemy_1270_nhstlk.atlas"
+dest_files=["res://.godot/imported/enemy_1270_nhstlk.atlas-8a9bbd3a01a6675a14fc4798620635be.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://dhtiiuufidefi"
+path="res://.godot/imported/enemy_1145_atkspd.skel-343f9996595751a0e32ff1989233522c.spskel"
+
+[deps]
+
+source_file="res://animations/monsters/scrap/enemy_1145_atkspd.skel"
+dest_files=["res://.godot/imported/enemy_1145_atkspd.skel-343f9996595751a0e32ff1989233522c.spskel"]
+
+[params]
+

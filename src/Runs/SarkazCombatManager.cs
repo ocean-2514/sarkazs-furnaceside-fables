@@ -16,6 +16,7 @@ using MegaCrit.Sts2.Core.Runs;
 using Skz.Ocean.Model;
 using Skz.Ocean.Model.Acts;
 using Skz.Ocean.Model.Cards;
+using Skz.Ocean.Model.Encounters.Base;
 using Skz.Ocean.Model.Monsters;
 using Skz.Ocean.Saves;
 
@@ -51,6 +52,13 @@ public class SarkazCombatManager
 
     public async Task BeforeSideTurnStarted(PlayerChoiceContext choiceContext, CombatSide side, ICombatState combatState)
     {
+        int sourceIndex = _player.RunState.CurrentActIndex;
+        RunState state = Traverse.Create(RunManager.Instance).Property("State").GetValue<RunState>();
+        if (state?.Act is BizarreFragment)
+        {
+            sourceIndex = MapDetour.GetSourceAct().Index;
+        }
+
         if (side == CombatSide.Player && combatState.RoundNumber <= 1)
         {
             // 预示之谜(162)：年代之刺生成概率提高（仅诡谲断章内生效）
@@ -63,14 +71,6 @@ public class SarkazCombatManager
             {
                 Creature creature = await CreatureCmd.Add<SpinesOfEpoch>(_player.Creature.CombatState);
                 
-                int sourceIndex = _player.RunState.CurrentActIndex;
-
-                RunState state = Traverse.Create(RunManager.Instance).Property("State").GetValue<RunState>();
-                if (state?.Act is BizarreFragment)
-                {
-                    sourceIndex = MapDetour.GetSourceAct().Index;
-                }
-
                 int hpGain = sourceIndex * 30;
                 await CreatureCmd.GainMaxHp(creature, hpGain);
                 // 预示之谜：年代之刺生命值+100%
@@ -86,8 +86,15 @@ public class SarkazCombatManager
                 }
 
             }
-            //防暴桩
-            await CardPileCmd.AddGeneratedCardToCombat(combatState.CreateCard<RiotPileCard>(_player), PileType.Hand, null);
+
+            if (combatState.Encounter is SarkazEncounterModel)
+            {
+                //防暴桩
+                for (int i = 0; i <= sourceIndex; ++i)
+                {
+                    await CardPileCmd.AddGeneratedCardToCombat(combatState.CreateCard<RiotPileCard>(_player), PileType.Hand, null);
+                }
+            }
         }
     }
 }

@@ -1,0 +1,8 @@
+[gd_resource type="SpineSkeletonDataResource" load_steps=3 format=3 uid="uid://f2h3okrqj5br"]
+
+[ext_resource type="SpineAtlasResource" uid="uid://debiubf3rkbry" path="res://animations/monsters/gift_of_the_sanguinarch/enemy_1221_dzomg.atlas" id="1_3jlk6"]
+[ext_resource type="SpineSkeletonFileResource" uid="uid://ygsei1c3irnl" path="res://animations/monsters/gift_of_the_sanguinarch/enemy_1221_dzomg.skel" id="2_xejme"]
+
+[resource]
+atlas_res = ExtResource("1_3jlk6")
+skeleton_file_res = ExtResource("2_xejme")

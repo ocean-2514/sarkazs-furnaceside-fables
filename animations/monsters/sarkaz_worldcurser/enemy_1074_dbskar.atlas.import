@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://cnjad26w2ffo3"
+path="res://.godot/imported/enemy_1074_dbskar.atlas-69cd88c4609923fb7780d56ba32fe3f4.spatlas"
+
+[deps]
+
+source_file="res://animations/monsters/sarkaz_worldcurser/enemy_1074_dbskar.atlas"
+dest_files=["res://.godot/imported/enemy_1074_dbskar.atlas-69cd88c4609923fb7780d56ba32fe3f4.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

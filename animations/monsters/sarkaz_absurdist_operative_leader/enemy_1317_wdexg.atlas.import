@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://0rsmvr4mlu14"
+path="res://.godot/imported/enemy_1317_wdexg.atlas-fc77547e919927983c698809869a4b66.spatlas"
+
+[deps]
+
+source_file="res://animations/monsters/sarkaz_absurdist_operative_leader/enemy_1317_wdexg.atlas"
+dest_files=["res://.godot/imported/enemy_1317_wdexg.atlas-fc77547e919927983c698809869a4b66.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

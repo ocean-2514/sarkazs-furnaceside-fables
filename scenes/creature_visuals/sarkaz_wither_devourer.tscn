@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6sbt7ngfjgi"]
+
+[ext_resource type="Script" uid="uid://dgsjq3haioact" path="res://src/Wrapper/NCreatureVisualsWrapper.cs" id="1_28moe"]
+[ext_resource type="SpineSkeletonDataResource" uid="uid://qdvmvt0d13u8" path="res://animations/monsters/sarkaz_wither_devourer/sarkaz_wither_devourer_data.tres" id="2_yqynl"]
+
+[node name="SarkazWitherDevourer" type="Node2D"]
+script = ExtResource("1_28moe")
+
+[node name="Bounds" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -136.0
+offset_top = -307.0
+offset_right = 119.0
+offset_bottom = -1.0
+mouse_filter = 2
+
+[node name="IntentPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -357)
+
+[node name="CenterPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -141)
+
+[node name="Visuals" type="SpineSprite" parent="."]
+unique_name_in_owner = true
+scale = Vector2(-0.65, 0.65)
+skeleton_data_res = ExtResource("2_yqynl")
+preview_skin = "Default"
+preview_animation = "Idle_B"
+preview_frame = false
+preview_time = 0.0
+metadata/_edit_lock_ = true

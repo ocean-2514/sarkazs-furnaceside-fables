@@ -42,6 +42,7 @@ public sealed class SarkazSentinel : SarkazMonsterModel
             await PowerCmd.Apply<AttackPower>(new ThrowingPlayerChoiceContext(), enemy, _attackBuff, Creature, null);
             await PowerCmd.Apply<PlatingPower>(new ThrowingPlayerChoiceContext(), enemy, _plating, Creature, null);
             if (enemy.Monster is SarkazBladeweaver weaver) await weaver.Wake();
+            if (enemy.Monster is SarkazWorldcurser worldcurser) await worldcurser.Wake();
         }
     }
 

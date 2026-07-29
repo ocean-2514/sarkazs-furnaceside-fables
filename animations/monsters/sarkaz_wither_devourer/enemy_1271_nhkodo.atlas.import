@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://d2ms5aupw16ny"
+path="res://.godot/imported/enemy_1271_nhkodo.atlas-cb488d3f2850539c089a8b94c24b9cab.spatlas"
+
+[deps]
+
+source_file="res://animations/monsters/sarkaz_wither_devourer/enemy_1271_nhkodo.atlas"
+dest_files=["res://.godot/imported/enemy_1271_nhkodo.atlas-cb488d3f2850539c089a8b94c24b9cab.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

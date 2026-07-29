@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://cnge17gks2j3r"
+path="res://.godot/imported/enemy_1288_duskls.skel-1c4baa237e1b7c3b2a0a3e710214bbe1.spskel"
+
+[deps]
+
+source_file="res://animations/monsters/dublinn_flamechaser_soldier/enemy_1288_duskls.skel"
+dest_files=["res://.godot/imported/enemy_1288_duskls.skel-1c4baa237e1b7c3b2a0a3e710214bbe1.spskel"]
+
+[params]
+

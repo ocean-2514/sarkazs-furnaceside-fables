@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://b5di3dd6wnuix"
+path="res://.godot/imported/enemy_1504_cqbw.skel-bfd76b441e9fd5941aacf8a2a3e8a46b.spskel"
+
+[deps]
+
+source_file="res://animations/monsters/w/enemy_1504_cqbw.skel"
+dest_files=["res://.godot/imported/enemy_1504_cqbw.skel-bfd76b441e9fd5941aacf8a2a3e8a46b.spskel"]
+
+[params]
+

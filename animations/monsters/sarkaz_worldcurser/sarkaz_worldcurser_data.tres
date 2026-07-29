@@ -1,0 +1,8 @@
+[gd_resource type="SpineSkeletonDataResource" load_steps=3 format=3 uid="uid://clxgc0008yr45"]
+
+[ext_resource type="SpineAtlasResource" uid="uid://cnjad26w2ffo3" path="res://animations/monsters/sarkaz_worldcurser/enemy_1074_dbskar.atlas" id="1_o8gco"]
+[ext_resource type="SpineSkeletonFileResource" uid="uid://kkwobd35jpuj" path="res://animations/monsters/sarkaz_worldcurser/enemy_1074_dbskar.skel" id="2_mhqjo"]
+
+[resource]
+atlas_res = ExtResource("1_o8gco")
+skeleton_file_res = ExtResource("2_mhqjo")

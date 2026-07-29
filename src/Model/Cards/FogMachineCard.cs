@@ -4,6 +4,7 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
+using Skz.Ocean.Model.Monsters.Base;
 using Skz.Ocean.Model.Powers;
 
 namespace Skz.Ocean.Model.Cards;
@@ -20,6 +21,10 @@ public sealed class FogMachineCard : CardModel, ISarkazModel
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await PowerCmd.Apply<FogMachinePower>(choiceContext, cardPlay.Target, _duration, Owner.Creature, this);
+        SarkazMonsterModel sarkazMonster = cardPlay.Target?.Monster as SarkazMonsterModel;
+        if (sarkazMonster != null && sarkazMonster.Blockable)
+        {
+            await PowerCmd.Apply<FogMachinePower>(choiceContext, cardPlay.Target, 1, Owner.Creature, this);
+        }
     }
 }

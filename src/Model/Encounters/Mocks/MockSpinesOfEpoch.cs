@@ -18,10 +18,10 @@ public sealed class MockSpinesOfEpoch : SarkazEncounterModel, ISarkazModel
     {
         return [
             [
-                new WaveEntry(() => ModelDb.Monster<SarkazCrossbowman>(), "second"),
-                new WaveEntry(() => ModelDb.Monster<SarkazMazeGuide>(), "first"),
-                new WaveEntry(() => ModelDb.Monster<IcefieldArtsFighter>(), "third")
-            ]
+                new WaveEntry(() => ModelDb.Monster<Frost>(), "second"),
+                new WaveEntry(() => ModelDb.Monster<Rotchaser>(), "third"),
+            ],
+            
         ];
     }
 }

@@ -1,0 +1,8 @@
+[gd_resource type="SpineSkeletonDataResource" load_steps=3 format=3 uid="uid://dl2a66amibx6a"]
+
+[ext_resource type="SpineAtlasResource" uid="uid://6lfmtrb0fusu" path="res://animations/monsters/sarkaz_guerrilla_caster/enemy_1085_sotiwz.atlas" id="1_21xk4"]
+[ext_resource type="SpineSkeletonFileResource" uid="uid://du8w37bmqihsr" path="res://animations/monsters/sarkaz_guerrilla_caster/enemy_1085_sotiwz.skel" id="2_7jasl"]
+
+[resource]
+atlas_res = ExtResource("1_21xk4")
+skeleton_file_res = ExtResource("2_7jasl")

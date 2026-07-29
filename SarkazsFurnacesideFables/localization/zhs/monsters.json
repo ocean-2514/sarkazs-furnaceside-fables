@@ -98,5 +98,130 @@
   "SARKAZ_BLADEWEAVER.moves.ATTACK.title": "斩击",
 
   "SARKAZ_SENTINEL.name": "萨卡兹哨兵",
-  "SARKAZ_SENTINEL.moves.IDLE.title": "戒备"
+  "SARKAZ_SENTINEL.moves.IDLE.title": "戒备",
+
+  "INFUSED_ORIGINIUM_SLUG.name": "高能源石虫",
+  "INFUSED_ORIGINIUM_SLUG.moves.ATTACK.title": "攻击",
+  "INFUSED_ORIGINIUM_SLUG.moves.BUFF.title": "充能",
+
+  "SARKAZ_WITHER_DEVOURER.name": "萨卡兹枯朽吞噬者",
+  "SARKAZ_WITHER_DEVOURER.moves.DEBUFF.title": "饕餮",
+  "SARKAZ_WITHER_DEVOURER.moves.BUFF.title": "覆甲",
+  "SARKAZ_WITHER_DEVOURER.moves.ATTACK1.title": "重击",
+  "SARKAZ_WITHER_DEVOURER.moves.ATTACK2.title": "连击",
+
+  "SNIPER.name": "狙击步兵",
+  "SNIPER.moves.ATTACK1.title": "射击",
+  "SNIPER.moves.BUFF.title": "校准",
+  "SNIPER.moves.ATTACK2.title": "扫射",
+
+  "SEED_OF_WITHERING.name": "枯朽之种",
+  "SEED_OF_WITHERING.moves.ATTACK.title": "自爆",
+
+  "ARMORED_BURDENBEAST.name": "温顺的武装驮兽",
+  "ARMORED_BURDENBEAST.moves.IDLE1.title": "蛰伏",
+  "ARMORED_BURDENBEAST.moves.IDLE2.title": "蛰伏",
+  "ARMORED_BURDENBEAST.moves.BUFF.title": "温顺",
+  "ARMORED_BURDENBEAST.moves.ATTACK.title": "冲撞",
+
+  "LURKER.name": "潜伏者",
+  "LURKER.moves.ATTACK1.title": "撕扯",
+  "LURKER.moves.BUFF.title": "隐匿",
+  "LURKER.moves.ATTACK2.title": "突刺",
+
+  "TOUCH_OF_THE_SANGUINARCH.name": "大君之触",
+  "TOUCH_OF_THE_SANGUINARCH.moves.DEFEND.title": "护盾",
+  "TOUCH_OF_THE_SANGUINARCH.moves.ATTACK.title": "连击",
+
+  "GIFT_OF_THE_SANGUINARCH.name": "大君之赐",
+  "GIFT_OF_THE_SANGUINARCH.moves.ATTACK1.title": "攻击",
+  "GIFT_OF_THE_SANGUINARCH.moves.BUFF.title": "仪式",
+  "GIFT_OF_THE_SANGUINARCH.moves.ATTACK2.title": "攻击",
+
+  "SARKAZ_GUERRILLA_CASTER.name": "游击队萨卡兹术师",
+  "SARKAZ_GUERRILLA_CASTER.moves.DEBUFF.title": "虚弱",
+  "SARKAZ_GUERRILLA_CASTER.moves.ATTACK.title": "术法",
+
+  "BOMBTAIL.name": "暴鸰",
+  "BOMBTAIL.moves.ATTACK.title": "俯冲",
+  "BOMBTAIL.moves.IDLE.title": "盘旋",
+
+  "ANTI_ARMOR_INFANTRY.name": "反装甲步兵",
+  "ANTI_ARMOR_INFANTRY.moves.ATTACK1.title": "重击",
+  "ANTI_ARMOR_INFANTRY.moves.DEBUFF.title": "破甲",
+  "ANTI_ARMOR_INFANTRY.moves.ATTACK2.title": "连击",
+
+  "SCRAP.name": "破片",
+  "SCRAP.moves.DEBUFF.title": "标记",
+  "SCRAP.moves.ATTACK.title": "连射",
+  "SCRAP.moves.ESCAPE.title": "撤退",
+
+  "ANVIL.name": "铁砧",
+  "ANVIL.moves.HEAL1.title": "修理",
+  "ANVIL.moves.HEAL2.title": "修理",
+  "ANVIL.moves.ESCAPE.title": "撤退",
+
+  "WAR_PHANTOM.name": "战争幽灵",
+  "WAR_PHANTOM.moves.SUMMON.title": "召唤",
+  "WAR_PHANTOM.moves.ATTACK1.title": "攻击",
+  "WAR_PHANTOM.moves.ATTACK2.title": "连击",
+
+  "SARKAZ_ABSURDIST_OPERATIVE_LEADER.name": "萨卡兹悖谬谍报长",
+  "SARKAZ_ABSURDIST_OPERATIVE_LEADER.moves.DEBUFF.title": "债务",
+  "SARKAZ_ABSURDIST_OPERATIVE_LEADER.moves.ATTACK1.title": "勒索",
+  "SARKAZ_ABSURDIST_OPERATIVE_LEADER.moves.ATTACK2.title": "连击",
+
+  "SARKAZ_ROYAL_COURT_SOLDIER.name": "萨卡兹王庭军战士",
+  "SARKAZ_ROYAL_COURT_SOLDIER.moves.ATTACK.title": "攻击",
+  "SARKAZ_ROYAL_COURT_SOLDIER.moves.DEBUFF.title": "虚空",
+  "SARKAZ_ROYAL_COURT_SOLDIER.moves.DEFEND.title": "护盾",
+
+  "SARKAZ_MAZE_SPELLWEAVER.name": "萨卡兹迷宫织咒者",
+  "SARKAZ_MAZE_SPELLWEAVER.moves.DEBUFF1.title": "凋亡",
+  "SARKAZ_MAZE_SPELLWEAVER.moves.DEBUFF2.title": "凋亡",
+  "SARKAZ_MAZE_SPELLWEAVER.moves.ATTACK.title": "术法",
+
+  "RHINE_DEFENSE_MEMBER.name": "莱茵生命防卫科成员",
+  "RHINE_DEFENSE_MEMBER.moves.ATTACK.title": "攻击",
+  "RHINE_DEFENSE_MEMBER.moves.DEFEND.title": "护盾",
+
+  "RHINE_ENGINEERING_MEMBER.name": "莱茵生命工程科成员",
+  "RHINE_ENGINEERING_MEMBER.moves.HEAL.title": "维修",
+  "RHINE_ENGINEERING_MEMBER.moves.BUFF.title": "强化",
+  "RHINE_ENGINEERING_MEMBER.moves.ATTACK.title": "攻击",
+
+  "R31A_HEAVY_POWER_ARMOR.name": "R-31a重型动力装甲",
+  "R31A_HEAVY_POWER_ARMOR.moves.IDLE.title": "待机",
+  "R31A_HEAVY_POWER_ARMOR.moves.ATTACK1.title": "全弹",
+  "R31A_HEAVY_POWER_ARMOR.moves.DEBUFF.title": "重伤",
+  "R31A_HEAVY_POWER_ARMOR.moves.ATTACK2.title": "攻击",
+
+  "SARKAZ_WORLDCURSER.name": "萨卡兹恶咒者",
+  "SARKAZ_WORLDCURSER.moves.SLEEP.title": "潜伏",
+  "SARKAZ_WORLDCURSER.moves.ATTACK.title": "恶咒",
+  "SARKAZ_WORLDCURSER.moves.DEBUFF.title": "鸣响",
+
+  "HOLY_AUTOMATON.name": "圣卫自动机",
+  "HOLY_AUTOMATON.moves.IDLE.title": "前进",
+
+  "DUBLINN_FLAMECHASER_SOLDIER.name": "深池逐火战士",
+  "DUBLINN_FLAMECHASER_SOLDIER.moves.ATTACK1.title": "攻击",
+  "DUBLINN_FLAMECHASER_SOLDIER.moves.ATTACK2.title": "猛击",
+  "DUBLINN_FLAMECHASER_SOLDIER.moves.ATTACK3.title": "连击",
+  "DUBLINN_FLAMECHASER_SOLDIER.moves.DEAD.title": "假死",
+  "DUBLINN_FLAMECHASER_SOLDIER.moves.REVIVE.title": "复活",
+
+  "W.name": "W",
+  "W.moves.BUFF.title": "狂怒",
+  "W.moves.HEAVY.title": "重击",
+  "W.moves.DEBUFF.title": "破绽",
+  "W.moves.ATTACK.title": "攻击",
+
+  "FROST.name": "寒霜",
+  "FROST.moves.IDLE.title": "霜冻",
+
+  "ROTCHASER.name": "逐腐兽",
+  "ROTCHASER.moves.DEBUFF.title": "撕裂",
+  "ROTCHASER.moves.ATTACK1.title": "连击",
+  "ROTCHASER.moves.ATTACK2.title": "重击"
 }

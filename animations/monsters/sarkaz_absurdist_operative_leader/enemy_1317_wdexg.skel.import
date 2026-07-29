@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://cwcxvi7otqhaw"
+path="res://.godot/imported/enemy_1317_wdexg.skel-4c004d5961866f1adc9ce84d629900c1.spskel"
+
+[deps]
+
+source_file="res://animations/monsters/sarkaz_absurdist_operative_leader/enemy_1317_wdexg.skel"
+dest_files=["res://.godot/imported/enemy_1317_wdexg.skel-4c004d5961866f1adc9ce84d629900c1.spskel"]
+
+[params]
+

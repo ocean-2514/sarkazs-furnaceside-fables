@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://cfu2p1b6t1yoi"
+path="res://.godot/imported/enemy_1146_defspd.skel-56c52152a0f4b54ad777fc80f8953cdf.spskel"
+
+[deps]
+
+source_file="res://animations/monsters/anvil/enemy_1146_defspd.skel"
+dest_files=["res://.godot/imported/enemy_1146_defspd.skel-56c52152a0f4b54ad777fc80f8953cdf.spskel"]
+
+[params]
+

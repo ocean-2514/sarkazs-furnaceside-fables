@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://ci8mp4kw8d2cm"
+path="res://.godot/imported/enemy_1146_defspd.atlas-fa684d4e7058c5071b516d30c8b989b2.spatlas"
+
+[deps]
+
+source_file="res://animations/monsters/anvil/enemy_1146_defspd.atlas"
+dest_files=["res://.godot/imported/enemy_1146_defspd.atlas-fa684d4e7058c5071b516d30c8b989b2.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

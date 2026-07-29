@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://cq4g1ybkl4xqx"
+path="res://.godot/imported/enemy_1009_lurker.skel-f842c5eec780aa2a419e115d83fd70f2.spskel"
+
+[deps]
+
+source_file="res://animations/monsters/lurker/enemy_1009_lurker.skel"
+dest_files=["res://.godot/imported/enemy_1009_lurker.skel-f842c5eec780aa2a419e115d83fd70f2.spskel"]
+
+[params]
+

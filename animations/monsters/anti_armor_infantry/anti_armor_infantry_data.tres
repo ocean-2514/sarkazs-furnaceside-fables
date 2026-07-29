@@ -1,0 +1,8 @@
+[gd_resource type="SpineSkeletonDataResource" load_steps=3 format=3 uid="uid://b1uu3wmi7qlwm"]
+
+[ext_resource type="SpineAtlasResource" uid="uid://drcmslav3nbm7" path="res://animations/monsters/anti_armor_infantry/enemy_1143_merrpg.atlas" id="1_8y0s4"]
+[ext_resource type="SpineSkeletonFileResource" uid="uid://b0b886aikeyw" path="res://animations/monsters/anti_armor_infantry/enemy_1143_merrpg.skel" id="2_back4"]
+
+[resource]
+atlas_res = ExtResource("1_8y0s4")
+skeleton_file_res = ExtResource("2_back4")

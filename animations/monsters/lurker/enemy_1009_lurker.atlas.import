@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://bbm0y34m4o5im"
+path="res://.godot/imported/enemy_1009_lurker.atlas-7560e44c926ed7e10d7880b3a42b7e28.spatlas"
+
+[deps]
+
+source_file="res://animations/monsters/lurker/enemy_1009_lurker.atlas"
+dest_files=["res://.godot/imported/enemy_1009_lurker.atlas-7560e44c926ed7e10d7880b3a42b7e28.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

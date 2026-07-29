@@ -1,7 +1,7 @@
 [gd_resource type="SpineSkeletonDataResource" load_steps=3 format=3 uid="uid://cp3xf6nu4ii8v"]
 
-[ext_resource type="SpineAtlasResource" uid="uid://bkojhwiddhnt1" path="res://animations/monsters/sarkaz_bladeweaver/enemy_1074_dbskar.atlas" id="1_mkfw8"]
-[ext_resource type="SpineSkeletonFileResource" uid="uid://b0b3h7pgs2ghy" path="res://animations/monsters/sarkaz_bladeweaver/enemy_1074_dbskar.skel" id="2_6vrti"]
+[ext_resource type="SpineAtlasResource" uid="uid://bn01dcau5glm2" path="res://animations/monsters/sarkaz_bladeweaver/enemy_1075_dmgswd.atlas" id="1_mkfw8"]
+[ext_resource type="SpineSkeletonFileResource" uid="uid://c3xa817xjxwxs" path="res://animations/monsters/sarkaz_bladeweaver/enemy_1075_dmgswd.skel" id="2_6vrti"]
 
 [resource]
 atlas_res = ExtResource("1_mkfw8")

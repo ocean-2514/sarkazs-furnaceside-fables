@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://bcbw7d2ykqh8m"
+path="res://.godot/imported/enemy_1047_sagent.skel-ab4b819ec065fba40995eebd96579ebb.spskel"
+
+[deps]
+
+source_file="res://animations/monsters/sniper/enemy_1047_sagent.skel"
+dest_files=["res://.godot/imported/enemy_1047_sagent.skel-ab4b819ec065fba40995eebd96579ebb.spskel"]
+
+[params]
+

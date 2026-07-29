@@ -115,6 +115,7 @@ public abstract class SarkazEncounterModel : EncounterModel, ISarkazModel
                     slot = string.IsNullOrEmpty(next) ? null : next;
                 }
                 Creature creature = await CreatureCmd.Add(monster, combatState, CombatSide.Enemy, slot);
+                await CreatureCmd.Stun(creature);
                 if (revealDelay > 0f && creature != null)
                 {
                     creature.SetNodeVisible(visible: false);

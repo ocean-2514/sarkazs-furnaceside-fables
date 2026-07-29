@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://nbdgv3uuuksy"]
+
+[ext_resource type="Script" uid="uid://dgsjq3haioact" path="res://src/Wrapper/NCreatureVisualsWrapper.cs" id="1_vh6kv"]
+[ext_resource type="SpineSkeletonDataResource" uid="uid://f2h3okrqj5br" path="res://animations/monsters/gift_of_the_sanguinarch/gift_of_the_sanguinarch_data.tres" id="2_p0kcp"]
+
+[node name="GiftOfTheSanguinarch" type="Node2D"]
+script = ExtResource("1_vh6kv")
+
+[node name="Bounds" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -140.0
+offset_top = -365.0
+offset_right = 145.0
+offset_bottom = -1.0
+mouse_filter = 2
+
+[node name="IntentPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -449)
+
+[node name="CenterPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -148)
+
+[node name="Visuals" type="SpineSprite" parent="."]
+unique_name_in_owner = true
+scale = Vector2(-0.65, 0.65)
+skeleton_data_res = ExtResource("2_p0kcp")
+preview_skin = "Default"
+preview_animation = "Idle"
+preview_frame = false
+preview_time = 0.0
+metadata/_edit_lock_ = true

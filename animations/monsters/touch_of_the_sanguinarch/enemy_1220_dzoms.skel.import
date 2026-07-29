@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://dn1lwrpepwpoy"
+path="res://.godot/imported/enemy_1220_dzoms.skel-802d0442c22ac10d6f42b6ec4a57d3a0.spskel"
+
+[deps]
+
+source_file="res://animations/monsters/touch_of_the_sanguinarch/enemy_1220_dzoms.skel"
+dest_files=["res://.godot/imported/enemy_1220_dzoms.skel-802d0442c22ac10d6f42b6ec4a57d3a0.spskel"]
+
+[params]
+

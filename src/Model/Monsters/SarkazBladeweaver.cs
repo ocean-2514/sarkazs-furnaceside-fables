@@ -60,7 +60,6 @@ public sealed class SarkazBladeweaver : SarkazMonsterModel
     public async Task Wake()
     {
         if (IsWaiting) {
-            await CreatureCmd.TriggerAnim(Creature, "Wake", 0f);
             await PowerCmd.Remove<WaitingPower>(Creature);
             MoveState moveState = new MoveState("ATTACK", Attack, new SingleAttackIntent(() => _rolledDamage))
             {
@@ -90,21 +89,5 @@ public sealed class SarkazBladeweaver : SarkazMonsterModel
     {
         await DamageCmd.Attack(_rolledDamage).FromMonster(this).WithAttackerAnim("Attack", 0.5f)
             .WithHitFx("vfx/vfx_attack_blunt").Execute(null);
-    }
-
-    public override CreatureAnimator GenerateAnimator(MegaSprite controller)
-    {
-        AnimState idle = new AnimState("Idle", isLooping: true);
-        AnimState skillIdle = new AnimState("Skill_Idle", isLooping: true);
-        AnimState skillAttack = new AnimState("Skill_Attack");
-        AnimState skillBegin = new AnimState("Skill_Begin");
-        AnimState die = new AnimState("Die");
-        skillBegin.NextState = skillIdle;
-        skillAttack.NextState = skillIdle;
-        CreatureAnimator animator = new CreatureAnimator(idle, controller);
-        animator.AddAnyState("Wake", skillBegin);
-        animator.AddAnyState("Dead", die);
-        animator.AddAnyState("Attack", skillAttack);
-        return animator;
     }
 }

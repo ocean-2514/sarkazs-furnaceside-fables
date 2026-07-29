@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://cda0p4hw0ob25"
+path="res://.godot/imported/enemy_1047_sagent.atlas-da79097c14c077a507ae6db7773bbb67.spatlas"
+
+[deps]
+
+source_file="res://animations/monsters/sniper/enemy_1047_sagent.atlas"
+dest_files=["res://.godot/imported/enemy_1047_sagent.atlas-da79097c14c077a507ae6db7773bbb67.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

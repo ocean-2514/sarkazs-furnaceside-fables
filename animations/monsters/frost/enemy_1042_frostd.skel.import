@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://b6ulmfn6uda16"
+path="res://.godot/imported/enemy_1042_frostd.skel-cc7abccfbbf9288a31e9107cd00f346d.spskel"
+
+[deps]
+
+source_file="res://animations/monsters/frost/enemy_1042_frostd.skel"
+dest_files=["res://.godot/imported/enemy_1042_frostd.skel-cc7abccfbbf9288a31e9107cd00f346d.spskel"]
+
+[params]
+

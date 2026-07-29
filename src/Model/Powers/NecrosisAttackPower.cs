@@ -17,8 +17,8 @@ public sealed class NecrosisAttackPower : PowerModel, ISarkazModel
     public override async Task AfterDamageReceived(PlayerChoiceContext choiceContext, Creature target,
         DamageResult result, ValueProp props, Creature dealer, CardModel cardSource)
     {
-        if (dealer == null || dealer.Side != Owner.Side) return; 
-        if (target.Side == Owner.Side) return;                   // 对敌方
+        if (dealer == null || dealer != Owner) return; 
+        if (target.Side == Owner.Side) return;                   
         if (!props.IsPoweredAttack()) return;                             // 攻击才附带
         await PowerCmd.Apply<Necrosis>(choiceContext, target, Amount, dealer, null);
     }

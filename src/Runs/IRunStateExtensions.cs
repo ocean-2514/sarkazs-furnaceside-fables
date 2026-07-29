@@ -50,6 +50,10 @@ public static class IRunStateExtensions
             }
             foreach (Creature creature in combatState.Enemies)
             {
+                if (creature?.Monster is ISarkazModel monster)
+                {
+                    yield return monster;
+                }
                 foreach (PowerModel power in creature.Powers)
                 {
                     if (power is ISarkazModel model)

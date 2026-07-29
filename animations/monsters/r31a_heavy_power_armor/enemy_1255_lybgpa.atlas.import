@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://cfsrlnymxfhyk"
+path="res://.godot/imported/enemy_1255_lybgpa.atlas-597a7b6fbebd0f12657b5d578b1a76c5.spatlas"
+
+[deps]
+
+source_file="res://animations/monsters/r31a_heavy_power_armor/enemy_1255_lybgpa.atlas"
+dest_files=["res://.godot/imported/enemy_1255_lybgpa.atlas-597a7b6fbebd0f12657b5d578b1a76c5.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

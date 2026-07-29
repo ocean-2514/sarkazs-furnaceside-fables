@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://da1tesyo2680v"
+path="res://.godot/imported/enemy_1504_cqbw.atlas-98765cb9eee24503e8483e76bafb102b.spatlas"
+
+[deps]
+
+source_file="res://animations/monsters/w/enemy_1504_cqbw.atlas"
+dest_files=["res://.godot/imported/enemy_1504_cqbw.atlas-98765cb9eee24503e8483e76bafb102b.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

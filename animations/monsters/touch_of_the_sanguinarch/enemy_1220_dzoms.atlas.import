@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://bgkfbciw8lpu4"
+path="res://.godot/imported/enemy_1220_dzoms.atlas-e0045385c7c2c3bc98e014d2eb829748.spatlas"
+
+[deps]
+
+source_file="res://animations/monsters/touch_of_the_sanguinarch/enemy_1220_dzoms.atlas"
+dest_files=["res://.godot/imported/enemy_1220_dzoms.atlas-e0045385c7c2c3bc98e014d2eb829748.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

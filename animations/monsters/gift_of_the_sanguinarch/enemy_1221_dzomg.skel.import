@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://ygsei1c3irnl"
+path="res://.godot/imported/enemy_1221_dzomg.skel-a64c814225e3a76833e4576d826e7658.spskel"
+
+[deps]
+
+source_file="res://animations/monsters/gift_of_the_sanguinarch/enemy_1221_dzomg.skel"
+dest_files=["res://.godot/imported/enemy_1221_dzomg.skel-a64c814225e3a76833e4576d826e7658.spskel"]
+
+[params]
+

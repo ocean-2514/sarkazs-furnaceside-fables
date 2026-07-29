@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://cnxldii2brsh1"
+path="res://.godot/imported/enemy_1269_nhfly.skel-13f4af9c39578412489889ba33260f58.spskel"
+
+[deps]
+
+source_file="res://animations/monsters/seed_of_withering/enemy_1269_nhfly.skel"
+dest_files=["res://.godot/imported/enemy_1269_nhfly.skel-13f4af9c39578412489889ba33260f58.spskel"]
+
+[params]
+

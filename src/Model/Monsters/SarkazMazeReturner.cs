@@ -10,6 +10,7 @@ using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
 using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
 using Skz.Ocean.Model.Monsters.Base;
+using Skz.Ocean.Model.Powers;
 
 namespace Skz.Ocean.Model.Monsters;
 
@@ -28,6 +29,12 @@ public sealed class SarkazMazeReturner : SarkazMonsterModel
         Creature.CombatState.Enemies.Any(c => c.IsAlive && c.Monster is SpinesOfEpoch);
 
     private int Hits => SpinesPresent ? 2 : 1;
+
+    public override async Task AfterAddedToRoom()
+    {
+        await base.AfterAddedToRoom();
+        await PowerCmd.Apply<MazeReturnerPower>(new ThrowingPlayerChoiceContext(), Creature, 1, null, null);
+    }
 
     protected override MonsterMoveStateMachine GenerateMoveStateMachine()
     {

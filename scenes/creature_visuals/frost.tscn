@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://q5iiy2axbqxk"]
+
+[ext_resource type="Script" uid="uid://dgsjq3haioact" path="res://src/Wrapper/NCreatureVisualsWrapper.cs" id="1_7vbvb"]
+[ext_resource type="SpineSkeletonDataResource" uid="uid://b2bxx1ak0222c" path="res://animations/monsters/frost/frost_data.tres" id="1_vumld"]
+
+[node name="Frost" type="Node2D"]
+script = ExtResource("1_7vbvb")
+
+[node name="Bounds" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -142.0
+offset_top = -429.0
+offset_right = 142.0
+offset_bottom = -212.0
+mouse_filter = 2
+
+[node name="IntentPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -429)
+
+[node name="CenterPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -311)
+
+[node name="Visuals" type="SpineSprite" parent="."]
+skeleton_data_res = ExtResource("1_vumld")
+preview_skin = "Default"
+preview_animation = "Idle"
+preview_frame = false
+preview_time = 0.0
+unique_name_in_owner = true
+position = Vector2(0, -247)
+scale = Vector2(-0.525, 0.525)
+metadata/_edit_lock_ = true

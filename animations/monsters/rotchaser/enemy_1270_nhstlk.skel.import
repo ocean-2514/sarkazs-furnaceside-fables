@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://cw5na3cj84kvr"
+path="res://.godot/imported/enemy_1270_nhstlk.skel-4e4dc87bf619fbf7ed919d4608ed41a2.spskel"
+
+[deps]
+
+source_file="res://animations/monsters/rotchaser/enemy_1270_nhstlk.skel"
+dest_files=["res://.godot/imported/enemy_1270_nhstlk.skel-4e4dc87bf619fbf7ed919d4608ed41a2.spskel"]
+
+[params]
+

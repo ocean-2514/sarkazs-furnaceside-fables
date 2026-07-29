@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgew6fnnabrm7"
-path="res://.godot/imported/enemy_1074_dbskar.png-8457b0054927974c0a1d1fc002a95c7d.ctex"
+uid="uid://bmgjwpf0k83b6"
+path="res://.godot/imported/enemy_1009_lurker.png-3125d865cf492831878bccd016db6e6d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://animations/monsters/sarkaz_bladeweaver/enemy_1074_dbskar.png"
-dest_files=["res://.godot/imported/enemy_1074_dbskar.png-8457b0054927974c0a1d1fc002a95c7d.ctex"]
+source_file="res://animations/monsters/lurker/enemy_1009_lurker.png"
+dest_files=["res://.godot/imported/enemy_1009_lurker.png-3125d865cf492831878bccd016db6e6d.ctex"]
 
 [params]
 

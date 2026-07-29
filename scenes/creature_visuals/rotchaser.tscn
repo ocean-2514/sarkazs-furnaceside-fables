@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://dju66xgqhdxjy"]
+
+[ext_resource type="SpineSkeletonDataResource" uid="uid://co7w1qbq7q5x4" path="res://animations/monsters/rotchaser/rotchaser_data.tres" id="1_n53ax"]
+[ext_resource type="Script" uid="uid://dgsjq3haioact" path="res://src/Wrapper/NCreatureVisualsWrapper.cs" id="1_sy5mc"]
+
+[node name="Rotchaser" type="Node2D"]
+script = ExtResource("1_sy5mc")
+
+[node name="Bounds" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -110.0
+offset_top = -226.0
+offset_right = 119.0
+offset_bottom = -1.0
+mouse_filter = 2
+
+[node name="IntentPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -288)
+
+[node name="CenterPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -86)
+
+[node name="Visuals" type="SpineSprite" parent="."]
+unique_name_in_owner = true
+scale = Vector2(-0.65, 0.65)
+skeleton_data_res = ExtResource("1_n53ax")
+preview_skin = "Default"
+preview_animation = "Idle"
+preview_frame = false
+preview_time = 0.0
+metadata/_edit_lock_ = true

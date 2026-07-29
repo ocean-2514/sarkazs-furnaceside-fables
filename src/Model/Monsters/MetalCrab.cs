@@ -12,8 +12,8 @@ namespace Skz.Ocean.Model.Monsters;
 // 2 磐蟹：Buff(获得10点格挡) -> 攻击(7) 循环
 public sealed class MetalCrab : SarkazMonsterModel
 {
-    public override int MaxInitialHp => 16;
-    public override int MinInitialHp => 16;
+    public override int MaxInitialHp => 24;
+    public override int MinInitialHp => 24;
 
     private const int _block = 10;
     private const int _damage = 7;

@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://cq2hr3vhl1bgk"]
+
+[ext_resource type="Script" uid="uid://dgsjq3haioact" path="res://src/Wrapper/NCreatureVisualsWrapper.cs" id="1_wstr7"]
+[ext_resource type="SpineSkeletonDataResource" uid="uid://clxgc0008yr45" path="res://animations/monsters/sarkaz_worldcurser/sarkaz_worldcurser_data.tres" id="2_48lpt"]
+
+[node name="SarkazWorldcurser" type="Node2D"]
+script = ExtResource("1_wstr7")
+
+[node name="Bounds" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -110.0
+offset_top = -304.0
+offset_right = 119.0
+offset_bottom = -1.0
+mouse_filter = 2
+
+[node name="IntentPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -383)
+
+[node name="CenterPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -142)
+
+[node name="Visuals" type="SpineSprite" parent="."]
+unique_name_in_owner = true
+scale = Vector2(-0.65, 0.65)
+skeleton_data_res = ExtResource("2_48lpt")
+preview_skin = "Default"
+preview_animation = "Idle"
+preview_frame = false
+preview_time = 0.0
+metadata/_edit_lock_ = true

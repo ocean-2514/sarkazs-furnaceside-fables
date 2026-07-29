@@ -1,0 +1,8 @@
+[gd_resource type="SpineSkeletonDataResource" load_steps=3 format=3 uid="uid://qdvmvt0d13u8"]
+
+[ext_resource type="SpineAtlasResource" uid="uid://d2ms5aupw16ny" path="res://animations/monsters/sarkaz_wither_devourer/enemy_1271_nhkodo.atlas" id="1_6g3m6"]
+[ext_resource type="SpineSkeletonFileResource" uid="uid://b8ni6hof51bvy" path="res://animations/monsters/sarkaz_wither_devourer/enemy_1271_nhkodo.skel" id="2_k5fso"]
+
+[resource]
+atlas_res = ExtResource("1_6g3m6")
+skeleton_file_res = ExtResource("2_k5fso")

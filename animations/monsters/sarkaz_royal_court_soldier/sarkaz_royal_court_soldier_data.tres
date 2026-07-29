@@ -1,0 +1,8 @@
+[gd_resource type="SpineSkeletonDataResource" load_steps=3 format=3 uid="uid://blwxafqqe6kym"]
+
+[ext_resource type="SpineAtlasResource" uid="uid://lvt4yg854r3t" path="res://animations/monsters/sarkaz_royal_court_soldier/enemy_1229_darmy.atlas" id="1_atefx"]
+[ext_resource type="SpineSkeletonFileResource" uid="uid://sjq8mdefocjb" path="res://animations/monsters/sarkaz_royal_court_soldier/enemy_1229_darmy.skel" id="2_20tlh"]
+
+[resource]
+atlas_res = ExtResource("1_atefx")
+skeleton_file_res = ExtResource("2_20tlh")

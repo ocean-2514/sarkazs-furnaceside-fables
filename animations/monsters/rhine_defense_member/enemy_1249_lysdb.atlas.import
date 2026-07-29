@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://oj4a2613vtbh"
+path="res://.godot/imported/enemy_1249_lysdb.atlas-de728897daffc0e7af8e861f0ba543c4.spatlas"
+
+[deps]
+
+source_file="res://animations/monsters/rhine_defense_member/enemy_1249_lysdb.atlas"
+dest_files=["res://.godot/imported/enemy_1249_lysdb.atlas-de728897daffc0e7af8e861f0ba543c4.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

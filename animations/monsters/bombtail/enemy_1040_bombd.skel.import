@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://3niy1emn8rtl"
+path="res://.godot/imported/enemy_1040_bombd.skel-036d48e54c6448dcfc8f856a70ec2a15.spskel"
+
+[deps]
+
+source_file="res://animations/monsters/bombtail/enemy_1040_bombd.skel"
+dest_files=["res://.godot/imported/enemy_1040_bombd.skel-036d48e54c6448dcfc8f856a70ec2a15.spskel"]
+
+[params]
+

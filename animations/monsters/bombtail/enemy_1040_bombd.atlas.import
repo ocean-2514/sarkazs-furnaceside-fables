@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://dk7uqiujrahxh"
+path="res://.godot/imported/enemy_1040_bombd.atlas-4d1c7c2443d157385ede6257d3d2021a.spatlas"
+
+[deps]
+
+source_file="res://animations/monsters/bombtail/enemy_1040_bombd.atlas"
+dest_files=["res://.godot/imported/enemy_1040_bombd.atlas-4d1c7c2443d157385ede6257d3d2021a.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

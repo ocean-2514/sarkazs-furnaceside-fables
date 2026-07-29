@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://clvs0vcj5ykqg"
+path="res://.godot/imported/enemy_1249_lysdb.skel-bb543306a3292a8ef74c45a7382fdffa.spskel"
+
+[deps]
+
+source_file="res://animations/monsters/rhine_defense_member/enemy_1249_lysdb.skel"
+dest_files=["res://.godot/imported/enemy_1249_lysdb.skel-bb543306a3292a8ef74c45a7382fdffa.spskel"]
+
+[params]
+

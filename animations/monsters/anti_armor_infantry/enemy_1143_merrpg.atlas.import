@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://drcmslav3nbm7"
+path="res://.godot/imported/enemy_1143_merrpg.atlas-3e79b4305ec3b4f9b72b305a3e852ae3.spatlas"
+
+[deps]
+
+source_file="res://animations/monsters/anti_armor_infantry/enemy_1143_merrpg.atlas"
+dest_files=["res://.godot/imported/enemy_1143_merrpg.atlas-3e79b4305ec3b4f9b72b305a3e852ae3.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

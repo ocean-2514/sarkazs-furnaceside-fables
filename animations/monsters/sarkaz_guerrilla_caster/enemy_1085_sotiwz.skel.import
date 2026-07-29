@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://du8w37bmqihsr"
+path="res://.godot/imported/enemy_1085_sotiwz.skel-d8d93e41c68ce596b69e056494babd6e.spskel"
+
+[deps]
+
+source_file="res://animations/monsters/sarkaz_guerrilla_caster/enemy_1085_sotiwz.skel"
+dest_files=["res://.godot/imported/enemy_1085_sotiwz.skel-d8d93e41c68ce596b69e056494babd6e.spskel"]
+
+[params]
+

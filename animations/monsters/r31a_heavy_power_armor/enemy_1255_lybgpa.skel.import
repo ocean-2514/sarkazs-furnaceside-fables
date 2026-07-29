@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://dgc7bidj8mdy4"
+path="res://.godot/imported/enemy_1255_lybgpa.skel-5178ae2d9fd6010f01439ff25ff3bf9d.spskel"
+
+[deps]
+
+source_file="res://animations/monsters/r31a_heavy_power_armor/enemy_1255_lybgpa.skel"
+dest_files=["res://.godot/imported/enemy_1255_lybgpa.skel-5178ae2d9fd6010f01439ff25ff3bf9d.spskel"]
+
+[params]
+

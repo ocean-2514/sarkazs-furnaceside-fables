@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://t6rutlq01qcl"
+path="res://.godot/imported/enemy_1144_merlgd.atlas-9d153b0f076dc926b4645265fa5735e8.spatlas"
+
+[deps]
+
+source_file="res://animations/monsters/war_phantom/enemy_1144_merlgd.atlas"
+dest_files=["res://.godot/imported/enemy_1144_merlgd.atlas-9d153b0f076dc926b4645265fa5735e8.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

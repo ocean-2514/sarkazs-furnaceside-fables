@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://ci06kb7yxk03l"]
+
+[ext_resource type="SpineSkeletonDataResource" uid="uid://j8crjrjuas63" path="res://animations/monsters/r31a_heavy_power_armor/r31a_heavy_power_armor_data.tres" id="1_6go5d"]
+[ext_resource type="Script" uid="uid://dgsjq3haioact" path="res://src/Wrapper/NCreatureVisualsWrapper.cs" id="1_risc0"]
+
+[node name="R31aHeavyPowerArmor" type="Node2D"]
+script = ExtResource("1_risc0")
+
+[node name="Bounds" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -123.0
+offset_top = -330.0
+offset_right = 137.0
+offset_bottom = -1.0
+mouse_filter = 2
+
+[node name="IntentPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -405)
+
+[node name="CenterPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -138)
+
+[node name="Visuals" type="SpineSprite" parent="."]
+unique_name_in_owner = true
+scale = Vector2(-0.65, 0.65)
+skeleton_data_res = ExtResource("1_6go5d")
+preview_skin = "Default"
+preview_animation = "Attack"
+preview_frame = false
+preview_time = 0.0
+metadata/_edit_lock_ = true

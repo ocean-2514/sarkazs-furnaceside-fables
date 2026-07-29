@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://6nxdvxt3xogb"
+path="res://.godot/imported/enemy_1288_duskls.atlas-a26ce32a374d5ec10b8a351fddb85ddb.spatlas"
+
+[deps]
+
+source_file="res://animations/monsters/dublinn_flamechaser_soldier/enemy_1288_duskls.atlas"
+dest_files=["res://.godot/imported/enemy_1288_duskls.atlas-a26ce32a374d5ec10b8a351fddb85ddb.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

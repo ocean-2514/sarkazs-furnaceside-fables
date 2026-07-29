@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://6lfmtrb0fusu"
+path="res://.godot/imported/enemy_1085_sotiwz.atlas-12f2ce6ec473a8185712328c2a8a3462.spatlas"
+
+[deps]
+
+source_file="res://animations/monsters/sarkaz_guerrilla_caster/enemy_1085_sotiwz.atlas"
+dest_files=["res://.godot/imported/enemy_1085_sotiwz.atlas-12f2ce6ec473a8185712328c2a8a3462.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

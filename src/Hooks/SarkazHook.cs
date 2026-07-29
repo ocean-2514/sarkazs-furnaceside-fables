@@ -60,6 +60,16 @@ public static class SarkazHook
         return current;
     }
 
+    // 怪物逃离前广播（光环效果收回等，此时怪物仍在敌人列表中）。
+    public static async Task BeforeMonsterEscape(IRunState runState, ICombatState combatState,
+        Model.Monsters.Base.SarkazMonsterModel monster)
+    {
+        foreach (ISarkazModel model in runState.IterateSarkazHookListeners(combatState).ToList())
+        {
+            await model.BeforeMonsterEscape(runState, combatState, monster);
+        }
+    }
+
     // 怪物逃离战斗后广播（波次 encounter 推进出怪、遗物结算等）。
     public static async Task AfterMonsterEscaped(IRunState runState, ICombatState combatState,
         Model.Monsters.Base.SarkazMonsterModel monster)

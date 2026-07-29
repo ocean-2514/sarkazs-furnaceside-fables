@@ -32,6 +32,7 @@ public sealed class ColdPower : PowerModel, ISarkazModel
 
     public override async Task AfterRemoved(Creature oldOwner)
     {
-        await PowerCmd.Apply<AttackSpeed>(new ThrowingPlayerChoiceContext(), Owner, _decreasedAttackSpeed, null, null);
+        if (oldOwner == null) return;
+        await PowerCmd.Apply<AttackSpeed>(new ThrowingPlayerChoiceContext(), oldOwner, _decreasedAttackSpeed, null, null);
     }
 }

@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://clslx74badadg"]
+
+[ext_resource type="Texture2D" uid="uid://dxqlloqflb7ad" path="res://images/powers/maze_returner_power.png" id="1_gae2h"]
+
+[resource]
+atlas = ExtResource("1_gae2h")

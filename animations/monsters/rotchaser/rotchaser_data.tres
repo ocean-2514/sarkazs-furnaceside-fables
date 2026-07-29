@@ -1,0 +1,8 @@
+[gd_resource type="SpineSkeletonDataResource" load_steps=3 format=3 uid="uid://co7w1qbq7q5x4"]
+
+[ext_resource type="SpineAtlasResource" uid="uid://bdqildile2l3g" path="res://animations/monsters/rotchaser/enemy_1270_nhstlk.atlas" id="1_kalns"]
+[ext_resource type="SpineSkeletonFileResource" uid="uid://cw5na3cj84kvr" path="res://animations/monsters/rotchaser/enemy_1270_nhstlk.skel" id="2_0ra8y"]
+
+[resource]
+atlas_res = ExtResource("1_kalns")
+skeleton_file_res = ExtResource("2_0ra8y")

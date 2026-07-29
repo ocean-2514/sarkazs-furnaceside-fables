@@ -34,6 +34,7 @@ public sealed class WaitingPower : PowerModel, ISarkazModel
 
     public override async Task AfterRemoved(Creature oldOwner)
     {
-        await (Owner?.Monster as SarkazMonsterModel)?.ApplyOrModifyEnterObjectivePower(new ThrowingPlayerChoiceContext());
+        if (oldOwner == null) return;
+        await (oldOwner?.Monster as SarkazMonsterModel)?.ApplyOrModifyEnterObjectivePower(new ThrowingPlayerChoiceContext());
     }
 }

@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://sjq8mdefocjb"
+path="res://.godot/imported/enemy_1229_darmy.skel-acef7bdaf6729acb7d7d4fdc63b4c4c5.spskel"
+
+[deps]
+
+source_file="res://animations/monsters/sarkaz_royal_court_soldier/enemy_1229_darmy.skel"
+dest_files=["res://.godot/imported/enemy_1229_darmy.skel-acef7bdaf6729acb7d7d4fdc63b4c4c5.spskel"]
+
+[params]
+

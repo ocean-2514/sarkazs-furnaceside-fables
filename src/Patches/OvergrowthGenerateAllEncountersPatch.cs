@@ -13,35 +13,43 @@ using Skz.Ocean.Model.Monsters;
 [HarmonyPatch(typeof(Overgrowth), nameof(Overgrowth.GenerateAllEncounters))]
 public static class OvergrowthGenerateAllEncountersPatch
 {
+    public static IEnumerable<EncounterModel> SarkazEncounters1 = [
+        ModelDb.Encounter<BadNeighborsNormal>(),
+        ModelDb.Encounter<HastyEscape>(),
+        ModelDb.Encounter<VerminWeak>(),
+        ModelDb.Encounter<IceAgeNormal>(),
+        ModelDb.Encounter<TemporaryPatchupElite>(),
+        ModelDb.Encounter<ExhaustVentsNormal>(),
+        ModelDb.Encounter<FurnaceVolunteersNormal>(),
+        ModelDb.Encounter<CleartheCrowdElite>(),
+        ModelDb.Encounter<DissuasionSeminarNormal>(),
+        ModelDb.Encounter<DenseJungleElite>(),
+    ];
+
+    public static IEnumerable<EncounterModel> SarkazEncounters2 = [
+        ModelDb.Encounter<BloodlineDebatesNormal>(),
+        ModelDb.Encounter<BlottedSkyNormal>(),
+        ModelDb.Encounter<MorningLaborNormal>(),
+        ModelDb.Encounter<CarelessMagicNormal>(),
+        ModelDb.Encounter<FirepowerSquadNormal>(),
+        ModelDb.Encounter<EpochalGapsElite>(),
+        ModelDb.Encounter<SordidSurveillanceElite>(),
+        ModelDb.Encounter<RulesOfModernWarfareNormal>(),
+        ModelDb.Encounter<TimewornTensionsElite>(),
+        ModelDb.Encounter<ElusiveMercElite>(),
+        ModelDb.Encounter<ChaosElite>(),
+    ];
+
     static void Postfix(ref IEnumerable<EncounterModel> __result)
     {
         __result = __result
-            .Concat(new EncounterModel[] {
-                ModelDb.Encounter<BadNeighborsNormal>(),
-                ModelDb.Encounter<HastyEscape>(),
-                ModelDb.Encounter<VerminWeak>(),
-                ModelDb.Encounter<IceAgeNormal>(),
-                ModelDb.Encounter<TemporaryPatchupElite>(),
-                ModelDb.Encounter<ExhaustVentsNormal>(),
-                ModelDb.Encounter<FurnaceVolunteersNormal>(),
-                ModelDb.Encounter<CleartheCrowdElite>(),
-                ModelDb.Encounter<DissuasionSeminarNormal>(),
-                ModelDb.Encounter<DenseJungleElite>(),
-            })
+            .Concat(SarkazEncounters1)
             .Distinct();
-        __result = new EncounterModel[] {
-            ModelDb.Encounter<BadNeighborsNormal>(),
-            ModelDb.Encounter<HastyEscape>(),
-            ModelDb.Encounter<VerminWeak>(),
-            ModelDb.Encounter<IceAgeNormal>(),
-            ModelDb.Encounter<TemporaryPatchupElite>(),
-            ModelDb.Encounter<ExhaustVentsNormal>(),
-            ModelDb.Encounter<FurnaceVolunteersNormal>(),
-            ModelDb.Encounter<CleartheCrowdElite>(),
-            ModelDb.Encounter<DissuasionSeminarNormal>(),
-            ModelDb.Encounter<DenseJungleElite>(),
-            ModelDb.Encounter<CeremonialBeastBoss>(),
-        };
+        __result = SarkazEncounters1.Concat([ ModelDb.Encounter<CeremonialBeastBoss>() ]);
+        // __result = [
+        //     ModelDb.Encounter<MockSpinesOfEpoch>(),
+        //     ModelDb.Encounter<CeremonialBeastBoss>(),
+        // ];
     }
 }
 
@@ -52,31 +60,20 @@ public static class UnderdocksGenerateAllEncountersPatch
     static void Postfix(ref IEnumerable<EncounterModel> __result)
     {
         __result = __result
-            .Concat(new EncounterModel[] {
-                ModelDb.Encounter<BadNeighborsNormal>(),
-                ModelDb.Encounter<HastyEscape>(),
-                ModelDb.Encounter<VerminWeak>(),
-                ModelDb.Encounter<IceAgeNormal>(),
-                ModelDb.Encounter<TemporaryPatchupElite>(),
-                ModelDb.Encounter<ExhaustVentsNormal>(),
-                ModelDb.Encounter<FurnaceVolunteersNormal>(),
-                ModelDb.Encounter<CleartheCrowdElite>(),
-                ModelDb.Encounter<DissuasionSeminarNormal>(),
-                ModelDb.Encounter<DenseJungleElite>(),
-            })
+            .Concat(OvergrowthGenerateAllEncountersPatch.SarkazEncounters1)
             .Distinct();
-        __result = new EncounterModel[] {
-            ModelDb.Encounter<BadNeighborsNormal>(),
-            ModelDb.Encounter<HastyEscape>(),
-            ModelDb.Encounter<VerminWeak>(),
-            ModelDb.Encounter<IceAgeNormal>(),
-            ModelDb.Encounter<TemporaryPatchupElite>(),
-            ModelDb.Encounter<ExhaustVentsNormal>(),
-            ModelDb.Encounter<FurnaceVolunteersNormal>(),
-            ModelDb.Encounter<CleartheCrowdElite>(),
-            ModelDb.Encounter<DissuasionSeminarNormal>(),
-            ModelDb.Encounter<DenseJungleElite>(),
-            ModelDb.Encounter<CeremonialBeastBoss>(),
-        };
+        __result = OvergrowthGenerateAllEncountersPatch.SarkazEncounters1.Concat([ ModelDb.Encounter<CeremonialBeastBoss>() ]);
+    }
+}
+
+[HarmonyPatch(typeof(Hive), nameof(Hive.GenerateAllEncounters))]
+public static class HiveGenerateAllEncountersPatch
+{
+    static void Postfix(ref IEnumerable<EncounterModel> __result)
+    {
+        __result = __result
+            .Concat(OvergrowthGenerateAllEncountersPatch.SarkazEncounters2)
+            .Distinct();
+        __result = OvergrowthGenerateAllEncountersPatch.SarkazEncounters2.Concat([ ModelDb.Encounter<CeremonialBeastBoss>() ]);
     }
 }

@@ -1,0 +1,8 @@
+[gd_resource type="SpineSkeletonDataResource" load_steps=3 format=3 uid="uid://cqyh018t10jvx"]
+
+[ext_resource type="SpineAtlasResource" uid="uid://bkgc87tiwdywh" path="res://animations/monsters/armored_burdenbeast/enemy_1415_mmkabi.atlas" id="1_dxs2t"]
+[ext_resource type="SpineSkeletonFileResource" uid="uid://cjv1bx0svo0t6" path="res://animations/monsters/armored_burdenbeast/enemy_1415_mmkabi.skel" id="2_bj8s6"]
+
+[resource]
+atlas_res = ExtResource("1_dxs2t")
+skeleton_file_res = ExtResource("2_bj8s6")

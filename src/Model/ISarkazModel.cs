@@ -62,6 +62,14 @@ public interface ISarkazModel
     {
         return Task.CompletedTask;
     }
+
+    // Sarkaz 怪物即将进蓝门逃离时触发（Escape 之前，仍在敌人列表中）。
+    // 光环类效果（攻速、攻击力等）在这时收回，与 BeforeDeath 保持一致。
+    public virtual Task BeforeMonsterEscape(IRunState runState, ICombatState combatState,
+        SarkazMonsterModel monster)
+    {
+        return Task.CompletedTask;
+    }
     
     
     public virtual Task AfterMonsterBlocked(IRunState runState, ICombatState combatState,

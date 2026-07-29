@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcll4e8hdwvgd"]
+
+[ext_resource type="Script" uid="uid://dgsjq3haioact" path="res://src/Wrapper/NCreatureVisualsWrapper.cs" id="1_hvm1e"]
+[ext_resource type="SpineSkeletonDataResource" uid="uid://bnqwjg6jrp8rt" path="res://animations/monsters/scrap/scrap_data.tres" id="2_wnd8g"]
+
+[node name="Scrap" type="Node2D"]
+script = ExtResource("1_hvm1e")
+
+[node name="Bounds" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -110.0
+offset_top = -337.0
+offset_right = 119.0
+offset_bottom = -171.0
+mouse_filter = 2
+
+[node name="IntentPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -415)
+
+[node name="CenterPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -247)
+
+[node name="Visuals" type="SpineSprite" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -174)
+scale = Vector2(-0.65, 0.65)
+skeleton_data_res = ExtResource("2_wnd8g")
+preview_skin = "Default"
+preview_animation = "Idle"
+preview_frame = false
+preview_time = 0.0
+metadata/_edit_lock_ = true

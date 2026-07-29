@@ -1,0 +1,8 @@
+[gd_resource type="SpineSkeletonDataResource" load_steps=3 format=3 uid="uid://c8fpckf8ht1gb"]
+
+[ext_resource type="SpineAtlasResource" uid="uid://bbm0y34m4o5im" path="res://animations/monsters/lurker/enemy_1009_lurker.atlas" id="1_xyj34"]
+[ext_resource type="SpineSkeletonFileResource" uid="uid://cq4g1ybkl4xqx" path="res://animations/monsters/lurker/enemy_1009_lurker.skel" id="2_yvuur"]
+
+[resource]
+atlas_res = ExtResource("1_xyj34")
+skeleton_file_res = ExtResource("2_yvuur")

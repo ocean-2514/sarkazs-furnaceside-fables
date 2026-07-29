@@ -1,0 +1,8 @@
+[gd_resource type="SpineSkeletonDataResource" load_steps=3 format=3 uid="uid://b7mt7ui6xsxbt"]
+
+[ext_resource type="SpineAtlasResource" uid="uid://dn40v73y2c02r" path="res://animations/monsters/rhine_engineering_member/enemy_1250_lyengs.atlas" id="1_cywur"]
+[ext_resource type="SpineSkeletonFileResource" uid="uid://fer1xv4beorp" path="res://animations/monsters/rhine_engineering_member/enemy_1250_lyengs.skel" id="2_n38kk"]
+
+[resource]
+atlas_res = ExtResource("1_cywur")
+skeleton_file_res = ExtResource("2_n38kk")

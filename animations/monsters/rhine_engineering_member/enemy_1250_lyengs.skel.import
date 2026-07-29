@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://fer1xv4beorp"
+path="res://.godot/imported/enemy_1250_lyengs.skel-23fff282acdf2e0034d2dedea50a3339.spskel"
+
+[deps]
+
+source_file="res://animations/monsters/rhine_engineering_member/enemy_1250_lyengs.skel"
+dest_files=["res://.godot/imported/enemy_1250_lyengs.skel-23fff282acdf2e0034d2dedea50a3339.spskel"]
+
+[params]
+

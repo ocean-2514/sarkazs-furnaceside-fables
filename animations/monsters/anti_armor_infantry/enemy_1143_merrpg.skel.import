@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://b0b886aikeyw"
+path="res://.godot/imported/enemy_1143_merrpg.skel-189fd25713409a8de93e5926329cd483.spskel"
+
+[deps]
+
+source_file="res://animations/monsters/anti_armor_infantry/enemy_1143_merrpg.skel"
+dest_files=["res://.godot/imported/enemy_1143_merrpg.skel-189fd25713409a8de93e5926329cd483.spskel"]
+
+[params]
+

@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://debiubf3rkbry"
+path="res://.godot/imported/enemy_1221_dzomg.atlas-fe5a86817561ea055bee618387ae0b2f.spatlas"
+
+[deps]
+
+source_file="res://animations/monsters/gift_of_the_sanguinarch/enemy_1221_dzomg.atlas"
+dest_files=["res://.godot/imported/enemy_1221_dzomg.atlas-fe5a86817561ea055bee618387ae0b2f.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

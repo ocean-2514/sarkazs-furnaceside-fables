@@ -63,7 +63,7 @@
   "MOVE_SPEED.title": "移速",
   "MOVE_SPEED.description": "敌人移速越快，侵入保护点的速度越快",
   "BLOCK_POWER.title": "防暴桩",
-  "BLOCK_POWER.description": "防暴桩可以阻挡敌人使其不向前移动。",
+  "BLOCK_POWER.description": "防暴桩可以阻挡敌人使其不向前移动，并且被阻挡的敌人不会对我方造成攻击伤害。",
   "INTERFERENCE_MINE_POWER.title": "干扰地雷",
   "INTERFERENCE_MINE_POWER.description": "一回合后引爆，造成10点真实伤害",
   "MR_BOOM_POWER.title": "轰隆隆先生",
@@ -115,5 +115,10 @@
   "RHINE_ARMOR_POWER.description": "我方每打出5张牌，该生物损失20%生命值",
   "BLEED_POWER.title": "流血",
   "BLEED_POWER.description": "回合结束时受到真实伤害并损失生命上限，持续3回合",
-  "BLEED_POWER.smartDescription": "回合结束时受到{Amount}点真实伤害并损失{Amount}点生命上限，持续3回合"
+  "BLEED_POWER.smartDescription": "回合结束时受到{Amount}点真实伤害并损失{Amount}点生命上限，持续3回合",
+  "ORIGINIUM_ALTAR_POWER.title": "源石祭坛",
+  "ORIGINIUM_ALTAR_POWER.description": "每回合结束时受到真实伤害",
+  "ORIGINIUM_ALTAR_POWER.smartDescription": "每回合结束时受到{Amount}点真实伤害",
+  "MAZE_RETURNER_POWER.title": "归乡者",
+  "MAZE_RETURNER_POWER.description": "年代之刺在场时攻击变为二连击"
 }

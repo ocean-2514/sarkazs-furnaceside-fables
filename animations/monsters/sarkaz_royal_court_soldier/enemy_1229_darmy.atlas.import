@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://lvt4yg854r3t"
+path="res://.godot/imported/enemy_1229_darmy.atlas-07029b27a712ff2d89962d2016d9dbbb.spatlas"
+
+[deps]
+
+source_file="res://animations/monsters/sarkaz_royal_court_soldier/enemy_1229_darmy.atlas"
+dest_files=["res://.godot/imported/enemy_1229_darmy.atlas-07029b27a712ff2d89962d2016d9dbbb.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

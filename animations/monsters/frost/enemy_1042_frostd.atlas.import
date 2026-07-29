@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://ce4pkg3dv060m"
+path="res://.godot/imported/enemy_1042_frostd.atlas-f24a51dc91be765fe4baa249d173b571.spatlas"
+
+[deps]
+
+source_file="res://animations/monsters/frost/enemy_1042_frostd.atlas"
+dest_files=["res://.godot/imported/enemy_1042_frostd.atlas-f24a51dc91be765fe4baa249d173b571.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

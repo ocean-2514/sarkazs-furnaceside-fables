@@ -1,18 +1,20 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
 using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
+using MegaCrit.Sts2.Core.Runs;
 using MegaCrit.Sts2.Core.ValueProps;
 using Skz.Ocean.Model.Monsters.Base;
 using Skz.Ocean.Model.Powers;
 
 namespace Skz.Ocean.Model.Monsters;
 
-// 17 游击队传令兵：在场时所有敌人攻击力+10(光环，直接在怪内实现)；
+// 17 游击队传令兵：在场时所有敌人攻击力+10(光环)；
 // Buff(给所有敌方5点格挡) -> Heal(所有敌人回2血 + 2层活力) -> 攻击(10) 循环
 public sealed class GuerrillaHerald : SarkazMonsterModel
 {
@@ -25,7 +27,6 @@ public sealed class GuerrillaHerald : SarkazMonsterModel
     private const int _vigor = 2;
     private const int _damage = 10;
 
-    // 光环：战斗开始时(所有敌人已入场)给全体敌人 +10 攻击力；死亡时收回。
     public override async Task AfterAddedToRoom()
     {
         await base.AfterAddedToRoom();
@@ -35,13 +36,25 @@ public sealed class GuerrillaHerald : SarkazMonsterModel
         }
     }
 
-
     public override async Task BeforeDeath(Creature creature)
     {
         if (creature != Creature) return;
-        foreach (Creature enemy in creature.CombatState.Enemies)
+        await RemoveAura(creature.CombatState);
+    }
+
+    // ISarkazModel：Escape 前收回光环（基类 AfterSideTurnEnd → SarkazHook → 这里）
+    public override async Task BeforeMonsterEscape(IRunState runState, ICombatState combatState,
+        SarkazMonsterModel monster)
+    {
+        if (monster != this) return;
+        await RemoveAura(combatState);
+    }
+
+    private async Task RemoveAura(ICombatState combatState)
+    {
+        foreach (Creature enemy in combatState.Enemies)
         {
-            if (enemy == creature || !enemy.IsAlive) continue;
+            if (enemy == Creature || !enemy.IsAlive) continue;
             await PowerCmd.Apply<AttackPower>(new ThrowingPlayerChoiceContext(), enemy, -_aura, Creature, null);
         }
     }
