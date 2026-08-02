@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://b5v8u1fneduqd"
+path="res://.godot/imported/enemy_1273_stmgun.atlas-3fea5e97f6b5b202a943de5181a79a98.spatlas"
+
+[deps]
+
+source_file="res://animations/monsters/londinium_mobile_defense_artillery/enemy_1273_stmgun.atlas"
+dest_files=["res://.godot/imported/enemy_1273_stmgun.atlas-3fea5e97f6b5b202a943de5181a79a98.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

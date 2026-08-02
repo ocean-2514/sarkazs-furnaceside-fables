@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://dimqxt2beaohh"]
+
+[ext_resource type="Script" uid="uid://dgsjq3haioact" path="res://src/Wrapper/NCreatureVisualsWrapper.cs" id="1_8y1vt"]
+[ext_resource type="SpineSkeletonDataResource" uid="uid://qoj5wg6yj566" path="res://animations/monsters/seed_of_decay/seed_of_decay_data.tres" id="2_k8mpt"]
+
+[node name="SeedOfDecay" type="Node2D"]
+script = ExtResource("1_8y1vt")
+
+[node name="Bounds" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -107.0
+offset_top = -292.0
+offset_right = 122.0
+offset_bottom = -46.0
+mouse_filter = 2
+
+[node name="IntentPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -329)
+
+[node name="CenterPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -169)
+
+[node name="Visuals" type="SpineSprite" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -173.00002)
+scale = Vector2(-0.65, 0.65)
+skeleton_data_res = ExtResource("2_k8mpt")
+preview_skin = "Default"
+preview_animation = "Idle"
+preview_frame = false
+preview_time = 0.0

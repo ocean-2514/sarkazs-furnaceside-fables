@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://t42gunffwl3s"
+path="res://.godot/imported/enemy_1332_cbterm.atlas-21a2918576c695bba485238de6b0438c.spatlas"
+
+[deps]
+
+source_file="res://animations/monsters/traffic_tower_prototype/enemy_1332_cbterm.atlas"
+dest_files=["res://.godot/imported/enemy_1332_cbterm.atlas-21a2918576c695bba485238de6b0438c.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

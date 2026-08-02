@@ -1,4 +1,5 @@
 using System;
+using MegaCrit.Sts2.Core.Random;
 using Skz.Ocean.Model;
 using Skz.Ocean.Model.Thoughts.Inspirers;
 using Skz.Ocean.Model.Thoughts.Lingers;
@@ -14,8 +15,14 @@ public static class GuaranteedRecipes
         new InterpretationRecipe(typeof(Invasion), typeof(EldersCrown), typeof(RiseAndFall))
     };
 
-    public static bool TryGetThoughtResult(ThoughtModel thought1, ThoughtModel thought2, out Type resultType)
+    public static bool TryGetThoughtResult(ThoughtModel thought1, ThoughtModel thought2, Rng rng, out Type resultType)
     {
+        if (rng.NextFloat() < Interpreter.FailOdds)
+        {
+            resultType = typeof(NonsensicalRavings);
+            return true;
+        }
+        
         Type type1 = thought1.GetType();
         Type type2 = thought2.GetType();
 

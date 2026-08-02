@@ -29,6 +29,7 @@ using Skz.Ocean.Model.Thoughts.Plans;
 using Skz.Ocean.Model.Thoughts.Lingers;
 using MegaCrit.Sts2.Core.Factories;
 using MegaCrit.Sts2.Core.Entities.Relics;
+using MegaCrit.Sts2.Core.Nodes.Screens.Map;
 
 namespace Skz.Ocean.Runs;
 
@@ -39,9 +40,9 @@ public class SarkazManager  //for one player
     private readonly HpLossVar _fracturedHpLoss = new HpLossVar(1m);
     private readonly HpLossVar _obstructedHpLoss = new HpLossVar(2m);
 
-    public const int PlanCostOnTravel = 2;
+    public int PlanCostOnTravel => 2;
     
-    public bool CanWalkHorizontally => _player.GetPlanCount() >= PlanCostOnTravel;
+    public bool HavePlansToWalkHorizontally => _player.GetPlanCount() >= PlanCostOnTravel;
 
     public const float NormalCombatThoughtChance = 0.95f;
 
@@ -236,6 +237,18 @@ public class SarkazManager  //for one player
         if (bonus <= 0) return false;
         rewards.Add(new GoldReward(bonus, player));
         return true;
+    }
+
+    public bool CanTravelVertically() {
+
+        return _player.GetMindState() != MindState.Obstructed;
+    }
+
+    public bool CanTravelHorizontally()
+    {
+        if (!HavePlansToWalkHorizontally) return false;
+        int toilAfterMove = _player.GetTotalToil() - _player.GetPlans()[0].Toil * PlanCostOnTravel;
+        return toilAfterMove <= _player.GetFracturedLimit();
     }
 
     // ===== 诡谲断章行程标记 =====

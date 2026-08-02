@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://c3w4olmgjnxgo"
+path="res://.godot/imported/enemy_1321_wdarft.atlas-af001ecb2fb5bd16cac76171b3f62a3e.spatlas"
+
+[deps]
+
+source_file="res://animations/monsters/decaying_collector_disciple/enemy_1321_wdarft.atlas"
+dest_files=["res://.godot/imported/enemy_1321_wdarft.atlas-af001ecb2fb5bd16cac76171b3f62a3e.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

@@ -16,7 +16,7 @@ public sealed class Hound : SarkazMonsterModel
 
     public override decimal InitialSpeed => 350;
 
-    private const int _damage = 2;
+    private const int _damage = 3;
     private const int _hits = 2;
 
     protected override MonsterMoveStateMachine GenerateMoveStateMachine()

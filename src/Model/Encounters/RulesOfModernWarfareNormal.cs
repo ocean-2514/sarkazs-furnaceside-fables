@@ -20,6 +20,7 @@ public sealed class RulesOfModernWarfareNormal : SarkazEncounterModel
     {
         return [
             [
+                new WaveEntry(() => ModelDb.Monster<RhineEngineeringMember>(), "first"),
                 new WaveEntry(() => ModelDb.Monster<RhineDefenseMember>(), "second")
             ],
             [

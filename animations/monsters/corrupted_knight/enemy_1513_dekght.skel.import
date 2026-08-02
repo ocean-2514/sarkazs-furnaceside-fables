@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://mk8d8q2w12il"
+path="res://.godot/imported/enemy_1513_dekght.skel-f85d1fdddbd0bc317772251cb2a78cee.spskel"
+
+[deps]
+
+source_file="res://animations/monsters/corrupted_knight/enemy_1513_dekght.skel"
+dest_files=["res://.godot/imported/enemy_1513_dekght.skel-f85d1fdddbd0bc317772251cb2a78cee.spskel"]
+
+[params]
+

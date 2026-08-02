@@ -24,7 +24,7 @@ public sealed class SarkazSentinel : SarkazMonsterModel
     public override int MaxInitialHp => 30;
     public override int MinInitialHp => 30;
 
-    private const int _attackBuff = 30;
+    private const int _attackBuff = 15;
     private const int _plating = 4;
 
     private bool _triggered;
@@ -48,7 +48,7 @@ public sealed class SarkazSentinel : SarkazMonsterModel
 
     protected override MonsterMoveStateMachine GenerateMoveStateMachine()
     {
-        MoveState idle = new MoveState("IDLE", Idle, new SleepIntent());
+        MoveState idle = new MoveState("IDLE", Idle, new UnknownIntent());
         idle.FollowUpState = idle;
         return new MonsterMoveStateMachine(new List<MonsterState> { idle }, idle);
     }

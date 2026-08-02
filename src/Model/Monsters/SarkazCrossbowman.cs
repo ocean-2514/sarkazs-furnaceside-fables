@@ -37,7 +37,7 @@ public sealed class SarkazCrossbowman : SarkazMonsterModel
     {
         foreach (Creature target in targets)
         {
-            await PowerCmd.Apply<SnipePower>(new ThrowingPlayerChoiceContext(), target, 2, Creature, null);
+            await PowerCmd.Apply<SnipePower>(new ThrowingPlayerChoiceContext(), target, 3, Creature, null);
         }
     }
 }

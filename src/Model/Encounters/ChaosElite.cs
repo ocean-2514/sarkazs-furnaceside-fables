@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Rooms;
 using Skz.Ocean.Model.Encounters.Base;
 using Skz.Ocean.Model.Monsters;
@@ -44,8 +45,14 @@ public sealed class ChaosElite : SarkazEncounterModel
         {
             await PowerCmd.Apply<SkzCorruptionPower>(new ThrowingPlayerChoiceContext(), creature, 3, null, null);
         }
+        foreach (Creature creature1 in combatState.Enemies)
+        {
+            if (creature1.Monster is SarkazWitherer || creature1.Monster is SarkazCrossbowman)
+            {
+                await CreatureCmd.GainMaxHp(creature1, 20);
+                await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), creature1, 3, null, null);
+            }
+        }
     }
-
-
 
 }

@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://mm7awhn0xkkw"
+path="res://.godot/imported/enemy_1333_cbbgen.atlas-cce250408ab52e618d98a068c20343de.spatlas"
+
+[deps]
+
+source_file="res://animations/monsters/traffic_officer_captain/enemy_1333_cbbgen.atlas"
+dest_files=["res://.godot/imported/enemy_1333_cbbgen.atlas-cce250408ab52e618d98a068c20343de.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

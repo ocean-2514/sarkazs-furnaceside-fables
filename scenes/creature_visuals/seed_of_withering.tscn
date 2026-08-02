@@ -10,27 +10,26 @@ script = ExtResource("1_5jhe0")
 unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 0
-offset_left = -112.0
-offset_top = -363.0
-offset_right = 117.0
-offset_bottom = -117.0
+offset_left = -117.0
+offset_top = -286.0
+offset_right = 112.0
+offset_bottom = -40.0
 mouse_filter = 2
 
 [node name="IntentPos" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(0, -444)
+position = Vector2(0, -328)
 
 [node name="CenterPos" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(0, -247)
+position = Vector2(0, -189)
 
 [node name="Visuals" type="SpineSprite" parent="."]
-unique_name_in_owner = true
-position = Vector2(0, -247.00003)
-scale = Vector2(-0.65, 0.65)
 skeleton_data_res = ExtResource("1_28jss")
 preview_skin = "Default"
 preview_animation = "Idle"
 preview_frame = false
 preview_time = 0.0
-metadata/_edit_lock_ = true
+unique_name_in_owner = true
+position = Vector2(0, -178.00002)
+scale = Vector2(-0.65, 0.65)

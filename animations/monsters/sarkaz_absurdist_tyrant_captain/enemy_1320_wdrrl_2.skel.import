@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://djmybvudvgjad"
+path="res://.godot/imported/enemy_1320_wdrrl_2.skel-25d06c0b6f7c77e942d458276ab6853f.spskel"
+
+[deps]
+
+source_file="res://animations/monsters/sarkaz_absurdist_tyrant_captain/enemy_1320_wdrrl_2.skel"
+dest_files=["res://.godot/imported/enemy_1320_wdrrl_2.skel-25d06c0b6f7c77e942d458276ab6853f.spskel"]
+
+[params]
+

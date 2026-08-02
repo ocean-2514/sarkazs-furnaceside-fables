@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://bynmhgq7jeqg5"
+path="res://.godot/imported/enemy_1513_dekght_2.atlas-88e29e1a21453d73257dd43fa679bce8.spatlas"
+
+[deps]
+
+source_file="res://animations/monsters/withered_knight/enemy_1513_dekght_2.atlas"
+dest_files=["res://.godot/imported/enemy_1513_dekght_2.atlas-88e29e1a21453d73257dd43fa679bce8.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

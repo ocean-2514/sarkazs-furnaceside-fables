@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://b5r64ncmt8lpb"
+path="res://.godot/imported/enemy_1377_ltnclo.atlas-617df53996e768a9b752035a3bacd52e.spatlas"
+
+[deps]
+
+source_file="res://animations/monsters/remnant_orchestra_cellist/enemy_1377_ltnclo.atlas"
+dest_files=["res://.godot/imported/enemy_1377_ltnclo.atlas-617df53996e768a9b752035a3bacd52e.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

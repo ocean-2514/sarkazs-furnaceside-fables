@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://vsorgqt062r2"
+path="res://.godot/imported/enemy_1331_cbsisy.atlas-c36e6a277714c16173bfa424fc73dbc4.spatlas"
+
+[deps]
+
+source_file="res://animations/monsters/crossroads_prototype/enemy_1331_cbsisy.atlas"
+dest_files=["res://.godot/imported/enemy_1331_cbsisy.atlas-c36e6a277714c16173bfa424fc73dbc4.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

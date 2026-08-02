@@ -61,6 +61,19 @@ public abstract class FragmentMysteryRelic : RelicModel, IFragmentMystery
         await OnPlayerTurnStartInFragment(combatState);
     }
 
+    public override async Task AfterCreatureAddedToCombat(Creature creature)
+    {
+        if (!creature.IsAlive || _hpApplied.Contains(creature) || creature.Side != CombatSide.Enemy) return;
+        _hpApplied.Add(creature);
+        await CreatureCmd.GainMaxHp(creature, Math.Max(creature.MaxHp * 20 / 100, 0));
+        await SarkazRelicFx.ApplyPower<AttackPower>(this, creature, 10);
+        if (!InFragment) return;
+        if (!creature.IsAlive || _enemyRegistered.Contains(creature)) return;
+        _enemyRegistered.Add(creature);
+        await OnEnemyRegistered(creature);
+    }
+
+
     // 子类：对每个（新登记的）敌人的一次性附加效果
     protected virtual Task OnEnemyRegistered(Creature enemy)
     {

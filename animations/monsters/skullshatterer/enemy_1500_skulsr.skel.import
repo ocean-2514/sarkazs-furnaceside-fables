@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://vwryuk7v18mm"
+path="res://.godot/imported/enemy_1500_skulsr.skel-098999620a4397b4c5ff48f77588be5a.spskel"
+
+[deps]
+
+source_file="res://animations/monsters/skullshatterer/enemy_1500_skulsr.skel"
+dest_files=["res://.godot/imported/enemy_1500_skulsr.skel-098999620a4397b4c5ff48f77588be5a.spskel"]
+
+[params]
+

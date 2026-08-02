@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://i173qtef53lr"
+path="res://.godot/imported/enemy_1424_lrboom.atlas-65f21486a28316b0d21d514e7c58826b.spatlas"
+
+[deps]
+
+source_file="res://animations/monsters/caustic_originium_slug/enemy_1424_lrboom.atlas"
+dest_files=["res://.godot/imported/enemy_1424_lrboom.atlas-65f21486a28316b0d21d514e7c58826b.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

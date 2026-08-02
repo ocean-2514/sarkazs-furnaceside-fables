@@ -14,7 +14,7 @@ public sealed class OriginiumSlugBeta : SarkazMonsterModel
     public override int MaxInitialHp => 9;
     public override int MinInitialHp => 9;
 
-    private const int _damage = 4;
+    private const int _damage = 5;
 
     protected override MonsterMoveStateMachine GenerateMoveStateMachine()
     {

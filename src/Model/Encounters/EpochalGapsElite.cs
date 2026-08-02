@@ -20,9 +20,10 @@ public sealed class EpochalGapsElite : SarkazEncounterModel
     {
         return [
             [
-                new WaveEntry(() => ModelDb.Monster<SpinesOfEpoch>(), "first"),
+                new WaveEntry(() => ModelDb.Monster<SarkazMazeReturner>(), "first"),
                 new WaveEntry(() => ModelDb.Monster<SarkazAbsurdistOperativeLeader>(), "second"),
-                new WaveEntry(() => ModelDb.Monster<SarkazMazeReturner>(), "third")
+                new WaveEntry(() => ModelDb.Monster<SarkazMazeReturner>(), "third"),
+                new WaveEntry(() => ModelDb.Monster<SpinesOfEpoch>(), "fifth"),
             ]
         ];
     }

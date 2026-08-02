@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://p8i32bm6dw6b"
+path="res://.godot/imported/enemy_1269_nhfly_2.atlas-ebb8ca063ab8cb7b791167546e61ab14.spatlas"
+
+[deps]
+
+source_file="res://animations/monsters/seed_of_decay/enemy_1269_nhfly_2.atlas"
+dest_files=["res://.godot/imported/enemy_1269_nhfly_2.atlas-ebb8ca063ab8cb7b791167546e61ab14.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

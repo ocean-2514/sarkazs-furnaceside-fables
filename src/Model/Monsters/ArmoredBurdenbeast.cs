@@ -31,7 +31,7 @@ public sealed class ArmoredBurdenbeast : SarkazMonsterModel
         idle1.FollowUpState = buff;
         buff.FollowUpState = attack;
         attack.FollowUpState = buff;
-        return new MonsterMoveStateMachine(new List<MonsterState> { idle1, buff, attack }, idle1);
+        return new MonsterMoveStateMachine(new List<MonsterState> { idle1, buff, attack }, buff);
     }
 
     private async Task Buff(IReadOnlyList<Creature> targets)

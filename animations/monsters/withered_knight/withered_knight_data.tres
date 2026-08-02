@@ -1,0 +1,8 @@
+[gd_resource type="SpineSkeletonDataResource" load_steps=3 format=3 uid="uid://dndjxh7bf36ju"]
+
+[ext_resource type="SpineAtlasResource" uid="uid://bynmhgq7jeqg5" path="res://animations/monsters/withered_knight/enemy_1513_dekght_2.atlas" id="1_ggrxv"]
+[ext_resource type="SpineSkeletonFileResource" uid="uid://c4grgx0ieysw4" path="res://animations/monsters/withered_knight/enemy_1513_dekght_2.skel" id="2_5ib4w"]
+
+[resource]
+atlas_res = ExtResource("1_ggrxv")
+skeleton_file_res = ExtResource("2_5ib4w")

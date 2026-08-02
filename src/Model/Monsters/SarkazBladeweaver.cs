@@ -25,7 +25,7 @@ public sealed class SarkazBladeweaver : SarkazMonsterModel
     public override decimal InitialSpeed => 300;
 
     private const int _minDamage = 13;
-    private const int _maxDamage = 23;
+    private const int _maxDamage = 19;
 
     private int _rolledDamage = _minDamage;
 

@@ -1,0 +1,8 @@
+[gd_resource type="SpineSkeletonDataResource" load_steps=3 format=3 uid="uid://cs61kreeyipkt"]
+
+[ext_resource type="SpineAtlasResource" uid="uid://pfwfe5nan6nf" path="res://animations/monsters/sacrilegious_chimera/enemy_1425_lrcmra.atlas" id="1_wugyv"]
+[ext_resource type="SpineSkeletonFileResource" uid="uid://bbbnvmyowl325" path="res://animations/monsters/sacrilegious_chimera/enemy_1425_lrcmra.skel" id="2_ual24"]
+
+[resource]
+atlas_res = ExtResource("1_wugyv")
+skeleton_file_res = ExtResource("2_ual24")

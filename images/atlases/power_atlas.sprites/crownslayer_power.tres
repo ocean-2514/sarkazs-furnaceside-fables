@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://bymgkgsp3b8ga"]
+
+[ext_resource type="Texture2D" uid="uid://dnsscaobwb63r" path="res://images/powers/crownslayer_power.png" id="1_jh2hn"]
+
+[resource]
+atlas = ExtResource("1_jh2hn")

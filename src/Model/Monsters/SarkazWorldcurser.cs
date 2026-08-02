@@ -91,7 +91,13 @@ public sealed class SarkazWorldcurser : SarkazMonsterModel
 
     private async Task Debuff(IReadOnlyList<Creature> targets)
     {
-        await PowerCmd.Apply<RingingPower>(new ThrowingPlayerChoiceContext(), targets, 4, Creature, null);
+        foreach (Creature target in targets)
+        {
+            if (!target.HasPower<SkzRingingPower>())
+            {
+                await PowerCmd.Apply<SkzRingingPower>(new ThrowingPlayerChoiceContext(), targets, 4, Creature, null);
+            }
+        }
     }
 
     public override CreatureAnimator GenerateAnimator(MegaSprite controller)

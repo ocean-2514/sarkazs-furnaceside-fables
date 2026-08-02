@@ -23,6 +23,7 @@ public sealed class MorningLaborNormal : SarkazEncounterModel
                 new WaveEntry(() => ModelDb.Monster<SarkazLancer>(), "second")
             ],
             [
+                new WaveEntry(() => ModelDb.Monster<Lurker>(), "first"),
                 new WaveEntry(() => ModelDb.Monster<SarkazLancer>(), "second")
             ]
         ];

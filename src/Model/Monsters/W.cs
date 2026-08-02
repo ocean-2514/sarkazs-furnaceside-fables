@@ -21,13 +21,13 @@ namespace Skz.Ocean.Model.Monsters;
 // 生命值首次≤50%时立即重击(SetMoveImmediate)。
 public sealed class W : SarkazMonsterModel
 {
-    public override int MaxInitialHp => 100;
-    public override int MinInitialHp => 100;
+    public override int MaxInitialHp => 110;
+    public override int MinInitialHp => 110;
 
     private const int _shell = 50;
     private const int _attackBuff = 20;
-    private const int _heavyDamage = 25;
-    private const int _damage = 15;
+    private const int _heavyDamage = 28;
+    private const int _damage = 18;
 
     private bool _enraged;
 
@@ -78,6 +78,7 @@ public sealed class W : SarkazMonsterModel
     private async Task Debuff(IReadOnlyList<Creature> targets)
     {
         await PowerCmd.Apply<VulnerablePower>(new ThrowingPlayerChoiceContext(), targets, 1, Creature, null);
+        await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), targets, -5, Creature, null);
     }
 
     private async Task Attack(IReadOnlyList<Creature> targets)

@@ -11,6 +11,8 @@ namespace Skz.Ocean.Entities.Thoughts.Interpreter;
 
 public static class Interpreter
 {
+    public static float FailOdds = 0.05f;
+
     public static InterpretationGrade GetGrade(ThoughtModel thought1, ThoughtModel thought2)
     {
         int totalRarity = thought1.Rarity + thought2.Rarity;
@@ -42,7 +44,7 @@ public static class Interpreter
         }
 
         //check guaranteed recipes first
-        if (GuaranteedRecipes.TryGetThoughtResult(thought1, thought2, out var resultType))
+        if (GuaranteedRecipes.TryGetThoughtResult(thought1, thought2, rng, out var resultType))
         {
             // ModelDbGet 返回 canonical —— ToMutable 后调用方可直接发放。
             ThoughtModel thought = ((ThoughtModel)SarkazHelper.ModelDbGet(resultType)).ToMutable();

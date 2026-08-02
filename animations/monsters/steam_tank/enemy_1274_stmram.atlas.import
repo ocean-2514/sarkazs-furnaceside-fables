@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://bhmcgq3v6jvt4"
+path="res://.godot/imported/enemy_1274_stmram.atlas-5f98b06d081f46181898a7254b91b3f8.spatlas"
+
+[deps]
+
+source_file="res://animations/monsters/steam_tank/enemy_1274_stmram.atlas"
+dest_files=["res://.godot/imported/enemy_1274_stmram.atlas-5f98b06d081f46181898a7254b91b3f8.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

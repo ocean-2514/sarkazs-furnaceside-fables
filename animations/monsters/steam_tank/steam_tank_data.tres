@@ -1,0 +1,8 @@
+[gd_resource type="SpineSkeletonDataResource" load_steps=3 format=3 uid="uid://dirrul70n4uc3"]
+
+[ext_resource type="SpineAtlasResource" uid="uid://bhmcgq3v6jvt4" path="res://animations/monsters/steam_tank/enemy_1274_stmram.atlas" id="1_1c53t"]
+[ext_resource type="SpineSkeletonFileResource" uid="uid://i7mx1p74gg4q" path="res://animations/monsters/steam_tank/enemy_1274_stmram.skel" id="2_pw37m"]
+
+[resource]
+atlas_res = ExtResource("1_1c53t")
+skeleton_file_res = ExtResource("2_pw37m")

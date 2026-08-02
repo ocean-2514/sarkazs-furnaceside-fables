@@ -1,0 +1,8 @@
+[gd_resource type="SpineSkeletonDataResource" load_steps=3 format=3 uid="uid://dbwmn0i2i0h2l"]
+
+[ext_resource type="SpineAtlasResource" uid="uid://b5r64ncmt8lpb" path="res://animations/monsters/remnant_orchestra_cellist/enemy_1377_ltnclo.atlas" id="1_cicic"]
+[ext_resource type="SpineSkeletonFileResource" uid="uid://cco57d8j3opjq" path="res://animations/monsters/remnant_orchestra_cellist/enemy_1377_ltnclo.skel" id="2_74wps"]
+
+[resource]
+atlas_res = ExtResource("1_cicic")
+skeleton_file_res = ExtResource("2_74wps")

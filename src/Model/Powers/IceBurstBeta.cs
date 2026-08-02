@@ -11,7 +11,7 @@ namespace Skz.Ocean.Model.Powers;
 
 public sealed class IceBurstBeta : PowerModel, ISarkazModel
 {
-    public override PowerType Type => PowerType.Debuff;
+    public override PowerType Type => PowerType.Buff;
 
     public override PowerStackType StackType => PowerStackType.Counter;
 

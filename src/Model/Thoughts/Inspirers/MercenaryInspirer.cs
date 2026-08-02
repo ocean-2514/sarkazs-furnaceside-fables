@@ -16,6 +16,11 @@ public sealed class MercenaryInspirer : ThoughtModel
     public override ThoughtType ThoughtType => ThoughtType.Inspirer;
     public override ThoughtRarity ThoughtRarity => ThoughtRarity.Common;
 
+    public override bool CanBeUpgraded => true;
+
+    public override Type UpgradedType => typeof(CivilWar);
+
+
     private int turnLimit = 2;
 
     public override bool TryModifyEnergyCostInCombat(CardModel card, decimal originalCost, out decimal modifiedCost)

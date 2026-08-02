@@ -17,7 +17,7 @@ public sealed class Anvil : SarkazMonsterModel
     public override int MaxInitialHp => 20;
     public override int MinInitialHp => 20;
 
-    private const int _heal = 5;
+    private const int _heal = 8;
 
     public override async Task AfterAddedToRoom()
     {

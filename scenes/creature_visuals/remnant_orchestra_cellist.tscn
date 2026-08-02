@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://bb2fhpmpoqnuh"]
+
+[ext_resource type="Script" uid="uid://dgsjq3haioact" path="res://src/Wrapper/NCreatureVisualsWrapper.cs" id="1_plk3p"]
+[ext_resource type="SpineSkeletonDataResource" uid="uid://dbwmn0i2i0h2l" path="res://animations/monsters/remnant_orchestra_cellist/remnant_orchestra_cellist_data.tres" id="1_ppquq"]
+
+[node name="RemnantOrchestraCellist" type="Node2D"]
+script = ExtResource("1_plk3p")
+
+[node name="Bounds" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -110.0
+offset_top = -312.0
+offset_right = 142.0
+offset_bottom = -1.0
+mouse_filter = 2
+
+[node name="IntentPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -376)
+
+[node name="CenterPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -130)
+
+[node name="Visuals" type="SpineSprite" parent="."]
+skeleton_data_res = ExtResource("1_ppquq")
+preview_skin = "Default"
+preview_animation = "Idle"
+preview_frame = false
+preview_time = 0.0
+unique_name_in_owner = true
+scale = Vector2(-0.65, 0.65)
+metadata/_edit_lock_ = true

@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://xt40tbmwo2ab"
+path="res://.godot/imported/enemy_1424_lrboom.skel-269d180eef9d7b34438606e973a3d7bb.spskel"
+
+[deps]
+
+source_file="res://animations/monsters/caustic_originium_slug/enemy_1424_lrboom.skel"
+dest_files=["res://.godot/imported/enemy_1424_lrboom.skel-269d180eef9d7b34438606e973a3d7bb.spskel"]
+
+[params]
+

@@ -18,10 +18,6 @@ public abstract class EnemyDebuffRelic : RelicModel
 
     public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
     {
-        if (side != Owner.Creature.Side)
-        {
-            return;
-        }
         foreach (Creature enemy in combatState.Enemies.ToList())
         {
             if (enemy == null || !enemy.IsAlive || _applied.Contains(enemy))
@@ -32,6 +28,14 @@ public abstract class EnemyDebuffRelic : RelicModel
             await ApplyToEnemy(enemy);
         }
     }
+
+    public override async Task AfterCreatureAddedToCombat(Creature creature)
+    {
+        if (!creature.IsAlive || _applied.Contains(creature) || creature.Side != CombatSide.Enemy) return;
+        _applied.Add(creature);
+        await ApplyToEnemy(creature);
+    }
+
 
     protected abstract Task ApplyToEnemy(Creature enemy);
 

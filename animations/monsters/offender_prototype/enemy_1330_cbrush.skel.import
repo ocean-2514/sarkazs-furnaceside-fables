@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://dt18dcjh10hoi"
+path="res://.godot/imported/enemy_1330_cbrush.skel-a3db3696bbc71bf9fcfc3b1fee12945f.spskel"
+
+[deps]
+
+source_file="res://animations/monsters/offender_prototype/enemy_1330_cbrush.skel"
+dest_files=["res://.godot/imported/enemy_1330_cbrush.skel-a3db3696bbc71bf9fcfc3b1fee12945f.spskel"]
+
+[params]
+

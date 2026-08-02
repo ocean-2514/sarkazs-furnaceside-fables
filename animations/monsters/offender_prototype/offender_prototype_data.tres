@@ -1,0 +1,8 @@
+[gd_resource type="SpineSkeletonDataResource" load_steps=3 format=3 uid="uid://bai0o3gpitir7"]
+
+[ext_resource type="SpineAtlasResource" uid="uid://c2r71077wtvot" path="res://animations/monsters/offender_prototype/enemy_1330_cbrush.atlas" id="1_a1uyv"]
+[ext_resource type="SpineSkeletonFileResource" uid="uid://dt18dcjh10hoi" path="res://animations/monsters/offender_prototype/enemy_1330_cbrush.skel" id="2_3s87x"]
+
+[resource]
+atlas_res = ExtResource("1_a1uyv")
+skeleton_file_res = ExtResource("2_3s87x")

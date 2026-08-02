@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://dyhagf2orcyhx"
+path="res://.godot/imported/enemy_1332_cbterm.skel-03c65463504483e6e8994e819dbe29d7.spskel"
+
+[deps]
+
+source_file="res://animations/monsters/traffic_tower_prototype/enemy_1332_cbterm.skel"
+dest_files=["res://.godot/imported/enemy_1332_cbterm.skel-03c65463504483e6e8994e819dbe29d7.spskel"]
+
+[params]
+

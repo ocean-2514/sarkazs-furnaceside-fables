@@ -1,0 +1,8 @@
+[gd_resource type="SpineSkeletonDataResource" load_steps=3 format=3 uid="uid://bnhbojfwead34"]
+
+[ext_resource type="SpineAtlasResource" uid="uid://dupvbhg677btt" path="res://animations/monsters/deathveil_assassin/enemy_1419_mmcike.atlas" id="1_5asfw"]
+[ext_resource type="SpineSkeletonFileResource" uid="uid://cbg0ewn1muo8f" path="res://animations/monsters/deathveil_assassin/enemy_1419_mmcike.skel" id="2_j7gg0"]
+
+[resource]
+atlas_res = ExtResource("1_5asfw")
+skeleton_file_res = ExtResource("2_j7gg0")

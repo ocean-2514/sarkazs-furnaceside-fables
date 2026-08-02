@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://d0bnykpq4p4ws"
+path="res://.godot/imported/enemy_1371_ltnflu.atlas-2a273ddbf7bf6f23cabb3ea3986c3cc2.spatlas"
+
+[deps]
+
+source_file="res://animations/monsters/remnant_orchestra_flautist/enemy_1371_ltnflu.atlas"
+dest_files=["res://.godot/imported/enemy_1371_ltnflu.atlas-2a273ddbf7bf6f23cabb3ea3986c3cc2.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://c1o6t5jmt45j"
+path="res://.godot/imported/enemy_1321_wdarft.skel-f1a3e8cbe5fbb1a107221e87c0d99935.spskel"
+
+[deps]
+
+source_file="res://animations/monsters/decaying_collector_disciple/enemy_1321_wdarft.skel"
+dest_files=["res://.godot/imported/enemy_1321_wdarft.skel-f1a3e8cbe5fbb1a107221e87c0d99935.spskel"]
+
+[params]
+

@@ -17,10 +17,12 @@ namespace Skz.Ocean.Model.Monsters;
 // 10 冰原卫法者：加入战斗后获得 10 层 IceBurstBeta；攻击(11) -> Debuff(施加1层寒冷) -> Debuff(使一张牌变为消耗) 循环
 public sealed class IcefieldArtsFighter : SarkazMonsterModel
 {
-    public override int MaxInitialHp => 40;
-    public override int MinInitialHp => 40;
+    public override int MaxInitialHp => 42;
+    public override int MinInitialHp => 42;
 
-    private const int _damage = 11;
+    private const int _damage = 14;
+
+    private int _exhaustedCardCount = 3;
 
     public override async Task AfterAddedToRoom()
     {
@@ -56,10 +58,14 @@ public sealed class IcefieldArtsFighter : SarkazMonsterModel
         {
             IEnumerable<CardModel> allCards = player.PlayerCombatState.AllCards;
             IEnumerable<CardModel> candidates = allCards.Where(card => !card.Keywords.Contains(CardKeyword.Exhaust));
-            CardModel card = RunRng.MonsterAi.NextItem(candidates);
-            if (card != null)
+            for (int i = 0; i < _exhaustedCardCount; i++)
             {
-                card.AddKeyword(CardKeyword.Exhaust);
+                CardModel card = RunRng.MonsterAi.NextItem(candidates);
+                if (card != null)
+                {
+                    card.AddKeyword(CardKeyword.Exhaust);
+                }
+                candidates = candidates.Where(card => !card.Keywords.Contains(CardKeyword.Exhaust));
             }
         }
     }

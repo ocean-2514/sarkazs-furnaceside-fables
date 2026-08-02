@@ -13,11 +13,11 @@ using Skz.Ocean.Model.Powers;
 
 namespace Skz.Ocean.Model.Monsters;
 
-// 32 游击队萨卡兹术师：加入战斗后获得4层AngerPower；第一回合debuff(施加脆弱1) -> 攻击(随机7-18) 循环
+// 32 游击队萨卡兹术师：加入战斗后获得4层AngerPower；第一回合debuff(施加RestraintPower1) -> 攻击(随机7-18) 循环
 public sealed class SarkazGuerrillaCaster : SarkazMonsterModel
 {
-    public override int MaxInitialHp => 48;
-    public override int MinInitialHp => 48;
+    public override int MaxInitialHp => 52;
+    public override int MinInitialHp => 52;
 
     private const int _minDamage = 7;
     private const int _maxDamage = 18;

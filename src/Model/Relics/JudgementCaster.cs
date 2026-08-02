@@ -32,7 +32,7 @@ namespace Skz.Ocean.Model.Relics;
 // 182 论断：术师：每拥有一个仅在诡谲断章生效的收藏品，进入战斗时攻击力+5%，攻速+5
 public sealed class JudgementCaster : RelicModel
 {
-    public override RelicRarity Rarity => RelicRarity.Uncommon;
+    public override RelicRarity Rarity => RelicRarity.Rare;
 
     public override async Task BeforeCombatStart()
     {

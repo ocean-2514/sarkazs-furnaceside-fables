@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://453a22yk3a78"
+path="res://.godot/imported/enemy_1375_ltnclr.atlas-1c9b7b13745ccb8c7369af9dbb93ae85.spatlas"
+
+[deps]
+
+source_file="res://animations/monsters/remnant_orchestra_wind_player/enemy_1375_ltnclr.atlas"
+dest_files=["res://.godot/imported/enemy_1375_ltnclr.atlas-1c9b7b13745ccb8c7369af9dbb93ae85.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

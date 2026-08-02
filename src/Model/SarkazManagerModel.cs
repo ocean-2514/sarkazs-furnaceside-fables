@@ -28,7 +28,8 @@ public class SarkazManagerModel : AbstractModel, ISarkazModel
 
     private Player _owner;
 
-    public bool CanWalkHorizontally => _manager?.CanWalkHorizontally ?? false;
+    public bool CanWalkHorizontally => _manager?.CanTravelHorizontally() ?? false;
+    public bool CanWalkVertically => _manager?.CanTravelVertically() ?? false;
 
     public Player Owner
 	{

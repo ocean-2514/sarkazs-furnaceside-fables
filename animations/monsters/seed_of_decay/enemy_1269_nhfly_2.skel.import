@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://dmbef4l7kbvi2"
+path="res://.godot/imported/enemy_1269_nhfly_2.skel-822d0c956317163adf9bfe59e54c9d77.spskel"
+
+[deps]
+
+source_file="res://animations/monsters/seed_of_decay/enemy_1269_nhfly_2.skel"
+dest_files=["res://.godot/imported/enemy_1269_nhfly_2.skel-822d0c956317163adf9bfe59e54c9d77.spskel"]
+
+[params]
+

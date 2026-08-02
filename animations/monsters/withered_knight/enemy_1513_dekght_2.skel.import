@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://c4grgx0ieysw4"
+path="res://.godot/imported/enemy_1513_dekght_2.skel-57b931eb0be9099a1966c45146b1e93e.spskel"
+
+[deps]
+
+source_file="res://animations/monsters/withered_knight/enemy_1513_dekght_2.skel"
+dest_files=["res://.godot/imported/enemy_1513_dekght_2.skel-57b931eb0be9099a1966c45146b1e93e.spskel"]
+
+[params]
+

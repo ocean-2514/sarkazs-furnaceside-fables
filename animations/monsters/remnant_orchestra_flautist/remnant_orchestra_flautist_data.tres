@@ -1,0 +1,8 @@
+[gd_resource type="SpineSkeletonDataResource" load_steps=3 format=3 uid="uid://ui0jwwunaful"]
+
+[ext_resource type="SpineAtlasResource" uid="uid://d0bnykpq4p4ws" path="res://animations/monsters/remnant_orchestra_flautist/enemy_1371_ltnflu.atlas" id="1_hnies"]
+[ext_resource type="SpineSkeletonFileResource" uid="uid://buxepct013t3f" path="res://animations/monsters/remnant_orchestra_flautist/enemy_1371_ltnflu.skel" id="2_2sg7f"]
+
+[resource]
+atlas_res = ExtResource("1_hnies")
+skeleton_file_res = ExtResource("2_2sg7f")

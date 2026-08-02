@@ -13,13 +13,13 @@ using Skz.Ocean.Model.Monsters.Base;
 namespace Skz.Ocean.Model.Monsters;
 
 // 37 战争幽灵：生命值降到一半以下时立即召唤铁砧(仅一次)；
-// 召唤(破片Scrap) -> 攻击1(10) -> 攻击2(6*2) 循环
+// 召唤(破片Scrap) -> 攻击1(15) -> 攻击2(6*2) 循环
 public sealed class WarPhantom : SarkazMonsterModel
 {
     public override int MaxInitialHp => 55;
     public override int MinInitialHp => 55;
 
-    private const int _damage1 = 10;
+    private const int _damage1 = 11;
     private const int _damage2 = 6;
     private const int _repeat2 = 2;
 

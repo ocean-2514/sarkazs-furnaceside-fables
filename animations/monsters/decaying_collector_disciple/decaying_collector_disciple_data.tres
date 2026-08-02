@@ -1,0 +1,8 @@
+[gd_resource type="SpineSkeletonDataResource" load_steps=3 format=3 uid="uid://bbxa5x7gf34vl"]
+
+[ext_resource type="SpineAtlasResource" uid="uid://c3w4olmgjnxgo" path="res://animations/monsters/decaying_collector_disciple/enemy_1321_wdarft.atlas" id="1_w6ra5"]
+[ext_resource type="SpineSkeletonFileResource" uid="uid://c1o6t5jmt45j" path="res://animations/monsters/decaying_collector_disciple/enemy_1321_wdarft.skel" id="2_ytlg7"]
+
+[resource]
+atlas_res = ExtResource("1_w6ra5")
+skeleton_file_res = ExtResource("2_ytlg7")

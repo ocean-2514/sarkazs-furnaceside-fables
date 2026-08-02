@@ -1,4 +1,7 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using Godot;
 using HarmonyLib;
@@ -25,6 +28,8 @@ internal static class SarkazMapRefresh
 
     private const float _rightOffset = 65f; // 节点局部坐标里向右的偏移（“正右”）
 
+    private static Traverse _trav = null;
+
     public static TextureButton CreateButton()
     {
         Texture2D tex = ResourceLoader.Load<Texture2D>(ImageHelper.GetImagePath("ui/refresh.png"));
@@ -35,23 +40,56 @@ internal static class SarkazMapRefresh
             StretchMode = TextureButton.StretchModeEnum.KeepAspectCentered,
             CustomMinimumSize = new Vector2(40, 40),
             Size = new Vector2(40, 40),
-            Position = new Vector2(_rightOffset, -20f),
             MouseFilter = Control.MouseFilterEnum.Stop,
-            // ZIndex = 5,
             Visible = false,
         };
+    }
+
+    // 把按钮位置同步到 NMapPoint 正右侧（按钮已挂在父容器上，和节点平级）
+    private static void SyncButtonPosition(NNormalMapPoint node, TextureButton btn)
+    {
+        btn.GlobalPosition = node.GlobalPosition + new Vector2(_rightOffset, -20f);
     }
 
     public static void UpdateButton(NNormalMapPoint node, SarkazManagerModel mgr)
     {
         if (!Buttons.TryGetValue(node, out TextureButton btn) || !GodotObject.IsInstanceValid(btn)) return;
-        btn.Visible = node.State == MapPointState.Travelable && mgr.CanRefreshNode(node.Point);
+        btn.Visible = false;
+        if (!mgr.CanRefreshNode(node.Point)) return;
+
+        //get nodes connected to the current node
+        //vertical
+        if (_trav == null) _trav = Traverse.Create(NMapScreen.Instance);
+        RunState runState = _trav.Field("_runState").GetValue<RunState>();
+        var dict = _trav.Field("_mapPointDictionary").GetValue<Dictionary<MapCoord, NMapPoint>>();
+        ActMap map = _trav.Field("_map").GetValue<ActMap>();
+        
+        if (runState == null || dict == null || !runState.VisitedMapCoords.Any()) return;
+        IReadOnlyList<MapCoord> visited = runState.VisitedMapCoords;
+        if (visited.Contains(node.Point.coord)) return;
+        MapCoord current = visited[visited.Count - 1];
+        if (dict.TryGetValue(current, out NMapPoint mapPoint))
+        {
+            btn.Visible = MapTravel.GetTravelablePointsFrom(runState, mapPoint.Point).Contains(node.Point);
+            if (btn.Visible) {
+                SyncButtonPosition(node, btn); return;
+            }
+        }
+        Log.Info("[sarkaz] check horizontal");
+
+        //horizontal
+        if (current.row >= map.GetRowCount() - 1 || node.Point.coord.row != current.row) return;
+        List<MapPoint> rowPoints = map.GetPointsInRow(current.row).ToList();
+        int idx = rowPoints.FindIndex(p => p.coord == current);
+        int idx2 = rowPoints.FindIndex(p => p.coord == node.Point.coord);
+        btn.Visible = Math.Abs(idx - idx2) == 1;
+        if (btn.Visible) SyncButtonPosition(node, btn);
     }
 
     public static void OnPressed(NNormalMapPoint node, SarkazManagerModel mgr)
     {
-        if (node.State != MapPointState.Travelable) return;
-        if (!mgr.RefreshNode(node.Point)) return;
+        // if (node.State != MapPointState.Travelable) return;
+        if (!mgr.RefreshNode(node.Point)) return;  
         // UpdateIcon 是 private —— 改完 PointType 后重绘图标。
         Traverse.Create(node).Method("UpdateIcon").GetValue();
         // 本节点刷新次数变了，单独刷一下；构想变化由 PlayerThoughtChanged 覆盖所有按钮。
@@ -80,8 +118,18 @@ public static class SarkazMapPointReadyPatch
             if (mgr == null) return;
 
             TextureButton btn = SarkazMapRefresh.CreateButton();
-            __instance.AddChild(btn);
             SarkazMapRefresh.Buttons.AddOrUpdate(__instance, btn);
+            // 延迟到下一帧再挂到父容器上（确保 GetParent 不为 null），
+            // 平级挂载让按钮独立于 NMapPoint 的 Enable/Disable 状态。
+            Callable.From(() =>
+            {
+                Node parent = __instance.GetParent();
+                if (parent != null)
+                {
+                    parent.AddChild(btn);
+                    SarkazMapRefresh.UpdateButton(__instance, mgr);
+                }
+            }).CallDeferred();
 
             btn.Pressed += () => SarkazMapRefresh.OnPressed(__instance, mgr);
 
@@ -90,8 +138,6 @@ public static class SarkazMapPointReadyPatch
             void Handler() => SarkazMapRefresh.UpdateButton(__instance, mgr);
             extra.PlayerThoughtChanged += Handler;
             btn.TreeExiting += () => extra.PlayerThoughtChanged -= Handler;
-
-            SarkazMapRefresh.UpdateButton(__instance, mgr);
         }
         catch (Exception e)
         {

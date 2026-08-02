@@ -22,7 +22,8 @@ public sealed class ElusiveMercElite : SarkazEncounterModel
         return [
             [
                 new WaveEntry(() => ModelDb.Monster<DublinnFlamechaserSoldier>(), "first"),
-                new WaveEntry(() => ModelDb.Monster<SarkazMazeSpellweaver>(), "second")
+                new WaveEntry(() => ModelDb.Monster<SarkazMazeSpellweaver>(), "second"),
+                new WaveEntry(() => ModelDb.Monster<Frost>(), "third")
             ],
             [
                 new WaveEntry(() => ModelDb.Monster<W>(), "first"),

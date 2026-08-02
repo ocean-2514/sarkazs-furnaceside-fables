@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.Bindings.MegaSpine;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
@@ -26,6 +27,7 @@ public sealed class Crownslayer : SarkazMonsterModel
     public override async Task AfterAddedToRoom()
     {
         await base.AfterAddedToRoom();
+        await PowerCmd.Apply<CrownslayerPower>(new ThrowingPlayerChoiceContext(), Creature, 1, null, null);
         Creature.PowerApplied += OnPowerApplied;
     }
 

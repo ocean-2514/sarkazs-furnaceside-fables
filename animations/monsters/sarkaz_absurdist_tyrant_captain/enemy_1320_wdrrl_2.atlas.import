@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://c7hnn75tuovgj"
+path="res://.godot/imported/enemy_1320_wdrrl_2.atlas-8a72407887ec0ac76401c48c85254107.spatlas"
+
+[deps]
+
+source_file="res://animations/monsters/sarkaz_absurdist_tyrant_captain/enemy_1320_wdrrl_2.atlas"
+dest_files=["res://.godot/imported/enemy_1320_wdrrl_2.atlas-8a72407887ec0ac76401c48c85254107.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

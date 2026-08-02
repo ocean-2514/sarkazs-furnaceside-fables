@@ -29,6 +29,7 @@ public sealed class FatedEncounter : EventModel
     private async Task GainTalonsOfHatred()
     {
         await RelicCmd.Obtain<TalonsOfHatred>(Owner);
+        await RelicCmd.Obtain<HerrHraaselsuher>(Owner);
         SetEventFinished(L10NLookup("FATED_ENCOUNTER.pages.GAIN_TALONS_OF_HATRED.description"));
     }
 

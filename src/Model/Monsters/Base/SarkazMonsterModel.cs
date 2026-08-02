@@ -11,6 +11,7 @@ using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.MonsterMoves.Intents;
 using MegaCrit.Sts2.Core.Nodes.Vfx;
 using MegaCrit.Sts2.Core.Runs;
 using MegaCrit.Sts2.Core.ValueProps;
@@ -39,7 +40,7 @@ public abstract class SarkazMonsterModel : MonsterModel, ISarkazModel
     public virtual bool Blockable => true;
 
     // 子类可写：额外附加的基础移速（永久加成），CurrentSpeed 计算时自动计入
-    protected decimal _baseSpeedBonus;
+    public decimal BaseSpeedBonus;
 
     protected readonly Dictionary<string, string> _dict = new Dictionary<string, string>{
         {"first", "forth"},
@@ -55,7 +56,7 @@ public abstract class SarkazMonsterModel : MonsterModel, ISarkazModel
         {
             ICombatState combatState = Creature?.CombatState;
             if (combatState == null) return InitialSpeed;
-            return SarkazHook.ModifyMoveSpeed(combatState.RunState, combatState, this, InitialSpeed + _baseSpeedBonus);
+            return SarkazHook.ModifyMoveSpeed(combatState.RunState, combatState, this, InitialSpeed + BaseSpeedBonus);
         }
     }
 
@@ -89,6 +90,10 @@ public abstract class SarkazMonsterModel : MonsterModel, ISarkazModel
     {
         await base.AfterAddedToRoom();
         await PowerCmd.Apply<EnterProtectionObjectivePower>(new ThrowingPlayerChoiceContext(), Creature, CalculatedLeftTurn, null, null);
+        if (!Blockable)
+        {
+            await PowerCmd.Apply<UnblockablePower>(new ThrowingPlayerChoiceContext(), Creature, 1, null, null);
+        }
     }
 
     public override async Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)
@@ -99,6 +104,8 @@ public abstract class SarkazMonsterModel : MonsterModel, ISarkazModel
 
         ICombatState combatState = Creature.CombatState;
 
+        if (NextMove.Intents.Any(intent => intent.IntentType == IntentType.Stun || intent.IntentType == IntentType.Sleep)) return;
+        
         // 本回合位移 = 当前移速（已含乘法减速），再经 delta 链修正
         // （传送/击退类一次性效果改这里的位移量）
         decimal delta = SarkazHook.ModifyMonsterMoveDelta(combatState.RunState, combatState, this, CurrentSpeed);

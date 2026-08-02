@@ -20,6 +20,8 @@ public sealed class Rotchaser : SarkazMonsterModel
     private const int _repeat1 = 2;
     private const int _damage2 = 16;
 
+    private int _bleedPower = 3;
+
     protected override MonsterMoveStateMachine GenerateMoveStateMachine()
     {
         MoveState debuff = new MoveState("DEBUFF", Debuff, new DebuffIntent());
@@ -33,7 +35,7 @@ public sealed class Rotchaser : SarkazMonsterModel
 
     private async Task Debuff(IReadOnlyList<Creature> targets)
     {
-        await PowerCmd.Apply<BleedPower>(new ThrowingPlayerChoiceContext(), targets, 2, Creature, null);
+        await PowerCmd.Apply<BleedPower>(new ThrowingPlayerChoiceContext(), targets, _bleedPower, Creature, null);
     }
 
     private async Task Attack1(IReadOnlyList<Creature> targets)

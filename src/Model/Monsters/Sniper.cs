@@ -42,7 +42,7 @@ public sealed class Sniper : SarkazMonsterModel
 
     private async Task Buff(IReadOnlyList<Creature> targets)
     {
-        await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), Creature, 2, Creature, null);
+        await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), Creature, 3, Creature, null);
     }
 
     private async Task Attack2(IReadOnlyList<Creature> targets)

@@ -21,6 +21,9 @@ public sealed class Frost : SarkazMonsterModel
 
     private const int _speedDebuff = 30;
 
+    public override bool Blockable => false;
+
+
     public override async Task AfterAddedToRoom()
     {
         await base.AfterAddedToRoom();

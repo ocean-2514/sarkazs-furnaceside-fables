@@ -1,0 +1,8 @@
+[gd_resource type="SpineSkeletonDataResource" load_steps=3 format=3 uid="uid://dtoki2hltcmx6"]
+
+[ext_resource type="SpineAtlasResource" uid="uid://vsorgqt062r2" path="res://animations/monsters/crossroads_prototype/enemy_1331_cbsisy.atlas" id="1_tftbf"]
+[ext_resource type="SpineSkeletonFileResource" uid="uid://ciox7c48ug7um" path="res://animations/monsters/crossroads_prototype/enemy_1331_cbsisy.skel" id="2_okuku"]
+
+[resource]
+atlas_res = ExtResource("1_tftbf")
+skeleton_file_res = ExtResource("2_okuku")

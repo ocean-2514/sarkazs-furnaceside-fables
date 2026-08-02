@@ -1,0 +1,8 @@
+[gd_resource type="SpineSkeletonDataResource" load_steps=3 format=3 uid="uid://cxow0k55al4mj"]
+
+[ext_resource type="SpineAtlasResource" uid="uid://djlcirwuwsj0f" path="res://animations/monsters/corrupted_knight/enemy_1513_dekght.atlas" id="1_357ur"]
+[ext_resource type="SpineSkeletonFileResource" uid="uid://mk8d8q2w12il" path="res://animations/monsters/corrupted_knight/enemy_1513_dekght.skel" id="2_1ga0q"]
+
+[resource]
+atlas_res = ExtResource("1_357ur")
+skeleton_file_res = ExtResource("2_1ga0q")

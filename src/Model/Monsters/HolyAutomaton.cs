@@ -31,6 +31,8 @@ public sealed class HolyAutomaton : SarkazMonsterModel
         if (side != Creature.Side) return;
         if (Creature.IsDead || Creature.CombatState?.IsLiveCombat() != true) return;
 
+        if (NextMove.Intents.Any(intent => intent.IntentType == IntentType.Stun || intent.IntentType == IntentType.Sleep)) return;
+
         ICombatState combatState = Creature.CombatState;
         decimal delta = SarkazHook.ModifyMonsterMoveDelta(combatState.RunState, combatState, this, CurrentSpeed);
         CurrentLocation = _currentLocation + Math.Max(0, delta);
@@ -38,8 +40,9 @@ public sealed class HolyAutomaton : SarkazMonsterModel
 
         if (_currentLocation >= Destination)
         {
+            IEnumerable<Creature> creatures = combatState.Enemies.Concat(combatState.PlayerCreatures).ToList();
             // 全场敌我双方10点真实伤害
-            foreach (Creature c in combatState.Enemies.Concat(combatState.Players.Select(p => p.Creature)))
+            foreach (Creature c in creatures)
             {
                 if (c == null || c.IsDead) continue;
                 await CreatureCmd.Damage(choiceContext, c, 10m,

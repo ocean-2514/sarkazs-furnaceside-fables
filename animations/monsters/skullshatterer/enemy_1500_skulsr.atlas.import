@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://bkpv722r3qrqy"
+path="res://.godot/imported/enemy_1500_skulsr.atlas-1956901bb22d4779f31761a43c2595ab.spatlas"
+
+[deps]
+
+source_file="res://animations/monsters/skullshatterer/enemy_1500_skulsr.atlas"
+dest_files=["res://.godot/imported/enemy_1500_skulsr.atlas-1956901bb22d4779f31761a43c2595ab.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

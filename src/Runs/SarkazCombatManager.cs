@@ -90,7 +90,7 @@ public class SarkazCombatManager
             if (combatState.Encounter is SarkazEncounterModel)
             {
                 //防暴桩
-                for (int i = 0; i <= sourceIndex; ++i)
+                for (int i = 0; i <= Math.Min(sourceIndex, 1); ++i)
                 {
                     await CardPileCmd.AddGeneratedCardToCombat(combatState.CreateCard<RiotPileCard>(_player), PileType.Hand, null);
                 }

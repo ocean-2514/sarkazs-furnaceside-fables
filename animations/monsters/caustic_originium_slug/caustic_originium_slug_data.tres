@@ -1,0 +1,8 @@
+[gd_resource type="SpineSkeletonDataResource" load_steps=3 format=3 uid="uid://bxm11fa2p527q"]
+
+[ext_resource type="SpineAtlasResource" uid="uid://i173qtef53lr" path="res://animations/monsters/caustic_originium_slug/enemy_1424_lrboom.atlas" id="1_dp2wd"]
+[ext_resource type="SpineSkeletonFileResource" uid="uid://xt40tbmwo2ab" path="res://animations/monsters/caustic_originium_slug/enemy_1424_lrboom.skel" id="2_wvxo0"]
+
+[resource]
+atlas_res = ExtResource("1_dp2wd")
+skeleton_file_res = ExtResource("2_wvxo0")

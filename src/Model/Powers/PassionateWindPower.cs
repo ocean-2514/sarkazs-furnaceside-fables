@@ -1,0 +1,17 @@
+using System.Threading.Tasks;
+using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+
+namespace Skz.Ocean.Model.Powers;
+
+public sealed class PassionateWindPower : PassionatePower
+{
+    protected override int AttackSpeedBuff => 25;
+
+    public override async Task AfterRemoved(Creature oldOwner)
+    {
+        await base.AfterRemoved(oldOwner);
+        await PowerCmd.Apply<MelancholicWindPower>(new ThrowingPlayerChoiceContext(), oldOwner, StackNum, null, null);
+    }
+}

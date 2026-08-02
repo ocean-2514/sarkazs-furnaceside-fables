@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://bbbnvmyowl325"
+path="res://.godot/imported/enemy_1425_lrcmra.skel-f6c0b9e0302dbe57b926086cc3e626b5.spskel"
+
+[deps]
+
+source_file="res://animations/monsters/sacrilegious_chimera/enemy_1425_lrcmra.skel"
+dest_files=["res://.godot/imported/enemy_1425_lrcmra.skel-f6c0b9e0302dbe57b926086cc3e626b5.spskel"]
+
+[params]
+

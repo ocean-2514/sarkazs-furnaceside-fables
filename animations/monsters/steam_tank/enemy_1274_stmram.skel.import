@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://i7mx1p74gg4q"
+path="res://.godot/imported/enemy_1274_stmram.skel-9970918a1d0e34ab6b18c5c776bc7a9e.spskel"
+
+[deps]
+
+source_file="res://animations/monsters/steam_tank/enemy_1274_stmram.skel"
+dest_files=["res://.godot/imported/enemy_1274_stmram.skel-9970918a1d0e34ab6b18c5c776bc7a9e.spskel"]
+
+[params]
+

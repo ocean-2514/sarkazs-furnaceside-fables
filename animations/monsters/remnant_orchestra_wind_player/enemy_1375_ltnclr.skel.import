@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://b8lbnyw8tpgjk"
+path="res://.godot/imported/enemy_1375_ltnclr.skel-dcd9c84eb879cddafa035442485e3953.spskel"
+
+[deps]
+
+source_file="res://animations/monsters/remnant_orchestra_wind_player/enemy_1375_ltnclr.skel"
+dest_files=["res://.godot/imported/enemy_1375_ltnclr.skel-dcd9c84eb879cddafa035442485e3953.spskel"]
+
+[params]
+

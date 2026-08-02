@@ -1,0 +1,8 @@
+[gd_resource type="SpineSkeletonDataResource" load_steps=3 format=3 uid="uid://c287d72g6ijv7"]
+
+[ext_resource type="SpineAtlasResource" uid="uid://t42gunffwl3s" path="res://animations/monsters/traffic_tower_prototype/enemy_1332_cbterm.atlas" id="1_igedg"]
+[ext_resource type="SpineSkeletonFileResource" uid="uid://dyhagf2orcyhx" path="res://animations/monsters/traffic_tower_prototype/enemy_1332_cbterm.skel" id="2_6thhv"]
+
+[resource]
+atlas_res = ExtResource("1_igedg")
+skeleton_file_res = ExtResource("2_6thhv")

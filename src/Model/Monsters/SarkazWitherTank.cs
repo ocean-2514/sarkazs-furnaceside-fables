@@ -16,7 +16,7 @@ public sealed class SarkazWitherTank : SarkazMonsterModel
     public override int MaxInitialHp => 46;
     public override int MinInitialHp => 46;
 
-    private const int _damage1 = 5;
+    private const int _damage1 = 7;
     private const int _damage2 = 3;
     private const int _repeat2 = 3;
 

@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://dupvbhg677btt"
+path="res://.godot/imported/enemy_1419_mmcike.atlas-6926745d63e315975fb0f619b258f3d1.spatlas"
+
+[deps]
+
+source_file="res://animations/monsters/deathveil_assassin/enemy_1419_mmcike.atlas"
+dest_files=["res://.godot/imported/enemy_1419_mmcike.atlas-6926745d63e315975fb0f619b258f3d1.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

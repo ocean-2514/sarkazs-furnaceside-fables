@@ -1,0 +1,8 @@
+[gd_resource type="SpineSkeletonDataResource" load_steps=3 format=3 uid="uid://mkd3vyc8xs8d"]
+
+[ext_resource type="SpineAtlasResource" uid="uid://b5v8u1fneduqd" path="res://animations/monsters/londinium_mobile_defense_artillery/enemy_1273_stmgun.atlas" id="1_7017f"]
+[ext_resource type="SpineSkeletonFileResource" uid="uid://bhs8k12hffvsk" path="res://animations/monsters/londinium_mobile_defense_artillery/enemy_1273_stmgun.skel" id="2_rtngj"]
+
+[resource]
+atlas_res = ExtResource("1_7017f")
+skeleton_file_res = ExtResource("2_rtngj")

@@ -1,5 +1,11 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using MegaCrit.Sts2.Core.Combat;
+using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Rooms;
 using Skz.Ocean.Model.Encounters.Base;
 using Skz.Ocean.Model.Monsters;
@@ -27,5 +33,20 @@ public sealed class BloodlineDebatesNormal : SarkazEncounterModel
                 new WaveEntry(() => ModelDb.Monster<SarkazMazeGuide>(), "second")
             ]
         ];
+    }
+
+    public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
+    {
+        if (side == CombatSide.Player && combatState.RoundNumber <= 1)
+        {
+            foreach (Creature creature in combatState.Enemies)
+            {
+                if (creature.Monster is SarkazMazeGuide)
+                {
+                    await CreatureCmd.GainMaxHp(creature, 20);
+                    await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), creature, 5, null, null);
+                }
+            }
+        }
     }
 }

@@ -139,12 +139,11 @@ public class PlayerExtraData
                 break;
             case ThoughtType.Plan:
                 _plans.Add(thought);
-                OnPlanAmountChanged();
                 break;
         }
         thought.ToilChanged += OnThoughtChanged;
         thought.RarityChanged += OnThoughtChanged;
-        PlayerThoughtChanged?.Invoke();
+        OnThoughtChanged();
     }
 
     public void RemoveThoughtInternal(ThoughtModel thought)
@@ -172,10 +171,9 @@ public class PlayerExtraData
                 }
                 _plans.Remove(thought);
                 OnThoughtChanged();
-                OnPlanAmountChanged();
                 break;
         }
-        PlayerThoughtChanged?.Invoke();
+        OnThoughtChanged();
     }
 
     public void RemovePlans(int count)
@@ -186,8 +184,7 @@ public class PlayerExtraData
             return;
         }
         _plans.RemoveRange(0, count);
-        PlayerThoughtChanged?.Invoke();
-        OnPlanAmountChanged();
+        OnThoughtChanged();
     }
 
     public async Task UseThoughtInternal(ThoughtModel thought)
@@ -231,17 +228,13 @@ public class PlayerExtraData
 
     private void OnThoughtChanged()
     {
-        PlayerThoughtChanged?.Invoke();
-    } 
-
-    private void OnPlanAmountChanged()
-    {
         if (NMapScreen.Instance == null) return;
         MethodInfo method = typeof(NMapScreen).GetMethod("RecalculateTravelability", 
             BindingFlags.NonPublic | BindingFlags.Instance);
         method.Invoke(NMapScreen.Instance, null);
         NMapScreen.Instance.RefreshAllPointVisuals();
-    }
+        PlayerThoughtChanged?.Invoke();
+    } 
 
     public ThoughtModel GetThoughtById(ModelId id)
     {

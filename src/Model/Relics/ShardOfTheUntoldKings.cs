@@ -36,7 +36,9 @@ public sealed class ShardOfTheUntoldKings : RelicModel
 
     public override async Task BeforeCombatStart()
     {
-        if (Owner.GetMindState() == Entities.Players.MindState.Lucid) return;
-        await SarkazRelicFx.ApplySelf<AttackPower>(this, -30);
+        if (Owner.GetAllThoughts().Count() > 15)
+        {
+            await SarkazRelicFx.ApplySelf<AttackPower>(this, -30);
+        }
     }
 }

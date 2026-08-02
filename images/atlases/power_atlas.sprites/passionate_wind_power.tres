@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://8bg6pyeqrvia"]
+
+[ext_resource type="Texture2D" uid="uid://0me6lbt2bglt" path="res://images/powers/passionate_wind_power .png" id="1_321d1"]
+
+[resource]
+atlas = ExtResource("1_321d1")

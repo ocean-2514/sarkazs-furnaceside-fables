@@ -9,6 +9,8 @@ using MegaCrit.Sts2.Core.Map;
 using MegaCrit.Sts2.Core.Nodes.Screens.Map;
 using MegaCrit.Sts2.Core.Runs;
 using Skz.Ocean.Entities.Players;
+using Skz.Ocean.Model;
+using Skz.Ocean.Runs;
 
 namespace Skz.Ocean.Patches;
 
@@ -30,17 +32,36 @@ public static class SarkazMapTravelPatch
         {
             Traverse trav = Traverse.Create(__instance);
             RunState runState = trav.Field("_runState").GetValue<RunState>();
-            if (runState == null || !runState.VisitedMapCoords.Any()) return;
-
+            if (runState == null) return;
             Player me = LocalContext.GetMe(runState);
-            if (me?.GetSarkazManager()?.CanWalkHorizontally != true) return;
-
+            SarkazManagerModel manager = me?.GetSarkazManager();
+            if (manager == null) return;
             ActMap map = trav.Field("_map").GetValue<ActMap>();
             var dict = trav.Field("_mapPointDictionary").GetValue<Dictionary<MapCoord, NMapPoint>>();
+            NMapPoint _startingPointNode = trav.Field("_startingPointNode").GetValue<NMapPoint>();
             if (map == null || dict == null) return;
+
+            if (!runState.VisitedMapCoords.Any())
+            {
+			    _startingPointNode.State = manager.CanWalkVertically ? MapPointState.Travelable : MapPointState.Untravelable;
+            }
 
             IReadOnlyList<MapCoord> visited = runState.VisitedMapCoords;
             MapCoord current = visited[visited.Count - 1];
+
+            if (dict.TryGetValue(current, out NMapPoint mapPoint))
+            {
+                IEnumerable<MapPoint> mapPoints = MapTravel.GetTravelablePointsFrom(runState, mapPoint.Point);
+                foreach (MapPoint p in mapPoints)
+                {
+                    if (dict.TryGetValue(p.coord, out NMapPoint node))
+                    {
+                        node.State = manager.CanWalkVertically ? MapPointState.Travelable : MapPointState.Untravelable;
+                    }
+                }
+            }
+
+            if (me?.GetSarkazManager()?.CanWalkHorizontally != true) return;
 
             // 在 boss / 最后一排不提供横向移动（此时原版已 return，没有“下一排”可言）。
             if (current.row >= map.GetRowCount() - 1) return;

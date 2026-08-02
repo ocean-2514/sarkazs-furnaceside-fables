@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://pfwfe5nan6nf"
+path="res://.godot/imported/enemy_1425_lrcmra.atlas-02e87144d702988d34e3a729e7a5c367.spatlas"
+
+[deps]
+
+source_file="res://animations/monsters/sacrilegious_chimera/enemy_1425_lrcmra.atlas"
+dest_files=["res://.godot/imported/enemy_1425_lrcmra.atlas-02e87144d702988d34e3a729e7a5c367.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

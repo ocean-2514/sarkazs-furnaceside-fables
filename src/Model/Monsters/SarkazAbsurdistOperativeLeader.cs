@@ -7,6 +7,8 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
 using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
 using Skz.Ocean.Model.Monsters.Base;
@@ -23,7 +25,18 @@ public sealed class SarkazAbsurdistOperativeLeader : SarkazMonsterModel
     private const int _damage1 = 5;
     private const int _damage2 = 3;
     private const int _repeat2 = 4;
-    private const int _goldLoss = 20;
+    private const int _goldLoss = 60;
+
+    public override async Task AfterAddedToRoom()
+    {
+        await base.AfterAddedToRoom();
+        foreach (Player player in base.CombatState.Players)
+		{
+			ThieveryPower thieveryPower = (ThieveryPower)ModelDb.Power<ThieveryPower>().ToMutable();
+			thieveryPower.Target = player.Creature;
+			await PowerCmd.Apply(new ThrowingPlayerChoiceContext(), thieveryPower, base.Creature, _goldLoss, base.Creature, null);
+		}
+    }
 
     protected override MonsterMoveStateMachine GenerateMoveStateMachine()
     {
@@ -45,9 +58,9 @@ public sealed class SarkazAbsurdistOperativeLeader : SarkazMonsterModel
     {
         await DamageCmd.Attack(_damage1).FromMonster(this).WithAttackerAnim("Attack1", 0.5f)
             .WithHitFx("vfx/vfx_attack_blunt").Execute(null);
-        foreach (Creature target in targets)
+        foreach (ThieveryPower powerInstance in base.Creature.GetPowerInstances<ThieveryPower>())
         {
-            if (target.Player != null) await PlayerCmd.LoseGold(_goldLoss, target.Player);
+            await powerInstance.Steal();
         }
     }
 
@@ -55,6 +68,10 @@ public sealed class SarkazAbsurdistOperativeLeader : SarkazMonsterModel
     {
         await DamageCmd.Attack(_damage2).WithHitCount(_repeat2).FromMonster(this).OnlyPlayAnimOnce()
             .WithAttackerAnim("Attack2", 0.5f).WithHitFx("vfx/vfx_attack_blunt").Execute(null);
+        foreach (ThieveryPower powerInstance in base.Creature.GetPowerInstances<ThieveryPower>())
+        {
+            await powerInstance.Steal();
+        }
     }
 
     public override CreatureAnimator GenerateAnimator(MegaSprite controller)

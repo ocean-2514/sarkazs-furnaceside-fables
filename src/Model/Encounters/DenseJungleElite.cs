@@ -21,7 +21,8 @@ public sealed class DenseJungleElite : SarkazEncounterModel
             [
                 new WaveEntry(() => ModelDb.Monster<RagingSlugEater>(), "first"),
                 new WaveEntry(() => ModelDb.Monster<RagingSlugEater>(), "second"),
-                new WaveEntry(() => ModelDb.Monster<RagingSlugEater>(), "third")
+                new WaveEntry(() => ModelDb.Monster<RagingSlugEater>(), "third"),
+                new WaveEntry(() => ModelDb.Monster<RagingSlugEater>(), "fifth"),
             ],
             [
                 new WaveEntry(() => ModelDb.Monster<RagingSlugEater>(), "first"),

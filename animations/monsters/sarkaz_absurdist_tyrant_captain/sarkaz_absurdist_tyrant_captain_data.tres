@@ -1,0 +1,8 @@
+[gd_resource type="SpineSkeletonDataResource" load_steps=3 format=3 uid="uid://bpctgdfog20kt"]
+
+[ext_resource type="SpineAtlasResource" uid="uid://c7hnn75tuovgj" path="res://animations/monsters/sarkaz_absurdist_tyrant_captain/enemy_1320_wdrrl_2.atlas" id="1_eo6ju"]
+[ext_resource type="SpineSkeletonFileResource" uid="uid://djmybvudvgjad" path="res://animations/monsters/sarkaz_absurdist_tyrant_captain/enemy_1320_wdrrl_2.skel" id="2_xo3xx"]
+
+[resource]
+atlas_res = ExtResource("1_eo6ju")
+skeleton_file_res = ExtResource("2_xo3xx")

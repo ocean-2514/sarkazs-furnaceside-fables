@@ -1,0 +1,8 @@
+[gd_resource type="SpineSkeletonDataResource" load_steps=3 format=3 uid="uid://qoj5wg6yj566"]
+
+[ext_resource type="SpineAtlasResource" uid="uid://p8i32bm6dw6b" path="res://animations/monsters/seed_of_decay/enemy_1269_nhfly_2.atlas" id="1_rmp3j"]
+[ext_resource type="SpineSkeletonFileResource" uid="uid://dmbef4l7kbvi2" path="res://animations/monsters/seed_of_decay/enemy_1269_nhfly_2.skel" id="2_cv687"]
+
+[resource]
+atlas_res = ExtResource("1_rmp3j")
+skeleton_file_res = ExtResource("2_cv687")

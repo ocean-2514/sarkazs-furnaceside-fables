@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://bhs8k12hffvsk"
+path="res://.godot/imported/enemy_1273_stmgun.skel-ceb5af23572bbeb4055fd53dc9f24bfa.spskel"
+
+[deps]
+
+source_file="res://animations/monsters/londinium_mobile_defense_artillery/enemy_1273_stmgun.skel"
+dest_files=["res://.godot/imported/enemy_1273_stmgun.skel-ceb5af23572bbeb4055fd53dc9f24bfa.spskel"]
+
+[params]
+

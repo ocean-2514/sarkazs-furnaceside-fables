@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://wgo7fp47c1y7"]
+
+[ext_resource type="Texture2D" uid="uid://df5mkqjrmw0es" path="res://images/powers/melancholic_cello_power.png" id="1_gj0pa"]
+
+[resource]
+atlas = ExtResource("1_gj0pa")

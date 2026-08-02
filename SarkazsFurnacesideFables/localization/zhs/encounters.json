@@ -36,5 +36,19 @@
   "ELUSIVE_MERC_ELITE.title": "神出鬼没",
   "ELUSIVE_MERC_ELITE.loss": "{character}死于[gold]{encounter}[/gold]。",
   "CHAOS_ELITE.title": "混沌",
-  "CHAOS_ELITE.loss": "{character}死于[gold]{encounter}[/gold]。"
+  "CHAOS_ELITE.loss": "{character}死于[gold]{encounter}[/gold]。",
+  "LAND_RECLAMATION_NORMAL.title": "计划耕种",
+  "LAND_RECLAMATION_NORMAL.loss": "{character}死于[gold]{encounter}[/gold]。",
+  "WITCH_CURSE_ALLIANCE_NORMAL.title": "巫咒同盟",
+  "WITCH_CURSE_ALLIANCE_NORMAL.loss": "{character}死于[gold]{encounter}[/gold]。",
+  "PASSAGE_BLOCKADE_NORMAL.title": "通道封锁",
+  "PASSAGE_BLOCKADE_NORMAL.loss": "{character}死于[gold]{encounter}[/gold]。",
+  "GUILTLESS_PARADISE_NORMAL.title": "无罪净土",
+  "GUILTLESS_PARADISE_NORMAL.loss": "{character}死于[gold]{encounter}[/gold]。",
+  "AERIAL_ASSAULT_NORMAL.title": "浮空城接舷战",
+  "AERIAL_ASSAULT_NORMAL.loss": "{character}死于[gold]{encounter}[/gold]。",
+  "REGULAR_ARMY_ELITE.title": "建制",
+  "REGULAR_ARMY_ELITE.loss": "{character}死于[gold]{encounter}[/gold]。",
+  "RHINE_GUARDIANS_ELITE.title": "莱茵卫士",
+  "RHINE_GUARDIANS_ELITE.loss": "{character}死于[gold]{encounter}[/gold]。"
 }

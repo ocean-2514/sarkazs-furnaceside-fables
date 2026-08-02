@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://cebssqv0cpw8t"
+path="res://.godot/imported/enemy_1112_emppnt_2.skel-7bc89c1c1937f17ca397ec0376b2be5b.spskel"
+
+[deps]
+
+source_file="res://animations/monsters/imperial_artillery_core_targeteer/enemy_1112_emppnt_2.skel"
+dest_files=["res://.godot/imported/enemy_1112_emppnt_2.skel-7bc89c1c1937f17ca397ec0376b2be5b.spskel"]
+
+[params]
+

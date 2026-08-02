@@ -28,7 +28,7 @@ public sealed class Scrap : SarkazMonsterModel
 
     protected override MonsterMoveStateMachine GenerateMoveStateMachine()
     {
-        MoveState debuff = new MoveState("DEBUFF", Debuff, new DebuffIntent());
+        MoveState debuff = new MoveState("DEBUFF", Debuff, new MultiAttackIntent(_damage, _repeat), new DebuffIntent());
         MoveState attack = new MoveState("ATTACK", Attack, new MultiAttackIntent(_damage, _repeat));
         MoveState escape = new MoveState("ESCAPE", Escape, new EscapeIntent());
         debuff.FollowUpState = attack;
@@ -39,6 +39,8 @@ public sealed class Scrap : SarkazMonsterModel
 
     private async Task Debuff(IReadOnlyList<Creature> targets)
     {
+        await DamageCmd.Attack(_damage).WithHitCount(_repeat).FromMonster(this).OnlyPlayAnimOnce()
+            .WithAttackerAnim("Attack", 0.5f).WithHitFx("vfx/vfx_attack_blunt").Execute(null);
         await PowerCmd.Apply<VulnerablePower>(new ThrowingPlayerChoiceContext(), targets, 1, Creature, null);
     }
 

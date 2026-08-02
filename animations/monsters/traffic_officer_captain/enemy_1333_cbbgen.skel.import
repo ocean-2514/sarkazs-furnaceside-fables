@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://bqc6lry5vs7ux"
+path="res://.godot/imported/enemy_1333_cbbgen.skel-91b3a90dc70af98b908929194dd410a1.spskel"
+
+[deps]
+
+source_file="res://animations/monsters/traffic_officer_captain/enemy_1333_cbbgen.skel"
+dest_files=["res://.godot/imported/enemy_1333_cbbgen.skel-91b3a90dc70af98b908929194dd410a1.spskel"]
+
+[params]
+

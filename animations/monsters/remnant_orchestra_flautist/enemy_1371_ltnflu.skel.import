@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://buxepct013t3f"
+path="res://.godot/imported/enemy_1371_ltnflu.skel-ab7acfd404e46dc9dc5fd7d6fb7bb37c.spskel"
+
+[deps]
+
+source_file="res://animations/monsters/remnant_orchestra_flautist/enemy_1371_ltnflu.skel"
+dest_files=["res://.godot/imported/enemy_1371_ltnflu.skel-ab7acfd404e46dc9dc5fd7d6fb7bb37c.spskel"]
+
+[params]
+

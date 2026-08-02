@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://ihjtbpi7mbfl"]
+
+[ext_resource type="Script" uid="uid://dgsjq3haioact" path="res://src/Wrapper/NCreatureVisualsWrapper.cs" id="1_bukqx"]
+[ext_resource type="SpineSkeletonDataResource" uid="uid://cs61kreeyipkt" path="res://animations/monsters/sacrilegious_chimera/sacrilegious_chimera_data.tres" id="2_1861c"]
+
+[node name="SacrilegiousChimera" type="Node2D"]
+script = ExtResource("1_bukqx")
+
+[node name="Bounds" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -174.0
+offset_top = -325.0
+offset_right = 176.0
+offset_bottom = -1.0
+mouse_filter = 2
+
+[node name="IntentPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -424)
+
+[node name="CenterPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -160)
+
+[node name="Visuals" type="SpineSprite" parent="."]
+unique_name_in_owner = true
+scale = Vector2(-0.65, 0.65)
+skeleton_data_res = ExtResource("2_1861c")
+preview_skin = "Default"
+preview_animation = "Idle_1"
+preview_frame = false
+preview_time = 0.0
+metadata/_edit_lock_ = true

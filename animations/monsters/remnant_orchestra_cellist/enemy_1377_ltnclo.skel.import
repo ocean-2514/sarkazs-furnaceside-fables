@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://cco57d8j3opjq"
+path="res://.godot/imported/enemy_1377_ltnclo.skel-770cf8760108d10c7934f2ecbeb1f638.spskel"
+
+[deps]
+
+source_file="res://animations/monsters/remnant_orchestra_cellist/enemy_1377_ltnclo.skel"
+dest_files=["res://.godot/imported/enemy_1377_ltnclo.skel-770cf8760108d10c7934f2ecbeb1f638.spskel"]
+
+[params]
+

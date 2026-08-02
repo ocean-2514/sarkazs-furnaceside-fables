@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://cbg0ewn1muo8f"
+path="res://.godot/imported/enemy_1419_mmcike.skel-b035c1dd823fa314db9b9d47e0674499.spskel"
+
+[deps]
+
+source_file="res://animations/monsters/deathveil_assassin/enemy_1419_mmcike.skel"
+dest_files=["res://.godot/imported/enemy_1419_mmcike.skel-b035c1dd823fa314db9b9d47e0674499.spskel"]
+
+[params]
+

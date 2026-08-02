@@ -223,5 +223,98 @@
   "ROTCHASER.name": "逐腐兽",
   "ROTCHASER.moves.DEBUFF.title": "撕裂",
   "ROTCHASER.moves.ATTACK1.title": "连击",
-  "ROTCHASER.moves.ATTACK2.title": "重击"
+  "ROTCHASER.moves.ATTACK2.title": "重击",
+
+  "LONDINIUM_MOBILE_DEFENSE_ARTILLERY.name": "伦蒂尼姆城防自行炮",
+  "LONDINIUM_MOBILE_DEFENSE_ARTILLERY.moves.DEBUFF.title": "炮击标记",
+  "LONDINIUM_MOBILE_DEFENSE_ARTILLERY.moves.ATTACK1.title": "扫射",
+  "LONDINIUM_MOBILE_DEFENSE_ARTILLERY.moves.ATTACK2.title": "重炮",
+  "LONDINIUM_MOBILE_DEFENSE_ARTILLERY.moves.DEFEND.title": "护盾",
+
+  "STEAM_TANK.name": "蒸汽战车",
+  "STEAM_TANK.moves.BUFF.title": "残影",
+  "STEAM_TANK.moves.ATTACK1.title": "撞击",
+  "STEAM_TANK.moves.ATTACK2.title": "连射",
+
+  "REMNANT_ORCHESTRA_FLAUTIST.name": "残党乐团长笛手",
+  "REMNANT_ORCHESTRA_FLAUTIST.moves.ATTACK.title": "吹奏",
+  "REMNANT_ORCHESTRA_FLAUTIST.moves.DEFEND.title": "护盾",
+  "REMNANT_ORCHESTRA_FLAUTIST.moves.BUFF.title": "转调",
+
+  "REMNANT_ORCHESTRA_WIND_PLAYER.name": "残党乐团管乐家",
+  "REMNANT_ORCHESTRA_WIND_PLAYER.moves.DEBUFF.title": "侵蚀",
+  "REMNANT_ORCHESTRA_WIND_PLAYER.moves.ATTACK1.title": "轰鸣",
+  "REMNANT_ORCHESTRA_WIND_PLAYER.moves.ATTACK2.title": "连奏",
+
+  "REMNANT_ORCHESTRA_CELLIST.name": "残党乐团大提琴家",
+  "REMNANT_ORCHESTRA_CELLIST.moves.ATTACK1.title": "重奏",
+  "REMNANT_ORCHESTRA_CELLIST.moves.ATTACK2.title": "强音",
+  "REMNANT_ORCHESTRA_CELLIST.moves.HEAL.title": "疗愈",
+
+  "CORRUPTED_KNIGHT.name": "腐败骑士",
+  "CORRUPTED_KNIGHT.moves.BUFF.title": "活力",
+  "CORRUPTED_KNIGHT.moves.ATTACK1.title": "重击",
+  "CORRUPTED_KNIGHT.moves.ATTACK2.title": "挥砍",
+
+  "WITHERED_KNIGHT.name": "凋零骑士",
+  "WITHERED_KNIGHT.moves.ATTACK1.title": "连斩",
+  "WITHERED_KNIGHT.moves.BUFF.title": "充能",
+  "WITHERED_KNIGHT.moves.ATTACK2.title": "斩击",
+  "WITHERED_KNIGHT.moves.DEFEND.title": "全军护盾",
+
+  "CAUSTIC_ORIGINIUM_SLUG.name": "恶尘源石虫",
+  "CAUSTIC_ORIGINIUM_SLUG.moves.ATTACK1.title": "攻击",
+  "CAUSTIC_ORIGINIUM_SLUG.moves.ATTACK2.title": "连击",
+
+  "SACRILEGIOUS_CHIMERA.name": "孽罪奇美拉",
+  "SACRILEGIOUS_CHIMERA.moves.SKILL.title": "异尘",
+  "SACRILEGIOUS_CHIMERA.moves.ATTACK1.title": "猛击",
+  "SACRILEGIOUS_CHIMERA.moves.ATTACK2.title": "爪击",
+
+  "SARKAZ_ABSURDIST_TYRANT_CAPTAIN.name": "萨卡兹悖谬暴虐兵长",
+  "SARKAZ_ABSURDIST_TYRANT_CAPTAIN.moves.ATTACK1.title": "重击",
+  "SARKAZ_ABSURDIST_TYRANT_CAPTAIN.moves.BUFF.title": "坚不可摧",
+  "SARKAZ_ABSURDIST_TYRANT_CAPTAIN.moves.ATTACK2.title": "连击",
+  "SARKAZ_ABSURDIST_TYRANT_CAPTAIN.moves.DEBUFF.title": "削弱",
+  "SARKAZ_ABSURDIST_TYRANT_CAPTAIN.moves.ATTACK1_LOOP.title": "重击",
+
+  "SEED_OF_DECAY.name": "腐败之种",
+  "SEED_OF_DECAY.moves.ATTACK.title": "自爆",
+
+  "DECAYING_COLLECTOR_DISCIPLE.name": "枯朽萃聚使徒",
+  "DECAYING_COLLECTOR_DISCIPLE.moves.IDLE.title": "蓄积",
+  "DECAYING_COLLECTOR_DISCIPLE.moves.SUMMON.title": "召唤",
+
+  "SKULLSHATTERER.name": "碎骨",
+  "SKULLSHATTERER.moves.DEBUFF.title": "碎骨",
+  "SKULLSHATTERER.moves.ATTACK1.title": "重击",
+  "SKULLSHATTERER.moves.ATTACK2.title": "削击",
+  "SKULLSHATTERER.moves.ATTACK3.title": "连射",
+
+  "IMPERIAL_ARTILLERY_CORE_TARGETEER.name": "帝国炮火中枢先兆者",
+  "IMPERIAL_ARTILLERY_CORE_TARGETEER.moves.IDLE.title": "校准",
+  "IMPERIAL_ARTILLERY_CORE_TARGETEER.moves.ATTACK.title": "炮击",
+
+  "DEATHVEIL_ASSASSIN.name": "裹骸死士",
+  "DEATHVEIL_ASSASSIN.moves.ATTACK1.title": "刺杀",
+  "DEATHVEIL_ASSASSIN.moves.BUFF.title": "穿透",
+  "DEATHVEIL_ASSASSIN.moves.ATTACK2.title": "连刺",
+  "DEATHVEIL_ASSASSIN.moves.ATTACK1_LOOP.title": "刺杀",
+
+  "OFFENDER_PROTOTYPE.name": "\"肇事者\"试做型",
+  "OFFENDER_PROTOTYPE.moves.ATTACK.title": "冲锋",
+
+  "CROSSROADS_PROTOTYPE.name": "\"十字路口\"试做型",
+  "CROSSROADS_PROTOTYPE.moves.DEBUFF1.title": "禁能",
+  "CROSSROADS_PROTOTYPE.moves.DEBUFF2.title": "禁技",
+  "CROSSROADS_PROTOTYPE.moves.ATTACK.title": "重击",
+  "CROSSROADS_PROTOTYPE.moves.BUFF.title": "充能",
+
+  "TRAFFIC_TOWER_PROTOTYPE.name": "\"交通亭\"试做型",
+  "TRAFFIC_TOWER_PROTOTYPE.moves.BUFF.title": "增压",
+  "TRAFFIC_TOWER_PROTOTYPE.moves.ATTACK.title": "炮击",
+
+  "TRAFFIC_OFFICER_CAPTAIN.name": "\"交通警长\"",
+  "TRAFFIC_OFFICER_CAPTAIN.moves.ATTACK1.title": "破防",
+  "TRAFFIC_OFFICER_CAPTAIN.moves.ATTACK2.title": "连击"
 }

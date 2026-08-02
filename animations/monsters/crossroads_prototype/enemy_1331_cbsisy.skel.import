@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://ciox7c48ug7um"
+path="res://.godot/imported/enemy_1331_cbsisy.skel-51a2fbb60ae8515828f767853bc99f96.spskel"
+
+[deps]
+
+source_file="res://animations/monsters/crossroads_prototype/enemy_1331_cbsisy.skel"
+dest_files=["res://.godot/imported/enemy_1331_cbsisy.skel-51a2fbb60ae8515828f767853bc99f96.spskel"]
+
+[params]
+

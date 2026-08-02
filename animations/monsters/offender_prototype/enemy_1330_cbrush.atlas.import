@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://c2r71077wtvot"
+path="res://.godot/imported/enemy_1330_cbrush.atlas-7a2cd9633305f4cc9510828b0c1f5879.spatlas"
+
+[deps]
+
+source_file="res://animations/monsters/offender_prototype/enemy_1330_cbrush.atlas"
+dest_files=["res://.godot/imported/enemy_1330_cbrush.atlas-7a2cd9633305f4cc9510828b0c1f5879.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

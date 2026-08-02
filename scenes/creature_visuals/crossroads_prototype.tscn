@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3fpmjteotj5n"]
+
+[ext_resource type="Script" uid="uid://dgsjq3haioact" path="res://src/Wrapper/NCreatureVisualsWrapper.cs" id="1_icl2u"]
+[ext_resource type="SpineSkeletonDataResource" uid="uid://dtoki2hltcmx6" path="res://animations/monsters/crossroads_prototype/crossroads_prototype_data.tres" id="2_vqvxg"]
+
+[node name="CrossroadsPrototype" type="Node2D"]
+script = ExtResource("1_icl2u")
+
+[node name="Bounds" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -110.0
+offset_top = -247.0
+offset_right = 119.0
+offset_bottom = -1.0
+mouse_filter = 2
+
+[node name="IntentPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -288)
+
+[node name="CenterPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -86)
+
+[node name="Visuals" type="SpineSprite" parent="."]
+unique_name_in_owner = true
+scale = Vector2(-0.65, 0.65)
+skeleton_data_res = ExtResource("2_vqvxg")
+preview_skin = "Default"
+preview_animation = "Idle"
+preview_frame = false
+preview_time = 0.0

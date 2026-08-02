@@ -1,0 +1,8 @@
+[gd_resource type="SpineSkeletonDataResource" load_steps=3 format=3 uid="uid://ce0dkiuo0v06p"]
+
+[ext_resource type="SpineAtlasResource" uid="uid://dhlkl0b3po8vf" path="res://animations/monsters/imperial_artillery_core_targeteer/enemy_1112_emppnt_2.atlas" id="1_b2gwd"]
+[ext_resource type="SpineSkeletonFileResource" uid="uid://cebssqv0cpw8t" path="res://animations/monsters/imperial_artillery_core_targeteer/enemy_1112_emppnt_2.skel" id="2_4fqno"]
+
+[resource]
+atlas_res = ExtResource("1_b2gwd")
+skeleton_file_res = ExtResource("2_4fqno")

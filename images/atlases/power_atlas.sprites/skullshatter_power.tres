@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://dhpk3r4o5wdvl"]
+
+[ext_resource type="Texture2D" uid="uid://bj8fd7i5jwf1t" path="res://images/powers/skullshatter_power.png" id="1_fv3jg"]
+
+[resource]
+atlas = ExtResource("1_fv3jg")

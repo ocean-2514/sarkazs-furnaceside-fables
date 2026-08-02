@@ -33,19 +33,29 @@ public static class OvergrowthGenerateAllEncountersPatch
         ModelDb.Encounter<CarelessMagicNormal>(),
         ModelDb.Encounter<FirepowerSquadNormal>(),
         ModelDb.Encounter<EpochalGapsElite>(),
-        ModelDb.Encounter<SordidSurveillanceElite>(),
+        ModelDb.Encounter<SordidSurveillanceElite>(),   //normal
         ModelDb.Encounter<RulesOfModernWarfareNormal>(),
         ModelDb.Encounter<TimewornTensionsElite>(),
         ModelDb.Encounter<ElusiveMercElite>(),
         ModelDb.Encounter<ChaosElite>(),
     ];
 
+    public static IEnumerable<EncounterModel> SarkazEncounters3 = [
+        ModelDb.Encounter<LandReclamationNormal>(),
+        ModelDb.Encounter<WitchCurseAllianceNormal>(),
+        ModelDb.Encounter<PassageBlockadeNormal>(),
+        ModelDb.Encounter<GuiltlessParadiseNormal>(),
+        ModelDb.Encounter<AerialAssaultNormal>(),
+        ModelDb.Encounter<RegularArmyElite>(),
+        ModelDb.Encounter<RhineGuardiansElite>(),
+    ];
+
     static void Postfix(ref IEnumerable<EncounterModel> __result)
     {
         __result = __result
             .Concat(SarkazEncounters1)
-            .Distinct();
-        __result = SarkazEncounters1.Concat([ ModelDb.Encounter<CeremonialBeastBoss>() ]);
+            .Distinct(); 
+        // __result = SarkazEncounters1.Concat([ ModelDb.Encounter<CeremonialBeastBoss>() ]);
         // __result = [
         //     ModelDb.Encounter<MockSpinesOfEpoch>(),
         //     ModelDb.Encounter<CeremonialBeastBoss>(),
@@ -62,7 +72,11 @@ public static class UnderdocksGenerateAllEncountersPatch
         __result = __result
             .Concat(OvergrowthGenerateAllEncountersPatch.SarkazEncounters1)
             .Distinct();
-        __result = OvergrowthGenerateAllEncountersPatch.SarkazEncounters1.Concat([ ModelDb.Encounter<CeremonialBeastBoss>() ]);
+        // __result = OvergrowthGenerateAllEncountersPatch.SarkazEncounters1.Concat([ ModelDb.Encounter<CeremonialBeastBoss>() ]);
+        // __result = [
+        //     ModelDb.Encounter<MockSpinesOfEpoch>(),
+        //     ModelDb.Encounter<CeremonialBeastBoss>(),
+        // ];
     }
 }
 
@@ -74,6 +88,26 @@ public static class HiveGenerateAllEncountersPatch
         __result = __result
             .Concat(OvergrowthGenerateAllEncountersPatch.SarkazEncounters2)
             .Distinct();
-        __result = OvergrowthGenerateAllEncountersPatch.SarkazEncounters2.Concat([ ModelDb.Encounter<CeremonialBeastBoss>() ]);
+        // __result = OvergrowthGenerateAllEncountersPatch.SarkazEncounters2.Concat([ ModelDb.Encounter<CeremonialBeastBoss>() ]);
+        // __result = [
+        //     ModelDb.Encounter<MockSpinesOfEpoch>(),
+        //     ModelDb.Encounter<CeremonialBeastBoss>(),
+        // ];
+    }
+}
+
+[HarmonyPatch(typeof(Glory), nameof(Glory.GenerateAllEncounters))]
+public static class GloryGenerateAllEncountersPatch
+{
+    static void Postfix(ref IEnumerable<EncounterModel> __result)
+    {
+        __result = __result
+            .Concat(OvergrowthGenerateAllEncountersPatch.SarkazEncounters3)
+            .Distinct();
+        // __result = OvergrowthGenerateAllEncountersPatch.SarkazEncounters3.Concat([ ModelDb.Encounter<CeremonialBeastBoss>() ]);
+        // __result = [
+        //     ModelDb.Encounter<MockSpinesOfEpoch>(),
+        //     ModelDb.Encounter<CeremonialBeastBoss>(),
+        // ];
     }
 }

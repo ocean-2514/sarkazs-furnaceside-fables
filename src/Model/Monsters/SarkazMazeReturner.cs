@@ -21,9 +21,9 @@ public sealed class SarkazMazeReturner : SarkazMonsterModel
     public override int MaxInitialHp => 48;
     public override int MinInitialHp => 48;
 
-    private const int _damage1 = 3;
-    private const int _damage2 = 5;
-    private const int _damage3 = 7;
+    private const int _damage1 = 5;
+    private const int _damage2 = 7;
+    private const int _damage3 = 9;
 
     private bool SpinesPresent =>
         Creature.CombatState.Enemies.Any(c => c.IsAlive && c.Monster is SpinesOfEpoch);

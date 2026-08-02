@@ -21,10 +21,12 @@ public sealed class Bombtail : SarkazMonsterModel
     private const int _damage = 14;
     private bool _attacked;
 
+    public override bool Blockable => false;
+
     protected override MonsterMoveStateMachine GenerateMoveStateMachine()
     {
         MoveState attack = new MoveState("ATTACK", Attack, new SingleAttackIntent(_damage));
-        MoveState idle = new MoveState("IDLE", Idle, new SleepIntent());
+        MoveState idle = new MoveState("IDLE", Idle, new UnknownIntent());
         attack.FollowUpState = idle;
         idle.FollowUpState = idle;
         return new MonsterMoveStateMachine(new List<MonsterState> { attack, idle }, attack);
@@ -35,7 +37,7 @@ public sealed class Bombtail : SarkazMonsterModel
         await DamageCmd.Attack(_damage).FromMonster(this).WithAttackerAnim("Attack", 0.5f)
             .WithHitFx("vfx/vfx_attack_blunt").Execute(null);
         _attacked = true;
-        _baseSpeedBonus = InitialSpeed;
+        BaseSpeedBonus = InitialSpeed;
     }
 
     private Task Idle(IReadOnlyList<Creature> targets) => Task.CompletedTask;

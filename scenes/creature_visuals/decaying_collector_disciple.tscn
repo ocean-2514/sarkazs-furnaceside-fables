@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://bd1iuko6kwban"]
+
+[ext_resource type="Script" uid="uid://dgsjq3haioact" path="res://src/Wrapper/NCreatureVisualsWrapper.cs" id="1_nue6c"]
+[ext_resource type="SpineSkeletonDataResource" uid="uid://bbxa5x7gf34vl" path="res://animations/monsters/decaying_collector_disciple/decaying_collector_disciple_data.tres" id="2_eprmf"]
+
+[node name="DecayingCollectorDisciple" type="Node2D"]
+script = ExtResource("1_nue6c")
+
+[node name="Bounds" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -86.0
+offset_top = -292.0
+offset_right = 82.0
+offset_bottom = -1.0
+mouse_filter = 2
+
+[node name="IntentPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -336)
+
+[node name="CenterPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -152)
+
+[node name="Visuals" type="SpineSprite" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, 85)
+scale = Vector2(-0.65, 0.65)
+skeleton_data_res = ExtResource("2_eprmf")
+preview_skin = "Default"
+preview_animation = "Idle"
+preview_frame = false
+preview_time = 0.0

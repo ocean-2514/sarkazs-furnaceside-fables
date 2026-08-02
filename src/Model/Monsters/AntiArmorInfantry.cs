@@ -44,7 +44,7 @@ public sealed class AntiArmorInfantry : SarkazMonsterModel
         await DamageCmd.Attack(_damage1).FromMonster(this).WithAttackerAnim("Attack1", 0.5f)
             .WithHitFx("vfx/vfx_attack_blunt").Execute(null);
         _attacked = true;
-        _baseSpeedBonus = _speedBonus;
+        BaseSpeedBonus = _speedBonus;
     }
 
     private async Task Debuff(IReadOnlyList<Creature> targets)

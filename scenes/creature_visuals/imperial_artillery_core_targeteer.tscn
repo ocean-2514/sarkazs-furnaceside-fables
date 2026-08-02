@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3aeqi2jbbd8"]
+
+[ext_resource type="Script" uid="uid://dgsjq3haioact" path="res://src/Wrapper/NCreatureVisualsWrapper.cs" id="1_ctxei"]
+[ext_resource type="SpineSkeletonDataResource" uid="uid://ce0dkiuo0v06p" path="res://animations/monsters/imperial_artillery_core_targeteer/imperial_artillery_core_targeteer_data.tres" id="2_jtrqv"]
+
+[node name="ImperialArtilleryCoreTargeteer" type="Node2D"]
+script = ExtResource("1_ctxei")
+
+[node name="Bounds" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -110.0
+offset_top = -247.0
+offset_right = 119.0
+offset_bottom = -1.0
+mouse_filter = 2
+
+[node name="IntentPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -401)
+
+[node name="CenterPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -247)
+
+[node name="Visuals" type="SpineSprite" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -186)
+scale = Vector2(-0.55, 0.55)
+skeleton_data_res = ExtResource("2_jtrqv")
+preview_skin = "Default"
+preview_animation = "Idle"
+preview_frame = false
+preview_time = 0.0
+metadata/_edit_lock_ = true
