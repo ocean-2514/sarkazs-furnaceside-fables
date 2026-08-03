@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Combat;
+using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Ascension;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.RestSite;
@@ -16,6 +18,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 using Skz.Ocean.Entities.Players;
 using Skz.Ocean.Map;
 using Skz.Ocean.Model.Acts;
+using Skz.Ocean.Patches;
 using Skz.Ocean.Runs;
 
 namespace Skz.Ocean.Model;
@@ -81,6 +84,8 @@ public class SarkazManagerModel : AbstractModel, ISarkazModel
 
     public override async Task AfterActEntered()
     {
+        SarkazMapRefresh.MapScreenTrav = null;
+
         if (_manager == null) return;
         // 行程标记自维护：本次读"上一幕是否是子幕"，再记录本次进入的幕。
         // 子幕 → 真实幕（返程）不结算换幕效果；真实幕 → 子幕算进入新的一层，正常结算。
@@ -88,6 +93,7 @@ public class SarkazManagerModel : AbstractModel, ISarkazModel
         _manager.PreviousActWasFragment = _owner?.RunState?.Act is BizarreFragment;
         if (cameFromFragment) return;
 
+        _manager.ApplyAscensionEffects();
         _manager.ClearRefreshCounts();
         await _manager.GrantReturns();
         await GrantAct3CursedRelic();
@@ -113,10 +119,23 @@ public class SarkazManagerModel : AbstractModel, ISarkazModel
             .ToList();
         if (candidates.Count == 0) return;
 
-        System.Type pick = candidates[_owner.PlayerRng.Rewards.NextInt(candidates.Count)];
+        Type pick = candidates[_owner.PlayerRng.Rewards.NextInt(candidates.Count)];
+        candidates.Remove(pick);
         RelicModel relic = (RelicModel)Helper.SarkazHelper.ModelDbGet(pick);
-        if (relic == null) return;
-        await MegaCrit.Sts2.Core.Commands.RelicCmd.Obtain(relic.ToMutable(), _owner);
+        if (relic != null)
+        {
+            await RelicCmd.Obtain(relic.ToMutable(), _owner);
+        }
+
+        if (RunManager.Instance.HasAscension(AscensionLevel.Poverty))
+        {
+            Type pick1 = candidates[_owner.PlayerRng.Rewards.NextInt(candidates.Count)];
+            RelicModel relic1 = (RelicModel)Helper.SarkazHelper.ModelDbGet(pick1);
+            if (relic1 != null)
+            {
+                await RelicCmd.Obtain(relic1.ToMutable(), _owner);
+            }
+        } 
     }
 
     public override bool TryModifyRestSiteOptions(Player player, ICollection<RestSiteOption> options)

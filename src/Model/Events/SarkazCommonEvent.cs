@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Ascension;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.Events;
@@ -23,8 +24,8 @@ namespace Skz.Ocean.Model.Events;
 
 public static class SarkazCommonEvent
 {
-    private static float EnterFragmentChance = 0.08f;
-    private static float GainKingRelicChance = 1.0f;
+    private static float EnterFragmentChance => AscensionHelper.GetValueIfAscension(AscensionLevel.Scarcity, 0.05f, 0.08f);
+    private static float GainKingRelicChance => 1.0f;
 
     // 两套收藏品：低血线给国王套，满血给魔王套（判定标准分别对齐 KingsCrown / KingOfSarkazsVessel）
     private static readonly Type[] KingSet =

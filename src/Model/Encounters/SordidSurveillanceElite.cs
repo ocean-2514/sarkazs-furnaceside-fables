@@ -15,7 +15,7 @@ namespace Skz.Ocean.Model.Encounters;
 
 public sealed class SordidSurveillanceElite : SarkazEncounterModel
 {
-    public override RoomType RoomType => RoomType.Monster;
+    public override RoomType RoomType => RoomType.Elite;
 
     public override IEnumerable<MonsterModel> AllPossibleMonsters => [
         ModelDb.Monster<SarkazRoyalCourtSoldier>(),

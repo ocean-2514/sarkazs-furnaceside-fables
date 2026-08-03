@@ -1,6 +1,8 @@
+using MegaCrit.Sts2.Core.Entities.Ascension;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.Factories;
+using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Random;
@@ -11,7 +13,7 @@ namespace Skz.Ocean.Entities.Thoughts.Interpreter;
 
 public static class Interpreter
 {
-    public static float FailOdds = 0.05f;
+    public static float FailOdds => AscensionHelper.GetValueIfAscension(AscensionLevel.Scarcity, 0.1f, 0.05f);
 
     public static InterpretationGrade GetGrade(ThoughtModel thought1, ThoughtModel thought2)
     {

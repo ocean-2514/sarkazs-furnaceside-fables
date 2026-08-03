@@ -6,10 +6,12 @@ using MegaCrit.Sts2.Core.Animation;
 using MegaCrit.Sts2.Core.Bindings.MegaSpine;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Ascension;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
 using MegaCrit.Sts2.Core.Nodes.Vfx;
@@ -35,7 +37,7 @@ public abstract class SarkazMonsterModel : MonsterModel, ISarkazModel
     public virtual decimal Destination => 1000;
 
     // 到达终点逃离时对每名玩家造成的可格挡伤害
-    public virtual decimal EscapeDamage => 5m;
+    public virtual decimal EscapeDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.SwarmingElites, 10m, 5m);
 
     public virtual bool Blockable => true;
 

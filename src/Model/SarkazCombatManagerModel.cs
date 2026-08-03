@@ -58,4 +58,10 @@ public class SarkazCombatManagerModel : AbstractModel, ISarkazModel
         _manager?.OnDamageReceived(target, result, dealer);
         return Task.CompletedTask;
     }
+
+    public override async Task AfterCreatureAddedToCombat(Creature creature)
+    {
+        await _manager.AfterCreatureAddedToCombat(creature);
+    }
+
 }

@@ -27,7 +27,7 @@ public class PlayerExtraData
     private ThoughtModel _thoughtUsed = null; 
     public ThoughtModel ThoughtUsed => _thoughtUsed;
 
-    private int _toilLimit = 3;
+    private int _toilLimit = 10;
 
     public int ToilLimit => _toilLimit;
     public int LucidLimit => _toilLimit;

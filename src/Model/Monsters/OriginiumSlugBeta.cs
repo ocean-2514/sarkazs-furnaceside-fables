@@ -11,8 +11,8 @@ namespace Skz.Ocean.Model.Monsters;
 // 3 源石虫·β：攻击循环，攻击 4
 public sealed class OriginiumSlugBeta : SarkazMonsterModel
 {
-    public override int MaxInitialHp => 9;
-    public override int MinInitialHp => 9;
+    public override int MaxInitialHp => 13;
+    public override int MinInitialHp => 13;
 
     private const int _damage = 5;
 

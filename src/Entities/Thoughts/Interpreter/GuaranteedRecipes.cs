@@ -17,12 +17,6 @@ public static class GuaranteedRecipes
 
     public static bool TryGetThoughtResult(ThoughtModel thought1, ThoughtModel thought2, Rng rng, out Type resultType)
     {
-        if (rng.NextFloat() < Interpreter.FailOdds)
-        {
-            resultType = typeof(NonsensicalRavings);
-            return true;
-        }
-        
         Type type1 = thought1.GetType();
         Type type2 = thought2.GetType();
 
@@ -49,6 +43,12 @@ public static class GuaranteedRecipes
                 resultType = recipe.OutputType;
                 return true;
             }
+        }
+
+        if (rng.NextFloat() < Interpreter.FailOdds)
+        {
+            resultType = typeof(NonsensicalRavings);
+            return true;
         }
 
         resultType = null;

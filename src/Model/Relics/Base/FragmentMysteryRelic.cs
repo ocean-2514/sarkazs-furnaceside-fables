@@ -4,8 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Ascension;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Relics;
+using MegaCrit.Sts2.Core.Helpers;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Rooms;
 using Skz.Ocean.Helper;
@@ -28,6 +31,11 @@ public abstract class FragmentMysteryRelic : RelicModel, IFragmentMystery
 
     public override RelicRarity Rarity => RelicRarity.Event;
 
+    protected override IEnumerable<DynamicVar> CanonicalVars => [
+        new MaxHpVar(AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 25, 20)),
+        new PowerVar<AttackPower>(AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 15, 10)),
+    ];
+
     protected bool InFragment => Owner?.RunState?.Act is BizarreFragment;
 
     public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
@@ -39,8 +47,8 @@ public abstract class FragmentMysteryRelic : RelicModel, IFragmentMystery
                 continue;
             }
             _hpApplied.Add(enemy);
-            await CreatureCmd.GainMaxHp(enemy, Math.Max(enemy.MaxHp * 20 / 100, 0));
-            await SarkazRelicFx.ApplyPower<AttackPower>(this, enemy, 10);
+            await CreatureCmd.GainMaxHp(enemy, Math.Max(enemy.MaxHp * DynamicVars.MaxHp.BaseValue / 100, 0));
+            await SarkazRelicFx.ApplyPower<AttackPower>(this, enemy, DynamicVars["AttackPower"].BaseValue);
         }
         if (side != Owner.Creature.Side) {
             return;
@@ -65,8 +73,8 @@ public abstract class FragmentMysteryRelic : RelicModel, IFragmentMystery
     {
         if (!creature.IsAlive || _hpApplied.Contains(creature) || creature.Side != CombatSide.Enemy) return;
         _hpApplied.Add(creature);
-        await CreatureCmd.GainMaxHp(creature, Math.Max(creature.MaxHp * 20 / 100, 0));
-        await SarkazRelicFx.ApplyPower<AttackPower>(this, creature, 10);
+        await CreatureCmd.GainMaxHp(creature, Math.Max(creature.MaxHp * DynamicVars.MaxHp.BaseValue / 100, 0));
+        await SarkazRelicFx.ApplyPower<AttackPower>(this, creature, DynamicVars["AttackPower"].BaseValue);
         if (!InFragment) return;
         if (!creature.IsAlive || _enemyRegistered.Contains(creature)) return;
         _enemyRegistered.Add(creature);

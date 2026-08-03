@@ -27,7 +27,7 @@ public sealed class InterferenceMinePower : PowerModel, ISarkazModel
         if (_timer == 0)
         {
             if (Owner.IsDead) return;
-            await CreatureCmd.Damage(choiceContext, Owner, _damage, ValueProp.Unpowered | ValueProp.Unblockable, null);
+            await CreatureCmd.Damage(choiceContext, Owner, _damage, ValueProp.Unpowered | ValueProp.Unblockable, Applier);
             await PowerCmd.Remove(this);
         }
     }

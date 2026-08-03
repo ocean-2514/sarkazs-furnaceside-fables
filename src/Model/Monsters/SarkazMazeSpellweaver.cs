@@ -16,7 +16,7 @@ public sealed class SarkazMazeSpellweaver : SarkazMonsterModel
     public override int MaxInitialHp => 62;
     public override int MinInitialHp => 62;
 
-    private const int _damage = 20;
+    private const int _damage = 25;
 
     protected override MonsterMoveStateMachine GenerateMoveStateMachine()
     {

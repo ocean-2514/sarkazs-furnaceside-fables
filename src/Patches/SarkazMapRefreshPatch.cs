@@ -28,7 +28,7 @@ internal static class SarkazMapRefresh
 
     private const float _rightOffset = 65f; // 节点局部坐标里向右的偏移（“正右”）
 
-    private static Traverse _trav = null;
+    public static Traverse MapScreenTrav = null;
 
     public static TextureButton CreateButton()
     {
@@ -56,13 +56,19 @@ internal static class SarkazMapRefresh
         if (!Buttons.TryGetValue(node, out TextureButton btn) || !GodotObject.IsInstanceValid(btn)) return;
         btn.Visible = false;
         if (!mgr.CanRefreshNode(node.Point)) return;
+        if (node.State == MapPointState.Travelable)
+        {
+            btn.Visible = true;
+            SyncButtonPosition(node, btn);
+            return;
+        }
 
         //get nodes connected to the current node
         //vertical
-        if (_trav == null) _trav = Traverse.Create(NMapScreen.Instance);
-        RunState runState = _trav.Field("_runState").GetValue<RunState>();
-        var dict = _trav.Field("_mapPointDictionary").GetValue<Dictionary<MapCoord, NMapPoint>>();
-        ActMap map = _trav.Field("_map").GetValue<ActMap>();
+        if (MapScreenTrav == null) MapScreenTrav = Traverse.Create(NMapScreen.Instance);
+        RunState runState = MapScreenTrav.Field("_runState").GetValue<RunState>();
+        var dict = MapScreenTrav.Field("_mapPointDictionary").GetValue<Dictionary<MapCoord, NMapPoint>>();
+        ActMap map = MapScreenTrav.Field("_map").GetValue<ActMap>();
         
         if (runState == null || dict == null || !runState.VisitedMapCoords.Any()) return;
         IReadOnlyList<MapCoord> visited = runState.VisitedMapCoords;
@@ -75,7 +81,7 @@ internal static class SarkazMapRefresh
                 SyncButtonPosition(node, btn); return;
             }
         }
-        Log.Info("[sarkaz] check horizontal");
+        // Log.Info("[sarkaz] check horizontal");
 
         //horizontal
         if (current.row >= map.GetRowCount() - 1 || node.Point.coord.row != current.row) return;

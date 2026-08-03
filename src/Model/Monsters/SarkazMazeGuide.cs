@@ -18,7 +18,7 @@ public sealed class SarkazMazeGuide : SarkazMonsterModel
     public override int MaxInitialHp => 35;
     public override int MinInitialHp => 35;
 
-    private const int _damage = 7;
+    private const int _damage = 10;
 
     protected override MonsterMoveStateMachine GenerateMoveStateMachine()
     {

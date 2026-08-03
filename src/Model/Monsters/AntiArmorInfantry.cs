@@ -24,7 +24,7 @@ public sealed class AntiArmorInfantry : SarkazMonsterModel
 
     private const int _damage1 = 12;
     private const int _damage2 = 3;
-    private const int _repeat2 = 2;
+    private const int _repeat2 = 5;
 
     private bool _attacked;
 

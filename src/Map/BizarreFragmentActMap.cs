@@ -34,17 +34,17 @@ public sealed class BizarreFragmentActMap : ActMap
     {
         Rng rng = (runState as RunState)?.Rng.Niche;
 
-        Grid = new MapPoint[3, 5];
+        Grid = new MapPoint[7, 5];
 
         // row 0: 火堆 = 起点（不放进 Grid：SetMap 会为 StartingMapPoint 单独建节点，
         // 若同时在 Grid 里会画出两个重叠节点）
-        MapPoint rest = new MapPoint(1, 0) { PointType = MapPointType.RestSite };
+        MapPoint rest = new MapPoint(3, 0) { PointType = MapPointType.RestSite };
         StartingMapPoint = rest;
 
         // row 1-3: 3×3 随机节点；火堆连向第一行，之后各列直连成三条路
         for (int r = 1; r <= 3; r++)
         {
-            for (int c = 0; c <= 2; c++)
+            for (int c = 1; c <= 5; c += 2)
             {
                 MapPoint p = new MapPoint(c, r)
                 {
@@ -63,19 +63,24 @@ public sealed class BizarreFragmentActMap : ActMap
             }
         }
 
-        // row 4: 出口（Unknown），三条路汇聚
-        MapPoint exit = new MapPoint(1, 4)
+        // row 4: 出口，三条路汇聚
+        MapPoint exit = new MapPoint(3, 4)
         {
-            PointType = MapPointType.Unknown,
+            PointType = MapPointType.Elite,
             CanBeModified = false, // 不许被节点刷新等机制改类型
         };
-        Grid[1, 4] = exit;
-        for (int c = 0; c <= 2; c++)
+        Grid[3, 4] = exit;
+        for (int c = 1; c <= 5; c += 2)
         {
             Grid[c, 3].AddChildPoint(exit);
         }
 
         // 不连通的占位 Boss 点（行号在网格之外，GoldenPath 同款），由补丁隐藏。
-        BossMapPoint = new MapPoint(1, GetRowCount()) { PointType = MapPointType.Boss };
+        BossMapPoint = new MapPoint(3, GetRowCount()) { PointType = MapPointType.Boss };
+    }
+
+    public static bool IsExitMapPoint(MapPoint mapPoint)
+    {
+        return mapPoint.coord.col == 3 && mapPoint.coord.row == 4;
     }
 }

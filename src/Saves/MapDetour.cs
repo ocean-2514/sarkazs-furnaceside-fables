@@ -214,7 +214,8 @@ public static class MapDetour
                 await RelicCmd.Obtain(rng.NextItem(mysteries).ToMutable(), player);
             }
             // 补偿：一件 Uncommon 遗物
-            RelicModel rare = RelicFactory.PullNextRelicFromFront(player, RelicRarity.Uncommon);
+            RelicModel rare = RelicFactory.PullNextRelicFromFront(player, 
+                player.PlayerRng.Rewards.NextFloat() < 0.5f ? RelicRarity.Uncommon : RelicRarity.Rare);
             if (rare != null)
             {
                 await RelicCmd.Obtain(rare.ToMutable(), player);

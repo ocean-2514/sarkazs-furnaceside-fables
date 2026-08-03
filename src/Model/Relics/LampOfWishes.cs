@@ -26,6 +26,7 @@ using Skz.Ocean.Helper;
 using Skz.Ocean.Model.Powers;
 using Skz.Ocean.Model.Relics.Base;
 using Skz.Ocean.Model.Thoughts.Inspirers;
+using Skz.Ocean.Model.Thoughts.Plans;
 
 namespace Skz.Ocean.Model.Relics;
 
@@ -57,4 +58,11 @@ public sealed class LampOfWishes : RelicModel, ISarkazModel
         rewards.Add(new RelicReward(player));
         return true;
     }
+
+    public override async Task AfterRoomEntered(AbstractRoom room)
+    {
+        if (room is not TreasureRoom) return;
+        await ThoughtCmd.Obtain<Plan>(Owner);
+    }
+
 }

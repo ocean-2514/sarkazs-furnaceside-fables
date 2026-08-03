@@ -23,7 +23,7 @@ public sealed class GuerrillaHerald : SarkazMonsterModel
 
     private const int _aura = 10;
     private const int _block = 5;
-    private const int _heal = 2;
+    private const int _heal = 5;
     private const int _vigor = 2;
     private const int _damage = 10;
 

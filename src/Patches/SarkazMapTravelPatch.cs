@@ -44,6 +44,7 @@ public static class SarkazMapTravelPatch
             if (!runState.VisitedMapCoords.Any())
             {
 			    _startingPointNode.State = manager.CanWalkVertically ? MapPointState.Travelable : MapPointState.Untravelable;
+                return;
             }
 
             IReadOnlyList<MapCoord> visited = runState.VisitedMapCoords;

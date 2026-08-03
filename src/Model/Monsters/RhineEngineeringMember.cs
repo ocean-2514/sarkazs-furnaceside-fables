@@ -10,7 +10,7 @@ using Skz.Ocean.Model.Monsters.Base;
 
 namespace Skz.Ocean.Model.Monsters;
 
-// 42 莱茵生命工程科成员：buff(力量+2) -> 治疗(所有敌方回5%最大生命) -> 攻击(13) 循环
+// 42 莱茵生命工程科成员：buff(力量+2) -> 治疗(所有敌方回30%最大生命) -> 攻击(13) 循环
 public sealed class RhineEngineeringMember : SarkazMonsterModel
 {
     public override int MaxInitialHp => 35;
@@ -35,7 +35,7 @@ public sealed class RhineEngineeringMember : SarkazMonsterModel
         foreach (Creature enemy in Creature.CombatState.Enemies)
         {
             if (!enemy.IsAlive) continue;
-            decimal amount = enemy.MaxHp * 5m / 100m;
+            decimal amount = enemy.MaxHp * 30m / 100m;
             if (amount > 0) await CreatureCmd.Heal(enemy, amount);
         }
     }

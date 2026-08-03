@@ -29,6 +29,7 @@ public sealed class RewardPlanPower : PowerModel, ISarkazModel
     {
         if (target != Owner) return Task.CompletedTask;
         if (!result.WasTargetKilled) return Task.CompletedTask;
+        if (dealer == null) return Task.CompletedTask;
         if (dealer.Side == CombatSide.Enemy) return Task.CompletedTask;
         foreach (Player player in CombatState.Players)
         {
