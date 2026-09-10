@@ -1,0 +1,219 @@
+[gd_scene load_steps=12 format=3 uid="uid://c8bgypf0yuedi"]
+
+[ext_resource type="Script" uid="uid://blf7fn6ox5epr" path="res://src/Nodes/Screens/NSarkazAscensionArrow.cs" id="1_arrow"]
+[ext_resource type="Script" uid="uid://c7klpgyvik1mh" path="res://src/Nodes/Screens/NSarkazAscensionPanel.cs" id="1_panel"]
+[ext_resource type="Texture2D" uid="uid://c0s5y6hjnvegx" path="res://images/ui/skz_tiny_nine_patch.png" id="2_injea"]
+[ext_resource type="Shader" uid="uid://y5ludijp3x0q" path="res://shaders/skz_hsv.gdshader" id="3_2vicy"]
+[ext_resource type="Texture2D" uid="uid://btudeq5wptexm" path="res://images/atlases/ui_atlas.sprites/skz_settings_tiny_left_arrow.tres" id="3_kib7w"]
+[ext_resource type="Texture2D" uid="uid://blmcgn1x70d6r" path="res://images/atlases/ui_atlas.sprites/skz_top_bar_ascension.tres" id="4_kib7w"]
+[ext_resource type="Texture2D" uid="uid://d1rtlmf634hfd" path="res://images/atlases/ui_atlas.sprites/skz_settings_tiny_right_arrow.tres" id="6_7lunh"]
+[ext_resource type="Script" uid="uid://dtfio45agppyj" path="res://addons/mega_text/MegaLabel.cs" id="6_d5g22"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qf22s"]
+resource_local_to_scene = true
+shader = ExtResource("3_2vicy")
+shader_parameter/h = 1.0
+shader_parameter/s = 1.0
+shader_parameter/v = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bw1ox"]
+resource_local_to_scene = true
+shader = ExtResource("3_2vicy")
+shader_parameter/h = 1.0
+shader_parameter/s = 1.0
+shader_parameter/v = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2vicy"]
+resource_local_to_scene = true
+shader = ExtResource("3_2vicy")
+shader_parameter/h = 1.0
+shader_parameter/s = 1.0
+shader_parameter/v = 1.0
+
+[node name="SarkazAscensionPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = -513.0
+offset_right = 674.0
+offset_bottom = -396.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+script = ExtResource("1_panel")
+
+[node name="Background" type="NinePatchRect" parent="."]
+modulate = Color(0, 0, 0, 0.470588)
+layout_mode = 0
+offset_left = 14.0
+offset_top = 5.0
+offset_right = 615.0
+offset_bottom = 173.0
+texture = ExtResource("2_injea")
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="LeftArrowContainer" type="Control" parent="HBoxContainer"]
+custom_minimum_size = Vector2(80, 64)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="LeftArrow" type="Control" parent="HBoxContainer/LeftArrowContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+script = ExtResource("1_arrow")
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/LeftArrowContainer/LeftArrow"]
+material = SubResource("ShaderMaterial_qf22s")
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -23.5
+offset_right = 32.0
+offset_bottom = 93.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(36, 58)
+mouse_filter = 2
+texture = ExtResource("3_kib7w")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="AscensionIconContainer" type="Control" parent="HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="AscensionIcon" type="TextureRect" parent="HBoxContainer/AscensionIconContainer"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_bw1ox")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 30.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("4_kib7w")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="AscensionLevel" type="Label" parent="HBoxContainer/AscensionIconContainer/AscensionIcon"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_top = 13.0
+offset_right = -2.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.964706, 0.886275, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.25098)
+theme_override_colors/font_outline_color = Color(0.35, 0.204167, 0, 1)
+theme_override_constants/shadow_offset_x = 6
+theme_override_constants/shadow_offset_y = 6
+theme_override_constants/outline_size = 18
+theme_override_constants/shadow_outline_size = 0
+theme_override_font_sizes/font_size = 36
+text = "7"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("6_d5g22")
+MinFontSize = 22
+MaxFontSize = 36
+
+[node name="AscensionDescription" type="Control" parent="HBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/AscensionDescription"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 8.0
+offset_bottom = 173.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_colors/default_color = Color(1, 0.964706, 0.886275, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.25098)
+theme_override_constants/line_separation = -2
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 3
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 28
+theme_override_font_sizes/bold_italics_font_size = 24
+theme_override_font_sizes/italics_font_size = 24
+theme_override_font_sizes/mono_font_size = 24
+bbcode_enabled = true
+text = "[b][color=gold]Intruder Alert[/color][/b]
+Whenever you kill an Elite, other Elites in the Act gain 1 Strength at the start of combat."
+scroll_active = false
+vertical_alignment = 1
+
+[node name="RightArrowContainer" type="Control" parent="HBoxContainer"]
+custom_minimum_size = Vector2(80, 64)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="RightArrow" type="Control" parent="HBoxContainer/RightArrowContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+script = ExtResource("1_arrow")
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/RightArrowContainer/RightArrow"]
+material = SubResource("ShaderMaterial_2vicy")
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -20.5
+offset_right = 32.0
+offset_bottom = 96.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(28, 58)
+mouse_filter = 2
+texture = ExtResource("6_7lunh")
+expand_mode = 1
+stretch_mode = 5

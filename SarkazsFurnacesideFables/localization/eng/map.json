@@ -1,0 +1,7 @@
+{
+    "LEGEND_EVENT.hoverTip.description":  "Something unusual will happen in these rooms, perhaps with Nymph\u0027s help?",
+    "LEGEND_MERCHANT.hoverTip.description":  "A mysterious merchant sells his goods in these rooms.\n\nSpend your hard-earned [gold]Gold[/gold] here!",
+    "LEGEND_REST.hoverTip.description":  "In these rooms, you can [green]restore[/green] some HP, [gold]upgrade[/gold] a card, or perform an [gold]interpretation[/gold].",
+    "LEGEND_TREASURE.hoverTip.description":  "These rooms hold [gold]Relics[/gold] and [gold]Gold[/gold] coveted by many.",
+    "LEGEND_UNKNOWN.hoverTip.description":  "A room with unknown information.\n\nMay contain events, enemies, shops, or chests, and may receive help from Nymph."
+}

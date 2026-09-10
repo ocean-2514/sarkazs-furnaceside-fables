@@ -19,11 +19,11 @@ public sealed class MockSpinesOfEpoch : SarkazEncounterModel, ISarkazModel
     {
         return [
             [
-                new WaveEntry(() => ModelDb.Monster<LondiniumMobileDefenseArtillery>(), "first"),
-                new WaveEntry(() => ModelDb.Monster<SteamTank>(), "second"),
-                new WaveEntry(() => ModelDb.Monster<RemnantOrchestraFlautist>(), "third"),
-                new WaveEntry(() => ModelDb.Monster<RemnantOrchestraWindPlayer>(), "forth"),
-                new WaveEntry(() => ModelDb.Monster<RemnantOrchestraCellist>(), "fifth"),
+                new WaveEntry(() => ModelDb.Monster<RagingSlugEater>(), "first"),
+                new WaveEntry(() => ModelDb.Monster<RagingSlugEater>(), "second"),
+                new WaveEntry(() => ModelDb.Monster<RagingSlugEater>(), "third"),
+                new WaveEntry(() => ModelDb.Monster<RagingSlugEater>(), "forth"),
+                new WaveEntry(() => ModelDb.Monster<RagingSlugEater>(), "fifth"),
             ],
             [
                 new WaveEntry(() => ModelDb.Monster<CorruptedKnight>(), "first"),

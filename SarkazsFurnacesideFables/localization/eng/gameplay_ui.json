@@ -1,0 +1,15 @@
+{
+    "SHIELD":  "{shield} Shield",
+    "THOUGHT_TYPE_INSPIRER":  "Thought - Inspirer",
+    "THOUGHT_TYPE_LINGER":  "Thought - Lingerer",
+    "THOUGHT_TYPE_PLAN":  "Thought - Plan",
+    "INTERPRET_HINT_INSPIRER":  "Increases the chance of gaining Shield",
+    "INTERPRET_HINT_LINGER":  "Increases the chance of gaining a Relic",
+    "INTERPRET_HINT_PLAN":  "Increases the chance of gaining Shield",
+    "VIEW_HINT_INSPIRER":  "Grants a buff after use",
+    "VIEW_HINT_LINGER":  "Can be interpreted into Relics at the Rest Site",
+    "VIEW_HINT_PLAN":  "",
+    "THOUGHT_TYPE_NAME_INSPIRER":  "Inspirer",
+    "THOUGHT_TYPE_NAME_LINGER":  "Lingerer",
+    "THOUGHT_TYPE_NAME_PLAN":  "Plan"
+}

@@ -4,14 +4,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
-using MegaCrit.Sts2.Core.Entities.Ascension;
+using Skz.Ocean.Entities.Ascension;
+using Skz.Ocean.Helper;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Rooms;
-using Skz.Ocean.Helper;
 using Skz.Ocean.Model.Acts;
 using Skz.Ocean.Model.Powers;
 
@@ -32,8 +32,8 @@ public abstract class FragmentMysteryRelic : RelicModel, IFragmentMystery
     public override RelicRarity Rarity => RelicRarity.Event;
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [
-        new MaxHpVar(AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 25, 20)),
-        new PowerVar<AttackPower>(AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 15, 10)),
+        new MaxHpVar(SarkazAscensionHelper.GetValueIfAscension(SarkazAscensionLevel.PathOfPain, 25, 20)),
+        new PowerVar<AttackPower>(SarkazAscensionHelper.GetValueIfAscension(SarkazAscensionLevel.PathOfPain, 15, 10)),
     ];
 
     protected bool InFragment => Owner?.RunState?.Act is BizarreFragment;

@@ -7,6 +7,7 @@ using Skz.Ocean.Entities.Players;
 using Skz.Ocean.Helper;
 using Skz.Ocean.Model;
 using Skz.Ocean.Model.Thoughts;
+using Skz.Ocean.Entities.Ascension;
 
 namespace Skz.Ocean.Patches;
 
@@ -20,6 +21,7 @@ public static class GrantStartingThoughtsPatch
 {
     public static void Postfix(RunState __result)
     {
+        SarkazAscensionState.BeginNewRun();
         foreach (Player player in __result.Players)
         {
             player.EnsureSarkazManager();

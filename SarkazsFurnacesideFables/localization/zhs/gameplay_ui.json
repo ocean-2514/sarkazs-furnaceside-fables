@@ -1,3 +1,15 @@
 {
-    "SHIELD": "{shield}护盾"
+    "SHIELD": "{shield}护盾",
+    "THOUGHT_TYPE_INSPIRER": "思绪-灵感",
+    "THOUGHT_TYPE_LINGER": "思绪-遗愿",
+    "THOUGHT_TYPE_PLAN": "思绪-构想",
+    "INTERPRET_HINT_INSPIRER": "获得护盾概率提升",
+    "INTERPRET_HINT_LINGER": "获得遗物概率提升",
+    "INTERPRET_HINT_PLAN": "获得护盾概率提升",
+    "VIEW_HINT_INSPIRER": "使用后获得增益",
+    "VIEW_HINT_LINGER": "可在去伪存真中解读为收藏品",
+    "VIEW_HINT_PLAN": "",
+    "THOUGHT_TYPE_NAME_INSPIRER": "灵感",
+    "THOUGHT_TYPE_NAME_LINGER": "遗愿",
+    "THOUGHT_TYPE_NAME_PLAN": "构想"
 }

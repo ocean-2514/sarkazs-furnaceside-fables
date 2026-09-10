@@ -71,7 +71,6 @@ custom_minimum_size = Vector2(500, 50)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_dj3vc")
 bbcode_enabled = true
-text = "[font_size=34][color=e9e9e9] 思绪-灵感[/color][/font_size]   [font_size=30][color=8c8c8c]使用后获得增益[/color][/font_size]"
 
 [node name="InspirerContainer" type="GridContainer" parent="BackGround/MarginContainer/ScrollContainer/VBoxContainer"]
 unique_name_in_owner = true
@@ -98,7 +97,6 @@ custom_minimum_size = Vector2(500, 50)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_dj3vc")
 bbcode_enabled = true
-text = "[font_size=34][color=e9e9e9] 思绪-遗愿[/color][/font_size]   [font_size=30][color=8c8c8c]可在去伪存真中解读为收藏品[/color][/font_size]"
 
 [node name="LingerContainer" type="GridContainer" parent="BackGround/MarginContainer/ScrollContainer/VBoxContainer"]
 unique_name_in_owner = true
@@ -128,7 +126,6 @@ custom_minimum_size = Vector2(500, 50)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_dj3vc")
 bbcode_enabled = true
-text = "[font_size=34][color=e9e9e9] 思绪-构想[/color][/font_size]   "
 
 [node name="PlanContainer" type="GridContainer" parent="BackGround/MarginContainer/ScrollContainer/VBoxContainer"]
 unique_name_in_owner = true

@@ -9,6 +9,7 @@ using MegaCrit.Sts2.Core.Saves;
 using Skz.Ocean.Entities.Players;
 using Skz.Ocean.Entities.Thoughts;
 using Skz.Ocean.Model;
+using Skz.Ocean.Entities.Ascension;
 
 namespace Skz.Ocean.Saves;
 
@@ -120,7 +121,12 @@ public static class SarkazSaveIO
             players.Add(pdict);
         }
 
-        var root = new Godot.Collections.Dictionary { { "players", players } };
+        var root = new Godot.Collections.Dictionary
+        {
+            { "schema_version", 2 },
+            { "sarkaz_ascension", SarkazAscensionState.CurrentLevel },
+            { "players", players },
+        };
         string json = Json.Stringify(root);
 
         using FileAccess f = FileAccess.Open(FilePath, FileAccess.ModeFlags.Write);
@@ -137,6 +143,11 @@ public static class SarkazSaveIO
     {
         Godot.Collections.Dictionary root = ReadRoot();
         if (root == null || !root.ContainsKey("players")) return false;
+
+        int ascension = root.ContainsKey("sarkaz_ascension")
+            ? root["sarkaz_ascension"].AsInt32()
+            : 0;
+        SarkazAscensionState.RestoreRun(ascension);
 
         foreach (Variant pv in root["players"].AsGodotArray())
         {

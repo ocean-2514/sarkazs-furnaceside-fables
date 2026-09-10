@@ -3,6 +3,7 @@ using Godot;
 using MegaCrit.Sts2.Core.Context;
 using MegaCrit.Sts2.Core.Entities.Multiplayer;
 using MegaCrit.Sts2.Core.Entities.Players;
+using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Nodes.Screens.Capstones;
 using MegaCrit.Sts2.Core.Nodes.Screens.ScreenContext;
@@ -74,6 +75,9 @@ public partial class NThoughtViewScreen : Control, ICapstoneScreen, IScreenConte
         _inspirerLabel = GetNode<Control>("%LabelContainer1"); // 灵感
         _lingerLabel = GetNode<Control>("%LabelContainer2");   // 遗愿
         _planLabel = GetNode<Control>("%LabelContainer3");     // 构想
+        SetupSectionLabel(_inspirerLabel, "THOUGHT_TYPE_INSPIRER", "VIEW_HINT_INSPIRER"); // 灵感
+        SetupSectionLabel(_lingerLabel, "THOUGHT_TYPE_LINGER", "VIEW_HINT_LINGER");       // 遗愿
+        SetupSectionLabel(_planLabel, "THOUGHT_TYPE_PLAN", "VIEW_HINT_PLAN");             // 构想
         _toilIndicator = GetNode<NToilIndicator>("%ToilIndicator");
         _toilIndicator.Initialize(_player);
 
@@ -87,6 +91,21 @@ public partial class NThoughtViewScreen : Control, ICapstoneScreen, IScreenConte
         {
             _player.GetExtraData().PlayerThoughtChanged -= Populate;
         }
+    }
+
+    // 用本地化文本填充各思绪类型栏目的标题/副标题，保持原有字体与颜色格式。
+    private static void SetupSectionLabel(Control container, string titleKey, string hintKey)
+    {
+        if (container.GetNodeOrNull<RichTextLabel>("LingerLabel") is not RichTextLabel rtl)
+        {
+            return;
+        }
+        string title = new LocString("gameplay_ui", titleKey).GetFormattedText();
+        string hint = new LocString("gameplay_ui", hintKey).GetFormattedText();
+        rtl.BbcodeEnabled = true;
+        rtl.Text = hint.Length > 0
+            ? $"[font_size=34][color=e9e9e9] {title}[/color][/font_size]   [font_size=30][color=8c8c8c]{hint}[/color][/font_size]"
+            : $"[font_size=34][color=e9e9e9] {title}[/color][/font_size]   ";
     }
 
     // 点击空白处关闭：能冒泡到根节点的点击，说明点的不是面板/条目（那些会被对应控件吞掉），即空白处。

@@ -6,7 +6,8 @@ using Godot;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
-using MegaCrit.Sts2.Core.Entities.Ascension;
+using Skz.Ocean.Entities.Ascension;
+using Skz.Ocean.Helper;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
@@ -30,9 +31,9 @@ public class SarkazCombatManager
 {
     private readonly Player _player;
 
-    private float SpinesOfEpochChance => AscensionHelper.GetValueIfAscension(AscensionLevel.Scarcity, 0.65f, 0.6f);
+    private float SpinesOfEpochChance => SarkazAscensionHelper.GetValueIfAscension(SarkazAscensionLevel.BadLuck, 0.65f, 0.6f);
 
-    public int BlockDeviceNum => AscensionHelper.GetValueIfAscension(AscensionLevel.WearyTraveler, 0, 1);
+    public int BlockDeviceNum => SarkazAscensionHelper.GetValueIfAscension(SarkazAscensionLevel.LackOfSupport, 0, 1);
 
     private int _act2Buff = 10;
     private int _act3Buff = 40;
@@ -129,7 +130,7 @@ public class SarkazCombatManager
 
     private async Task ApplyAscensionBuff(Creature enemy, int sourceActIndex)
     {
-        if (!RunManager.Instance.HasAscension(AscensionLevel.DoubleBoss)) return;
+        if (!SarkazAscensionHelper.HasAscension(SarkazAscensionLevel.HardMode)) return;
         if (enemy == null || !enemy.IsAlive || _ascensionBuffedEnemies.Contains(enemy)) return;
         _ascensionBuffedEnemies.Add(enemy);
         if (sourceActIndex == 1)

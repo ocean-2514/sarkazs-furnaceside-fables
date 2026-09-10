@@ -57,7 +57,7 @@ public static class OvergrowthGenerateAllEncountersPatch
             .Distinct(); 
         // __result = SarkazEncounters1.Concat([ ModelDb.Encounter<CeremonialBeastBoss>() ]);
         // __result = [
-        //     ModelDb.Encounter<MockSpinesOfEpoch>(),
+        //     ModelDb.Encounter<DenseJungleElite>(),
         //     ModelDb.Encounter<CeremonialBeastBoss>(),
         // ];
     }
@@ -74,7 +74,7 @@ public static class UnderdocksGenerateAllEncountersPatch
             .Distinct();
         // __result = OvergrowthGenerateAllEncountersPatch.SarkazEncounters1.Concat([ ModelDb.Encounter<CeremonialBeastBoss>() ]);
         // __result = [
-        //     ModelDb.Encounter<MockSpinesOfEpoch>(),
+        //     ModelDb.Encounter<DenseJungleElite>(),
         //     ModelDb.Encounter<CeremonialBeastBoss>(),
         // ];
     }

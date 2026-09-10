@@ -1,6 +1,7 @@
 using System.Threading.Tasks;
 using Godot;
 using MegaCrit.Sts2.Core.Entities.Players;
+using MegaCrit.Sts2.Core.Localization;
 using Skz.Ocean.Commands;
 using Skz.Ocean.Entities.Players;
 using Skz.Ocean.Entities.Thoughts;
@@ -77,18 +78,14 @@ public partial class NThoughtDetail : Control
         _flavor.Text = "[i][font_size=20][color=6c6868]  “" +
             _model.Flavor.GetFormattedText() + "”[/color][/font_size][/i]";
 
-        switch (_model.ThoughtType)
+        string typeKey = _model.ThoughtType switch
         {
-            case ThoughtType.Inspirer:
-                _type.Text = "  灵感";
-                break;
-            case ThoughtType.Linger:
-                _type.Text = "  遗愿";
-                break;
-            case ThoughtType.Plan:
-                _type.Text = "  构想";
-                break;
-        }
+            ThoughtType.Inspirer => "THOUGHT_TYPE_NAME_INSPIRER",
+            ThoughtType.Linger => "THOUGHT_TYPE_NAME_LINGER",
+            ThoughtType.Plan => "THOUGHT_TYPE_NAME_PLAN",
+            _ => string.Empty,
+        };
+        _type.Text = "  " + new LocString("gameplay_ui", typeKey).GetFormattedText();
 
         _useButton.Visible = _model.CanBeUsed();
         _discardButton.Visible = _model.CanBeDiscarded();

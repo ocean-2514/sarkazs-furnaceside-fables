@@ -30,8 +30,8 @@ using Skz.Ocean.Model.Thoughts.Lingers;
 using MegaCrit.Sts2.Core.Factories;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.Nodes.Screens.Map;
-using MegaCrit.Sts2.Core.Helpers;
-using MegaCrit.Sts2.Core.Entities.Ascension;
+using Skz.Ocean.Helper;
+using Skz.Ocean.Entities.Ascension;
 using Skz.Ocean.Map;
 
 namespace Skz.Ocean.Runs;
@@ -40,10 +40,10 @@ public class SarkazManager  //for one player
 {
     private readonly Player _player;
 
-    public int FracturedHpLoss => AscensionHelper.GetValueIfAscension(AscensionLevel.TightBelt, 3, 1);
-    public int ObStrucedHpLoss => AscensionHelper.GetValueIfAscension(AscensionLevel.TightBelt, 5, 2);
+    public int FracturedHpLoss => SarkazAscensionHelper.GetValueIfAscension(SarkazAscensionLevel.CognitiveCorrection, 3, 1);
+    public int ObStrucedHpLoss => SarkazAscensionHelper.GetValueIfAscension(SarkazAscensionLevel.CognitiveCorrection, 5, 2);
 
-    public int PlanCostOnTravel => AscensionHelper.GetValueIfAscension(AscensionLevel.AscendersBane, 3, 2);
+    public int PlanCostOnTravel => SarkazAscensionHelper.GetValueIfAscension(SarkazAscensionLevel.NoMorePlans, 3, 2);
     
     public bool HavePlansToWalkHorizontally => _player.GetPlanCount() >= PlanCostOnTravel;
 
@@ -122,9 +122,9 @@ public class SarkazManager  //for one player
     {
         _player.IncreaseToilLimit(room.RoomType switch
         {
-            RoomType.Monster => AscensionHelper.GetValueIfAscension(AscensionLevel.TightBelt, 2, 3),
-            RoomType.Elite => AscensionHelper.GetValueIfAscension(AscensionLevel.TightBelt, 3, 6),
-            RoomType.Boss => AscensionHelper.GetValueIfAscension(AscensionLevel.TightBelt, 4, 9),
+            RoomType.Monster => SarkazAscensionHelper.GetValueIfAscension(SarkazAscensionLevel.CognitiveCorrection, 2, 3),
+            RoomType.Elite => SarkazAscensionHelper.GetValueIfAscension(SarkazAscensionLevel.CognitiveCorrection, 3, 6),
+            RoomType.Boss => SarkazAscensionHelper.GetValueIfAscension(SarkazAscensionLevel.CognitiveCorrection, 4, 9),
             _ => 0
         });
     }
@@ -256,7 +256,7 @@ public class SarkazManager  //for one player
 
     public void ApplyAscensionEffects()
     {
-        if (RunManager.Instance.HasAscension(AscensionLevel.Inflation))
+        if (SarkazAscensionHelper.HasAscension(SarkazAscensionLevel.ShieldDecay))
         {
             if (_player.GetShield() > 0)
             {
@@ -322,7 +322,7 @@ public class SarkazManager  //for one player
     // ===== 诡谲断章：每层地图后半段钉 1(概率 2)个固定事件节点 =====
     // 地图生成后选点记坐标(ModifyGeneratedMapLate)；进点时对该坐标强制事件房型 +
     // 强制 EnterBizarreFragment 事件(LanternKey 同款组合)。坐标持久化到侧存档。
-    public float SecondFragmentChance => AscensionHelper.GetValueIfAscension(AscensionLevel.Scarcity, 0.25f, 0.5f);
+    public float SecondFragmentChance => SarkazAscensionHelper.GetValueIfAscension(SarkazAscensionLevel.BadLuck, 0.25f, 0.5f);
 
     // actIndex → 该层的固定事件节点坐标（一般 1 个，概率 2 个）
     private readonly Dictionary<int, List<MapCoord>> _fragmentCoords = new Dictionary<int, List<MapCoord>>();

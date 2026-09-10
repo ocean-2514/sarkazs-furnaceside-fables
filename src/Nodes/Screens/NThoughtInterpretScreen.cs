@@ -4,6 +4,7 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Multiplayer;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Helpers;
+using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Nodes.Screens.Capstones;
 using MegaCrit.Sts2.Core.Nodes.Screens.ScreenContext;
@@ -79,6 +80,9 @@ public partial class NThoughtInterpretScreen : Control, ICapstoneScreen, IScreen
         _inspirerLabel = GetNode<Control>("%LabelContainer1"); // 灵感
         _lingerLabel = GetNode<Control>("%LabelContainer2");   // 遗愿
         _planLabel = GetNode<Control>("%LabelContainer3");     // 构想
+        SetupSectionLabel(_inspirerLabel, "THOUGHT_TYPE_INSPIRER", "INTERPRET_HINT_INSPIRER"); // 灵感
+        SetupSectionLabel(_lingerLabel, "THOUGHT_TYPE_LINGER", "INTERPRET_HINT_LINGER");       // 遗愿
+        SetupSectionLabel(_planLabel, "THOUGHT_TYPE_PLAN", "INTERPRET_HINT_PLAN");             // 构想
         _interpretButton = GetNode<TextureRect>("%InterpretButton");
         _thoughtDisplay1 = GetNode<NThoughtDisplay>("%Thought1");
         _thoughtDisplay2 = GetNode<NThoughtDisplay>("%Thought2");
@@ -95,6 +99,21 @@ public partial class NThoughtInterpretScreen : Control, ICapstoneScreen, IScreen
         {
             _player.GetExtraData().PlayerThoughtChanged -= Populate;
         }
+    }
+
+    // 用本地化文本填充各思绪类型栏目的标题/副标题，保持原有字体与颜色格式。
+    private static void SetupSectionLabel(Control container, string titleKey, string hintKey)
+    {
+        if (container.GetNodeOrNull<RichTextLabel>("LingerLabel") is not RichTextLabel rtl)
+        {
+            return;
+        }
+        string title = new LocString("gameplay_ui", titleKey).GetFormattedText();
+        string hint = new LocString("gameplay_ui", hintKey).GetFormattedText();
+        rtl.BbcodeEnabled = true;
+        rtl.Text = hint.Length > 0
+            ? $"[font_size=34][color=e9e9e9] {title}[/color][/font_size]   [font_size=30][color=8c8c8c]{hint}[/color][/font_size]"
+            : $"[font_size=34][color=e9e9e9] {title}[/color][/font_size]   ";
     }
 
     private void Populate()

@@ -17,11 +17,13 @@ public static class ThoughtsLocPatch
     private const string ModId = "SarkazsFurnacesideFables";
     private const string ThoughtTableName = "thoughts";
     private const string ShieldTableName = "shield";
+    private const string SarkazAscensionTableName = "sarkaz_ascension";
 
     public static void Postfix(LocManager __instance, string language)
     {
         Inject(__instance, language, ThoughtTableName);
         Inject(__instance, language, ShieldTableName);
+        Inject(__instance, language, SarkazAscensionTableName);
     }
 
     // 供 ModInitializer 调用：覆盖“mod 初始化晚于 LocManager 构造”的情况
@@ -33,6 +35,7 @@ public static class ThoughtsLocPatch
         {
             Inject(inst, inst.Language, ThoughtTableName);
             Inject(inst, inst.Language, ShieldTableName);
+            Inject(inst, inst.Language, SarkazAscensionTableName);
         }
     }
 

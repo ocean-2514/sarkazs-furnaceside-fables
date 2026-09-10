@@ -4,7 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
-using MegaCrit.Sts2.Core.Entities.Ascension;
+using Skz.Ocean.Entities.Ascension;
+using Skz.Ocean.Helper;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
@@ -116,7 +117,7 @@ public abstract class SarkazEncounterModel : EncounterModel, ISarkazModel
                     slot = string.IsNullOrEmpty(next) ? null : next;
                 }
                 Creature creature = await CreatureCmd.Add(monster, combatState, CombatSide.Enemy, slot);
-                if (!RunManager.Instance.HasAscension(AscensionLevel.ToughEnemies))
+                if (!SarkazAscensionHelper.HasAscension(SarkazAscensionLevel.UnstunnedWaves))
                 {
                     await CreatureCmd.Stun(creature);
                 }

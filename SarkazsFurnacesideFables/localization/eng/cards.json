@@ -1,0 +1,15 @@
+{
+    "RIOT_PILE_CARD.title":  "Riot Pile",
+    "RIOT_PILE_CARD.description":  "Give an enemy 1 [gold]Riot Pile[/gold]",
+    "INTERFERENCE_MINE_CARD.title":  "Interference Mine",
+    "INTERFERENCE_MINE_CARD.description":  "Give the enemy an [gold]Interference Mine[/gold] that detonates after 1 turn, dealing 10 True Damage",
+    "MR_BOOM_CARD.title":  "Mr Boom",
+    "MR_BOOM_CARD.description":  "Stun enemy after 1 turn",
+    "ESCAPE_CRANE_CARD.title":  "Escape Crane",
+    "ESCAPE_CRANE_CARD.description":  "Choose 1 card from your Discard Pile and add it to your Hand.",
+    "ESCAPE_CRANE_CARD.selectionScreenPrompt":  "Select 1 card from your Discard Pile to add to your Hand",
+    "FOG_MACHINE_CARD.title":  "Fog Machine",
+    "FOG_MACHINE_CARD.description":  "Reduces the target\u0027s Movement Speed by 60% for 2 turns",
+    "REPLENISHMENT_STATION_CARD.title":  "Replenishment Station",
+    "REPLENISHMENT_STATION_CARD.description":  "Gain 1 Energy"
+}

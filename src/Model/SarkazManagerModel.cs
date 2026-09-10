@@ -4,7 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
-using MegaCrit.Sts2.Core.Entities.Ascension;
+using Skz.Ocean.Entities.Ascension;
+using Skz.Ocean.Helper;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.RestSite;
@@ -127,7 +128,7 @@ public class SarkazManagerModel : AbstractModel, ISarkazModel
             await RelicCmd.Obtain(relic.ToMutable(), _owner);
         }
 
-        if (RunManager.Instance.HasAscension(AscensionLevel.Poverty))
+        if (SarkazAscensionHelper.HasAscension(SarkazAscensionLevel.NegativeRelic))
         {
             Type pick1 = candidates[_owner.PlayerRng.Rewards.NextInt(candidates.Count)];
             RelicModel relic1 = (RelicModel)Helper.SarkazHelper.ModelDbGet(pick1);
