@@ -83,7 +83,7 @@ public abstract class SarkazEncounterModel : EncounterModel, ISarkazModel
     }
 
     // 敌人死亡 → 尝试推进。新波先隐身、等死亡动画播完再显形（StockPower 同款节奏）。
-    public override async Task AfterDeath(PlayerChoiceContext choiceContext, Creature target, bool wasRemovalPrevented, float deathAnimLength)
+    public override async Task AfterDeath(PlayerChoiceContext choiceContext, Creature target, CardModel? source, bool wasRemovalPrevented, float deathAnimLength)
     {
         if (wasRemovalPrevented || target == null || target.Side != CombatSide.Enemy) return;
         await TryAdvanceWave(target.CombatState, deathAnimLength);

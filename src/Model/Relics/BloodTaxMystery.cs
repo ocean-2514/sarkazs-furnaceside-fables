@@ -40,13 +40,13 @@ public sealed class BloodTaxMystery : FragmentMysteryRelic
         _playerLoss = (int)(Owner.Creature.MaxHp * 35 / 100);
         if (_playerLoss > 0)
         {
-            await CreatureCmd.LoseMaxHp(new ThrowingPlayerChoiceContext(), Owner.Creature, _playerLoss, isFromCard: false);
+            await CreatureCmd.LoseMaxHp(new ThrowingPlayerChoiceContext(), Owner.Creature, _playerLoss, cardSource: null);
         }
     }
 
     protected override async Task OnEnemyRegistered(Creature enemy)
     {
-        await CreatureCmd.LoseMaxHp(new ThrowingPlayerChoiceContext(), enemy, enemy.MaxHp * 35 / 100, isFromCard: false);
+        await CreatureCmd.LoseMaxHp(new ThrowingPlayerChoiceContext(), enemy, enemy.MaxHp * 35 / 100, cardSource: null);
     }
 
     public override async Task AfterCombatEnd(CombatRoom room)

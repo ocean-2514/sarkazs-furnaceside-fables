@@ -29,6 +29,6 @@ public sealed class TheWhispererInDarknight : EnemyDebuffRelic
 
     protected override async Task ApplyToEnemy(Creature enemy)
     {
-        await CreatureCmd.LoseMaxHp(new ThrowingPlayerChoiceContext(), enemy, enemy.MaxHp * 10 / 100, isFromCard: false);
+        await CreatureCmd.LoseMaxHp(new ThrowingPlayerChoiceContext(), enemy, enemy.MaxHp * 10 / 100, cardSource: null);
     }
 }

@@ -96,6 +96,6 @@ public static class SarkazRelicFx
         float ratio = (float)creature.CurrentHp / (float)creature.MaxHp;
         int newHp = Math.Max((int)((creature.MaxHp - amount) * ratio), 1);
         await CreatureCmd.Damage(new ThrowingPlayerChoiceContext(), creature, (decimal)creature.CurrentHp - newHp, (ValueProp.Unblockable | ValueProp.Unpowered), null, null);
-        await CreatureCmd.LoseMaxHp(new ThrowingPlayerChoiceContext(), creature, amount, false);
+        await CreatureCmd.LoseMaxHp(new ThrowingPlayerChoiceContext(), creature, amount, null);
     }
 }

@@ -94,7 +94,7 @@ public class SarkazCombatManager
                 if (_player.Relics.Any(r => r is Model.Relics.WordCarvingKnife))
                 {
                     await CreatureCmd.LoseMaxHp(new ThrowingPlayerChoiceContext(), creature,
-                        creature.MaxHp * 30 / 100, isFromCard: false);
+                        creature.MaxHp * 30 / 100, cardSource: null);
                 }
 
             }

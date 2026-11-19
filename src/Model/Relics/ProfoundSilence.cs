@@ -29,6 +29,6 @@ public sealed class ProfoundSilence : EnemyDebuffRelic
 
     protected override async Task ApplyToEnemy(Creature enemy)
     {
-        await CreatureCmd.LoseMaxHp(new ThrowingPlayerChoiceContext(), enemy, enemy.MaxHp * 20 / 100, isFromCard: false);
+        await CreatureCmd.LoseMaxHp(new ThrowingPlayerChoiceContext(), enemy, enemy.MaxHp * 20 / 100, cardSource: null);
     }
 }

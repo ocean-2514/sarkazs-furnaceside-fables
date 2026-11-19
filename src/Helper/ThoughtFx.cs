@@ -42,7 +42,7 @@ public static class ThoughtFx
         foreach (KeyValuePair<Creature, int> kv in granted)
         {
             if (kv.Key.CurrentHp <= 0) continue; // 已阵亡的不处理
-            await CreatureCmd.LoseMaxHp(new ThrowingPlayerChoiceContext(), kv.Key, kv.Value, isFromCard: false);
+            await CreatureCmd.LoseMaxHp(new ThrowingPlayerChoiceContext(), kv.Key, kv.Value, cardSource: null);
         }
     }
 }

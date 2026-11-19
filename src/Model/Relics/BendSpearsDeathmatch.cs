@@ -33,7 +33,7 @@ public sealed class BendSpearsDeathmatch : RelicModel
     public override async Task AfterObtained()
     {
         decimal loss = Owner.Creature.MaxHp * 40 / 100;
-        if (loss > 0) await CreatureCmd.LoseMaxHp(new ThrowingPlayerChoiceContext(), Owner.Creature, loss, isFromCard: false);
+        if (loss > 0) await CreatureCmd.LoseMaxHp(new ThrowingPlayerChoiceContext(), Owner.Creature, loss, cardSource: null);
     }
 
     public override async Task BeforeCombatStart()

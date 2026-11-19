@@ -26,7 +26,7 @@ public sealed class Demolition : ThoughtModel
         {
             if (creature.Monster is SpinesOfEpoch)
             {
-                await CreatureCmd.LoseMaxHp(new ThrowingPlayerChoiceContext(), creature, creature.MaxHp / 2, false);
+                await CreatureCmd.LoseMaxHp(new ThrowingPlayerChoiceContext(), creature, creature.MaxHp / 2, null);
             }
         }
     }

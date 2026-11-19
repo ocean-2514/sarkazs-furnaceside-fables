@@ -26,7 +26,7 @@ public sealed class BleedPower : PowerModel
 		if (participants.Contains(base.Owner))
 		{
 			Flash();
-            await CreatureCmd.LoseMaxHp(choiceContext, Owner, Amount, false);
+            await CreatureCmd.LoseMaxHp(choiceContext, Owner, Amount, null);
 			await CreatureCmd.Damage(choiceContext, base.Owner, base.Amount, ValueProp.Unpowered | ValueProp.Unblockable, null, null);
             _timer--;
             if (_timer == 0)

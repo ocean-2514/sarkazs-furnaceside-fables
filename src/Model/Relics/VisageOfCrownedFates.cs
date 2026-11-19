@@ -42,7 +42,7 @@ public sealed class VisageOfCrownedFates : RelicModel
         Owner.GainShield(12 + (int)(converted * 4));
         if (converted > 0)
         {
-            await CreatureCmd.LoseMaxHp(new ThrowingPlayerChoiceContext(), Owner.Creature, converted, isFromCard: false);
+            await CreatureCmd.LoseMaxHp(new ThrowingPlayerChoiceContext(), Owner.Creature, converted, cardSource: null);
         }
     }
 }
