@@ -8,7 +8,7 @@ namespace Skz.Ocean.Model.Powers;
 public sealed class MelancholicWindPower : MelancholicPower
 {
     protected override int AttackPowerBuff => 150;
-    protected override int AttackSpeedDebuff => 25;
+    protected override int AttackSpeedDebuff => 50;
 
     public override async Task AfterRemoved(Creature oldOwner)
     {

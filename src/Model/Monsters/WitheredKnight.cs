@@ -40,7 +40,7 @@ public sealed class WitheredKnight : SarkazMonsterModel
         if (_enraged) return;
         _enraged = true;
         await PowerCmd.Apply<AttackPower>(new ThrowingPlayerChoiceContext(), Creature, 80, Creature, null);
-        await PowerCmd.Apply<AttackSpeed>(new ThrowingPlayerChoiceContext(), Creature, 100, Creature, null);
+        await PowerCmd.Apply<AttackSpeed>(new ThrowingPlayerChoiceContext(), Creature, 200, Creature, null);
         BaseSpeedBonus = InitialSpeed * 1.5m;
     }
 

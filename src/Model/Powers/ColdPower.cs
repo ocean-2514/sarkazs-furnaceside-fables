@@ -17,7 +17,7 @@ public sealed class ColdPower : PowerModel, ISarkazModel
 
     public override PowerInstanceType InstanceType => PowerInstanceType.Instanced;
 
-    private const decimal _decreasedAttackSpeed = 20;
+    private const decimal _decreasedAttackSpeed = 40;
 
     public override async Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)
     {

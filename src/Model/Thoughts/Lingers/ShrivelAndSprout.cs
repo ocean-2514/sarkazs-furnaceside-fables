@@ -2,6 +2,7 @@ using System.Threading.Tasks;
 using Skz.Ocean.Commands;
 using Skz.Ocean.Entities.Players;
 using Skz.Ocean.Entities.Thoughts;
+using Skz.Ocean.Model.Acts;
 
 namespace Skz.Ocean.Model.Thoughts.Lingers;
 
@@ -16,6 +17,8 @@ public sealed class ShrivelAndSprout : ThoughtModel
     public override async Task AfterActEntered()
     {
         if (Owner.GetSarkazManager().PreviousActWasFragment) return;
+        if (Owner.RunState is not MegaCrit.Sts2.Core.Runs.RunState state) return;
+        if (state.Act is BizarreFragment) return;
         await ThoughtCmd.Obtain<ShrivelAndSprout>(Owner);
     }
 }

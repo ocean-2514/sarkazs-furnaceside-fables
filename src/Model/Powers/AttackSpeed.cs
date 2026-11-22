@@ -18,6 +18,6 @@ public sealed class AttackSpeed : PowerModel, ISarkazModel
         if (Owner != dealer) return 1m;
         if (!props.IsPoweredAttack()) return 1m;
 
-        return (Math.Clamp(Amount, -70m, 300m) + 100m) / 100m;
+        return (Math.Clamp(Amount, -140m, 400m) / 2m + 100m) / 100m;
     }
 }

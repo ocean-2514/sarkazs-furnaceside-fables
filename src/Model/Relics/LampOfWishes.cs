@@ -47,7 +47,7 @@ public sealed class LampOfWishes : RelicModel, ISarkazModel
     {
         if (pointType == MapPointType.Treasure || initialType == MapPointType.Treasure) return pointType;
         Rng rng = (runState as RunState)?.Rng.Niche;
-        if (rng != null && rng.NextFloat() < 0.8f) return MapPointType.Treasure;
+        if (rng != null && rng.NextFloat() < 0.65f) return MapPointType.Treasure;
         return pointType;
     }
 

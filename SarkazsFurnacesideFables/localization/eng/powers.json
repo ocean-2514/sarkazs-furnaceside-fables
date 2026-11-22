@@ -1,7 +1,7 @@
 {
     "ATTACK_SPEED.title":  "Attack Speed",
     "ATTACK_SPEED.description":  "Increases damage dealt by attacks",
-    "ATTACK_SPEED.smartDescription":  "Each 1 point of Attack Speed increases damage dealt by 1%, up to 300%.",
+    "ATTACK_SPEED.smartDescription":  "Each 2 point of Attack Speed increases damage dealt by 1%, up to 200%.",
     "DODGE_POWER.title":  "Dodge",
     "DODGE_POWER.description":  "Chance to reduce damage to 0 when attacked",
     "DODGE_POWER.smartDescription":  "[gold]{Amount}%[/gold] chance to reduce damage to 0 when attacked",

@@ -19,7 +19,7 @@ public sealed class Frost : SarkazMonsterModel
     public override int MaxInitialHp => 30;
     public override int MinInitialHp => 30;
 
-    private const int _speedDebuff = 30;
+    private const int _speedDebuff = 60;
 
     public override bool Blockable => false;
 

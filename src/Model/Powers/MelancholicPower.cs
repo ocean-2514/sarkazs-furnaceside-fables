@@ -17,7 +17,7 @@ public abstract class MelancholicPower : PowerModel, ISarkazModel
     public override PowerStackType StackType => PowerStackType.Counter;
 
     protected virtual int AttackPowerBuff => 20;
-    protected virtual int AttackSpeedDebuff => 50;
+    protected virtual int AttackSpeedDebuff => 100;
     protected virtual int SwitchDamage => 10;
     protected virtual int StackNum => 5;
 

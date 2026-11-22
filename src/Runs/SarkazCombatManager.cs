@@ -36,7 +36,7 @@ public class SarkazCombatManager
     public int BlockDeviceNum => SarkazAscensionHelper.GetValueIfAscension(SarkazAscensionLevel.LackOfSupport, 0, 1);
 
     private int _act2Buff = 10;
-    private int _act3Buff = 40;
+    private int _act3Buff = 50;
 
     private HashSet<Creature> _ascensionBuffedEnemies = new HashSet<Creature>();
 

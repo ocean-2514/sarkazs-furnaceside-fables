@@ -18,7 +18,7 @@ public sealed class AssassinPower : PowerModel, ISarkazModel
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Single;
 
-    private int _powerStack = 2;
+    private int _powerStack = 3;
 
     private bool _triggered = false;
     private bool _moved = false;

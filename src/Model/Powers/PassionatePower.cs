@@ -17,7 +17,7 @@ public abstract class PassionatePower : PowerModel, ISarkazModel
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Counter;
 
-    protected virtual int AttackSpeedBuff => 50;
+    protected virtual int AttackSpeedBuff => 100;
     protected virtual int SwitchDamage => 10;
     protected virtual int StackNum => 5;
 

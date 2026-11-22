@@ -33,7 +33,7 @@ public sealed class SteamTank : SarkazMonsterModel
         {
             _triggered = true;
             BaseSpeedBonus = InitialSpeed; // 移速+100%
-            await PowerCmd.Apply<AttackSpeed>(new ThrowingPlayerChoiceContext(), Creature, 100, Creature, null);
+            await PowerCmd.Apply<AttackSpeed>(new ThrowingPlayerChoiceContext(), Creature, 200, Creature, null);
         }
     }
 

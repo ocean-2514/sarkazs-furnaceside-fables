@@ -7,7 +7,7 @@ namespace Skz.Ocean.Model.Powers;
 
 public sealed class PassionateCelloPower : PassionatePower
 {
-    protected override int AttackSpeedBuff => 25;
+    protected override int AttackSpeedBuff => 50;
 
     public override async Task AfterRemoved(Creature oldOwner)
     {

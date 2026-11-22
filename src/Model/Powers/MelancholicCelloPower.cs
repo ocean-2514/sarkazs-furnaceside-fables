@@ -10,7 +10,7 @@ namespace Skz.Ocean.Model.Powers;
 public sealed class MelancholicCelloPower : MelancholicPower
 {
     protected override int AttackPowerBuff => 150;
-    protected override int AttackSpeedDebuff => 25;
+    protected override int AttackSpeedDebuff => 50;
 
     private int _thornStack = 5;
 
